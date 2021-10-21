@@ -343,6 +343,54 @@
 
     <script src="{{ asset('admin/js/app.js') }}"></script>
     @toastr_js @toastr_render
+
+
+    @if (session()->get('erro'))
+    <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
+            <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
+
+                <div class="modal-body px-5 py-0">
+                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 22;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="mt-5">
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <img src="{{ asset('site/img/icone_erro.png') }}" style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h1>Ops !</h1>
+                            </div>
+                        </div>
+                        <div class="row mt-5 mb-4">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h2>{{ session()->get('erro') }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+
+
+    @if (session()->get('erro'))
+    <script>
+        $(document).ready(function() {
+                $("#modalErro").modal("show");
+                $("#close-modal").click(function() {
+                    $("#modalErro").modal("hide");
+                })
+            });
+    </script>
+    @endif
+
+
     <script>
         $('.forgot-password').hide();
         $('.send-email').hide();

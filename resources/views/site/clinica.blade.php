@@ -346,12 +346,7 @@
   @include("site.includes.footer")
 
   <script>
-    if (
-            $("#clinica .s_cursos .container-fav ._cursosList ._curso").data(
-                "date"
-            ).length
-        ) {
-            $("._filter nav ._filterItem").click(function () {
+    $("._filter nav ._filterItem").click(function () {
                 var filter = $(this).data("date");
 
                 $("._filter nav ._filterItem").removeClass("active");
@@ -365,5 +360,4 @@
                 ).show();
                 console.log(filter);
             });
-        }
   </script>
