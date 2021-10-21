@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Venda;
 use App\Models\PagamentoCartao;
 use App\Models\Carrinho;
+use App\Models\Matricula;
 use Jlorente\CreditCards\CreditCardTypeConfig;
 use Jlorente\CreditCards\CreditCardValidator;
 use App\Classes\Cielo\CieloRequisicaoCredito;
@@ -41,7 +42,7 @@ class CieloController extends Controller
                 $venda->codigo = $codigo;
                 $venda->total = $carrinho->total;
                 $venda->forma = 1;
-                $venda->status = 0;
+                $venda->status = 1;
                 $venda->gateway = 1;
                 $venda->parcelas = $request->parcelas;
                 $venda->valor_parcela = $venda->total / $venda->parcelas;
@@ -54,17 +55,27 @@ class CieloController extends Controller
                 $pagamento->numero = $res["numero"];
                 $pagamento->save();
 
+                foreach($venda->carrinho->produtos as $produto){
+                    $matricula = new Matricula;
+                    $matricula->aluno_id = $venda->aluno_id;
+                    $matricula->curso_id = $produto->curso_id;
+                    $matricula->save();
+                }
+                
+                $carrinho->aberto = false;
+                $carrinho->save();
+
                 session()->forget("carrinho");
                 session()->put(["venda_finalizada" => $venda->id]);
 
                 return redirect()->route("site.carrinho-confirmacao");
             }else{
                 session()->flash("erro", config("cielo.erros")[$res["retorno"]]);
-                return redirect()->route("site.carrinho-pagamento");
+                return redirect()->route("site.carrinho.pagamento.cartao");
             }
         }else{
             session()->flash("erro", "Erro nos dados do cartão. Verifique se as informações estão corretas e tente novamente.");
-            return redirect()->route("site.carrinho-pagamento");
+            return redirect()->route("site.carrinho.pagamento.cartao");
         }
 
         

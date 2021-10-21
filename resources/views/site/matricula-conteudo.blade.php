@@ -131,7 +131,7 @@
 
         <main>
             <div class="list">
-                @foreach ($matricula->curso->conteudos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
+                @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
                     <div class="date">
                         {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
                         {{-- 20:00 --}}

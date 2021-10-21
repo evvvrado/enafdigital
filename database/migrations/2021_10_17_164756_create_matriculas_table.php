@@ -16,7 +16,7 @@ class CreateMatriculasTable extends Migration
         Schema::create('matriculas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("aluno_id");
-            $table->unsignedBigInteger("turma_id");
+            $table->unsignedBigInteger("curso_id");
             $table->timestamps();
         });
     }

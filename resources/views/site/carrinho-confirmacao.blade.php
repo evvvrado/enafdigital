@@ -1,84 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset='utf-8'>
-    @if (isset($pagina))
-        <title>{{ $pagina->titulo }}</title>
-        <meta name='keywords' content='{{ $pagina->palavras }}'>
-        <meta name='description' content='{{ $pagina->descricao }}'>
-        <meta property='og:title' content='{{ $pagina->titulo }}'>
-        <meta property='og:site_name' content='{{ $pagina->titulo }}'>
-        <meta name='twitter:title' content='{{ $pagina->titulo }}'>
-        <meta property='og:description' content='{{ $pagina->descricao }}'>
-        <meta name='twitter:description' content='{{ $pagina->descricao }}'>
-
-    @else
-        <title>Associação Brasileira de Sommeliers - Brasil</title>
-        <meta name='keywords' content=''>
-        <meta name='description' content=''>
-        <meta property='og:title' content='Associação Brasileira de Sommeliers - Brasil'>
-        <meta property='og:site_name' content='Associação Brasileira de Sommeliers - Brasil'>
-        <meta name='twitter:title' content='Associação Brasileira de Sommeliers - Brasil'>
-        <meta property='og:description' content=''>
-        <meta name='twitter:description' content=''>
-    @endif
-    <link rel='canonical' href='https://homolog.abs-brasil.com'>
-
-    <meta property='og:url' content='https://homolog.abs-brasil.com'>
-    <meta http-equiv=Pragma content=no-cache>
-    <meta http-equiv=Expires content=-1>
-    <meta http-equiv=CACHE-CONTROL content=NO-CACHE>
-    <meta name='theme-color' content='#8A143A'>
-    <meta name='msapplication-navbutton-color' content='#8A143A'>
-    <meta name='apple-mobile-web-app-status-bar-style' content='#8A143A'>
-    <meta property='og:type' content='website'>
-    <meta name='twitter:image' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
-    <meta property='og:image' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
-    <meta property='og:image:secure_url' content='https://homolog.abs-brasil.com/img/og_home.jpg'>
-    <meta name='twitter:image:alt' content='Associação Brasileira de Sommeliers - Brasil'>
-    <meta property='og:image:alt' content='Associação Brasileira de Sommeliers - Brasil'>
-    <meta property='og:image:width' content='1200'>
-    <meta property='og:image:height' content='630'>
-    <meta property='og:image:type' content='image/jpeg'>
-    <meta name='robots' content='index,follow' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='mobile-web-app-capable' content='yes'>
-    <meta name='apple-mobile-web-app-capable' content='yes'>
-    <meta name='twitter:card' content='summary'>
-    <link rel='icon' type='image/vnd.microsoft.icon'
-        sizes='16x16 32x32 48x48 64x64 96x96 128x128 144x144 180x180 192x192 256x256'
-        href='{{ asset('favicon.ico') }}' />
-    <link rel='apple-touch-icon' sizes='180x180' href='{{ asset('site/img/logo180.png') }}'>
-    {{-- <link rel='manifest' href='/_ifl1/manifest.php' type='application/x-web-app-manifest+json'> --}}
-    <link rel='preload' type='text/css' as='style'
-        href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
-        crossorigin='anonymous' />
-    <link rel='preload' type='text/css' as='style' href='{{ asset('site/css/reset.css') }}' />
-    <link rel='preload' type='text/css' as='style' href='{{ asset('site/css/sistema.css') }}' />
-
-    <link rel='preload' type='application/javascript' as='script' href='https://code.jquery.com/jquery-3.5.1.min.js'
-        integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous' />
-    <link rel='preload' type='application/javascript' as='script' href='{{ asset('site/js/script.js') }}'>
-
-    <link rel='preload' type='text/css' as='style' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
-        crossorigin='anonymous' />
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' crossorigin='anonymous'>
-
-    <link rel='stylesheet'
-        href='https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Lato&family=Roboto:wght@500&family=Spartan:wght@400;700&display=swap'
-        crossorigin='anonymous'>
-    <link rel='stylesheet' href='{{ asset('site/css/reset.css') }}'>
-    <link rel='stylesheet' href='{{ asset('site/css/sistema.css') }}'>
-    <script src='https://code.jquery.com/jquery-3.5.1.min.js'
-        integrity='sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=' crossorigin='anonymous'></script>
-</head>
+@include('site.includes.carrinho.head')
+<title>Compra Realizada</title>
 
 <body class="_carrinho">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
 
 
 
@@ -88,8 +13,7 @@
         <div class="container-fav">
             <div class="_first">
                 <div class="_logos">
-                    <img src="{{ asset('site/img/_logo92.png') }}" alt="" />
-                    <img src="{{ asset('site/img/_logoASI_92.png') }}" alt="" />
+                    <a href="{{ route('site.index') }}"><img src="{{ asset('site/img/_logo47_Color.png') }}" alt="" /></a>
                     <div class="_carButton">
                         <img src="{{ asset('site/img/sistema/car.svg') }}" alt="" />
                     </div>
@@ -102,7 +26,7 @@
                     <p>Dúvida na compra ligue - 35 992611988</p>
                 </div>
             </div>
-            {{--  <section class="_meuCarrinho">
+            <section class="_meuCarrinho">
                 <div class="_top">
                     <div class="_title">
                         <div class="_icon">
@@ -112,7 +36,7 @@
                         <span>Meu Carrinho</span>
                     </div>
                     <div class="_numberofItems">
-                        <span>2</span>
+                        <span>{{$carrinho->produtos->count()}}</span>
                     </div>
                 </div>
                 <div class="_value">
@@ -120,109 +44,36 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                     </div>
-                    <strong>R$ <span class="_total">160,00</span></strong>
+                    <strong>R$ <span class="_total">{{number_format($carrinho->total, 2, ",", ".")}}</span></strong>
                 </div>
                 <div class="_innerCar">
+                    @foreach($carrinho->produtos as $produto)
                     <div class="_innerItem">
                         <div class="_img">
                             <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
                         </div>
                         <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
+                            {{-- <h3 class="isOnline">Curso Online</h3> --}}
+                            <h2 class="itemName">{{$produto->curso->titulo}}</h2>
+                            {{-- <p class="itemExtra">Certificado de 10hs</p> --}}
                             <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
+                                <strong>R$ <span class="_itemValue">{{number_format($produto->total, 2, ",", ".")}}</span></strong>
                                 <div class="_controls">
                                     <div class="itemControl cancel">
                                         <div class="_img">
                                             <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
                                         </div>
                                     </div>
-                                    <div class="itemControl more">
+                                    {{-- <div class="itemControl more">
                                         <div class="_img">
                                             <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_innerItem">
-                        <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
-                        <div class="_content">
-                            <h3 class="isOnline">Curso Online</h3>
-                            <h2 class="itemName">Meeting de Musculação</h2>
-                            <p class="itemExtra">Certificado de 10hs</p>
-                            <div class="itemValue">
-                                <strong>R$ <span class="_itemValue">100,00</span></strong>
-                                <div class="_controls">
-                                    <div class="itemControl cancel">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="itemControl more">
-                                        <div class="_img">
-                                            <img src="{{ asset('site/img/sistema/more.svg') }}" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="_bottom">
                     <div class="_subTotal _bottomSub">
@@ -232,15 +83,15 @@
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                         </div>
-                        <span>R$ <span class="_subtotalValue">160,00</span></span>
+                        <span>R$ <span class="_subtotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span></span>
                     </div>
-                    <div class="_subDesconto _bottomSub">
+                    {{-- <div class="_subDesconto _bottomSub">
                         <span>Desconto</span>
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                         </div>
                         <span><span class="_subdescontoValue">-</span></span>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="_finalTotal _bottomSub">
@@ -248,9 +99,9 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
                     </div>
-                    <strong>R$ <span class="_finaltotalValue">160,00</span> </strong>
+                    <strong>R$ <span class="_finaltotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span> </strong>
                 </div>
-            </section>  --}}
+            </section>
         </div>
     </header>
     <!-- HEADER -->
@@ -321,14 +172,14 @@
                         <div class="_pagInfo">
                             <div class="_cCard">
                                 @if ($venda->forma == 0)
-                                    <p>Boleto Bancário<br />{{$venda->boleto->codigo_barra}}</p>
+                                <p>Boleto Bancário<br />{{$venda->boleto->codigo_barra}}</p>
                                 @elseif($venda->forma == 1)
-                                    <p>Cartão de Crédito<br /> {{$venda->cartao->numero}}</p>
+                                <p>Cartão de Crédito<br /> {{$venda->cartao->numero}}</p>
                                 @else
-                                    <p>Carnê<br />Consultar boletos no painel.</p>
+                                <p>Carnê<br />Consultar boletos no painel.</p>
                                 @endif
                             </div>
-							<div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
+                            <div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
                         </div>
                     </div>
                 </div>
@@ -407,55 +258,23 @@
         </section>
     </footer>
 
+    @include('site.includes.aluno.footer')
 
-    <section class="container-fluid _copyRight">
-        <div class="container-fav">
-            <p>Copyright © ABS Brasil - Todos os direitos reservados. Todo o conteúdo do site, incluindo fotos, imagens,
-                logotipos, marcas, dizeres, som, software, conjunto imagem, layout e trade dress, são de propriedade
-                exclusiva da ABS. É vedada a reprodução total ou parcial de qualquer elemento de identidade sem a
-                expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e
-                criminal nos termos da Lei. CNPJ: 17.190.409/0001-10
-            </p>
-
-            <p>
-                <strong>
-                    Desenvolvido por
-                    <a href="https://7seventrends.com"" class=" _img">
-                        <img src="{{ asset('site/img/_logo7seven.png') }}" style="filter: brightness(0);""  alt="">
-              </a> </div></p> 
-              </strong>
-          </p>          
-        </div>
-      </section>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
     <script>
-        $("form label input,form label textarea").focus(function() {
-            $(this).parent().find("span").addClass("active");
-        });
-
-        $("form label input,form label textarea").focusout(function() {
-            if ($(this).val() == "") {
-                $(this).parent().find("span").removeClass("active");
-            }
-        });
-
-
-        $("._carButton").click(() => {
-            $("._meuCarrinho").animate({
-                    top: "0",
-                },
-                400
-            );
-        });
-        $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
-            $("._meuCarrinho").animate({
-                    top: "-200vh",
-                },
-                400
-            );
-        });
+        $(" form label input,form label textarea").focus(function() { $(this).parent().find("span").addClass("active"); }); $("form label input,form label textarea").focusout(function() { if
+                              ($(this).val()=="" ) { $(this).parent().find("span").removeClass("active"); } }); $("._carButton").click(()=> {
+                          $("._meuCarrinho").animate({
+                          top: "0",
+                          },
+                          400
+                          );
+                          });
+                          $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
+                          $("._meuCarrinho").animate({
+                          top: "-200vh",
+                          },
+                          400
+                          );
+                          });
     </script>
-  </body>
-</html>

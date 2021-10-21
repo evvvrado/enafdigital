@@ -144,7 +144,7 @@
                             <img src="{{ asset($matricula->curso->miniatura) }}" alt="">
                         </div>
                         <div class="_content">
-                            <h3>{{ $matricula->curso->titulo }}</h3>
+                            <h3>{{ $matricula->curso->nome }}</h3>
                             {{-- <p>N. 558893390122</p> --}}
                             <div class="_date">
                                 <div class="_svg">
@@ -152,7 +152,7 @@
                                 </div>
                                 <p>{{ date('d.m.Y', strtotime($matricula->created_at)) }}</p>
                             </div>
-                            <p>Curso Online</p>
+                            <p>{{config('cursos.tipo_nome')[$matricula->curso->tipo]}}</p>
                             <button class="btn-primary" onclick="window.location.href = '{{ route('site.minha-area-matricula.conteudo', ['matricula' => $matricula]) }}'">
                                 Acessar Curso
                                 <div class="_svg">

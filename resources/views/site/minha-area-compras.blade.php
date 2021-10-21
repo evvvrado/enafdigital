@@ -166,7 +166,7 @@
                                 <img src="{{ asset('site/img/sistema/dollar.svg') }} " alt="">
                             </div>
                             <div class="_text">
-                                <span>Aguardando Pag.</span>
+                                <span>{{config("pagamento.status")[$pedido->status]}}</span>
                                 @if ($pedido->forma == 0)
                                 <p>{{ date('d.m.Y', strtotime($pedido->boleto->expira)) }}</p>
                                 @endif

@@ -47,7 +47,9 @@
                         overflow: hidden;
                         img {
                             border-radius: 8px 8px 0 0;
+
                             height: 100%;
+                            width: 100%;
                             object-fit: cover;
                         }
                     }
@@ -113,13 +115,16 @@
                     ._blog {
                         white-space: normal;
                         min-height: 53rem;
-                        max-width: 37.6rem;
+                        width: 37.6rem;
+                        max-width: unset;
                         border-radius: 8px 8px 8px 8px;
 
                         ._pic {
                             height: 23.6rem;
                             img {
                                 height: 100%;
+                                width: 100%;
+                                object-fit: cover;
                             }
                         }
 

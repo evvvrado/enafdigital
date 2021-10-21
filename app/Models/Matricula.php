@@ -9,7 +9,7 @@ class Matricula extends Model
 {
     use HasFactory;
 
-    public function turma(){
-        return $this->belongsTo(Turma::class);
+    public function curso(){
+        return $this->belongsTo(Curso::class);
     }
 }

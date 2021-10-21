@@ -10,7 +10,7 @@ use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\PagamentoBoleto;
 use App\Models\PagamentoCarne;
-use App\Models\ParcelaCarne;
+use App\Models\PagamentoCarneParcela;
 
 class GerencianetController extends Controller
 {
@@ -105,7 +105,7 @@ class GerencianetController extends Controller
                 $carne->link = $res["data"]["pdf"]["carnet"];
                 $carne->save();
                 foreach($res["data"]["charges"] as $charge){
-                    $parcela = new ParcelaCarne;
+                    $parcela = new PagamentoCarneParcela;
                     $parcela->pagamento_carne_id = $carne->id;
                     $parcela->charge_id = $charge["charge_id"];
                     $parcela->parcela = $charge["parcel"];

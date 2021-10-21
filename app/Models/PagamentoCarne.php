@@ -12,4 +12,8 @@ class PagamentoCarne extends Model
     public function venda(){
         return $this->belongsTo(Venda::class);
     }
+
+    public function parcelas(){
+        return $this->hasMany(PagamentoCarneParcela::class);
+    }
 }

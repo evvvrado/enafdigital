@@ -17,7 +17,7 @@ class CreatePagamentoCartaosTable extends Migration
             $table->id();
             $table->unsignedBigInteger("venda_id")->nullable();
             $table->string("codigo", 50)->nullable();
-            $table->string("numero", 17)->nullable();
+            $table->string("numero", 20)->nullable();
             $table->tinyInteger("status")->default(0);
             $table->timestamps();
         });

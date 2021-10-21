@@ -51,7 +51,7 @@
 
                 <div class="_lastpost-list">
                     @foreach(\App\Models\Noticia::where([["publicacao", "<=", date("Y-m-d")], ["tipo", $noticia->tipo]])->orderby("publicacao")->limit(3)->get() as $noticia)
-                        <div class="_post">
+                        <div class="_post" onclick="window.location.href='{{route('site.noticia', ['categoria' => $noticia->categoria->slug, 'noticia' => $noticia->slug])}}'">
                             <div class="_pic">
                                 <img src="{{ asset($noticia->preview) }}" alt="" />
                             </div>

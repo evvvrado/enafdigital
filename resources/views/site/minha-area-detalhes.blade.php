@@ -129,9 +129,9 @@
 <section class="container-fluid _detalhesdoPedido">
     <div class="container-fav">
         <div class="_top">
-            <h2>Pedido - Cursos Legais 666</h2>
+            <h2>Pedido - {{$venda->codigo}}</h2>
 
-            <h3>Data da Compra - 13.08.2020</h3>
+            <h3>Data da Compra - {{date("d.m.Y", strtotime($venda->created_at))}}</h3>
         </div>
 
 
@@ -168,13 +168,13 @@
                     </div>
                 </div>
                 <div class="_pagInfo">
-                    <div class="_cCard">
+                    <div class="_cCard" style="padding-right: 10px;">
                         @if ($venda->forma == 0)
                         <p>Boleto Bancário<br />{{$venda->boleto->codigo_barra}}</p>
                         @elseif($venda->forma == 1)
                         <p>Cartão de Crédito<br /> {{$venda->cartao->numero}}</p>
                         @else
-                        <p>Carnê<br />Consultar boletos no painel.</p>
+                        <p>Carnê<br /></p>
                         @endif
                     </div>
                     <div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
@@ -185,6 +185,38 @@
     </div>
 </section>
 
+<section class="container-fluid _meusPedidos _detalhes _produtosDetalhes">
+    <div class="container-fav">
+        <div class="_top">
+            <h2>Produtos:</h2>
+
+        </div>
+
+        <div class="_pedidosList">
+            @foreach($venda->carrinho->produtos as $produto)
+            <div class="_pedido" onclick="window.open('{{route('site.curso', ['slug' => $produto->curso->slug])}}')">
+                <h3>{{$produto->curso->nome}}</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="{{ asset('site/img/sistema/calendar.svg')}}" alt="">
+                        </div>
+                        <p>R${{number_format($produto->total, 2, ",", ".")}}</p>
+                    </div>
+                    {{-- <div class="barcode">
+                        <p>Código de Barras</p>
+                        <p>{{$venda->boleto->codigo_barra}}</p>
+                    </div> --}}
+                </div>
+                {{-- <button class="btn-primary" onclick="window.open('{{$venda->boleto->link}}', '_blank')">
+                    Ver Boleto
+                </button> --}}
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+</section>
 
 <section class="container-fluid _meusPedidos _detalhes">
     <div class="container-fav">
@@ -194,32 +226,65 @@
         </div>
 
         <div class="_pedidosList">
+            @if($venda->forma == 0)
             <div class="_pedido">
-                <h3>PARCELA: Número 01</h3>
+                <h3>PARCELA ÚNICA</h3>
                 <div class="_info">
                     <div class="data">
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/calendar.svg')}}" alt="">
                         </div>
-                        <p>12.05.2020</p>
+                        <p>{{date('d/m/Y', strtotime($venda->boleto->expira))}}</p>
                     </div>
                     <div class="numero">
                         <div class="_svg">
                             <img src="{{ asset('site/img/sistema/plane.svg')}}" alt="">
                         </div>
-                        <p>03 Produtos</p>
+                        <p>{{config("gerencianet.status")[$venda->boleto->status]}}</p>
                     </div>
-                    <div class="barcode">
+                    {{-- <div class="barcode">
                         <p>Código de Barras</p>
-                        <picture>
-                            <img src="{{ asset('site/img/sistema/barcode.png')}}" alt="">
-                        </picture>
-                    </div>
+                        <p>{{$venda->boleto->codigo_barra}}</p>
+                    </div> --}}
                 </div>
-                <button class="btn-primary">
+                <button class="btn-primary" onclick="window.open('{{$venda->boleto->link}}', '_blank')">
                     Ver Boleto
                 </button>
             </div>
+            @else
+            @foreach($venda->carne->parcelas as $parcela)
+            <div class="_pedido">
+                <h3>PARCELA {{$parcela->parcela}}</h3>
+                <div class="_info">
+                    <div class="data">
+                        <div class="_svg">
+                            <img src="{{ asset('site/img/sistema/calendar.svg')}}" alt="">
+                        </div>
+                        <p>{{date('d/m/Y', strtotime($parcela->data_expiracao))}}</p>
+                    </div>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="{{ asset('site/img/sistema/plane.svg')}}" alt="">
+                        </div>
+                        <p>{{config("gerencianet.status")[$parcela->status]}}</p>
+                    </div>
+                    <div class="numero">
+                        <div class="_svg">
+                            <img src="{{ asset('site/img/sistema/plane.svg')}}" alt="">
+                        </div>
+                        <p>R${{number_format($parcela->valor, 2, ",", ".")}}</p>
+                    </div>
+                    {{-- <div class="barcode">
+                        <p>Código de Barras</p>
+                        <p>{{$venda->boleto->codigo_barra}}</p>
+                    </div> --}}
+                </div>
+                <button class="btn-primary" onclick="window.open('{{$parcela->link}}', '_blank')">
+                    Ver Boleto
+                </button>
+            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 

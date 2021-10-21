@@ -13,6 +13,7 @@ use App\Models\DestaqueSuspenso;
 use App\Models\Curso;
 use App\Models\Aluno;
 use App\Models\Venda;
+use App\Models\Matricula;
 
 class SiteController extends Controller
 {
