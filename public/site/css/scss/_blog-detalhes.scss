@@ -11,6 +11,7 @@
 
             img {
                 min-width: 100%;
+                object-fit: cover;
             }
         }
         ._menu {
@@ -86,10 +87,12 @@
             border-radius: 1.0743rem;
 
             ._pic {
+                width: 10.1rem;
+                height: 9.7rem;
+                overflow: hidden;
                 img {
-                    width: 10.1rem;
-                    height: 8.9rem;
-
+                    object-fit: cover;
+                    height: 100%;
                     border-radius: 1rem 0 0 1rem;
                 }
             }

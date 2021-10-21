@@ -155,7 +155,7 @@
                                 <p>{{ $pedido->carrinho->produtos->count() }} Produtos</p>
                             </div>
                         </div>
-                        <button class="btn-primary">
+                        <button class="btn-primary" onclick="window.location.href = '{{route('site.minha-area-detalhes', ['venda' => $pedido])}}'">
                             Mais detalhes
                             <div class="_svg">
                                 <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">

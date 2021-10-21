@@ -43,8 +43,12 @@
                 ._blog {
                     border-radius: 8px 8px 8px 8px;
                     ._pic {
+                        height: 17.6rem;
+                        overflow: hidden;
                         img {
                             border-radius: 8px 8px 0 0;
+                            width: 100%;
+                            object-fit: cover;
                         }
                     }
 
@@ -54,7 +58,7 @@
                         @include flex(column, flex-start, center);
 
                         .blogTag {
-                            margin-bottom: 28px;
+                            margin-bottom: 2.9rem;
                             font-weight: 600;
                             font-size: 12px;
                             line-height: 14px;
@@ -71,10 +75,15 @@
                             color: $color-darkest;
                             font-size: 20px;
                             line-height: 140%;
+
+                            height: 7.8rem;
+                            overflow: hidden;
+
+                            max-width: 93%;
                         }
                         .blogDate {
                             color: $color-main;
-                            font-size: 1.8rem;
+                            font-size: 1.4rem;
                         }
                     }
 
@@ -107,6 +116,10 @@
                         max-width: 37.6rem;
                         border-radius: 8px 8px 8px 8px;
 
+                        ._pic {
+                            height: 23.6rem;
+                        }
+
                         ._info {
                             max-width: 28rem;
 
@@ -119,8 +132,14 @@
                                 font-size: 1.4rem;
                                 line-height: 140%;
                                 letter-spacing: 0.04em;
+                                height: 58px;
+                                overflow: hidden;
 
                                 color: $color-alternative;
+                            }
+
+                            .blogDate {
+                                font-size: 1.8rem;
                             }
 
                             @include responsive(800px) {

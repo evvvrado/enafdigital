@@ -126,105 +126,98 @@
 </div>
 
 
+<section class="container-fluid _detalhesdoPedido">
+    <div class="container-fav">
+        <div class="_top">
+            <h2>Pedido - Cursos Legais 666</h2>
+
+            <h3>Data da Compra - 13.08.2020</h3>
+        </div>
+
+
+        <div class="_info">
+            <div class="_id _infoItem">
+                <div class="_name">
+                    <div class="text">
+                        <div class="_svg">
+                            <img src="{{ asset('site/img/sistema/userData.svg') }}" alt="">
+                        </div>
+                        <span>Identificação</span>
+                    </div>
+                    <div class="_arrow">
+                        <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="">
+                    </div>
+                </div>
+                <div class="_userINFO">
+                    <p class="_userNAME">{{ $venda->aluno->nome }}</p>
+                </div>
+                <div class="_userINFO">
+                    <p class="_userEMAIL">{{ $venda->aluno->email }}</p>
+                </div>
+            </div>
+            <div class="_pag _infoItem">
+                <div class="_name">
+                    <div class="text">
+                        <div class="svg">
+                            <img src="{{ asset('site/img/sistema/card.svg') }}" alt="" />
+                        </div>
+                        <span>Pagamento</span>
+                    </div>
+                    <div class="_arrow">
+                        <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
+                    </div>
+                </div>
+                <div class="_pagInfo">
+                    <div class="_cCard">
+                        @if ($venda->forma == 0)
+                        <p>Boleto Bancário<br />{{$venda->boleto->codigo_barra}}</p>
+                        @elseif($venda->forma == 1)
+                        <p>Cartão de Crédito<br /> {{$venda->cartao->numero}}</p>
+                        @else
+                        <p>Carnê<br />Consultar boletos no painel.</p>
+                        @endif
+                    </div>
+                    <div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 <section class="container-fluid _meusPedidos _detalhes">
     <div class="container-fav">
         <div class="_top">
-            <h2>Detalhes do Pedido: 512214124</h2>
+            <h2>Parcelas:</h2>
 
         </div>
 
         <div class="_pedidosList">
             <div class="_pedido">
-                <h3>N. 5588893390122</h3>
+                <h3>PARCELA: Número 01</h3>
                 <div class="_info">
                     <div class="data">
                         <div class="_svg">
-                            <img src="/img/sistema/calendar.svg" alt="">
+                            <img src="{{ asset('site/img/sistema/calendar.svg')}}" alt="">
                         </div>
                         <p>12.05.2020</p>
                     </div>
                     <div class="numero">
                         <div class="_svg">
-                            <img src="/img/sistema/plane.svg" alt="">
+                            <img src="{{ asset('site/img/sistema/plane.svg')}}" alt="">
                         </div>
                         <p>03 Produtos</p>
+                    </div>
+                    <div class="barcode">
+                        <p>Código de Barras</p>
+                        <picture>
+                            <img src="{{ asset('site/img/sistema/barcode.png')}}" alt="">
+                        </picture>
                     </div>
                 </div>
                 <button class="btn-primary">
                     Ver Boleto
-                    <div class="_svg">
-                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
-                    </div>
-                </button>
-            </div>
-            <div class="_pedido">
-                <h3>N. 5588893390122</h3>
-                <div class="_info">
-                    <div class="data">
-                        <div class="_svg">
-                            <img src="/img/sistema/calendar.svg" alt="">
-                        </div>
-                        <p>12.05.2020</p>
-                    </div>
-                    <div class="numero">
-                        <div class="_svg">
-                            <img src="/img/sistema/plane.svg" alt="">
-                        </div>
-                        <p>03 Produtos</p>
-                    </div>
-                </div>
-                <button class="btn-primary">
-                    Ver Boleto
-                    <div class="_svg">
-                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
-                    </div>
-                </button>
-            </div>
-            <div class="_pedido">
-                <h3>N. 5588893390122</h3>
-                <div class="_info">
-                    <div class="data">
-                        <div class="_svg">
-                            <img src="/img/sistema/calendar.svg" alt="">
-                        </div>
-                        <p>12.05.2020</p>
-                    </div>
-                    <div class="numero">
-                        <div class="_svg">
-                            <img src="/img/sistema/plane.svg" alt="">
-                        </div>
-                        <p>03 Produtos</p>
-                    </div>
-                </div>
-                <button class="btn-primary">
-                    Ver Boleto
-                    <div class="_svg">
-                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
-                    </div>
-                </button>
-            </div>
-            <div class="_pedido">
-                <h3>N. 5588893390122</h3>
-                <div class="_info">
-                    <div class="data">
-                        <div class="_svg">
-                            <img src="/img/sistema/calendar.svg" alt="">
-                        </div>
-                        <p>12.05.2020</p>
-                    </div>
-                    <div class="numero">
-                        <div class="_svg">
-                            <img src="/img/sistema/plane.svg" alt="">
-                        </div>
-                        <p>03 Produtos</p>
-                    </div>
-                </div>
-                <button class="btn-primary">
-                    Ver Boleto
-                    <div class="_svg">
-                        <img src="/img/sistema/buttonArrowRight.svg" alt="">
-                    </div>
                 </button>
             </div>
         </div>
@@ -235,20 +228,6 @@
 </section>
 
 
-
-<section class="container-fluid _meusPedidos">
-    <div class="container-fav">
-        <div class="_top">
-            <h2>Meus Pedidos</h2>
-            <div class="_topbutton">
-                <p>Status da Compra</p>
-                <div class="_btn">
-                    <img src="img/sistema/threeDots.svg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 

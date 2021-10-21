@@ -12,6 +12,7 @@ use App\Models\Visitas;
 use App\Models\DestaqueSuspenso;
 use App\Models\Curso;
 use App\Models\Aluno;
+use App\Models\Venda;
 
 class SiteController extends Controller
 {
@@ -130,9 +131,9 @@ class SiteController extends Controller
         return view("site.minha-area", ["aluno" => $aluno]);
     }
 
-    public function minhaAreaComprasDetalhes(){
+    public function minhaAreaComprasDetalhes(Venda $venda){
         $aluno = Aluno::find(session()->get("aluno")["id"]);
-        return view("site.compras-detalhes", ["aluno" => $aluno]);
+        return view("site.compras-detalhes", ["aluno" => $aluno, "venda" => $venda]);
     }
 
     public function minhaAreaCompras(){
@@ -140,9 +141,9 @@ class SiteController extends Controller
         return view("site.minha-area-compras", ["aluno" => $aluno]);
     }
     
-    public function minhaAreaDetalhes(){
+    public function minhaAreaDetalhes(Venda $venda){
         $aluno = Aluno::find(session()->get("aluno")["id"]);
-        return view("site.minha-area-detalhes", ["aluno" => $aluno]);
+        return view("site.minha-area-detalhes", ["aluno" => $aluno, "venda" => $venda]);
     }
     
     public function minhaAreaDados(){

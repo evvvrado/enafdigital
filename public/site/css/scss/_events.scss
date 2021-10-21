@@ -5,7 +5,7 @@
         ._eventList {
             @include flex(row, center, flex-start);
             flex-wrap: wrap;
-            // gap: 2rem;
+            gap: 1rem;
             ._event {
                 border: 1px solid #ececec;
                 width: 100%;

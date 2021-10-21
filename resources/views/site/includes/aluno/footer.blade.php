@@ -22,7 +22,8 @@
     </section>
     <section class="container-fav s_info">
         <div class="_left">
-            <p>Rua Desembargador Gois Cavalcante, 316, Sala 101, Parnamirim, Recife - PE, 52.06-140</p>
+            <p>Av. Raja Gabaglia, 2000 - Sala 805 e PVMT 8 - Bloco 1
+                Alpes - Belo Horizonte - MG / 30.494-170</p>
 
             <div class="_siga">
                 <p>Siga-nos</p>
@@ -69,7 +70,7 @@
         <p>
             <strong>
                 Desenvolvido por
-                <a href="https://7seventrends.com"" class="                _img">
+                <a href="https://7seventrends.com"" class=" _img">
                     <img src="{{ asset('site/img/_logo7seven.png') }}" style="filter: brightness(0);""  alt="">
               </a> </div></p> 
               </strong>
@@ -79,43 +80,43 @@
 
 
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
+      <script src=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
       <script>
-          $("header main button.hamburguer-menu").click(() => {
-              $("div._sidemenu nav").css("height", "497px");
-          });
+          $(" header main button.hamburguer-menu").click(()=> {
+                    $("div._sidemenu nav").css("height", "497px");
+                    });
 
-          $("div._sidemenu nav .hamburguerClose").click(() => {
-              $("div._sidemenu nav").css("height", "0");
-          });
-
-
-
-          $("._menuMax").click(() => {
-              $("._mobileMenu").css("display", "flex");
-              $("._mobileMenu").animate({
-                      left: "0",
-                      top: "44px",
-                  },
-                  500
-              );
-          });
-
-          $("section._mobileMenu ._closeButton").click(() => {
-              $("._mobileMenu").animate({
-                      left: "-200vw",
-                      top: "44px",
-                  },
-                  500
-              );
-          });
+                    $("div._sidemenu nav .hamburguerClose").click(() => {
+                    $("div._sidemenu nav").css("height", "0");
+                    });
 
 
-          $("._hamburguer, .close_superMenu").click(() => {
-              $(".d_superMenu").toggleClass("_showed");
-          });
 
-          $("._carrinho_button, .d_carrinho ._close").click(() => {
-              $(".d_carrinho").toggleClass("active");
-          });
-      </script>
+                    $("._menuMax").click(() => {
+                    $("._mobileMenu").css("display", "flex");
+                    $("._mobileMenu").animate({
+                    left: "0",
+                    top: "44px",
+                    },
+                    500
+                    );
+                    });
+
+                    $("section._mobileMenu ._closeButton").click(() => {
+                    $("._mobileMenu").animate({
+                    left: "-200vw",
+                    top: "44px",
+                    },
+                    500
+                    );
+                    });
+
+
+                    $("._hamburguer, .close_superMenu").click(() => {
+                    $(".d_superMenu").toggleClass("_showed");
+                    });
+
+                    $("._carrinho_button, .d_carrinho ._close").click(() => {
+                    $(".d_carrinho").toggleClass("active");
+                    });
+                    </script>

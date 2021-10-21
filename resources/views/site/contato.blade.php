@@ -62,10 +62,11 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.6516434026657!2d-45.44527188505813!3d-21.560472485712726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ca9284e7b2deef%3A0x5c26d9833dafe570!2sR.%20Cel.%20Jos%C3%A9%20Alves%2C%20361%20-%20Vila%20Pinto%2C%20Varginha%20-%20MG%2C%2037010-540!5e0!3m2!1spt-BR!2sbr!4v1633273799905!5m2!1spt-BR!2sbr"
             width="590 " height="283" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <p>Endereço: R. Bias Fortes, 212 - Centro, Alfenas - MG, 37130-063</p>
+        <p>Endereço: Av. Raja Gabaglia, 2000 - Sala 805 e PVMT 8 - Bloco 1
+          Alpes - Belo Horizonte - MG / 30.494-170</p>
         <p>
           Horário:
-          Seg às Sabádo 08:00 - 18:00
+          Segunda a Sexta 08:00 - 18:00
         </p>
 
         <h6>(35) 99725-9528</h6>
