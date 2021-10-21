@@ -82,6 +82,8 @@
                     <div class="_bottom">
                         @if ($curso->certificacao)
                         <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
+                        @else
+                        <p class="curso_certificate">Sem certificado</p>
                         @endif
                     </div>
                 </div>

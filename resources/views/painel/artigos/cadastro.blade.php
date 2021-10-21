@@ -8,7 +8,7 @@
 @endsection
 
 @section('titulo')
-Blog / <a style="color: unset" href="{{ route('painel.artigos') }}">Noticias</a> / Cadastro
+Blog / <a style="color: unset" href="{{ route('painel.artigos') }}">Artigos</a> / Cadastro
 @endsection
 
 @section('conteudo')

@@ -134,7 +134,7 @@ section.s_content {
       ._info {
         max-width: 39.3rem;
         picture {
-          @include flex(row, center, center);
+          @include flex(row, flex-start, center);
           height: 100%;
           width: 100%;
           max-width: 38.6rem;

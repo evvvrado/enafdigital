@@ -78,7 +78,7 @@
     @include('site.includes.blog-artigos')
     @endif
 
-    <section class="container-fluid s_send">
+    {{-- <section class="container-fluid s_send">
         <div class="container-fav">
 
             <main>
@@ -101,7 +101,7 @@
 
         </div>
         </main>
-    </section>
+    </section> --}}
 
 
 
