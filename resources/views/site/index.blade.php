@@ -59,7 +59,7 @@
             <div class="_eventList">
 
 
-                @foreach($eventos->slice(1,7) as $evento)
+                @foreach($eventos->slice(1,4) as $evento)
                 <div class="_event" @if($evento->clinica) onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'" @else onclick="window.location.href =
                     '{{route('site.evento', ['slug' => $evento->slug])}}'" @endif>
                     <div class="_pic">
