@@ -50,8 +50,7 @@
                     @foreach($venda->carrinho->produtos as $produto)
                     <div class="_innerItem">
                         <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
-                        </div>
+                            <img @if(!$produto->curso->pacote) src="{{ asset($produto->curso->thumbnail) }}" @else src="{{ asset($produto->curso->cursos->first()->thumbnail) }}" @endif alt="" />                        </div>
                         <div class="_content">
                             {{-- <h3 class="isOnline">Curso Online</h3> --}}
                             <h2 class="itemName">{{$produto->curso->nome}}</h2>

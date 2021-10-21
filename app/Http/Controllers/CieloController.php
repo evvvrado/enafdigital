@@ -56,10 +56,20 @@ class CieloController extends Controller
                 $pagamento->save();
 
                 foreach($venda->carrinho->produtos as $produto){
-                    $matricula = new Matricula;
-                    $matricula->aluno_id = $venda->aluno_id;
-                    $matricula->curso_id = $produto->curso_id;
-                    $matricula->save();
+                    if(!$produto->curso->pacote){
+                        $matricula = new Matricula;
+                        $matricula->aluno_id = $venda->aluno_id;
+                        $matricula->curso_id = $produto->curso_id;
+                        $matricula->save();
+                    }else{
+                        foreach($produto->curso->cursos as $curso){
+                            $matricula = new Matricula;
+                            $matricula->aluno_id = $venda->aluno_id;
+                            $matricula->curso_id = $curso->id;
+                            $matricula->save();
+                        }
+                    }
+                    
                 }
                 
                 $carrinho->aberto = false;

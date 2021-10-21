@@ -80,6 +80,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
 
     //ROTAS DE CARRINHO
     Route::get('/carrinho/adicionar/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
+    Route::get('/carrinho/remover/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'remover'])->name("site.carrinho-remover");
     Route::get('/carrinho/pagamento/cartao', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_cartao'])->name("site.carrinho.pagamento.cartao");
     Route::get('/carrinho/pagamento/boleto', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_boleto'])->name("site.carrinho.pagamento.boleto");
     Route::get('/carrinho/identificacao', [\App\Http\Controllers\CarrinhoController::class, 'identificacao'])->name("site.carrinho-identificacao");

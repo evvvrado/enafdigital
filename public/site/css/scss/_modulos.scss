@@ -93,7 +93,7 @@ section.s_content {
 
           overflow: hidden;
 
-          @include flex(row, center, center);
+          @include picframe();
         }
 
         img {
@@ -105,12 +105,6 @@ section.s_content {
             filter: none;
             cursor: pointer;
           }
-
-          min-width: 100%;
-          min-height: 100%;
-          max-width: unset;
-
-          @include flex(row, center, center);
         }
 
         &::after {

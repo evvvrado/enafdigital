@@ -141,7 +141,7 @@
                     @foreach ($aluno->matriculas as $matricula)
                     <div class="_matricula">
                         <div class="_image">
-                            <img src="{{ asset($matricula->curso->miniatura) }}" alt="">
+                            <img src="{{ asset($matricula->curso->thumbnail) }}" alt="">
                         </div>
                         <div class="_content">
                             <h3>{{ $matricula->curso->nome }}</h3>

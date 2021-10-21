@@ -47,7 +47,7 @@
                     @foreach($carrinho->produtos as $produto)
                     <div class="_innerItem">
                         <div class="_img">
-                            <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
+                            <img @if(!$produto->curso->pacote) src="{{ asset($produto->curso->thumbnail) }}" @else src="{{ asset($produto->curso->cursos->first()->thumbnail) }}" @endif alt="" />
                         </div>
                         <div class="_content">
                             {{-- <h3 class="isOnline">Curso Online</h3> --}}
@@ -56,7 +56,7 @@
                             <div class="itemValue">
                                 <strong>R$ <span class="_itemValue">{{number_format($produto->total, 2, ",", ".")}}</span></strong>
                                 <div class="_controls">
-                                    <div class="itemControl cancel">
+                                    <div class="itemControl cancel" onclick="window.location.href = '{{route('site.carrinho-remover', ['curso' => $produto->curso])}}'">
                                         <div class="_img">
                                             <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
                                         </div>

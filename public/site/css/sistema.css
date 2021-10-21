@@ -1827,12 +1827,6 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 }
 
 .detalhesdeCurso h1 {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 2.2rem;
-    color: #bb1048;
-
-    width: 100%;
     max-width: 72.1rem;
 
     padding-bottom: 2.9rem;
@@ -1861,13 +1855,13 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     font-size: 1.269rem;
     line-height: 1.5rem;
 
-    color: #977983;
+    color: #1ac7d6;
 }
 
 .detalhesdeCurso .container-fav main .list article picture {
     height: 5rem;
     width: 5rem;
-    background: #f78eb0;
+    background: #1ac7d6;
 
     display: flex;
     align-items: center;
@@ -1880,19 +1874,18 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     flex-direction: column;
 }
 .detalhesdeCurso .container-fav main .list article .content span {
-    font-family: "Gilroy";
     font-weight: normal;
     font-style: normal;
     font-size: 1.8rem;
     line-height: 1.8rem;
 
-    color: #977983;
+    color: #1ac7d6;
 }
 
 .detalhesdeCurso .container-fav main::after {
     position: absolute;
     content: "";
-    left: 12rem;
+    left: 15rem;
     top: 0;
 
     height: 100%;
@@ -1906,7 +1899,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     width: 100%;
     max-width: 19.5rem;
 
-    background: #bb1048;
+    background: #20356f;
 
     color: white;
     font-weight: bold;

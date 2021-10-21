@@ -125,6 +125,9 @@
 
 </section>
 </div>
+
+
+
 <div class="detalhesdeCurso container-fluid">
     <div class="container-fav">
         <h1>{{ $matricula->curso->nome }}</h1>
