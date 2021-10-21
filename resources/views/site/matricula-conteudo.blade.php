@@ -127,7 +127,7 @@
 </div>
 <div class="detalhesdeCurso container-fluid">
     <div class="container-fav">
-        <h1>{{ $matricula->curso->titulo }}</h1>
+        <h1>{{ $matricula->curso->nome }}</h1>
 
         <main>
             <div class="list">

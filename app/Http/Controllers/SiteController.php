@@ -14,6 +14,7 @@ use App\Models\Curso;
 use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
+use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
 {

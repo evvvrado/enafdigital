@@ -172,8 +172,7 @@
                                                     <label for="telefone" class="">
                                                         Telefone
                                                     </label>
-                                                    <input name="
-                                                        telefone" placeholder="Digite seu telefone" required="" id="telefone" type="tel"
+                                                    <input name="telefone" placeholder="Digite seu telefone" required="" id="telefone" type="tel"
                                                         class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                             </div>
