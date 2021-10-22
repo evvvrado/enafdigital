@@ -165,7 +165,7 @@
             @php
             $cont = 0;
             @endphp
-            @foreach ($evento->cursos_ligados->unique('data') as $curso)
+            @foreach ($evento->cursos_ligados->unique('data')->sortBy('data') as $curso)
             <div class="_filterItem @if ($cont == 0) active @endif" data-date="{{ date('dm', strtotime($curso->data)) }}">
               {{ date('d/m', strtotime($curso->data)) }}</div>
             @php
@@ -177,7 +177,7 @@
       </div>
       <div class="_cursosList">
         @foreach ($evento->cursos_ligados as $curso)
-        <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}">
+        <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->curso->slug])}}'">
           <div class="_pic">
             <img src="{{ asset($curso->curso->thumbnail) }}" alt="{{ $curso->curso->nome }}" />
           </div>
@@ -346,7 +346,7 @@
   @include("site.includes.footer")
 
   <script>
-    $(`#clinica .s_cursos._atracoes .container-fav ._cursosList .curso:not( ._curso[data-date="${$("._filter nav ._filterItem.active").data("date")}"])`).hide();
+    $(`#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso:not( ._curso[data-date="${$("._filter nav ._filterItem.active").data("date")}"])`).hide();
 
     $("._filter nav ._filterItem").click(function () {
                 var filter = $(this).data("date");
@@ -360,6 +360,6 @@
                 $(
                     `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso[data-date="${filter}"]`
                 ).show();
-                console.log(filter);
+                // console.log(filter);
             });
   </script>

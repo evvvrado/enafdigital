@@ -10,9 +10,11 @@
                 tarde e à noite. Essa intensa troca de informações faz do ENAF um congresso obrigatório
                 para estudantes e profissionais de sport, fitness e saúde.
             </p>
-            <button>
-                <img src="{{ asset('site/img/arrowright_white.svg') }}" onclick="window.location.href = '{{ route('site.quem_somos')}}'" alt="Seta para a direita" />
+            @if (!Route::is('site.quem_somos') )
+            <button onclick="window.location.href = '{{ route('site.quem_somos')}}'">
+                <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para a direita" />
             </button>
+            @endif
         </div>
         <div class="_right">
             <div class="_text">

@@ -156,12 +156,7 @@ $(document).ready(() => {
         }
     });
 
-    $(
-        ".s_treinadorVideo img, .s_treinadorVideo .blackout, .s_alternative .c_depoimentos img, .s_eventoVideo ._video"
-    ).click(() => {
-        $(".blackout").toggleClass("showed");
-    });
-
+ 
     $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(
         (e) => {
             if (document.fullscreenElement == null)

@@ -36,27 +36,27 @@
                     <div class="_media">
                         <ul>
                             <li>
-                                <a target="_blank" href="#">
+                                <a target="_blank" href="http://facebook.com/enaf.oficial">
                                     <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="#">
+                                <a target="_blank" href="http://instagram.com/enaf.oficial">
                                     <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="#">
+                                <a target="_blank" href="http://youtube.com/channel/UCXq10mjDtls9o87wNSnzmiw">
                                     <img src="{{ asset('/site/img/icon_youtube_footer.svg') }}" alt="Ícone youtube" />
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="#">
+                                <a target="_blank" href="http://twitter.com/enafoficial">
                                     <img src="{{ asset('/site/img/icon_twitter_footer.svg') }}" alt="Ícone twitter" />
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="#">
+                                <a target="_blank" href="http://linkedin.com/in/enaf-eventos-16b0aa224/">
                                     <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
                                 </a>
                             </li>

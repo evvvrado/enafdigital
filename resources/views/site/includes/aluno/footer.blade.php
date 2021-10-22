@@ -6,30 +6,30 @@
             <p>Estamos prontos para te ajudar</p>
         </div>
         <div class="_buttons">
-            <div>
+            <div style="cursor: pointer" onclick="window.open('https://web.whatsapp.com/send?phone=3599725-9528')">
                 <img src="{{ asset('site/img/sistema/chat.svg') }}" alt="" />
             </div>
-            <div>
+            <div style="cursor: pointer" onclick="window.open('tel:(35) 99725-9528')">
                 <img src="{{ asset('site/img/sistema/call.svg') }}" alt="" />
             </div>
-            <div>
+            <div style="cursor: pointer" onclick="window.open('https://web.whatsapp.com/send?phone=3599725-9528')">
                 <img src="{{ asset('site/img/sistema/whatsappButton.svg') }}" alt="" />
             </div>
-            <div>
+            <div style="cursor: pointer" onclick="window.open('mailto:contato@enafdigital.com.br')">
                 <img src="{{ asset('site/img/sistema/envelopButton.svg') }}" alt="" />
             </div>
         </div>
     </section>
     <section class="container-fav s_info">
         <div class="_left">
-            <p>Av. Raja Gabaglia, 2000 - Sala 805 e PVMT 8 - Bloco 1
+            <p>Av. Raja Gabaglia, 2000 - Sala 805E e PVMT 08 - Bloco 1
                 Alpes - Belo Horizonte - MG / 30.494-170</p>
 
             <div class="_siga">
                 <p>Siga-nos</p>
                 <div class="_social">
-                    <a href="/"><img src="{{ asset('site/img/sistema/instagramLogo.svg') }}" alt="" /></a>
-                    <a href="/"><img src="{{ asset('site/img/sistema/facebookLogo.svg') }}" alt="" /></a>
+                    <a href="http://facebook.com/enaf.oficial" target="_blank"><img src="{{ asset('site/img/sistema/instagramLogo.svg') }}" alt="" /></a>
+                    <a href="http://instagram.com/enaf.oficial" target="_blank"><img src="{{ asset('site/img/sistema/facebookLogo.svg') }}" alt="" /></a>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
             logotipos, marcas, dizeres, som, software, conjunto imagem, layout e trade dress, são de propriedade
             exclusiva do ENAF. É vedada a reprodução total ou parcial de qualquer elemento de identidade sem a
             expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e
-            criminal nos termos da Lei. CNPJ: 17.190.409/0001-10
+            criminal nos termos da Lei. CNPJ: 43.557.485/0001-21
         </p>
 
         <p>
