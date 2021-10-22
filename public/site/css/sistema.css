@@ -1373,14 +1373,19 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
         width: max-content;
     }
     section._minhasMatriculas ._matriculasList ._matricula {
-        height: 60.4rem;
         max-width: 47rem;
         align-items: center;
         justify-content: center;
         scroll-snap-align: center;
     }
+
+    section._minhasMatriculas ._matriculasList._expanded ._matricula {
+        height: 60.4rem;
+    }
+    section._minhasMatriculas ._matriculasList._expanded ._matricula ._content {
+        margin-top: 12.3rem;
+    }
     section._minhasMatriculas ._matriculasList ._matricula ._content {
-        /* margin-top: 12.3rem; */
         width: 100%;
     }
 
@@ -1482,8 +1487,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
 @media only screen and (max-width: 600px) {
     section._minhasMatriculas ._matriculasList ._matricula {
-        max-width: 30rem;
-        height: auto;
+        max-width: 100%;
     }
     div._sidemenu nav a:first-child {
         padding-top: 51px;

@@ -42,11 +42,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -106,11 +106,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -134,7 +134,7 @@
         </div>
         <div class="_scrollMatriculas">
 
-            <div class="_matriculasList">
+            <div class="_matriculasList _expanded">
                 <div class="_matricula">
                     <div class="_image">
                         <img src="{{ asset('site/img/sistema/Icone (2).png') }}" alt="">
@@ -158,8 +158,7 @@
                     <div class="_content">
                         <h3>Eventos</h3>
                         <p>Nenhuma Inscrição</p>
-                        <button class="btn-primary" style="background-color: orange;"
-                            onclick="window.location.href = '/minha-area/compras'">
+                        <button class="btn-primary" style="background-color: orange;" onclick="window.location.href = '/minha-area/compras'">
                             + VER EVENTOS
                             <div class="_svg">
                                 <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
@@ -175,8 +174,7 @@
                     <div class="_content">
                         <h3>Contribuições</h3>
                         <p>Não Associado</p>
-                        <button class="btn-primary" style="background-color: green;"
-                            onclick="window.location.href = '/minha-area/compras'">
+                        <button class="btn-primary" style="background-color: green;" onclick="window.location.href = '/minha-area/compras'">
                             QUERO ME ASSOCIAR
                             <div class="_svg">
                                 <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
