@@ -346,6 +346,8 @@
   @include("site.includes.footer")
 
   <script>
+    $(`#clinica .s_cursos._atracoes .container-fav ._cursosList .curso:not( ._curso[data-date="${$("._filter nav ._filterItem.active").data("date")}"])`).hide();
+
     $("._filter nav ._filterItem").click(function () {
                 var filter = $(this).data("date");
 
