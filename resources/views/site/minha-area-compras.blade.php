@@ -138,7 +138,7 @@
             <div class="_pedidosList">
                 @if (count($aluno->pedidos) <= 0) <h3>Ainda não há nenhum pedido</h3>
                     @else
-                    @foreach ($aluno->pedidos as $pedido)
+                    @foreach ($aluno->pedidos->sortByDesc("created_at") as $pedido)
                     <div class="_pedido">
                         <h3>N.{{ $pedido->codigo }}</h3>
                         <div class="_info">

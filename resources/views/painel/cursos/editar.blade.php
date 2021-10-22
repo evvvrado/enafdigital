@@ -124,10 +124,26 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                 <label for="sobre">Sobre o curso</label>
                                 <textarea id="textarea" name="sobre" class="form-control" maxlength="107" rows="3" placeholder="Descrição breve sobre o curso" required>{!! $curso->sobre !!}</textarea>
                             </div>
-                            <div class="mb-3 ">
-                                <label for="productdesc">Certificado</label>
-                                <div class="form-check form-switch form-switch-lg pt-3 ">
-                                    <input class="form-check-input form-control" name="certificacao" type="checkbox" @if ($curso->certificacao) checked @endif id="SwitchCheckSizelg">
+
+
+                            <div class="mb-3 row">
+                                <div class="col">
+                                    <label for="productdesc">Certificado</label>
+                                    <div class="form-check form-switch form-switch-lg pt-3 ">
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" checked="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="productdesc">Pagamento Por Boleto</label>
+                                    <div class="form-check form-switch form-switch-lg pt-3 ">
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" checked="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="productdesc">Pagamento Por Cartão</label>
+                                    <div class="form-check form-switch form-switch-lg pt-3 ">
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" checked="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
