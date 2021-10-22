@@ -152,7 +152,7 @@
                                 </div>
                                 <p>{{ date('d.m.Y', strtotime($matricula->created_at)) }}</p>
                             </div>
-                            <p>{{config('cursos.tipo_nome')[$matricula->curso->tipo]}}</p>
+                            <p>Curso {{config('cursos.tipo_nome')[$matricula->curso->tipo]}}</p>
                             <button class="btn-primary" onclick="window.location.href = '{{ route('site.minha-area-matricula.conteudo', ['matricula' => $matricula]) }}'">
                                 Acessar Curso
                                 <div class="_svg">

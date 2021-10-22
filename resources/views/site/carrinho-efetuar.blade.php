@@ -177,19 +177,5 @@
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
     <script>
-        $(" form label input,form label textarea").focus(function() { $(this).parent().find("span").addClass("active"); }); $("form label input,form label textarea").focusout(function() { if
-                            ($(this).val()=="" ) { $(this).parent().find("span").removeClass("active"); } }); $("._carButton").click(()=> {
-                        $("._meuCarrinho").animate({
-                        top: "0",
-                        },
-                        400
-                        );
-                        });
-                        $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
-                        $("._meuCarrinho").animate({
-                        top: "-200vh",
-                        },
-                        400
-                        );
-                        });
+        $(" form label input,form label textarea").focus(function() { $(this).parent().find("span").addClass("active"); }); 
     </script>

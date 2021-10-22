@@ -305,19 +305,5 @@
             }
         });
 
-
-        $("._carButton").click(() => {
-            $("._meuCarrinho").animate({
-                    top: "0",
-                },
-                400
-            );
-        });
-        $(" section._meuCarrinho ._top ._title ._icon img:last-child").click(() => {
-            $("._meuCarrinho").animate({
-                    top: "-200vh",
-                },
-                400
-            );
-        });
+  
     </script>

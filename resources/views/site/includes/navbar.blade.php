@@ -51,7 +51,8 @@
 </div>
 
 @if (Route::is('site.hotsite') || Route::is('site.minha-area') || Route::is('site.minha-area-dados') || Route::is('site.minha-area-compras') || Route::is('site.minha-area-matricula') ||
-Route::is('site.minha-area-detalhes'))
+Route::is('site.minha-area-detalhes') ||
+Route::is('site.minha-area-matricula.conteudo'))
 <header class="container-fluid">
     <div class="container-fav">
         <div class="_logo">

@@ -80,7 +80,7 @@
 
         ._post {
             margin-bottom: 1.3rem;
-            @include flex(center, center, space-between);
+            @include flex(center, center, flex-start);
             width: 38rem;
             border: 0.1343rem solid rgba(91, 100, 123, 0.1);
             box-shadow: 1.3429rem 2.6857rem 5.3714rem rgba(19, 51, 113, 0.05);
@@ -100,6 +100,7 @@
             ._content {
                 max-width: 22.8rem;
                 margin-right: 2.8rem;
+                padding-left: 3rem;
 
                 .date {
                     font-weight: 400;

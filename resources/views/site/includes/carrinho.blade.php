@@ -1,6 +1,6 @@
 <style>
     section._meuCarrinho {
-        /* height: 76.7rem; */
+        height: 100vh;
         width: 38.4rem;
         /* 
   padding: 5rem 2.2rem; */
@@ -20,6 +20,11 @@
         right: 0;
         top: 0;
     }
+
+    ._carrinho section._meuCarrinho {
+        height: 76.7rem;
+    }
+
 
     section._meuCarrinho ._top {
         width: 100%;
@@ -75,8 +80,12 @@
         align-items: center;
     }
 
-    section._meuCarrinho ._innerCar {
+    ._carrinho section._meuCarrinho ._innerCar {
         height: 42.2rem;
+    }
+
+    section._meuCarrinho ._innerCar {
+        height: 100%;
         width: 100%;
 
         padding-top: 2.5rem;
@@ -216,6 +225,40 @@
 
     section._meuCarrinho ._bottomSub._finalTotal span {
         font-size: 1.6rem;
+    }
+
+
+    @media only screen and (max-width: 1200px) {
+        body._carrinho header .container-fav ._first ._duvidas {
+            display: none;
+        }
+
+        ._carrinho .container-fluid.s_identificacao .container-fav {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        ._carrinho section._meuCarrinho .container-fav ._half {
+            max-width: unset;
+            width: 100%;
+        }
+
+        ._carrinho section._meuCarrinho {
+            transition: .32s;
+            left: 100vw;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        ._carrinho section._meuCarrinho._active {
+            left: 0;
+
+        }
+
+        section._meuCarrinho ._top ._title ._icon img:last-child {
+            display: inline;
+        }
     }
 </style>
 

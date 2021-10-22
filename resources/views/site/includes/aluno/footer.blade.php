@@ -119,4 +119,18 @@
                     $("._carrinho_button, .d_carrinho ._close").click(() => {
                     $(".d_carrinho").toggleClass("active");
                     });
+
+                    $("._carrinho_button, .d_carrinho ._close").click(() => {
+                    $(".d_carrinho").toggleClass("active");
+                    });
+
+                    $("body._carrinho .container-fav ._carButton").click(() => {
+                    $("._meuCarrinho").toggleClass("_active");
+
+                    })
+
+                    $("section._meuCarrinho ._top ._title ._close").click(() =>{
+                    $("._meuCarrinho").toggleClass("_active");
+
+                    })
                     </script>

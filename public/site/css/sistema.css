@@ -334,7 +334,7 @@ section._menu .container-fav ._user ._img {
     border-radius: 50%;
 }
 section._mobileMenu {
-    top: 0;
+    top: 44px;
     left: -200vw;
     height: auto;
     width: 100%;
@@ -462,7 +462,7 @@ section._meusPedidos ._pedidosList ._pedido h3 {
     color: var(--wine12);
 }
 section._produtosDetalhes {
-    padding-bottom: 0;
+    padding-bottom: 2rem;
 }
 section._produtosDetalhes ._pedidosList ._pedido {
     cursor: pointer;
@@ -614,6 +614,15 @@ section._minhasMatriculas ._matriculasList ._matricula {
     border-radius: 0.4rem;
 
     color: var(--orange2);
+}
+section._minhasMatriculas ._matriculasList ._matricula ._image {
+    height: 15.5rem;
+    width: 100%;
+}
+section._minhasMatriculas ._matriculasList ._matricula ._image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 section._minhasMatriculas ._matriculasList ._matricula button.btn-primary {
     display: flex;
@@ -1375,6 +1384,9 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
         width: 100%;
     }
 
+    body._carrinho._tocenter .container-fav ._carButton {
+        display: none;
+    }
     body._carrinho .container-fav ._carButton {
         display: flex;
     }
@@ -1469,6 +1481,9 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 }
 
 @media only screen and (max-width: 600px) {
+    section._minhasMatriculas ._matriculasList ._matricula {
+        max-width: 100%;
+    }
     div._sidemenu nav a:first-child {
         padding-top: 51px;
         padding-bottom: 52px;
@@ -1496,6 +1511,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     ._menuMax {
         display: block;
         margin-top: 44px;
+        background: white;
     }
     body._carrinho header .container-fav ._first ._duvidas {
         display: none;
@@ -1503,6 +1519,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     section._meusPedidos ._pedidosList ._pedido ._status {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
     section._copyRight p,
     section._copyRight p strong,
@@ -1675,7 +1692,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     font-size: 1.269rem;
     line-height: 1.5rem;
 
-    color: #1ac7d6;
+    color: #1ac6d649;
 }
 
 .detalhesdeCurso .container-fav main .list article picture {
@@ -2122,6 +2139,36 @@ p {
     .d_superMenu .close_superMenu {
         font-size: 5.4rem;
         font-weight: bold;
+    }
+    section._detalhesdoPedido ._top {
+        flex-direction: column;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem ._arrow {
+        display: none;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem ._name {
+        justify-content: center;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo {
+        max-width: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem ._pagInfo ._payment {
+        width: auto;
+    }
+    ._detalhesdoPedido .container-fav ._info ._infoItem div {
+        flex-direction: column;
+        align-items: center;
     }
 }
 body#hotsite .d_superMenu {
