@@ -228,7 +228,7 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
         <div class="_title">
             <div class="_icon">
                 <img src="{{ asset('site/img/sistema/car.svg') }}" alt="" />
-                <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
+                <img class="_close" src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
             </div>
             <span>Meu Carrinho</span>
         </div>

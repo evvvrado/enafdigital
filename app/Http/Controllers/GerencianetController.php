@@ -15,18 +15,19 @@ use App\Models\PagamentoCarneParcela;
 class GerencianetController extends Controller
 {
     //
-    public function boleto($parcelas){
+    public function boleto($parcelas)
+    {
         $gerencianet = new GerencianetRequisicaoBoleto();
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
-        if($parcelas == 1){
-            $desconto = ($carrinho->total * 10 / 100);
-        }else{
+        if ($parcelas == 1) {
+            $desconto = 1000;
+        } else {
             $desconto = 0;
         }
         // $gerencianet->enviarBoletoEmail(1334034, 'gusouza980@gmail.com');
         $turmas = [];
-        foreach($carrinho->produtos as $produto){
+        foreach ($carrinho->produtos as $produto) {
             // $produto->turma->inscritos += 1;
             // $produto->turma->save();
             $gerencianet->addItem([
@@ -38,21 +39,20 @@ class GerencianetController extends Controller
 
         $cpf = str_replace(".", "", $aluno->cpf);
         $cpf = str_replace("-", "", $cpf);
-
         $telefone = str_replace("(", "", $aluno->telefone);
         $telefone = str_replace(")", "", $telefone);
         $telefone = str_replace("-", "", $telefone);
         $telefone = str_replace(" ", "", $telefone);
-        
+
         $gerencianet->addCustomer([
             'name' => $aluno->nome, // nome do cliente
             'cpf' => $cpf, // cpf válido do cliente
             'phone_number' => $telefone, // telefone do cliente
         ]);
 
-        if($parcelas == 1){
+        if ($parcelas == 1) {
             $gerencianet->addDesconto([
-                'type' => 'currency',
+                'type' => 'percentage',
                 'value' => $desconto
             ]);
             $gerencianet->addBoleto([
@@ -60,14 +60,14 @@ class GerencianetController extends Controller
                 'message' => 'Acompanhe o status do seu pagamento no seu painel do cliente.', // mensagem a ser exibida no boleto
             ]);
             $res = $gerencianet->gerarBoleto();
-        }else{
+        } else {
             $gerencianet->addParcelas($parcelas);
             $res = $gerencianet->gerarCarne();
         }
 
         // dd($res);
-        if($res["code"] == 200){
-            
+        if ($res["code"] == 200) {
+
             $venda = new Venda;
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
@@ -76,20 +76,20 @@ class GerencianetController extends Controller
             $venda->status = 0;
             $venda->gateway = 0;
             $venda->parcelas = $parcelas;
-            if($parcelas > 1){
+            if ($parcelas > 1) {
                 $venda->forma = 2;
             }
-            $venda->valor_parcela = number_format($venda->total / $parcelas, 2,".","");
+            $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
             $venda->desconto = $desconto;
             $venda->save();
 
-            if($parcelas == 1){
+            if ($parcelas == 1) {
                 $boleto = new PagamentoBoleto;
                 $boleto->venda_id = $venda->id;
                 $boleto->charge_id = $res["data"]["charge_id"];
                 $boleto->codigo_barra = $res["data"]["barcode"];
                 $boleto->link = $res["data"]["link"];
-                if(isset($res["data"]["pdf"]) && isset($res["data"]["pdf"]["charge"])){
+                if (isset($res["data"]["pdf"]) && isset($res["data"]["pdf"]["charge"])) {
                     $boleto->pdf = $res["data"]["pdf"]["charge"];
                 }
                 $boleto->expira = $res["data"]["expire_at"];
@@ -97,20 +97,20 @@ class GerencianetController extends Controller
                 $boleto->total = $res["data"]["total"];
                 $boleto->save();
                 // $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
-            }else{
+            } else {
                 $carne = new PagamentoCarne;
                 $carne->venda_id = $venda->id;
                 $carne->carnet_id = $res["data"]["carnet_id"];
                 $carne->status = $res["data"]["status"];
                 $carne->link = $res["data"]["pdf"]["carnet"];
                 $carne->save();
-                foreach($res["data"]["charges"] as $charge){
+                foreach ($res["data"]["charges"] as $charge) {
                     $parcela = new PagamentoCarneParcela;
                     $parcela->pagamento_carne_id = $carne->id;
                     $parcela->charge_id = $charge["charge_id"];
                     $parcela->parcela = $charge["parcel"];
                     $parcela->status = $charge["status"];
-                    $parcela->valor = $charge["value"]/100;
+                    $parcela->valor = $charge["value"] / 100;
                     $parcela->data_expiracao = $charge["expire_at"];
                     $parcela->link = $charge["pdf"]["charge"];
                     $parcela->save();
@@ -119,8 +119,8 @@ class GerencianetController extends Controller
             session()->forget("carrinho");
             session()->put(["venda_finalizada" => $venda->id]);
             return redirect()->route("site.carrinho-confirmacao");
-        }else{
-            foreach($carrinho->produtos as $produto){
+        } else {
+            foreach ($carrinho->produtos as $produto) {
                 // $produto->turma->inscritos -= 1;
                 // $produto->turma->save();
             }
@@ -129,18 +129,19 @@ class GerencianetController extends Controller
         }
     }
 
-    public function notificacao(){
+    public function notificacao()
+    {
         Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação no token ' . $_POST['notification']);
         $gerencianet = new GerencianetRequisicaoBoleto();
         $res = $gerencianet->notificacao($_POST["notification"]);
-        if($res["code"] == 200){
+        if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
             $pagamento->status = $res["status"];
             Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
             $pagamento->save();
-        }elseif($res["code"] == -1){
+        } elseif ($res["code"] == -1) {
             Log::channel('notificacoes')->error('ERRO:' . $res["erro"]);
-        }else{
+        } else {
             Log::channel('notificacoes')->error('ERRO:' . $res["erro"] . "\n" . $res["descricao"]);
         }
     }

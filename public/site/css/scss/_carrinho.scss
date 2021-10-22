@@ -17,165 +17,181 @@ div.d_carrinho {
     height: 100%;
     @include flex(column, center, space-between);
 
-    ._header {
-        height: 10.4rem;
-        width: 100%;
+    // ._header {
+    //     height: 10.4rem;
+    //     width: 100%;
 
-        padding: 0 4.2rem;
+    //     padding: 0 4.2rem;
 
-        @include flex(row, center, space-between);
+    //     @include flex(row, center, space-between);
 
-        border-bottom: 1px solid #afbec5;
+    //     border-bottom: 1px solid #afbec5;
 
-        span {
-            font-size: 1.8rem;
-            letter-spacing: 0.02em;
+    //     span {
+    //         font-size: 1.8rem;
+    //         letter-spacing: 0.02em;
 
-            font-weight: 500;
+    //         font-weight: 500;
 
-            color: $color-darkest;
-        }
+    //         color: $color-darkest;
+    //     }
 
-        ._close {
-            cursor: pointer;
-        }
-    }
+    //     ._close {
+    //         cursor: pointer;
+    //     }
+    // }
 
-    ._content {
-        padding-top: 2.6rem;
-        overflow-y: scroll;
-        // height: 21rem;
-        width: 100%;
+    // ._content {
+    //     padding-top: 2.6rem;
+    //     overflow-y: scroll;
+    //     // height: 21rem;
+    //     width: 100%;
 
-        ._lista {
-            padding: 0 0 0 4.2rem;
+    //     ._lista {
+    //         padding: 0 0 0 4.2rem;
 
-            div {
-                &:not(:first-child) {
-                    margin-top: 4.1rem;
-                }
+    //         div {
+    //             &:not(:first-child) {
+    //                 margin-top: 4.1rem;
+    //             }
 
-                width: 100%;
-                @include flex(row, flex-start, flex-start);
-                gap: 1.8rem;
-                cursor: pointer;
+    //             width: 100%;
+    //             @include flex(row, flex-start, flex-start);
+    //             gap: 1.8rem;
+    //             cursor: pointer;
 
-                &:hover {
-                    opacity: 0.7;
-                }
+    //             &:hover {
+    //                 opacity: 0.7;
+    //             }
 
-                picture {
-                    img {
-                        border-radius: 0.8rem;
-                    }
-                }
+    //             picture {
+    //                 img {
+    //                     border-radius: 0.8rem;
+    //                 }
+    //             }
 
-                span {
-                    legend {
-                        font-size: 1.4rem;
-                        font-weight: 600;
-                        letter-spacing: 0.04em;
-                        color: $color-alternative;
-                    }
+    //             span {
+    //                 legend {
+    //                     font-size: 1.4rem;
+    //                     font-weight: 600;
+    //                     letter-spacing: 0.04em;
+    //                     color: $color-alternative;
+    //                 }
 
-                    span {
-                        font-weight: 600;
-                        font-size: 1.6rem;
-                        line-height: 130%;
-                        letter-spacing: 0.01em;
-                        color: $color-darker;
-                    }
+    //                 span {
+    //                     font-weight: 600;
+    //                     font-size: 1.6rem;
+    //                     line-height: 130%;
+    //                     letter-spacing: 0.01em;
+    //                     color: $color-darker;
+    //                 }
 
-                    p {
-                        display: block;
-                        padding-top: 1rem;
-                        font-weight: 600;
-                        font-size: 1.4rem;
-                        letter-spacing: 0.04em;
+    //                 p {
+    //                     display: block;
+    //                     padding-top: 1rem;
+    //                     font-weight: 600;
+    //                     font-size: 1.4rem;
+    //                     letter-spacing: 0.04em;
 
-                        color: $color-second;
-                    }
+    //                     color: $color-second;
+    //                 }
 
-                    strong {
-                        display: block;
-                        font-size: 1.8rem;
-                        line-height: 150%;
-                        color: $color-darker;
-                        padding-top: 1.8;
-                    }
-                }
-            }
-        }
+    //                 strong {
+    //                     display: block;
+    //                     font-size: 1.8rem;
+    //                     line-height: 150%;
+    //                     color: $color-darker;
+    //                     padding-top: 1.8;
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        &::-webkit-scrollbar {
-            width: 5px;
-        }
-        &::-webkit-scrollbar-track {
-            background: $white;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: $color-alternative;
-            height: 2.5rem;
-            width: 1rem;
-        }
-    }
+    //     &::-webkit-scrollbar {
+    //         width: 5px;
+    //     }
+    //     &::-webkit-scrollbar-track {
+    //         background: $white;
+    //     }
+    //     &::-webkit-scrollbar-thumb {
+    //         background: $color-alternative;
+    //         height: 2.5rem;
+    //         width: 1rem;
+    //     }
+    // }
 
-    ._bottom {
-        @include flex(column, center, center);
-        position: relative;
-        padding-top: 4rem;
-        background: $white;
-        z-index: 666;
+    // ._bottom {
+    //     @include flex(column, center, center);
+    //     position: relative;
+    //     padding-top: 4rem;
+    //     background: $white;
+    //     z-index: 666;
 
-        width: 100%;
+    //     width: 100%;
 
-        button.continue_button {
-            @include style-btn(4.6rem, #d1f4f7, #103a51);
+    //     button.continue_button {
+    //         @include style-btn(4.6rem, #d1f4f7, #103a51);
 
-            font-weight: 600;
-            width: 100%;
-            max-width: 29.6rem;
-        }
+    //         font-weight: 600;
+    //         width: 100%;
+    //         max-width: 29.6rem;
+    //     }
 
-        div {
-            padding: 0 4.2rem;
-            padding-top: 2.4rem;
-            padding-bottom: 3.8rem;
-            width: 100%;
-            @include flex(column, center, center);
-            background: #d1f4f7;
-            margin-top: 5.2rem;
+    //     div {
+    //         padding: 0 4.2rem;
+    //         padding-top: 2.4rem;
+    //         padding-bottom: 3.8rem;
+    //         width: 100%;
+    //         @include flex(column, center, center);
+    //         background: #d1f4f7;
+    //         margin-top: 5.2rem;
 
-            span {
-                width: 100%;
-                white-space: nowrap;
-                @include flex(row, center, space-between);
+    //         span {
+    //             width: 100%;
+    //             white-space: nowrap;
+    //             @include flex(row, center, space-between);
 
-                p {
-                    font-size: 1.6rem;
-                    font-weight: 600;
-                    color: $color-darker;
-                }
-                strong {
-                    font-family: "Inter";
-                    font-size: 1.8rem;
-                    color: $gray;
-                }
-            }
-            button {
-                margin-top: 2.5rem;
+    //             p {
+    //                 font-size: 1.6rem;
+    //                 font-weight: 600;
+    //                 color: $color-darker;
+    //             }
+    //             strong {
+    //                 font-family: "Inter";
+    //                 font-size: 1.8rem;
+    //                 color: $gray;
+    //             }
+    //         }
+    //         button {
+    //             margin-top: 2.5rem;
 
-                @include style-btn(5.2rem, $color-thirdy, $white);
-                width: 100%;
-                font-weight: 500;
-                max-width: 29.6rem;
-            }
-        }
-    }
+    //             @include style-btn(5.2rem, $color-thirdy, $white);
+    //             width: 100%;
+    //             font-weight: 500;
+    //             max-width: 29.6rem;
+    //         }
+    //     }
+    // }
 
     &.active {
         transform: none;
         opacity: 1;
         pointer-events: all;
+
+        ._top {
+            ._title {
+                ._icon {
+                    img:first-child {
+                        display: none;
+                    }
+                    img:last-child {
+                        display: block;
+                        height: 19px;
+                        width: 19px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
     }
 }

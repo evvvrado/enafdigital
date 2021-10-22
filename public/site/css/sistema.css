@@ -1111,7 +1111,7 @@ section.s_compraRealizada .container-fav ._half ._buttons {
 
     display: flex;
     width: 100%;
-    max-width: 64.1rem;
+    /* max-width: 64.1rem; */
     justify-content: space-between;
 }
 section.s_compraRealizada .container-fav ._half ._buttons button.btn-primary {
@@ -1137,6 +1137,12 @@ body._carrinho section.s_identificacao .container-fav {
 }
 
 body._carrinho._tocenter section.s_identificacao .container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.s_compraRealizada .container-fav {
     display: flex;
     align-items: center;
     justify-content: center;
