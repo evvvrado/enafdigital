@@ -11,7 +11,7 @@
                 <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
             </div>
             <p>
-                O melhor do universo fitness para você a qualquer hora e em qualquer lugar - 24 horas por dia, 7 dias por semana, 365 dias por ano conectados com você.
+                O melhor do universo fitness para você a qualquer hora, em qualquer lugar... 24 horas por dia, 7 dias por semana, 365 dias por ano conectados com você
             </p>
         </div>
     </div>

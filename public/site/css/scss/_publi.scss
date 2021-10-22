@@ -18,6 +18,11 @@
             letter-spacing: 0.1em;
             color: $color-alternative;
         }
+        a {
+            border-radius: 15px;
+            overflow: hidden;
+            display: block;
+        }
     }
 
     img[data-size="responsive"] {
