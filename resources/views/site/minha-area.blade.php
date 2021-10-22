@@ -141,7 +141,7 @@
                     </div>
                     <div class="_content">
                         <h3>Cursos</h3>
-                        <p>Nenhuma Matrícula</p>
+                        <p>{{count($aluno->matriculas)}} Matrícula</p>
                         <button class="btn-primary" onclick="window.location.href = '/minha-area/matriculas'">
                             + VER CURSOS
                             <div class="_svg">

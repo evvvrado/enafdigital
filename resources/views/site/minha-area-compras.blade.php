@@ -137,6 +137,11 @@
 
             <div class="_pedidosList">
                 @if (count($aluno->pedidos) <= 0) <h3>Ainda não há nenhum pedido</h3>
+                    <style>
+                        ._contentList::-webkit-scrollbar {
+                            display: none;
+                        }
+                    </style>
                     @else
                     @foreach ($aluno->pedidos->sortByDesc("created_at") as $pedido)
                     <div class="_pedido">

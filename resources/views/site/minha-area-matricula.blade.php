@@ -137,6 +137,11 @@
         <div class="_contentList">
             <div class="_matriculasList">
                 @if (count($aluno->matriculas) <= 0) <h3>Ainda não há nenhuma matrícula</h3>
+                    <style>
+                        ._contentList::-webkit-scrollbar {
+                            display: none;
+                        }
+                    </style>
                     @else
                     @foreach ($aluno->matriculas as $matricula)
                     <div class="_matricula">

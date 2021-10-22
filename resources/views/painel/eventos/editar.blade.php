@@ -60,6 +60,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
 
 <div class="filters">
     <span data-filter="evento" class="active">Evento</span>
+    <span data-filter="banner">Banner</span>
     <span data-filter="local">Local</span>
     <span data-filter="cursos">Cursos</span>
     <span data-filter="pacotes  ">Pacotes</span>
@@ -185,6 +186,34 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
         </div>
     </div>
 
+    <div class="card banner">
+        <div class="card-body">
+            <h4 class="card-title">Banner de divulgação</h4>
+            <form action="{{ route('painel.eventos.local.salvar', ['evento' => $evento]) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="col-12 mt-3">
+                    <div class="row">
+                        <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                            <picture style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                <img id="local-preview" @if (!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif style="height:
+                                100%;" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary" for="local-upload">Escolher</label>
+                            <input name="local_foto" id="local-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <div class="card local">
         <div class="card-body">
@@ -408,7 +437,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
     <div class="card hoteis">
         <div class="card-body">
             <h4 class="card-title">Hoteis Conveniados</h4>
-            <form action="{{ route('painel.eventos.hotel.adicionar', ['evento' => $evento]) }}" method="POST"  enctype="multipart/form-data">
+            <form action="{{ route('painel.eventos.hotel.adicionar', ['evento' => $evento]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
 

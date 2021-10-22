@@ -341,4 +341,10 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
         </div>
         <strong>R$ <span class="_finaltotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span> </strong>
     </div>
+
+    @if (!Route::is('site.carrinho-efetuar') ||Route::is('site.carrinho-confirmacao') || Route::is('site.carrinho-pagamento.cartao') || Route::is('site.carrinho-pagamento.boleto'))
+    <button name="finalizarCompra" onclick="window.location.href = '{{ route('site.carrinho-efetuar') }}'">
+        Finalizar compra
+    </button>
+    @endif
 </section>

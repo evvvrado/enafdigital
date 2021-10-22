@@ -89,16 +89,14 @@ header {
     @include responsive(720px) {
         .container-fav {
             nav {
-                @include flex(row, center, center);
+                @include flex(row-reverse, center, space-between);
                 margin: 0;
-                justify-content: flex-end;
                 ._hamburguer {
                     span {
                         display: none;
                     }
                 }
                 ul {
-                    display: none;
                     li {
                         a {
                             display: none;

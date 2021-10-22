@@ -162,17 +162,17 @@ div.d_carrinho {
     //                 color: $gray;
     //             }
     //         }
-    //         button {
-    //             margin-top: 2.5rem;
-
-    //             @include style-btn(5.2rem, $color-thirdy, $white);
-    //             width: 100%;
-    //             font-weight: 500;
-    //             max-width: 29.6rem;
-    //         }
     //     }
     // }
 
+    button {
+        margin-top: 2.5rem;
+
+        @include style-btn(5.2rem, $color-thirdy, $white);
+        width: 100%;
+        font-weight: 500;
+        max-width: 29.6rem;
+    }
     &.active {
         transform: none;
         opacity: 1;
