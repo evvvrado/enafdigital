@@ -68,11 +68,13 @@ class GerencianetController extends Controller
         // dd($res);
         if ($res["code"] == 200) {
 
+            $desconto = $desconto / 100;
+
             $venda = new Venda;
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
             $venda->codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-            $venda->total = $carrinho->total - $desconto;
+            $venda->total = $carrinho->total - ($carrinho->total * $desconto / 100);
             $venda->status = 0;
             $venda->gateway = 0;
             $venda->parcelas = $parcelas;
@@ -80,7 +82,7 @@ class GerencianetController extends Controller
                 $venda->forma = 2;
             }
             $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
-            $venda->desconto = $desconto;
+            $venda->desconto = ($carrinho->total * $desconto / 100);
             $venda->save();
 
             if ($parcelas == 1) {
