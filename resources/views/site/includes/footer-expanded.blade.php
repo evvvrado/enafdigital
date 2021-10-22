@@ -2,11 +2,11 @@
     <div class="container-fluid footer_expanded">
         <div class="container-fav">
             <div class="_text">
-                <h6>SEJA UM MEMBRO</h6>
-                <h2>lorem ipsum dolor.</h2>
+                <h6>SUA EVOLUÇÃO </h6>
+                <h2>Nosso compromisso</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    Cadastre-se e receba em primeira mão todas as nossas novidades e lançamentos, além de conteúdos disponibilizados por profissionais que valorizam o conhecimento e a evolução do
+                    fitness.
                 </p>
             </div>
             <button>
@@ -75,7 +75,7 @@
                         <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
                         <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
                         <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
-                        <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
+                        <li><a href="{{ route('site.contato') }}">Imprensa</a></li>
                         <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </nav>
 

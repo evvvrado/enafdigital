@@ -11,8 +11,7 @@
                 <img src="{{ asset('site/img/svg_poweroflife_white.svg') }}" alt="Power of Life" />
             </div>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                O melhor do universo fitness para você a qualquer hora e em qualquer lugar - 24 horas por dia, 7 dias por semana, 365 dias por ano conectados com você.
             </p>
         </div>
     </div>

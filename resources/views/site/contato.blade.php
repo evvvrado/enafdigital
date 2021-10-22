@@ -21,8 +21,9 @@
 
     <div class="container-fav">
       <div class="_col">
-        <h4>Atendimento</h4>
-        <p>Entre em contato conosco. Estamos à disposição para tirar todas as dúvidas a respeito de como funciona a nossa assessoria e programação de eventos. Entraremos em contato imediatamente.</p>
+        <h4>Contato:</h4>
+        <p>Nosso suporte online é um canal de comunicação para que você possa entrar em contato conosco. Estamos à disposição para tirar todas as dúvidas a respeito de como funciona a nossa assessoria
+          e programação de eventos. Deixe sua mensagem abaixo.</p>
 
 
 

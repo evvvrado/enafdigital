@@ -3,12 +3,12 @@
         <div class="_left">
             <h4>Sobre o Enaf</h4>
             <p>
-                O ENAF é o maior evento de Sport & Fitness e Saúde realizado nas Américas e um dos mais
-                importantes do mundo. Tendo como objetivo promover a reciclagem e aprimoramento de
-                técnicas.<br /><br />
-                São dezenas de cursos, palestras e workshops acontecendo simultâneamente, de manhã, à
-                tarde e à noite. Essa intensa troca de informações faz do ENAF um congresso obrigatório
-                para estudantes e profissionais de sport, fitness e saúde.
+                Ao longo desses 35 anos, colecionados não apenas número, mas também histórias inspiradoras. Nosso principal compromisso é oferecer o melhor do universo fitness para todas as pessoas
+                que estarão presentes conosco, de forma online ou presencial. <br /><br />
+                Somos o maior evento de Sport & Fitness e Saúde realizado nas Américas e um dos mais importantes do mundo, e iniciamos agora um novo ciclo - CONECTAR PARA EVOLUIR, trazendo toda nossa
+                experiência presencial para dentro das telas.
+
+
             </p>
             @if (!Route::is('site.quem_somos') )
             <button onclick="window.location.href = '{{ route('site.quem_somos')}}'">
@@ -21,8 +21,7 @@
                 <div class="_icon">
                     <img src="{{ asset('site/img/icon_star.svg') }}" alt="Estrela" />
                     <p>
-                        Para você qualificar se e distinguir-se no mercado trabalho, venha e atualize-se com
-                        quem conhece do assunto.
+                        Nosso objetivo é a reciclagem e aprimoramento dos profissionais das áreas de esporte e fitness e a criação de networking entre empresas e o seu público-alvo.
                     </p>
                 </div>
             </div>

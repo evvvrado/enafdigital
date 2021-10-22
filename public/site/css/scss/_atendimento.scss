@@ -47,9 +47,9 @@
     @include flex(row, flex-start, space-between);
 
     ._col {
-      &:first-child {
-        max-width: 48.8rem;
-      }
+      // &:first-child {
+      max-width: 48.8rem;
+      // }
 
       h4 {
         margin-bottom: 2.4rem;

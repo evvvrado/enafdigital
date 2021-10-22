@@ -4,7 +4,8 @@
             <h4>Cursos</h4>
             <div class="_filter">
                 <nav>
-                    <div class="_filterItem active">Online</div>
+                    <div class="_filterItem active">Ver Todos</div>
+                    <div class="_filterItem">Online</div>
                     <div class="_filterItem ">EAD</div>
                     <div class="_filterItem">Presenciais</div>
                 </nav>
@@ -29,6 +30,7 @@
                         @if ($curso->certificacao)
                         <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
                         @endif
+                        <button>Comprar</button>
                     </div>
                 </div>
 
@@ -56,6 +58,7 @@
                         @if ($curso->certificacao)
                         <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
                         @endif
+                        <button>Comprar</button>
                     </div>
                 </div>
 
@@ -85,6 +88,7 @@
                         @else
                         <p class="curso_certificate">Sem certificado</p>
                         @endif
+                        <button>Comprar</button>
                     </div>
                 </div>
 

@@ -10,11 +10,11 @@
     <section class="container-fluid s_hero">
         <div class="container-fav">
             <div class="_h1 fade">
-                <h6>WORKSHOPS AO VIVO</h6>
-                <h1>Invista em você</h1>
+                <h6>UM NOVO CICLO</h6>
+                <h1>Conectar para<br> evoluir</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
+                    No mundo, tudo evolui e se transforma. E para nós, que trabalharmos com movimento, não poderia ser diferente. Você está preparado para estabelecer as conexões que irão impactar a
+                    sua vida?
                 </p>
                 <button name="hero_button">
                     <img src="{{ asset('site/img/arrowright.svg') }}" alt="" />
@@ -148,8 +148,9 @@
         <div class="container-fav">
             <div class="_left">
                 <h4>Nosso Time de Professores Online</h4>
-                <p>É hora de se capacitar com professores que são referência do mercado</p>
-                <span> Você estuda nos seus horários, de acordo com sua conveniência. </span>
+                <p>É hora de se capacitar com professores que são referência em seus nichos de atuação.
+                </p>
+                <span>E o melhor: você tem flexibilidade de horários, estuda de onde quiser e com a mesma qualidade. </span>
 
                 <button onclick="window.location.href = '{{ route('site.professores')}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para direita" />

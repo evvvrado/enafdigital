@@ -22,7 +22,7 @@
                     <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
                     <li><a href="{{ route('site.artigo-grid') }}">Artigos</a></li>
                     <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
-                    <li><a href="{{ route('site.contato') }}">Imprenssa</a></li>
+                    <li><a href="{{ route('site.contato') }}">Imprensa</a></li>
                     <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </ul>
             </div>
@@ -36,7 +36,7 @@
                 <div class="_svg">
                     <img src="{{ asset('site/img/svg_poweroflife.svg') }}" alt="Escrita Power of Life" />
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                <p>O melhor do universo fitness para você a qualquer hora e em qualquer lugar </p>
             </div>
         </div>
 

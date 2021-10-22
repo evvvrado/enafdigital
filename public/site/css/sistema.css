@@ -588,9 +588,11 @@ section._minhasMatriculas ._scrollMatriculas {
 
     scroll-snap-type: x mandatory;
 }
+
 ._contentList::-webkit-scrollbar {
-    /* display: none; */
+    display: none;
 }
+
 section._minhasMatriculas ._matriculasList {
     display: flex;
     gap: 3.2rem;
@@ -1368,6 +1370,8 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     section._meusPedidos ._pedidosList,
     section._meusPedidos ._scrollMatriculas {
         overflow-x: scroll;
+
+        flex-wrap: wrap;
     }
     section._minhasMatriculas ._matriculasList {
         width: max-content;
