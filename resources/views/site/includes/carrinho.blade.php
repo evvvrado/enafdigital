@@ -22,7 +22,7 @@
     }
 
     ._carrinho section._meuCarrinho {
-        height: 76.7rem;
+        height: 72.7rem;
     }
 
 

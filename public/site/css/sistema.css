@@ -1380,7 +1380,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
         scroll-snap-align: center;
     }
     section._minhasMatriculas ._matriculasList ._matricula ._content {
-        margin-top: 12.3rem;
+        /* margin-top: 12.3rem; */
         width: 100%;
     }
 
@@ -1482,7 +1482,8 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
 @media only screen and (max-width: 600px) {
     section._minhasMatriculas ._matriculasList ._matricula {
-        max-width: 100%;
+        max-width: 30rem;
+        height: auto;
     }
     div._sidemenu nav a:first-child {
         padding-top: 51px;
@@ -1692,13 +1693,13 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     font-size: 1.269rem;
     line-height: 1.5rem;
 
-    color: #1ac6d649;
+    color: #1ac7d6;
 }
 
 .detalhesdeCurso .container-fav main .list article picture {
     height: 5rem;
     width: 5rem;
-    background: #1ac7d6;
+    background: #1ac6d644;
 
     display: flex;
     align-items: center;
