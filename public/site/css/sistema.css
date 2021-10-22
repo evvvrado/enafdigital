@@ -1486,8 +1486,11 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 }
 
 @media only screen and (max-width: 600px) {
-    section._minhasMatriculas ._matriculasList ._matricula {
+    section._minhasMatriculas ._matriculasList._expanded ._matricula {
         max-width: 100%;
+    }
+    section._minhasMatriculas ._matriculasList ._matricula {
+        max-width: 28rem;
     }
     div._sidemenu nav a:first-child {
         padding-top: 51px;
