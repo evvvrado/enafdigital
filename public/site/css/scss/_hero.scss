@@ -196,6 +196,15 @@ section.s_hero {
         background-position: -90rem;
         height: 80rem;
     }
+    @include responsive(600px) {
+        .container-fav {
+            ._h1 {
+                h1 {
+                    font-size: 8.2rem;
+                }
+            }
+        }
+    }
 }
 
 section.s_backtoFeira {

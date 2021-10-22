@@ -119,8 +119,18 @@ class CarrinhoController extends Controller
             return redirect()->route('site.index');
         }
         $carrinho = Carrinho::find(session()->get("carrinho"));
+        $boleto = true;
+        $cartao = true;
+        foreach($carrinho->cursos as $curso){
+            if(!$curso->gerencianet){
+                $boleto = false;
+            }
+            if(!$curso->cielo){
+                $cartao = false;
+            }
+        }
         $aluno = $carrinho->aluno;
-        return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno]);
+        return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao]);
     }
 
     public function finalizar_boleto(Request $request){

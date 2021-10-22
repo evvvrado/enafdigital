@@ -146,25 +146,28 @@
                             <p>Selecione qual opçao deseja realizar o pagamento</p>
                         </div>
                         <div class="_buttons">
-                            <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
-                                <div class="_icon">
-                                    <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
+                            @if($boleto)
+                                <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
+                                    <div class="_icon">
+                                        <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
+                                    </div>
+                                    <div class="_text">
+                                        <span>Boleto Bancário</span>
+                                        <p>10% de desconto</p>
+                                    </div>
                                 </div>
-                                <div class="_text">
-                                    <span>Boleto Bancário</span>
-                                    <p>10% de desconto</p>
+                            @endif
+                            @if($cartao)
+                                <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
+                                    <div class="_icon">
+                                        <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
+                                    </div>
+                                    <div class="_text">
+                                        <span>Cartão de Crédito</span>
+                                        <p>em até 10x sem juros</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
-                                <div class="_icon">
-                                    <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
-                                </div>
-                                <div class="_text">
-                                    <span>Cartão de Crédito</span>
-                                    <p>em até 10x sem juros</p>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

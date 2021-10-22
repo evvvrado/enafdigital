@@ -165,7 +165,8 @@
                 @include responsive(730px) {
                     ._blog {
                         scroll-snap-align: start;
-                        height: 55rem;
+                        height: auto;
+                        padding-bottom: 2rem;
                     }
                 }
             }

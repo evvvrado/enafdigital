@@ -4,12 +4,12 @@
             <h4>Cursos</h4>
             <div class="_filter">
                 <nav>
-                    <div class="_filterItem active">Ver Todos</div>
                     <div class="_filterItem">Online</div>
                     <div class="_filterItem ">EAD</div>
                     <div class="_filterItem">Presenciais</div>
                 </nav>
             </div>
+
         </div>
         <div class="_cursosList">
 
@@ -263,6 +263,13 @@
                     </div>
                 </div>
             </div> --}}
+
+
+
         </div>
+
+        <a href="{{ route('site.cursos') }}" style="margin-top: 20px; float: right;">
+            Ver Todos
+        </a>
     </div>
 </section>

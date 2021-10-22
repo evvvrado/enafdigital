@@ -138,13 +138,13 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                 <div class="col">
                                     <label for="productdesc">Pagamento Por Boleto</label>
                                     <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" checked="">
+                                        <input class="form-check-input form-control" name="gerencianet" type="checkbox" id="SwitchCheckSizelg" checked="">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label for="productdesc">Pagamento Por Cartão</label>
                                     <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" checked="">
+                                        <input class="form-check-input form-control" name="cielo" type="checkbox" id="SwitchCheckSizelg" checked="">
                                     </div>
                                 </div>
                             </div>

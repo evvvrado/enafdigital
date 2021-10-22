@@ -1290,11 +1290,6 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._buttons .but
 body._carrinho section.s_identificacao .container-fav ._pagamento ._buttons .button p {
     margin: 0;
 }
-body._carrinho section.s_identificacao .container-fav ._pagamento ._buttons .button:first-child {
-    background-color: var(--gray11);
-    color: var(--wine12);
-}
-
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao {
     max-width: 41.6rem;
     padding-top: 3.2rem;

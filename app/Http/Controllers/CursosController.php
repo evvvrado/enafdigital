@@ -69,6 +69,18 @@ class CursosController extends Controller
         $curso->titulo = $request->titulo;
         $curso->sobre = $request->sobre;
         
+        if($request->gerencianet){
+            $curso->gerencianet = true;
+        }else{
+            $curso->gerencianet = false;
+        }
+
+        if($request->cielo){
+            $curso->cielo = true;
+        }else{
+            $curso->cielo = false;
+        }
+        
         if($request->certificacao){
             $curso->certificacao = true;
         }else{
