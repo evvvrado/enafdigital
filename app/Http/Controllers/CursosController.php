@@ -60,6 +60,8 @@ class CursosController extends Controller
             $curso = new Curso;
             $curso->nome = $request->nome;
             $curso->slug = Str::slug($request->nome);
+            $curso->gerencianet = true;
+            $curso->cielo = true;
             $curso->save();
         }
 
