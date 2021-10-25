@@ -30,6 +30,8 @@
                         <p class="curso_certificate">
                             @if ($curso->certificacao)
                             Certificado de {{ $curso->total_horas }} horas
+                            @else
+                            Curso de {{ $curso->total_horas}} horas
                             @endif</p>
                         <button>Comprar</button>
                     </div>

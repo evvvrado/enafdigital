@@ -15,7 +15,7 @@ section.s_hero {
                 }
             }
         }
-        @include responsive(400px) {
+        @include responsive(450px) {
             background-size: cover;
             background-position: -121rem;
         }

@@ -9,6 +9,11 @@ html {
     font-family: "Gilroy", sans-serif;
     scroll-behavior: smooth;
 
+    ::selection {
+        color: $color-featured;
+        background: $color-thirdy;
+    }
+
     &::-webkit-scrollbar {
         width: 0.5rem;
     }

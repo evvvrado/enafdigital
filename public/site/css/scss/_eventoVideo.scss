@@ -20,6 +20,10 @@ section.s_eventoVideo {
         margin-bottom: 3rem;
         color: $color-alternative;
       }
+
+      @include responsive(900px) {
+        text-align: center;
+      }
     }
 
     ._video {
