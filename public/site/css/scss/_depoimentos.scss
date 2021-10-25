@@ -80,7 +80,6 @@
                 white-space: nowrap;
                 max-width: 100%;
 
-                overflow: scroll;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
 
@@ -119,6 +118,12 @@
                         }
                         @include responsive(800px) {
                             width: 82.4vw;
+
+                            overflow: scroll;
+
+                            &::-webkit-scrollbar {
+                                display: none;
+                            }
                         }
                         @include responsive(600px) {
                             gap: 2rem;
