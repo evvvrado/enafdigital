@@ -27,7 +27,8 @@ section.s_eventoVideo {
     }
 
     ._video {
-      cursor: pointer;
+      width: 100%;
+      max-width: 595px;
       z-index: 2;
     }
 

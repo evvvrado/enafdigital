@@ -98,7 +98,7 @@
             }
 
             ._content {
-                max-width: 22.8rem;
+                max-width: 24.8rem;
                 margin-right: 2.8rem;
                 padding-left: 3rem;
 
@@ -120,6 +120,20 @@
                     color: $color-darkest;
                     margin-bottom: 1.2rem;
                     margin-right: 2.2rem;
+
+                    &._over {
+                        white-space: nowrap;
+                        max-width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        &::after {
+                            content: "...";
+                            position: absolute;
+                            background: white;
+                            right: 0;
+                            box-shadow: 0 0 15px 15px white;
+                        }
+                    }
                 }
 
                 a {

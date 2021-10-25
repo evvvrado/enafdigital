@@ -39,6 +39,7 @@
                 </li>
             </ul>
         </nav>
+
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
@@ -46,7 +47,7 @@
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -110,7 +111,7 @@
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">

@@ -596,6 +596,7 @@ section._minhasMatriculas ._scrollMatriculas {
 
 section._minhasMatriculas ._matriculasList {
     display: flex;
+    flex-wrap: wrap;
     gap: 3.2rem;
     margin-top: 3.3rem;
 }
@@ -661,6 +662,7 @@ section._minhasMatriculas ._matriculasList ._matricula h3 {
     font-size: 1.8rem;
     color: var(--wine1);
     letter-spacing: 0;
+    height: 38px;
 }
 
 section._meusDados {

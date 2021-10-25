@@ -7,7 +7,7 @@
                     <img src="{{ asset('/site/img/_logo45.svg') }}" alt="Logo Enaf" />
                 </div>
 
-                <div class="_whatsapp"><a style="color: white;" target="_blank" href="https://web.whatsapp.com/send?phone=">Whats: (35) 99725-9528</a></div>
+                <div class="_whatsapp"><a style="color: white;" target="_blank" href="https://web.whatsapp.com/send?phone=35997259528">Whats: (35) 99725-9528</a></div>
 
                 <div class="_email">
                     <div class="_icon">
