@@ -18,20 +18,20 @@
                     <div class="_ico">
                         <img src="{{ asset('site/img/calendar.svg') }}" alt="Ícone de calendário" />
                     </div>
-                    <span>{{date('d/m', strtotime($noticia->publicacao))}}</span>
+                    <span>{{date('d/m/Y', strtotime($noticia->publicacao))}}</span>
                 </div>
                 {{-- <div class="_comp">
                     <div class="_ico">
                         <img src="{{ asset('site/img/chatscircle.svg') }}" alt="Ícone de chat" />
                     </div>
                     <span>89</span>
-                </div>
+                </div> --}}
                 <div class="_comp">
                     <div class="_ico">
-                        <img src="{{ asset('site/img/heartbeat.svg') }}" alt="Ícone de coração" />
+                        <img src="{{ asset('site/img/sistema/user.svg') }}" alt="Ícone de coração" />
                     </div>
-                    <span>30</span>
-                </div> --}}
+                    <span>{{ $noticia->autor }}</span>
+                </div>
             </div>
         </div>
     </section>

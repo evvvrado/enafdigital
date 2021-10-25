@@ -60,12 +60,28 @@
                     gap: 2.5rem;
                 }
             }
+
+            @include responsive(600px) {
+                ._boxes {
+                    ._box {
+                        height: 19.5rem;
+                        width: 100%;
+                        max-width: 16.9rem;
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
 
         ._depoimentos {
             ._content {
                 white-space: nowrap;
                 max-width: 100%;
+
+                overflow: scroll;
+                scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
 
                 @include responsive(800px) {
@@ -91,6 +107,8 @@
                         white-space: initial;
                         height: 24.5rem;
                         width: 48.7rem;
+
+                        scroll-snap-align: start;
 
                         background: #f5f7fb;
                         box-shadow: 20px 20px 60px rgba(26, 65, 122, 0.2);

@@ -56,6 +56,8 @@
     </section>
 </footer>
 
+@include('site.includes.parceiros')
+
 
 <section class="container-fluid _copyRight">
     <div class="container-fav">

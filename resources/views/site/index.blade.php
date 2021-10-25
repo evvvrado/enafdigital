@@ -132,6 +132,10 @@
                 </div> --}}
             </div>
         </div>
+
+        <a class="vertodos" href="{{ route('site.eventos') }}">
+            Ver Todos
+        </a>
     </section>
 
     @include('site.includes.destaque')

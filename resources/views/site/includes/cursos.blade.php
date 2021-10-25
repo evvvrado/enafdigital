@@ -267,9 +267,9 @@
 
 
         </div>
-
-        <a href="{{ route('site.cursos') }}" style="margin-top: 20px; float: right;">
-            Ver Todos
-        </a>
     </div>
+
+    <a class="vertodos" href="{{ route('site.cursos') }}">
+        Ver Todos
+    </a>
 </section>

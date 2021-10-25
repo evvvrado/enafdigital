@@ -310,7 +310,7 @@ Route::post('/precadastro/salvar', [\App\Http\Controllers\PrecadastroController:
         Route::get('/sistema/catalogo/cadastrar', [\App\Http\Controllers\CatalogoController::class, 'cadastrar'])->name("painel.catalogo.cadastro");
 
         //ROTAS DE VENDAS
-        Route::get('/sistema/vendas', [\App\Http\Controllers\PagamentosController::class, 'vendas'])->name("painel.vendas");
+        Route::get('/sistema/vendas', [\App\Http\Controllers\VendasController::class, 'consultar'])->name("painel.vendas");
         
         //ROTAS DE CONFIGURAÇÕES
         Route::get('/sistema/informacoes/municipios', [\App\Http\Controllers\InformacoesController::class, 'municipios'])->name("painel.informacoes.municipios");

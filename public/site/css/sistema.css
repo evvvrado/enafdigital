@@ -617,6 +617,10 @@ section._minhasMatriculas ._matriculasList ._matricula {
 
     color: var(--orange2);
 }
+section._minhasMatriculas ._matriculasList ._matricula:not(:first-child) {
+    opacity: 0.5;
+    cursor: default;
+}
 section._minhasMatriculas ._matriculasList ._matricula ._image {
     height: 15.5rem;
     width: 100%;
@@ -2602,4 +2606,98 @@ section._copyRight p strong {
 .d_superMenu._showed .container-fav ._right ._text h6::after {
     content: "A MAIOR DO BRASIL";
     animation: changetext infinite linear 8s;
+}
+
+.s_parceiros {
+    margin-top: 10rem;
+    padding-bottom: 5.1rem;
+    padding-top: 2.1rem;
+    background: #f7f8fc;
+    /** @include responsive(1400px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    @include responsive(400px) {
+   }
+    **/
+    /** @include responsive(1400px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    @include responsive(400px) {
+   }
+    **/
+}
+.s_parceiros .container-fav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.s_parceiros .container-fav span {
+    font-size: 1.8rem;
+    display: block;
+    line-height: 2.1rem;
+    letter-spacing: 0.02em;
+    color: #3c445b;
+    margin-bottom: 3rem;
+}
+.s_parceiros .container-fav ._apoio {
+    margin-right: 10.6rem;
+}
+.s_parceiros .container-fav ._apoio ._apoiador {
+    margin-top: 4.5rem;
+    position: relative;
+    display: block;
+}
+.s_parceiros .container-fav ._apoio ._apoiador::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -4.3rem;
+    width: 0.1rem;
+    height: 4.3rem;
+    border-right: 1px solid #c4c4c4;
+}
+.s_parceiros .container-fav ._patrocinadores {
+    width: 100%;
+}
+.s_parceiros .container-fav ._patrocinadores ._patrocinadorList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (max-width: 900px) {
+    .s_parceiros .container-fav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+    .s_parceiros .container-fav ._apoiador::after {
+        display: none;
+    }
+    .s_parceiros .container-fav ._apoio {
+        margin-right: 0;
+    }
+}
+@media (max-width: 600px) {
+    .s_parceiros .container-fav ._patrocinadores ._patrocinadorList {
+        flex-direction: column;
+        gap: 5rem;
+        align-items: center;
+    }
 }

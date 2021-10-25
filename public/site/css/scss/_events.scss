@@ -70,6 +70,7 @@
                         button {
                             @include alternative-btn(3.6rem, $color-thirdy, $white);
                             margin: 0 auto;
+                            margin-left: 31px;
                             margin-top: 2rem;
                             font-size: 1.6rem;
                         }
@@ -113,11 +114,13 @@
     @include responsive(992px) {
         .container-fav {
             overflow-x: scroll;
+            scroll-snap-type: x mandatory;
             ._eventList {
-                animation: autoscroll infinite 12s linear;
+                // animation: autoscroll infinite 12s linear;
                 display: inline;
                 white-space: nowrap;
                 ._event {
+                    scroll-snap-align: start;
                     margin-left: 1.5rem;
                     display: inline-block;
                     &:hover {

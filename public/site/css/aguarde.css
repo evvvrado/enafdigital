@@ -137,7 +137,6 @@ body {
 
     overflow: hidden;
     gap: 3rem;
-
 }
 
 h1.show {
@@ -187,6 +186,9 @@ button {
     position: relative;
 
     animation: upanddown 2s infinite linear;
+}
+button img {
+    transform: rotate(-90deg);
 }
 
 button u {
@@ -252,7 +254,7 @@ div._form {
     background-color: white;
     width: 100%;
     max-width: 38.5rem;
-    bottom: -100vh;
+    bottom: -0;
     right: 0;
     position: absolute;
     z-index: 5;
@@ -318,7 +320,7 @@ div._form form label select {
 }
 
 div._form form label input.error,
-div._form form label select.error{
+div._form form label select.error {
     border: solid 1px red;
 }
 
@@ -394,9 +396,9 @@ div._form button:hover {
     }
 }
 
-._infobox{
+._infobox {
     position: absolute;
-    pointer-events:none;
+    pointer-events: none;
 }
 
 ._box {
@@ -433,40 +435,39 @@ div._form button:hover {
     height: 0.3rem;
 }
 
-.modal-precadastro-text > h1{
+.modal-precadastro-text > h1 {
     font-size: 30px;
     font-weight: bold;
-    color: #58D35F;
+    color: #58d35f;
 }
 
-.modal-precadastro-text > h2{
+.modal-precadastro-text > h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #6A6C79;
+    color: #6a6c79;
 }
 
-.modal-precadastro-text > h3{
+.modal-precadastro-text > h3 {
     font-size: 15px;
     font-weight: medium;
-    color: #6A6C79;
+    color: #6a6c79;
     opacity: 0.65;
 }
 
-.modal-precadastro-text > h4{
+.modal-precadastro-text > h4 {
     font-size: 15px;
     font-weight: 600;
-    color: #6A6C79;
+    color: #6a6c79;
     opacity: 0.85;
 }
 
-
 @media (max-width: 1600px) {
-    ._form.show{
+    ._form.show {
         height: 100%;
         bottom: 0;
     }
 
-    ._form p{
+    ._form p {
         display: none;
     }
 }

@@ -5,21 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description"
-        content="Congresso e Feira Fitness. Cursos, Palestras e Workshops de atualização profissional" />
+    <meta name="description" content="Congresso e Feira Fitness. Cursos, Palestras e Workshops de atualização profissional" />
     <meta name="keywords" content="Congresso, Feira, Fitness, Cursos, Palestras, Workshops" />
     <meta name="author" content="7Seven Trends" />
 
     <meta property="og:title" content="ENAF, - Esporte, Fitness e Saúde" />
     <meta property="og:url" content="https://enafdigital.com.br" />
-    <meta property="og:description"
-        content="Congresso e Feira Fitness. Cursos, Palestras e Workshops de atualização profissional" />
+    <meta property="og:description" content="Congresso e Feira Fitness. Cursos, Palestras e Workshops de atualização profissional" />
     <meta property="og:image" content="{{ asset('site/img/_og140.png') }} " />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
-    <link rel="stylesheet"
-        href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css" />
 
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
 
@@ -53,8 +50,7 @@
             </h1>
 
             <button class="discover">
-                VEM <u>DESCOBRIR</u> <img src="{{ asset('site/img/aguarde/setapracima.svg') }}"
-                    alt="Seta para cima" />
+                VOLTAR <u>PARA O INÍCIO</u> <img src="{{ asset('site/img/aguarde/setapracima.svg') }}" alt="Seta para cima" />
             </button>
 
 
@@ -73,7 +69,7 @@
                         <select name="filiacao" required>
                             <option value="-1">Escolher</option>
                             @foreach (config('filiacoes.nomes') as $key => $filiacao)
-                                <option value="{{ $key }}">{{ $filiacao }}</option>
+                            <option value="{{ $key }}">{{ $filiacao }}</option>
                             @endforeach
                         </select>
                         <div class="_icon">
@@ -105,8 +101,7 @@
                         <span>Whatsapp</span>
                         <input type="tel" name="telefone" placeholder="(99) 9 9999-9999" required />
                         <div class="_icon">
-                            <img src="{{ asset('site/img/feira/icon_form_cellphone.svg') }}"
-                                alt="Ícone de Telefone" />
+                            <img src="{{ asset('site/img/feira/icon_form_cellphone.svg') }}" alt="Ícone de Telefone" />
                         </div>
                     </label>
 
@@ -119,21 +114,18 @@
 
     </div>
 
-    <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
             <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
 
                 <div class="modal-body px-5 py-0">
-                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal"
-                        aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 9;">
+                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 9;">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="mt-5">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <img src="{{ asset('site/img/icone_cadastro.png') }}" style="width: 100px;"
-                                    alt="Ícone de Cadastro">
+                                <img src="{{ asset('site/img/icone_cadastro.png') }}" style="width: 100px;" alt="Ícone de Cadastro">
                             </div>
                         </div>
                         <div class="row">
@@ -154,8 +146,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     {{-- <script src="{{ asset('admin/libs/jquery/jquery.min.js') }}"></script> --}}
@@ -164,17 +155,16 @@
     <script src="{{ asset('admin/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('admin/libs/node-waves/waves.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js"
-        integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
 @if (session()->get('precadastro_realizado'))
-    <script>
-        $(document).ready(function() {
+<script>
+    $(document).ready(function() {
             $("#modalCadastro").modal("show");
         });
-    </script>
+</script>
 @endif
 
 <script>
@@ -187,7 +177,7 @@
     });
 
     $('button.discover, ._form ._close').click(() => {
-        $('._form').toggleClass("show");
+        window.location.href = '/'; 
     })
 
     $('select').change(() => {

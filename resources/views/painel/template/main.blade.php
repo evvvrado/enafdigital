@@ -329,7 +329,16 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
                         </li>
 
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect">
+                                <i class="bx bx-money" aria-hidden="true"></i>
+                                <span key="t-dashboards">Financeiro</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('painel.vendas') }}" key="t-default">Vendas</a></li>
+                            </ul>
 
+                        </li>
 
 
 

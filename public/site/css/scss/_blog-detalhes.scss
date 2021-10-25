@@ -20,7 +20,7 @@
 
             @include flex(row, center, space-between);
 
-            max-width: 241px;
+            // max-width: 241px;
             ._comp {
                 @include flex(row, center, center);
                 gap: 1rem;

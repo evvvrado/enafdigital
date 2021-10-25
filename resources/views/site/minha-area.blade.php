@@ -156,14 +156,14 @@
                         <img src="{{ asset('site/img/sistema/Icone (3).png') }}" alt="">
                     </div>
                     <div class="_content">
-                        <h3>Eventos</h3>
-                        <p>Nenhuma Inscrição</p>
-                        <button class="btn-primary" style="background-color: orange;" onclick="window.location.href = '/minha-area/compras'">
+                        <h3>Clube de Experiências</h3>
+                        <p>Em breve...</p>
+                        {{-- <button class="btn-primary" style="background-color: orange;" onclick="window.location.href = '/minha-area/compras'">
                             + VER EVENTOS
                             <div class="_svg">
                                 <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
                             </div>
-                        </button>
+                        </button> --}}
                     </div>
 
                 </div>
@@ -172,14 +172,14 @@
                         <img src="{{ asset('site/img/sistema/Icone (1).png') }}" alt="">
                     </div>
                     <div class="_content">
-                        <h3>Contribuições</h3>
-                        <p>Não Associado</p>
-                        <button class="btn-primary" style="background-color: green;" onclick="window.location.href = '/minha-area/compras'">
+                        <h3>Treinamento</h3>
+                        <p>Em breve...</p>
+                        {{-- <button class="btn-primary" style="background-color: green;" onclick="window.location.href = '/minha-area/compras'">
                             QUERO ME ASSOCIAR
                             <div class="_svg">
                                 <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
                             </div>
-                        </button>
+                        </button> --}}
                     </div>
 
                 </div>

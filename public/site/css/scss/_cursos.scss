@@ -213,13 +213,17 @@
             overflow-x: hidden;
             ._cursosList {
                 overflow-x: scroll;
-                animation: autoscroll-long infinite 12s linear;
+                // animation: autoscroll-long infinite 12s linear;
+
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
                 display: inline-block;
                 white-space: nowrap;
                 ._curso {
                     white-space: normal;
                     margin-left: 1.5rem;
                     display: inline-block;
+                    scroll-snap-align: start;
                     &:hover {
                         transform: none;
                         box-shadow: none;
@@ -293,5 +297,17 @@
                 }
             }
         }
+    }
+}
+
+.vertodos {
+    margin-top: 20px;
+    float: right;
+    margin-right: 337px;
+
+    color: $color-second;
+
+    @include responsive(900px) {
+        margin-right: 0;
     }
 }

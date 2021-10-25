@@ -22,9 +22,10 @@
 
             @include responsive(600px) {
                 scroll-snap-type: x mandatory;
+                overflow: scroll;
 
                 ._picture {
-                    scroll-snap-align: center;
+                    scroll-snap-align: start;
                 }
             }
 
