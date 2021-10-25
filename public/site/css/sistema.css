@@ -410,6 +410,7 @@ section._meusPedidos ._top ._topbutton ._btn {
 }
 section._meusPedidos ._pedidosList {
     display: flex;
+    flex-wrap: wrap;
     gap: 3.2rem;
     margin-top: 3.3rem;
 }
@@ -617,7 +618,7 @@ section._minhasMatriculas ._matriculasList ._matricula {
 
     color: var(--orange2);
 }
-section._minhasMatriculas ._matriculasList ._matricula:not(:first-child) {
+section._minhasMatriculas ._matriculasList._expanded ._matricula:not(:first-child) {
     opacity: 0.5;
     cursor: default;
 }

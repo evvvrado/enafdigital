@@ -262,10 +262,6 @@
     }
 </style>
 
-
-@php
-$carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
-@endphp
 <section class="_meuCarrinho">
     <div class="_top">
         <div class="_title">
@@ -276,7 +272,7 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
             <span>Meu Carrinho</span>
         </div>
         <div class="_numberofItems">
-            <span>{{$carrinho->produtos->count()}}</span>
+            <span>0</span>
         </div>
     </div>
     <div class="_value">
@@ -284,22 +280,21 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
         <div class="_svg">
             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
         </div>
-        <strong>R$ <span class="_total">{{number_format($carrinho->total, 2, ",", ".")}}</span></strong>
+        <strong>R$ <span class="_total">0,00</span></strong>
     </div>
     <div class="_innerCar">
-        @foreach($carrinho->produtos as $produto)
-        <div class="_innerItem">
+        <div class="_innerItem" style="opacity: 0.5">
             <div class="_img">
-                <img @if(!$produto->curso->pacote) src="{{ asset($produto->curso->thumbnail) }}" @else src="{{ asset($produto->curso->cursos->first()->thumbnail) }}" @endif alt="" />
+                <img src="{{ asset('site/img/sistema/carrinhoExample.jpg') }}" alt="" />
             </div>
             <div class="_content">
                 {{-- <h3 class="isOnline">Curso Online</h3> --}}
-                <h2 class="itemName">{{$produto->curso->nome}}</h2>
+                <h2 class="itemName">Nenhum produto no momento</h2>
                 {{-- <p class="itemExtra">Certificado de 10hs</p> --}}
                 <div class="itemValue">
-                    <strong>R$ <span class="_itemValue">{{number_format($produto->total, 2, ",", ".")}}</span></strong>
+                    <strong>R$ <span class="_itemValue">0,00</span></strong>
                     <div class="_controls">
-                        <div class="itemControl cancel" onclick="window.location.href = '{{route('site.carrinho-remover', ['curso' => $produto->curso])}}'">
+                        <div class="itemControl cancel">
                             <div class="_img">
                                 <img src="{{ asset('site/img/sistema/cancel.svg') }}" alt="" />
                             </div>
@@ -313,7 +308,6 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
     <div class="_bottom">
         <div class="_subTotal _bottomSub">
@@ -323,7 +317,7 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
             <div class="_svg">
                 <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
             </div>
-            <span>R$ <span class="_subtotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span></span>
+            <span>R$ <span class="_subtotalValue">0,00</span></span>
         </div>
         {{-- <div class="_subDesconto _bottomSub">
             <span>Desconto</span>
@@ -339,13 +333,13 @@ $carrinho = \App\Models\Carrinho::find(session()->get("carrinho"));
         <div class="_svg">
             <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
         </div>
-        <strong>R$ <span class="_finaltotalValue">{{number_format($carrinho->total, 2, ",", ".")}}</span> </strong>
+        <strong>R$ <span class="_finaltotalValue">0,00</span> </strong>
     </div>
 
     @if (Route::is('site.carrinho-efetuar') ||Route::is('site.carrinho-confirmacao') || Route::is('site.carrinho.pagamento.cartao') || Route::is('site.carrinho.pagamento.boleto'))
     @else
 
-    <button name="finalizarCompra" onclick="window.location.href = '{{ route('site.carrinho-efetuar') }}'">
+    <button name="finalizarCompra" style="opacity: 0.2; pointer-events: none;">
         Finalizar compra
     </button>
     @endif

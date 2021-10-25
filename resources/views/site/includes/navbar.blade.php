@@ -47,6 +47,8 @@
 <div class="d_carrinho">
     @if(session()->get("carrinho"))
     @include('site.includes.carrinho')
+    @else
+    @include('site.includes.carrinho-empty')
     @endif
 </div>
 
@@ -97,9 +99,9 @@ Route::is('site.minha-area-matricula.conteudo'))
                 @else
                 <li><a href="{{ route('site.minha-area') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
                 @endif
-                @if(session()->get("carrinho"))
+                {{-- @if(session()->get("carrinho")) --}}
                 <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
-                @endif
+                {{-- @endif --}}
             </ul>
         </nav>
     </div>
