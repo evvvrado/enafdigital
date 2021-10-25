@@ -1,5 +1,5 @@
 @include("site.includes.head")
-<title>@if(session()->get("tipo") == "clinica") Nossas Clínicas @else Nossos Eventos @endif</title>
+<title>ENAF - @if(session()->get("tipo") == "clinica") Nossas Clínicas @else Nossos Eventos @endif</title>
 
 <body id="nossoscursos">
 
@@ -34,7 +34,7 @@
             <div class="content">
 
                 <div class="_eventList">
-                    @foreach($eventos as $evento)
+                    @foreach($eventos->sortBy('inicio') as $evento)
 
 
                     <script>

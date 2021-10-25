@@ -1,5 +1,5 @@
 @include("site.includes.head")
-<title>@if($tipo == 0) Nosso Blog @else Nossos Artigos @endif</title>
+<title>ENAF @if($tipo == 0) Nosso Blog @else Nossos Artigos @endif</title>
 
 
 <body id="nossoblog">

@@ -1,5 +1,5 @@
 @include("site.includes.head")
-
+<title> EXPO ENAF | Catálogo </title>
 
 <body id="catalogo">
 

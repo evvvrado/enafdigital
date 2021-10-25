@@ -107,16 +107,16 @@ $(document).ready(() => {
         $("._filter nav ._filterItem:first-child").addClass("active");
 
         $("._cursosList ._curso.presencial").css("display", "none");
-        $("._cursosList ._curso.online").css("display", "none");
-        $("._cursosList ._curso.ead").css("display", "inline-block");
+        $("._cursosList ._curso.ead").css("display", "none");
+        $("._cursosList ._curso.online").css("display", "inline-block");
     });
     $("._filter nav ._filterItem:nth-child(2)").click(() => {
         $("._filter nav ._filterItem").removeClass("active");
         $("._filter nav ._filterItem:nth-child(2)").addClass("active");
 
         $("._cursosList ._curso.presencial").css("display", "none");
-        $("._cursosList ._curso.ead").css("display", "none");
-        $("._cursosList ._curso.online").css("display", "inline-block");
+        $("._cursosList ._curso.online").css("display", "none");
+        $("._cursosList ._curso.ead").css("display", "inline-block");
     });
     $("._filter nav ._filterItem:last-child").click(() => {
         $("._filter nav ._filterItem").removeClass("active");

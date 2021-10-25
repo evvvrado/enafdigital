@@ -27,9 +27,10 @@
                         </p>
                     </div>
                     <div class="_bottom">
-                        @if ($curso->certificacao)
-                        <p class="curso_certificate">Certificado de {{ $curso->total_horas }} horas</p>
-                        @endif
+                        <p class="curso_certificate">
+                            @if ($curso->certificacao)
+                            Certificado de {{ $curso->total_horas }} horas
+                            @endif</p>
                         <button>Comprar</button>
                     </div>
                 </div>

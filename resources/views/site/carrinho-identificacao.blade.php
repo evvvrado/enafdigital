@@ -1,5 +1,5 @@
 @include('site.includes.carrinho.head')
-<title>Conecte-se</title>
+<title>ENAF - Conecte-se</title>
 
 
 <body class="_carrinho _tocenter">
