@@ -61,7 +61,7 @@ class SiteController extends Controller
 
     public function cursos()
     {
-        $cursos = Curso::where("pacote", false)->get();
+        $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
         return view("site.cursos", ["cursos" => $cursos]);
     }
 
@@ -73,7 +73,7 @@ class SiteController extends Controller
 
     public function curso($slug)
     {
-        $cursos = Curso::where("pacote", false)->get();
+        $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
         $curso = Curso::where("slug", $slug)->first();
         return view("site.curso", ["cursos" => $cursos], ['curso' => $curso]);
     }
