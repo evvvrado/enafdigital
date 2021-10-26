@@ -34,7 +34,7 @@ class SiteController extends Controller
     {
 
         $eventos = \App\Models\Evento::where("clinica", false)->orderBy("inicio")->get();
-        $cursos = Curso::where("pacote", false)->get();
+        $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
         $professores = \App\Models\Professor::inRandomOrder()->limit(5)->get();
 
         $pagina = Pagina::where("nome", "Home")->first();
