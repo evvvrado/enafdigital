@@ -82,6 +82,12 @@
                             overflow: hidden;
 
                             max-width: 85%;
+
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
                         }
                         .blogDate {
                             color: $color-main;

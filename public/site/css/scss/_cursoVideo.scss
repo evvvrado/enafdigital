@@ -27,6 +27,10 @@ section.s_cursoVideo {
       z-index: 2;
       border-radius: 12px;
       overflow: hidden;
+
+      width: 100%;
+      max-width: 595px;
+      z-index: 2;
     }
 
     @include responsive(930px) {

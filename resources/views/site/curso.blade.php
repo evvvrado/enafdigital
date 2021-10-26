@@ -53,7 +53,7 @@
             </div>
 
             <div class="_video">
-                <iframe width="595" height="385" src="{{ $curso->video }}?autoplay=1" title="YouTube video player" frameborder="0"
+                <iframe src="{{ $curso->video }}?autoplay=1" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>

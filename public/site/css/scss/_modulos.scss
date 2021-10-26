@@ -143,6 +143,9 @@ section.s_content {
           img {
             filter: saturate(0);
             transition: 1s;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
 
             &:hover {
               filter: saturate(1);
