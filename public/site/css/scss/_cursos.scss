@@ -107,8 +107,10 @@
                             color: $color-alternative;
                             font-size: 1.4rem;
                             height: 6rem;
-                            display: block;
                             overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
                             text-overflow: ellipsis;
                         }
 
