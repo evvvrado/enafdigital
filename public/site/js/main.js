@@ -41,7 +41,23 @@ $('a[href*="#"]')
         }
     });
 
+    
+    var gallery_images = $('.s_galeria .container-fav ._content ._galeriaList ._picture img');
+    var imageindex;
+
+    function getImage(image) {
+        $('.fullscreen-image').toggleClass("showed")
+        $('.fullscreen-image picture img').attr('src', $(image).attr('src'));
+
+        imageindex = $(image).closest('div._picture').index();
+        console.log(imageindex)
+    }
+
+
+
 $(document).ready(() => {
+
+    
     $(".fade").first().removeClass("fade");
 
     $(".back-drop").animate(
@@ -157,13 +173,43 @@ $(document).ready(() => {
     });
 
  
-    $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(
-        (e) => {
-            if (document.fullscreenElement == null)
-                e.target.requestFullscreen();
-            else document.exitFullscreen();
-        }
-    );
+    // $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(
+    //     (e) => {
+    //         if (document.fullscreenElement == null)
+    //             e.target.requestFullscreen();
+    //         else document.exitFullscreen();
+    //     }
+    // );
+
+
+    $('.fullscreen-image span').click(function() {
+        $('.fullscreen-image').toggleClass("showed")
+    })
+
+    $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(function() {
+        getImage(this)
+    })
+
+    $(".fullscreen-image div button:nth-child(2)").click(() => {
+        if(imageindex >= gallery_images.length - 1) return false;
+
+        imageindex++;
+        var source =  $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+
+
+        $('.fullscreen-image picture img').attr('src', source.src);
+    })
+    $(".fullscreen-image div button:first-child").click(() => {
+        if(imageindex <= 0) return false;
+
+        imageindex--;
+        var source =  $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+
+        
+        $('.fullscreen-image picture img').attr('src', source.src);
+    })
+
+
 
     $(
         "body#treinador section.s_duvidas .container-fav ._duvidas ._box ._main, section.s_content .container-fav ._modulos ._box ._main"
@@ -303,14 +349,18 @@ function depoimentoSlide() {
 
 setInterval(depoimentoSlide, 5000);
 
-console.log(
-    "%cSe perdeu? Está tudo bem!",
-    "color: #FF3434; font-family:monospace; font-size: 35px"
-);
-console.log(
-    "%c                             Desenvolvido por: %c@hyp8tec",
-    "color:#5cedd7; font-family:monospace; font-size: 15px",
-    "color: #0379E8; font-family:monospace; font-size: 15px"
-);
+
+
+
+
+
+
+
+
+
+
+
+
+console.log("%c👋 Opa, bom dia!\n%cEstá perdido? a estrada é pelo %coutro lado!!\n%cMas já que já está aqui, da uma olhadinha no nosso site\n%chttps://hyp8.com.br ✨", "font-family: consolas;", "font-family: consolas;", "font-family: consolas; font-weight: bold;color: red;", "font-family: consolas;", "font-family: consolas; color:$FF3434; ")
 
 

@@ -197,4 +197,5 @@
         $(".s_destaque button").click(() =>{
             window.location.href= "{{ route('site.feira') }}"
         })
+
     </script>

@@ -38,10 +38,21 @@
                 ._picture {
                     flex-basis: 3000px;
                     transition: 0.32s;
+
+                    border-radius: 1.5rem;
+                    overflow: hidden;
+                    width: 100%;
+                    max-width: 40.533333rem;
+                    height: 29rem;
+
                     img {
                         transition: 0.32s;
                         border-radius: 0.8rem;
                         filter: saturate(0);
+
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
                     }
 
                     &:hover {
@@ -90,6 +101,89 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.fullscreen-image {
+    &.showed {
+        @include flex(row, center, center);
+    }
+    position: fixed !important;
+    top: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    box-sizing: border-box !important;
+    min-width: 0px !important;
+    max-width: 100vw !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    margin: 0px !important;
+    z-index: 666;
+    background: rgba(0, 0, 0, 0.815);
+
+    display: none;
+    span {
+        height: 100%;
+        width: 100%;
+
+        z-index: 666;
+    }
+
+    div {
+        position: absolute;
+        padding: 5%;
+
+        width: 100%;
+        height: 100%;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        @include flex(row, center, space-between);
+
+        @include responsive(900px) {
+            padding: 0;
+        }
+
+        button {
+            color: white;
+            z-index: 667;
+            @include responsive(900px) {
+                height: 100%;
+                padding: 1.5rem;
+                background-color: rgb(0 0 0 / 33%);
+            }
+        }
+    }
+
+    picture {
+        height: 75%;
+        width: 75%;
+        position: absolute;
+
+        margin: auto auto;
+
+        border-radius: 1.5rem;
+        overflow: hidden;
+
+        border: solid 1px $color-main;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @include responsive(900px) {
+            width: 100%;
+            height: auto;
         }
     }
 }

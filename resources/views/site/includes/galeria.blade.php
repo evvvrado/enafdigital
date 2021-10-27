@@ -58,3 +58,15 @@
         </div>
     </div>
 </section>
+
+<section class="fullscreen-image">
+    <div>
+        <button><img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" /></button>
+        <button><img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Seta indicando a direita" /> </button>
+    </div>
+    <picture>
+        <img src="{{ asset('site/img/galeria_Pic (1).jpg')}} " alt="">
+    </picture>
+
+    <span></span>
+</section>

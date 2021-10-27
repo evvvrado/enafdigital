@@ -2064,7 +2064,7 @@ p {
     margin-top: 2.5rem;
 }
 .d_superMenu .container-fav ._left ._lists ul li {
-    list-style: url("http://enafdigital.test/site/img/listball.svg");
+    list-style: url("/site/img/listball.svg");
     list-style-position: inside;
     margin-top: 1rem;
 }

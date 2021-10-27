@@ -85,6 +85,11 @@
 
                 @include responsive(800px) {
                     max-width: auto;
+                    overflow: scroll;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
                 }
 
                 ._depoimentosList {
@@ -118,12 +123,6 @@
                         }
                         @include responsive(800px) {
                             width: 82.4vw;
-
-                            overflow: scroll;
-
-                            &::-webkit-scrollbar {
-                                display: none;
-                            }
                         }
                         @include responsive(600px) {
                             gap: 2rem;
