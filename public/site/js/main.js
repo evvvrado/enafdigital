@@ -42,7 +42,7 @@ $('a[href*="#"]')
     });
 
     
-    var gallery_images = $('.s_galeria .container-fav ._content ._galeriaList ._picture img');
+    var gallery_images = $('section.s_galeria .container-fav ._content ._galeriaList ._picture img');
     var imageindex;
 
     function getImage(image) {
@@ -182,15 +182,15 @@ $(document).ready(() => {
     // );
 
 
-    $('.fullscreen-image span').click(function() {
+    $(".fullscreen-image span").click(function() {
         $('.fullscreen-image').toggleClass("showed")
     })
 
-    $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(function() {
+    $("section.s_galeria .container-fav ._content ._galeriaList ._picture img").click(function() {
         getImage(this)
     })
 
-    $(".fullscreen-image div button:nth-child(2)").click(() => {
+    $("body:not('body#galerias') .fullscreen-image div button:nth-child(2)").click(() => {
         if(imageindex >= gallery_images.length - 1) return false;
 
         imageindex++;
@@ -199,7 +199,7 @@ $(document).ready(() => {
 
         $('.fullscreen-image picture img').attr('src', source.src);
     })
-    $(".fullscreen-image div button:first-child").click(() => {
+    $("body:not('body#galerias') .fullscreen-image div button:first-child").click(() => {
         if(imageindex <= 0) return false;
 
         imageindex--;
@@ -220,7 +220,7 @@ $(document).ready(() => {
     // A FEIRA
 
     $(
-        "body#feira .s_backtoFeira .container-fav, .s_feira ._filter ._close"
+        "body#feira .s_backtoFeira .container-fav ._select, .s_feira ._filter ._close"
     ).click(() => {
         $(".s_feira ._filter").toggleClass("active");
     });

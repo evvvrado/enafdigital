@@ -114,6 +114,18 @@ class ClinicaController extends Controller
         return redirect()->back();
     }
 
+    public function salvar_divulgacao(Request $request, Evento $evento){
+        if($request->file("banner_divulgacao")){
+            Storage::delete($evento->banner_divulgacao);
+            $evento->banner_divulgacao = $request->file('banner_divulgacao')->store(
+                'site/imagens/eventos/' . $evento->id, 'local'
+            );
+        }
+        $evento->save();
+        toastr()->success("Banner de divulgacao salvo com sucesso!");
+        return redirect()->back();
+    }
+
     public function adicionar_curso(Request $request, Evento $evento){
         $evento_curso = new EventoCurso;
         $evento_curso->evento_id = $evento->id;

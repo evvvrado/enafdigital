@@ -38,7 +38,8 @@ section.s_hero {
             color: $white;
         }
     }
-    #nossoblog & {
+    #nossoblog &,
+    #galerias & {
         height: 44.2rem;
         margin-top: 11.2rem;
         background-image: url("../img/header_blog.jpg");

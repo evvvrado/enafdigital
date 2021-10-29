@@ -62,25 +62,26 @@
 
 
                                 <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo</td>
-                                        <td class="depoimento-row">Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                        class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('painel.depoimento.editar') }}">Editar</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                    @foreach($depoimentos as $depoimento)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{$depoimento->nome}}</td>
+                                            <td class="depoimento-row">{{$depoimento->depoimento}}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.depoimento.editar', ['depoimento' => $depoimento]) }}">Editar</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" style="color: red" href="{{route('painel.depoimento.deletar', ['depoimento' => $depoimento])}}">Excluir</a>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -103,20 +104,30 @@
         <div class="card filter-body">
             <div class="card-body">
 
-                <form action="javascript: void(0);">
-
+                <form id="form-filtro" action="{{route('painel.depoimento')}}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" class="form-control"
+                            placeholder="" @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="depoimento">Depoimento</label>
+                        <input id="depoimento" name="depoimento" type="text" class="form-control"
+                            placeholder="" @if (isset($filtros) && isset($filtros['depoimento'])) value="{{ $filtros['depoimento'] }}" @endif>
+                    </div>
                 </form>
 
 
 
                 <div class="buttons-row">
                     <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                        <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                        <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
                     </div>
@@ -267,6 +278,15 @@
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
                 }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
             });
         });
 

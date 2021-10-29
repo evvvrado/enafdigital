@@ -51,19 +51,26 @@
 
             <div class="_content">
                 <div class="_depoimentosList">
+
+                    @foreach(\App\Models\Depoimento::take(3)->get() as $depoimento)
                     <div class="_depoimento">
                         <div class="_pic">
-                            <img src="{{ asset('site/img/depoimento_Pic (1).jpg') }}" alt="Foto de Dr. Turíbio" />
+                            <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" />
                         </div>
                         <div class="_text">
                             <p>
-                                O ENAF plantou a semente da ciência na Educação Física no Brasil. A árvore
-                                nasceu, cresceu e hoje, 30 anos após, todos nós estamos colhendo seus frutos.
+                                {{$depoimento->depoimento}}
                             </p>
-                            <h5>Dr. Turíbio Leite B. Neto</h5>
+                            <h5>{{$depoimento->nome}}</h5>
                         </div>
                     </div>
-                    <div class="_depoimento">
+                    @endforeach
+
+
+
+
+
+                    {{-- <div class="_depoimento">
                         <div class="_pic">
                             <img src="{{ asset('site/img/depoimento_Pic (2).jpg') }}" alt="Foto de Dr. Turíbio" />
                         </div>
@@ -86,7 +93,7 @@
                             </p>
                             <h5>Dr. Turíbio Leite B. Neto</h5>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

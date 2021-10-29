@@ -138,6 +138,9 @@ class GerencianetController extends Controller
         $res = $gerencianet->notificacao($_POST["notification"]);
         if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
+            if(!$pagamento){
+                $pagamento = PagamentoCarneParcela::where("charge_id", $res["charge_id"])->first();
+            }
             $pagamento->status = $res["status"];
             Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
             $pagamento->save();

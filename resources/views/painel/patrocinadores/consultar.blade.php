@@ -2,8 +2,10 @@
 
 @section('styles')
     <!-- DataTables -->
-    <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('titulo')
@@ -20,93 +22,121 @@
 
     <div class="row">
         <div class="col-9">
-            
+
             <div class="row"">
 
-                           
-                <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                    
-                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{route('painel.patrocinadores.cadastro')}}">
+                               
+                    <div class=" col-sm-12 col-md-6 mb-3"
+                style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+
+                <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
+                    style="padding-left: 0;" href="{{ route('painel.patrocinadores.cadastro') }}">
                     <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-             </div>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
-                           
-                           <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
-                           
-                        </div>
-                        <div class="row">
+
+                        <i id="search-icon" class="bx bx-search" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
-                        <thead>
-                           <tr role="row">
-                              <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Nome</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">URL</th>
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">Quantidade de Views</th>    
-                              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending"></th>
-                           </tr>
-                        </thead>
+                            <table id="datatable"
+                                class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 68px;" aria-sort="ascending"
+                                            aria-label="Name: activate to sort column descending">Nome</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">URL</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 20px;"
+                                            aria-label="Office: activate to sort column ascending">Quantidade de Views</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
+                                    </tr>
+                                </thead>
 
 
-                        <tbody>    
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">hyp8</td>
-                                <td>hyp8.com.br</td>
-                                <td>8809035</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.patrocinadores.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
-                        </tbody>
-                    </table>
-                </div></div>
+                                <tbody>
+                                    @foreach ($patrocinadores as $patrocinador)
+                                        <tr class="odd">
+                                            <td class="sorting_1 dtr-control">{{ $patrocinador->nome }}</td>
+                                            <td>{{ $patrocinador->url }}</td>
+                                            <td>{{ $patrocinador->visitas }}</td>
+                                            <td>
+                                                <div class="btn-group edit-table-button ">
+                                                    <button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                            class="bx bx-edit"></i></button>
+                                                    <div class="dropdown-menu" style="margin: 0px;">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('painel.patrocinadores.editar', ['patrocinador' => $patrocinador]) }}">Editar</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" style="color: red"
+                                                            href="{{ route('painel.patrocinadores.deletar', ['patrocinador' => $patrocinador]) }}">Excluir</a>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
 
-          
+
                 </div>
 
-                </div>
             </div>
-        </div> <!-- end col -->
-        <div class="col-3">
-
-                           
-            <div class="col-sm-12 col-md-6 mb-3"  style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
-                <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"  href="">Filtros</a>
-            </div> <div class="card filter-body">
-                <div class="card-body">
-
-                  <form action="javascript: void(0);">
-                      
-                  </form>
+        </div>
+    </div> <!-- end col -->
+    <div class="col-3">
 
 
+        <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+            <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
+                href="">Filtros</a>
+        </div>
+        <div class="card filter-body">
+            <div class="card-body">
 
-                   <div class="buttons-row">
-                       <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                <form id="form-filtro" action="{{route('painel.patrocinadores')}}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="productname">Nome</label>
+                        <input id="productname" name="nome" type="text" class="form-control"
+                            placeholder="Insira o nome" @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="manufacturerbrand">URL para redirecionar</label>
+                        <input class="form-control" name="url" type="url" placeholder="Insira a URL"
+                            id="example-url-input" @if (isset($filtros) && isset($filtros['url'])) value="{{ $filtros['url'] }}" @endif>
+                    </div>
+                </form>
+                <div class="buttons-row">
+                    <div>
+                        <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
                             <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                         </button>
-                       </div>
-                       <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
+                    </div>
+                    <div>
+                        <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
                             <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                         </button>
-                       </div>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection
@@ -114,12 +144,12 @@
 
 @section('scripts')
     <!-- Required datatable js -->
-    <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable( {
-                language:{
+            $('#datatable').DataTable({
+                language: {
                     "emptyTable": "Nenhum registro encontrado",
                     "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "infoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -249,13 +279,22 @@
                     },
                     "searchPlaceholder": "Filtrar",
                     "thousands": "."
-                } 
-            } );
-        } );    
+                }
+            });
+
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
+            });
+        });
 
         $(document).ready(() => {
-            
-        $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+
+            $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
         })
-    </script> 
+    </script>
 @endsection

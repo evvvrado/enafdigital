@@ -52,7 +52,7 @@ class CarrinhoController extends Controller
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $produto = CarrinhoProduto::where([["carrinho_id", $carrinho->id], ["curso_id", $curso->id]]);
         $produto->delete();
-        $carrinho->total -= $curso->preco;
+        $carrinho->total -= $curso->valor;
         $carrinho->save();
         if($carrinho->produtos->count() == 0){
             $carrinho->delete();

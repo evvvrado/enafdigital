@@ -14,7 +14,9 @@
     #clinica & {
         margin-top: 0;
         margin-bottom: 0;
-        background-image: url("../img/bannerFeiraClinica.png");
+
+        background-size: 100% 100%;
+        background-position: center;
 
         &.reduzido {
             height: 40.15rem;

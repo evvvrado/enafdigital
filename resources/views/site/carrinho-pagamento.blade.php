@@ -80,23 +80,23 @@
                                 @csrf
                                 <label>
                                     <span>N. Cartão</span>
-                                    <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
+                                    <input type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
                                 </label>
                                 <label>
                                     <span>Nome do cartão</span>
-                                    <input type="text" name="nome" />
+                                    <input type="text" name="nome" placeholder="Nome do cartão" />
                                 </label>
                                 <label>
                                     <span>Validade</span>
-                                    <input type="tel" inputmode="numeric" name="expiracao" maxlength="7" />
+                                    <input type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" />
                                 </label>
                                 <label>
                                     <span>CVV</span>
-                                    <input type="tel" maxlength="3" name="cvv" />
+                                    <input type="tel" maxlength="3" placeholder="000" name="cvv" />
                                 </label>
                                 <label>
                                     <span>Parcelas</span>
-                                    <input type="number" name="parcelas" max="10" min="1" step="1" required />
+                                    <input type="number" name="parcelas" max="10" min="1" step="1" placeholder="0" required />
                                 </label>
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />

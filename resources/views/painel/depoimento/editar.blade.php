@@ -19,39 +19,45 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Editar Depoimento</h4>
-                    <form>
+                    <form action="{{route('painel.depoimento.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="depoimento_id" value="{{$depoimento->id}}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" value="Everaldo Júnior" type="text"
-                                        class="form-control" placeholder="Insira o nome">
+                                    <input id="productname" name="nome" type="text" class="form-control"
+                                        placeholder="Insira o nome" value="{{$depoimento->nome}}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">Depoimento</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                        placeholder="Limite de 107 Caracteres"></textarea>
+                                    <textarea id="textarea" name="depoimento" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Limite de 107 Caracteres">{!! $depoimento->depoimento !!}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                                    <picture
+                                        style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                        <img id="banner-preview" @if(!$depoimento->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{asset($depoimento->foto)}}" @endif
+                                            style="height: 100%;" alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                    <input name="foto" id="banner-upload" style="display: none;" type="file">
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body col-12">
-                    <h4 class="card-title mb-3">Foto do Depoimento</h4>
-                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable">
-                        <div class="dz-message needsclick">
-                            <div class="mb-3">
-                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                            </div>
-                            <h4>Inserir imagem</h4>
                         </div>
                     </form>
                 </div>

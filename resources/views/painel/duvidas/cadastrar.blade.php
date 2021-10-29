@@ -19,19 +19,20 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Duvida</h4>
-                    <form>
+                    <form action="{{route('painel.duvidas.salvar')}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Dúvida</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <input id="productname" name="pergunta" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">Resposta</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    <textarea id="textarea" name="resposta" class="form-control" maxlength="107" rows="3"
                                         placeholder="Limite de 107 Caracteres"></textarea>
                                 </div>
                             </div>

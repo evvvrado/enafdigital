@@ -15,6 +15,8 @@ use App\Models\Curso;
 use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
+use App\Models\Expositor;
+use App\Models\Contrato;
 use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
@@ -33,7 +35,7 @@ class SiteController extends Controller
     public function index()
     {
 
-        $eventos = \App\Models\Evento::where("clinica", false)->orderBy("inicio")->get();
+        $eventos = \App\Models\Evento::where([["clinica", false], ["fim", ">=", date("Y-m-d 00:00:00")]])->orderBy("inicio")->get();
         $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
         $professores = \App\Models\Professor::inRandomOrder()->limit(5)->get();
 
@@ -139,13 +141,13 @@ class SiteController extends Controller
 
     public function clinicas()
     {
-        $eventos = \App\Models\Evento::where("clinica", true)->get();
+        $eventos = \App\Models\Evento::where([["clinica", true], ["fim", ">=", date("Y-m-d 00:00:00")]])->get();
         return view("site.clinicas", ["eventos" => $eventos]);
     }
 
     public function eventos()
     {
-        $eventos = \App\Models\Evento::where("clinica", false)->get();
+        $eventos = \App\Models\Evento::where([["clinica", false], ["fim", ">=", date("Y-m-d 00:00:00")]])->get();
         return view("site.clinicas", ["eventos" => $eventos]);
     }
 
@@ -322,9 +324,10 @@ class SiteController extends Controller
         return view("site.feira");
     }
 
-    public function feiraEmpresas()
+    public function feiraEmpresas($categoria)
     {
-        return view("site.feira-empresas");
+        $expositores = Expositor::where("categoria", $categoria)->get();
+        return view("site.feira-empresas", ["expositores" => $expositores]);
     }
 
     public function feiraCatalogo()
@@ -335,12 +338,18 @@ class SiteController extends Controller
     public function clinica($slug)
     {
         $evento = \App\Models\Evento::where("slug", $slug)->first();
+        if ($evento->fim < date("Y-m-d 00:00:00")) {
+            return redirect()->back();
+        }
         return view("site.clinica", ["evento" => $evento]);
     }
 
     public function evento($slug)
     {
         $evento = \App\Models\Evento::where("slug", $slug)->first();
+        if ($evento->fim < date("Y-m-d 00:00:00")) {
+            return redirect()->back();
+        }
         return view("site.clinica", ["evento" => $evento]);
     }
 

@@ -6,6 +6,33 @@
 
     @include("site.includes.navbar")
 
+    <section class="container-fluid t_box">
+        <div class="_data">
+            <span>
+                <div class="_icon">
+                    <img src="{{ asset('site/img/icon_clock.svg') }}" alt="Icone de relógio" />
+                </div>
+                <p>{{ $curso->total_horas }} horas</p>
+            </span>
+            @if ($curso->certificacao)
+            <span>
+                <div class="_icon">
+                    <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
+                </div>
+                <p>Certificado</p>
+            </span>
+            @endif
+
+            <span>
+                <h6>R$ {{number_format($curso->valor, 2, ",", ".")}}</h6>
+            </span>
+
+            <span>
+                <div class="_btn" onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'">Comprar</dvi>
+            </span>
+        </div>
+    </section>
+
     <section class="container-fluid s_hero" style="background-image: url('{{ asset($curso->banner)}}')">
         <div class="container-fav">
             <div class="_h1 fade">
@@ -329,3 +356,18 @@
 
 
     @include("site.includes.footer-expanded")
+
+    <script>
+        $(document).scroll(() =>{
+            if (
+                $(document).scrollTop() >=
+                $('.s_cursoVideo .container-fav').offset().top -
+                    ($(window).height() * 3) / 4
+            ) {
+                $(".t_box").addClass('active');
+            }
+            else if($(document).scrollTop() == 0){
+                $(".t_box").removeClass('active');
+            }
+        })
+    </script>

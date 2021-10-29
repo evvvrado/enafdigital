@@ -1,5 +1,15 @@
 @include("site.includes.head")
 
+@php
+$categorias = config('expositores.categorias_nome');
+$categoriaid = $expositores->first();
+@endphp
+
+@if ($categoriaid)
+<title>ENAF - {{$categorias[$categoriaid->categoria]}}</title>
+@else
+<title>ENAF- Vazio</title>
+@endif
 
 <body id="feiraEmpresas">
 
@@ -61,30 +71,32 @@
         </div>
       </div>
 
+      @foreach ($expositores->take(12) as $expositor)
       <div class="_box">
         <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (2') }}).png" alt="Empresa Embaixadora" />
+          <a href="{{ $expositor->site }}">
+            <img src="{{ asset($expositor->foto) }}" alt="{{ $expositor->nome }}" />
           </a>
         </picture>
 
         <div>
-          <span>Mizuno</span>
+          <span>{{ $expositor->nome }}</span>
           <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
+            <li><a href="{{ $expositor->site }}">{{ $expositor->site }}</a></li>
+            <li><a href="tel:{{ $expositor->telefone }}">{{ $expositor->telefone }}</a></li>
+            <li><a href="mailto:{{ $expositor->email }}">{{ $expositor->email }}</a></li>
           </ul>
         </div>
       </div>
+      @endforeach
 
+      {{--
       <div class="_box">
         <picture>
           <a href="{{ route('site.hotsite')}}">
             <img src="{{ asset('site/img/logo_empresa (3') }}).png" alt="Empresa Embaixadora" />
           </a>
         </picture>
-
         <div>
           <span>Mizuno</span>
           <ul>
@@ -263,7 +275,7 @@
             <li><a href="">contato@mizuno.com.br</a></li>
           </ul>
         </div>
-      </div>
+      </div> --}}
     </div>
   </section>
 
@@ -274,9 +286,12 @@
       </div>
 
       <ul>
+
+        @foreach ($expositores as $expositor)
+
         <li>
-          <a href="https://universal.com.br">
-            <span>Universal</span>
+          <a href="{{ $expositor->site }}">
+            <span>{{ $expositor->nome }}</span>
 
 
             <main>
@@ -284,21 +299,26 @@
                 <div class="_icon">
                   <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
                 </div>
-                35 9 8809 4603
+                {{ $expositor->telefone }}
               </legend>
 
               <legend>
                 <div class="_icon">
                   <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
                 </div>
-                35 9 8809 4603
+                {{ $expositor->telefone }}
               </legend>
 
-              <legend>universal.com.br</legend>
+              <legend>{{ $expositor->site }}</legend>
             </main>
           </a>
         </li>
-        <li>
+
+        @endforeach
+
+
+
+        {{-- <li>
           <a href="https://probiótica.com.br">
             <span>Probiótica</span>
 
@@ -396,379 +416,7 @@
               <legend>universal.com.br</legend>
             </main>
           </a>
-        </li>
-        <li>
-          <a href="https://probiótica.com.br">
-            <span>Probiótica</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>probiótica.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://hyp8.com.br">
-            <span>hyp8</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>hyp8.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://gefit.com.br">
-            <span>Gefit</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>gefit.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://universal.com.br">
-            <span>Universal</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>universal.com.br</legend>
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://probiótica.com.br">
-            <span>Probiótica</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>probiótica.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://hyp8.com.br">
-            <span>hyp8</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>hyp8.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://gefit.com.br">
-            <span>Gefit</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>gefit.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://universal.com.br">
-            <span>Universal</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>universal.com.br</legend>
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://probiótica.com.br">
-            <span>Probiótica</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>probiótica.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://hyp8.com.br">
-            <span>hyp8</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>hyp8.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://gefit.com.br">
-            <span>Gefit</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>gefit.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://universal.com.br">
-            <span>Universal</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>universal.com.br</legend>
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://probiótica.com.br">
-            <span>Probiótica</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>probiótica.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://hyp8.com.br">
-            <span>hyp8</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>hyp8.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://gefit.com.br">
-            <span>Gefit</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="http://enafdigital.test/site/img/icon_call.svg" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>gefit.com.br</legend>
-
-            </main>
-          </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </section>

@@ -191,22 +191,21 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
         <div class="card banner">
             <div class="card-body">
                 <h4 class="card-title">Banner de divulgação</h4>
-                <form action="{{ route('painel.eventos.local.salvar', ['evento' => $evento]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('painel.eventos.divulgacao.salvar', ['evento' => $evento]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-12 mt-3">
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="local-preview" @if (!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif
-                                    style="height:
+                                    <img id="banner-divulgacao-preview" @if (!$evento->banner_divulgacao) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner_divulgacao) }}" @endif style="height:
                                     100%;" alt="">
                                 </picture>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="local-upload">Escolher</label>
-                                <input name="local_foto" id="local-upload" style="display: none;" type="file">
+                                <label class="btn btn-primary" for="banner-divulgacao-upload">Escolher</label>
+                                <input name="banner_divulgacao" id="banner-divulgacao-upload" style="display: none;" type="file">
                             </div>
                         </div>
                     </div>
@@ -683,7 +682,15 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
             reader.readAsDataURL(file);
         }, false);
 
-
+        var inp = document.getElementById('banner-divulgacao-upload');
+        inp.addEventListener('change', function(e) {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('banner-divulgacao-preview').src = this.result;
+            };
+            reader.readAsDataURL(file);
+        }, false);
 
         var inp = document.getElementById('hoteis-upload');
         inp.addEventListener('change', function(e) {

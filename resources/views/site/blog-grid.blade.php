@@ -1,20 +1,27 @@
 @include("site.includes.head")
-<title>ENAF @if($tipo == 0) Nosso Blog @else Nossos Artigos @endif</title>
+<title>ENAF -@if($tipo == 0) Nosso Blog @else Nossos Artigos @endif</title>
 
 
 <body id="nossoblog">
 
     @include("site.includes.navbar")
 
+    @php
+    $noticiaUm = $noticias->first();
+    @endphp
+
     <section class="container-fluid s_hero">
         <div class="container-fav">
             <div class="_h1 fade">
+                @if ($noticiaUm)
 
+                <p>{{$noticiaUm->categoria->nome}}</p>
+                <h6>{{$noticiaUm->titulo}}</h6>
 
-                <p>{{$noticias[0]->categoria->nome}}</p>
-                <h6>{{$noticias[0]->titulo}}</h6>
+                <p>by <span>{{$noticiaUm->autor}}</span> • {{date('d.m.Y', strtotime($noticiaUm->publicacao))}}</p>
 
-                <p>by <span>{{$noticias[0]->autor}}</span> • {{date('d.m.Y', strtotime($noticias[0]->publicacao))}}</p>
+                @endif
+
             </div>
         </div>
     </section>

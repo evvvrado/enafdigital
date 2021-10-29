@@ -51,22 +51,28 @@
 
 
                         <tbody>    
-                            <tr class="odd">
-                                <td class="sorting_1 dtr-control">hyp8</td>
-                                <td>hyp8.com.br</td>
-                                <td>8809035</td>
-                                <td>
-                                     <div class="btn-group edit-table-button ">
-                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.apoio.editar') }}">Editar</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                            @foreach ($apoios as $apoio)
+                                <tr class="odd">
+                                    <td class="sorting_1 dtr-control">{{ $apoio->nome }}</td>
+                                    <td>{{ $apoio->url }}</td>
+                                    <td>{{ $apoio->visitas }}</td>
+                                    <td>
+                                        <div class="btn-group edit-table-button ">
+                                            <button type="button" class="btn btn-info dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                    class="bx bx-edit"></i></button>
+                                            <div class="dropdown-menu" style="margin: 0px;">
+                                                <a class="dropdown-item"
+                                                    href="{{ route('painel.apoio.editar', ['apoio' => $apoio]) }}">Editar</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" style="color: red"
+                                                    href="{{ route('painel.apoio.deletar', ['apoio' => $apoio]) }}">Excluir</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                </td>
-                            </tr>     
+
+                                    </td>
+                                </tr>
+                            @endforeach   
                         </tbody>
                     </table>
                 </div></div>
@@ -87,24 +93,31 @@
             <div class="card filter-body">
                 <div class="card-body">
 
-                  <form action="javascript: void(0);">
-                      
-                  </form>
-
-
-
-                   <div class="buttons-row">
-                       <div>
-                        <button type="button" class="btn btn-success waves-effect waves-light">
-                            <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
-                        </button>
-                       </div>
-                       <div>
-                        <button type="button" class="btn btn-danger waves-effect waves-light">
-                            <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
-                        </button>
-                       </div>
-                   </div>
+                    <form id="form-filtro" action="{{route('painel.apoio')}}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="productname">Nome</label>
+                            <input id="productname" name="nome" type="text" class="form-control"
+                                placeholder="Insira o nome" @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
+                        </div>
+                        <div class="mb-3">
+                            <label for="manufacturerbrand">URL para redirecionar</label>
+                            <input class="form-control" name="url" type="url" placeholder="Insira a URL"
+                                id="example-url-input" @if (isset($filtros) && isset($filtros['url'])) value="{{ $filtros['url'] }}" @endif>
+                        </div>
+                    </form>
+                    <div class="buttons-row">
+                        <div>
+                            <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
+                                <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
+                            </button>
+                        </div>
+                        <div>
+                            <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
+                                <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -252,6 +265,14 @@
                     "thousands": "."
                 } 
             } );
+            $("#btn-filtrar").click(function(){
+                $("#form-filtro").submit();
+            });
+
+            $("#btn-limpar").click(function(){
+                $("input[type!='hidden']").val("");
+                $("select").val("-1");
+            });
         } );    
 
         $(document).ready(() => {

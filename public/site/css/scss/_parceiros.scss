@@ -39,6 +39,17 @@
       width: 100%;
       ._patrocinadorList {
         @include flex(row, center, space-between);
+        ._patrocinador {
+          height: 4.6rem;
+          max-width: 20rem;
+        }
+
+        img {
+          filter: grayscale(1);
+          object-fit: cover;
+          width: auto;
+          height: 100%;
+        }
       }
     }
   }

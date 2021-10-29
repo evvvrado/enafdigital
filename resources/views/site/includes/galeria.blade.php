@@ -1,3 +1,11 @@
+@php
+$galeria = \App\Models\Galeria::where('ativo', 1)->orderBy('created_at', 'DESC')->first();
+$fotos = \App\Models\GaleriaFoto::where('galeria_id', $galeria->id)->get();
+@endphp
+
+<script>
+</script>
+
 <section class="container-fluid s_galeria">
     <div class="container-fav">
         <div class="_title">
@@ -6,40 +14,27 @@
 
         <div class="_content">
             <div class="_galeriaList">
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
+
+                @foreach ($fotos as $foto)
 
                 <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
+                    <img src="{{ asset($foto->imagem) }}" alt="Foto presente na galeria ENAF" />
                 </div>
 
-                <div class="_picture">
-                    <img src="{{ asset('site/img/galeria_Pic (1).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
+                @endforeach
+
+                {{--
                 <div class="_picture">
                     <img src="{{ asset('site/img/galeria_Pic (2).jpg') }}" alt="Foto presente na galeria ENAF" />
                 </div>
                 <div class="_picture">
                     <img src="{{ asset('site/img/galeria_Pic (3).jpg') }}" alt="Foto presente na galeria ENAF" />
-                </div>
+                </div> --}}
             </div>
         </div>
 
         <div class="_menu">
-            <strong>GALERIA DE FOTOS</strong>
+            <strong><a href="{{ route('site.galerias') }}">GALERIAS DE FOTOS</a></strong>
             <div class="_buttons">
                 <div class="_previous _button">
                     <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Seta indicando a esquerda" />

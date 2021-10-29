@@ -26,33 +26,39 @@
     @include('site.includes.publicidade')
 
 
-    <section class="container-fluid s_nextEvent">
-        <div class="container-fav">
-            <div class="_case fade">
-                {{-- <div class="_buttons">
-                    <div class="_previous">
-                        <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
+    @php
+        $evento = $eventos->first();
+    @endphp
+
+    @if($evento)
+        <section class="container-fluid s_nextEvent">
+            <div class="container-fav">
+                <div class="_case fade">
+                    {{-- <div class="_buttons">
+                        <div class="_previous">
+                            <img src="{{ asset('site/img/halfarrowleft.svg') }}" alt="Evento Anterior" />
+                        </div>
+                        <div class="_next">
+                            <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
+                        </div>
+                    </div> --}}
+                    <div class="_img">
+                        <img src="{{ asset($evento->thumbnail) }}" alt="Próximo evento aqui no ENAF" />
                     </div>
-                    <div class="_next">
-                        <img src="{{ asset('site/img/halfarrowright.svg') }}" alt="Próximo Evento" />
-                    </div>
-                </div> --}}
-                <div class="_img">
-                    <img src="{{ asset($eventos[0]->thumbnail) }}" alt="Próximo evento aqui no ENAF" />
+                </div>
+                <div class="_content">
+                    <h6>Próximo evento</h6>
+                    <h2 class="event_name">{{$evento->nome}}</h2>
+                    <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}<br> {{ $evento->hora_inicio }} às {{ $evento->hora_fim
+                        }}</span>
+                    <p class="event_local">{{$evento->local_endereco}}</p>
+                    <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'">
+                        <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
+                    </button>
                 </div>
             </div>
-            <div class="_content">
-                <h6>Próximo evento</h6>
-                <h2 class="event_name">{{$eventos[0]->nome}}</h2>
-                <span class="event_date">{{date('d/m', strtotime($eventos[0]->inicio))}} a {{date('d/m', strtotime($eventos[0]->fim))}}<br> {{ $eventos[0]->hora_inicio }} às {{ $eventos[0]->hora_fim
-                    }}</span>
-                <p class="event_local">{{$eventos[0]->local_endereco}}</p>
-                <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $eventos[0]->slug])}}'">
-                    <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <section class="container-fluid s_events">
         <div class="container-fav">

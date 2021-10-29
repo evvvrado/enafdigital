@@ -439,13 +439,35 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
             <!-- Settings -->
             <hr class="mt-0" />
-            {{-- <div class="p-4 lista-atualizacoes">
-                <h6 class="text-left mb-3 mt-4">16/06/2021 - V 0.7</h6>
+            <div class="p-4 lista-atualizacoes">
+                <h6 class="text-left mb-3 mt-4">28/10/2021 - V 0.1 - Sistema Iniciado com as funções de:</h6>
                 <ul class="">
-                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Sistema de cadastro e gerenciamento de destaque suspenso ao acessar o site.</span></li>
-                    <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de árvore de links (App link).</span></li>
+                    <li><span>
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Professores
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Cursos
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Clínicas
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Eventos
+                            <hr>
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Notícias
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Artigos
+                            <hr>
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Categorias
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Expositores
+                            <hr>
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Anúncios
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Patrocinadores
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Apoio
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Depoimentos
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Dúvidas
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Galeria
+                            <hr>
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Hotsites 🔥
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Financeiro 💰
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Dashboard 💻
+                        </span>
+                    </li>
                 </ul>
-                <h6 class="text-left mb-3 mt-4">15/06/2021 - V 0.6</h6>
+                {{-- <h6 class="text-left mb-3 mt-4">15/06/2021 - V 0.6</h6>
                 <ul class="">
                     <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de logs.</span></li>
                     <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição de implementação inicial da dashboard.</span></li>
@@ -458,8 +480,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição das configurações de SEO das páginas.</span></li>
                     <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de cadastro e controle de estaduais e suas diretorias.</span></li>
                     <li><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> <span>Adição do sistema de registro, consulta e exportação de mensagens de contato.</span></li>
-                </ul>
-            </div> --}}
+                </ul> --}}
+            </div>
 
             {{-- <div class="rightbar-title d-flex align-items-center px-3 py-4">
 

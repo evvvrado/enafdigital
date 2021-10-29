@@ -19,30 +19,24 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Depoimento</h4>
-                    <form>
+                    <form action="{{route('painel.depoimento.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <input id="productname" name="nome" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">Depoimento</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
+                                    <textarea id="textarea" name="depoimento" class="form-control" maxlength="107" rows="3"
                                         placeholder="Limite de 107 Caracteres"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
-                        </div>
-
-
-
                         <div class="col-12 mt-3">
                             <div class="row">
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center">
@@ -56,9 +50,13 @@
                             <div class="row mt-3">
                                 <div class="col-12 text-center">
                                     <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                    <input name="banner" id="banner-upload" style="display: none;" type="file">
+                                    <input name="foto" id="banner-upload" style="display: none;" type="file">
                                 </div>
                             </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                     </form>
                 </div>

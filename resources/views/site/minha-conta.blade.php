@@ -299,7 +299,8 @@
             <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
 
                 <div class="modal-body px-5 py-0">
-                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 22;">
+                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close"
+                        style="position: absolute; top: 10px; right: 10px; z-index: 22; font-size: 25px; border:none; background:none;">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="mt-5">

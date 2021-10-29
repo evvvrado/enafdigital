@@ -103,7 +103,7 @@ class ArtigosController extends Controller
         }    
         
         // Log::channel('noticias')->info('<b>CADASTRANDO NOTICIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a noticia <b>' . $noticia->titulo . '</b>');
-        toastr()->success("Notícia salva com sucesso!");
+        toastr()->success("Artigo salvo com sucesso!");
 
         return redirect()->route("painel.artigos");
 
@@ -119,7 +119,7 @@ class ArtigosController extends Controller
         Storage::disk('public')->delete($noticia->banner);
         $noticia->tags()->detach();
         $noticia->delete();
-        toastr()->success("Notícia removida com sucesso!");
+        toastr()->success("Artigo removido com sucesso!");
 
         return redirect()->route("painel.artigos");
     }

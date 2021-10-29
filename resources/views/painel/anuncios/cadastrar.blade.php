@@ -19,20 +19,68 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Cadastro de Publicidade</h4>
-                    <form>
+                    <form action="{{route('painel.anuncios.salvar')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Nome</label>
-                                    <input id="productname" name="productname" type="text" class="form-control"
+                                    <input id="productname" name="nome" type="text" class="form-control"
                                         placeholder="Insira o nome">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">URL para redirecionar</label>
-                                    <input class="form-control" type="url" placeholder="Insira a URL"
+                                    <input class="form-control" name="url" type="url" placeholder="Insira a URL"
                                         id="example-url-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row flex-row">
+                            <div class="card-body col-2">
+            
+            
+            
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+                                            Mobile
+            
+                                            <picture
+                                                style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="banner-upload">Escolher</label>
+                                            <input name="imagem_mobile" id="banner-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="card-body col-8">
+                                <div class="col-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
+                                            Desktop
+                                            <picture
+                                                style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                                <img id="logo-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
+                                                    style="height: 100%;" alt="">
+                                            </picture>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 text-center">
+                                            <label class="btn btn-primary" for="logo-upload">Escolher</label>
+                                            <input name="imagem_desktop" id="logo-upload" style="display: none;" type="file">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -41,55 +89,6 @@
                             <button type="button" class="btn btn-secondary waves-effect waves-light">Cancelar</button>
                         </div>
                     </form>
-                </div>
-            </div>
-
-            <div class="card row flex-row">
-                <div class="card-body col-2">
-
-
-
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
-                                Mobile
-
-                                <picture
-                                    style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                        style="height: 100%;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="banner-upload">Escolher</label>
-                                <input name="banner" id="banner-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-
-                <div class="card-body col-8">
-                    <div class="col-12 mt-3">
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
-                                Desktop
-                                <picture
-                                    style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="logo-preview" src="{{ asset('admin/images/thumb-padrao.png') }}"
-                                        style="height: 100%;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="logo-upload">Escolher</label>
-                                <input name="logo" id="logo-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 

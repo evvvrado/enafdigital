@@ -19,20 +19,22 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Editar Dúvidas</h4>
-                    <form>
+                    <form action="{{route('painel.duvidas.salvar')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="duvida_id" value="{{$duvida->id}}">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="productname">Dúvida</label>
-                                    <input id="productname" name="productname" value="Everaldo Júnior" type="text"
-                                        class="form-control" placeholder="Insira o nome">
+                                    <input id="productname" name="pergunta" type="text" class="form-control"
+                                        placeholder="Insira o nome" value="{{$duvida->pergunta}}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label for="manufacturerbrand">Resposta</label>
-                                    <textarea id="textarea" class="form-control" maxlength="107" rows="3"
-                                        placeholder="Limite de 107 Caracteres"></textarea>
+                                    <textarea id="textarea" name="resposta" class="form-control" maxlength="107" rows="3"
+                                        placeholder="Limite de 107 Caracteres">{!! $duvida->resposta !!}</textarea>
                                 </div>
                             </div>
                         </div>
