@@ -1,7 +1,14 @@
 @php
 $galeria = \App\Models\Galeria::where('ativo', 1)->orderBy('created_at', 'DESC')->first();
+if ($galeria){
 $fotos = \App\Models\GaleriaFoto::where('galeria_id', $galeria->id)->get();
+}
+else{
+$fotos = false;
+};
 @endphp
+
+@if (!$fotos == false)
 
 <script>
 </script>
@@ -65,3 +72,5 @@ $fotos = \App\Models\GaleriaFoto::where('galeria_id', $galeria->id)->get();
 
     <span></span>
 </section>
+
+@endif
