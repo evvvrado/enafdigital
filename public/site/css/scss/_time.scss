@@ -67,8 +67,9 @@
             ._filter {
                 padding-left: 1.6rem;
                 padding-top: 1.6rem;
+                padding-bottom: 1.6rem;
                 width: 27.8rem;
-                height: 59.915rem;
+                // height: 59.915rem;
 
                 background: #f2f5f5;
                 border-radius: 0.4rem;
@@ -143,7 +144,7 @@
                         flex-direction: row;
                         flex-wrap: wrap;
                         li {
-                            flex: 33%;
+                            // flex: 33%;
                         }
                     }
                 }

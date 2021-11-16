@@ -36,7 +36,7 @@
   </section>
 
 
-  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner}}')">
+  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner_divulgacao}}')">
     <div class="container-fav">
     </div>
   </section>

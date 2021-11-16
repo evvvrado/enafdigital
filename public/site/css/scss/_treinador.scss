@@ -281,11 +281,7 @@ body#treinador {
                         }
 
                         button {
-                            @include alternative-btn(
-                                3.6rem,
-                                $color-thirdy,
-                                $white
-                            );
+                            @include alternative-btn(3.6rem, $color-thirdy, $white);
                         }
                     }
                 }
@@ -883,12 +879,8 @@ body#treinador {
                             }
 
                             button {
-                                @include alternative-btn(
-                                    5.1rem,
-                                    $color-second,
-                                    $white
-                                );
-                                font-family: "Montserrat";
+                                @include alternative-btn(5.1rem, $color-second, $white);
+                                font-family: "Gilroy", sans-serif   ;
                                 font-weight: 500;
                                 margin-top: 3rem;
                                 margin-right: auto;
