@@ -169,7 +169,7 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
     <section class="container-fluid h_galeria">
         <div class="container-fav">
             <div class="_title">
-                <h6>{{$hotsite->galeria2_titulo}}</h6>
+                <h6 style="color: {{ $hotsite->cor_destaque}}">{{$hotsite->galeria2_titulo}}</h6>
                 <h3>{{$hotsite->galeria2_descricao}}</h3>
             </div>
 
@@ -226,16 +226,16 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                     <div class="_col">
                         <a href="tel:{{$hotsite->telefone}}">
                             <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M25 12.25L26.25 11" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M26.25 21L25 19.75" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M27.5 16H28.75" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M5 19.75L3.75 21" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M3.75 11L5 12.25" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M2.5 16H1.25" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M13.6 22.875H16.4" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M25 12.25L26.25 11" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M26.25 21L25 19.75" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M27.5 16H28.75" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M5 19.75L3.75 21" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.75 11L5 12.25" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2.5 16H1.25" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.6 22.875H16.4" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M11.25 6H18.75C20.1313 6 21.25 7.11875 21.25 8.5V23.5C21.25 24.8813 20.1313 26 18.75 26H11.25C9.86875 26 8.75 24.8813 8.75 23.5V8.5C8.75 7.11875 9.86875 6 11.25 6Z"
-                                    stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
 
                             <span>{{$hotsite->telefone}}</span>
@@ -244,13 +244,13 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M11.395 17.7336C6.9525 18.3186 3.75 19.9499 3.75 21.8749C3.75 24.2911 8.78625 26.2499 15 26.2499C21.2138 26.2499 26.25 24.2911 26.25 21.8749C26.25 19.9499 23.0475 18.3186 18.605 17.7336"
-                                    stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M22.5 9.79125C22.5 5.765 19.1425 2.5 15 2.5C10.8575 2.5 7.5 5.765 7.5 9.79125C7.5 15.26 15 21.25 15 21.25C15 21.25 22.5 15.26 22.5 9.79125Z"
-                                    stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path
                                     d="M16.7678 8.23223C17.7441 9.20854 17.7441 10.7915 16.7678 11.7678C15.7915 12.7441 14.2085 12.7441 13.2322 11.7678C12.2559 10.7915 12.2559 9.20855 13.2322 8.23223C14.2085 7.25592 15.7915 7.25592 16.7678 8.23223"
-                                    stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
 
                             <span>{{$hotsite->endereco}}</span>
@@ -259,9 +259,9 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                     <div class="_col">
                         <a href="mailto:{{$hotsite->email}}r">
                             <svg width="32" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 1H19C20.1 1 21 1.9 21 3V15C21 16.1 20.1 17 19 17H3C1.9 17 1 16.1 1 15V3C1 1.9 1.9 1 3 1Z" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5"
+                                <path d="M3 1H19C20.1 1 21 1.9 21 3V15C21 16.1 20.1 17 19 17H3C1.9 17 1 16.1 1 15V3C1 1.9 1.9 1 3 1Z" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M21 3L11 10L1 3" stroke="{{ $hotsite->cor_destaque}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 3L11 10L1 3" stroke="{{ $hotsite->cor_fundo}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
 
                             <span>{{$hotsite->email}}</span>
@@ -271,7 +271,7 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M22 17.002C21.9996 18.3696 21.5321 19.696 20.675 20.7616C19.8179 21.8273 18.6226 22.5683 17.287 22.862L16.649 20.948C17.2332 20.8518 17.7888 20.6271 18.2758 20.2903C18.7627 19.9534 19.1689 19.5128 19.465 19H17C16.4696 19 15.9609 18.7893 15.5858 18.4142C15.2107 18.0391 15 17.5304 15 17V13C15 12.4696 15.2107 11.9609 15.5858 11.5858C15.9609 11.2107 16.4696 11 17 11H19.938C19.694 9.0669 18.7529 7.28927 17.2914 6.00068C15.8299 4.71208 13.9484 4.00108 12 4.00108C10.0516 4.00108 8.17007 4.71208 6.70857 6.00068C5.24708 7.28927 4.30603 9.0669 4.062 11H7C7.53043 11 8.03914 11.2107 8.41421 11.5858C8.78929 11.9609 9 12.4696 9 13V17C9 17.5304 8.78929 18.0391 8.41421 18.4142C8.03914 18.7893 7.53043 19 7 19H4C3.46957 19 2.96086 18.7893 2.58579 18.4142C2.21071 18.0391 2 17.5304 2 17V12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12V17.002ZM20 17V13H17V17H20ZM4 13V17H7V13H4Z"
-                                    fill="{{ $hotsite->cor_destaque}}" />
+                                    fill="{{ $hotsite->cor_fundo}}" />
                             </svg>
 
                             <span>{{$hotsite->email}}</span>

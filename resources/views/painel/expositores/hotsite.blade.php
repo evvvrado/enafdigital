@@ -3,6 +3,8 @@
 @section('styles')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <link href="{{ asset('admin/libs/select2/css/select2.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="{{ asset('\admin\libs\magnific-popup.css')}}">
 {{--
 <link href="{{asset('admin/libs/select2/css/select2-bootstrap4.css')}}" id="app-style" rel="stylesheet" type="text/css" /> --}}
 
@@ -300,327 +302,251 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                     <div class="d-flex flex-wrap gap-2">
                         <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                         <a name="" data-bs-toggle="modal" data-bs-target="#modalGaleria1" id="button-add" class="btn btn-success" style="height: 100%;">
-                            <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
+                            <i class="bx bx-plus" aria-hidden="true"></i> Adicionar foto à galeria</a>
                     </div>
                 </form>
             </div>
+
+
             <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info"
-                            style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Nome</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
-                                        Depoimento</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
-                                    </th>
-                                </tr>
-                            </thead>
 
+                <h4 class="card-title mb-3">Fotos da Galeria (1)</h4>
 
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                    <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                        morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 34px!important;"><i
-                                                    class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="card galerias">
-                <div class="card-body">
-                    <h4 class="card-title">Segunda Galeria</h4>
-
-
-
-                    <form action="{{route('painel.expositores.hotsite.galeria2.salvar', ['expositor' => $expositor])}}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="productname">Título</label>
-                                    <input id="productname" name="galeria2_titulo" @if($hotsite) value="{{$hotsite->galeria2_titulo}}" @endif type="text" class="form-control"
-                                        placeholder="Insira o nome">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="productname">Descrição</label>
-                                    <input id="productname" name="galeria2_descricao" @if($hotsite) value="{{$hotsite->galeria2_descricao}}" @endif type="text" class="form-control"
-                                        placeholder="Insira o nome">
-                                </div>
-                            </div>
+                <div class="popup-gallery d-flex flex-wrap">
+                    <a href="http://skote-v-light.react.themesbrand.com/static/media/img-2.9ad853b2.jpg" title="Project 1">
+                        <div class="img-fluid">
+                            <img src="http://skote-v-light.react.themesbrand.com/static/media/img-2.9ad853b2.jpg" alt="" width="120">
                         </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
-                            <a name="" data-bs-toggle="modal" data-bs-target="#modalGaleria2" id="button-add" class="btn btn-success" style="height: 100%;">
-                                <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
-                        </div>
-                    </form>
+                    </a>
+
                 </div>
-                <div class="card-body">
-                    <div id="datatable_wrapper" xclass="dataTables_wrapper dt-bootstrap4 no-footer">
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info"
-                                style="width: 1185px;">
-                                <thead>
-                                    <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
-                                            aria-label="Name: activate to sort column descending">Nome</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;"
-                                            aria-label="Position: activate to sort column ascending">Depoimento</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;"
-                                            aria-label="Start date: activate to sort column ascending"></th>
-                                    </tr>
-                                </thead>
 
-
-                                <tbody>
-                                    <tr class="odd">
-                                        <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                        <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                            morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                        <td>
-                                            <div class="btn-group edit-table-button ">
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 34px!important;"><i
-                                                        class="bx bx-edit"></i></button>
-                                                <div class="dropdown-menu" style="margin: 0px;">
-                                                    <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <div class="card imagens">
 
+
+        <div class="card galerias">
             <div class="card-body">
-                <form class="row" action="{{route('painel.expositores.hotsite.foto.salvar', ['expositor' => $expositor])}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="col-12 col-md-4 mt-3 text-center">
-                        <h4 class="card-title">Logo</h4>
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="logo-preview" @if(!$hotsite || !$hotsite->logo) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->logo) }}" @endif
-                                    style="width: 100%; object-fit: cover;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="logo-upload">Escolher</label>
-                                <input name="logo" id="logo-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mt-3 text-center">
-                        <h4 class="card-title">Foto Principal</h4>
-                        <div class="row">
-
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="principal-preview" @if(!$hotsite || !$hotsite->foto1) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto1) }}" @endif
-                                    style="width: 100%; object-fit: cover;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="principal-upload">Escolher</label>
-                                <input name="foto1" id="principal-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 mt-3 text-center">
-                        <h4 class="card-title">Foto da segunda sessão</h4>
-                        <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="secundaria-preview" @if(!$hotsite || !$hotsite->foto2) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto2) }}" @endif
-                                    style="width: 100%; object-fit: cover;" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <label class="btn btn-primary" for="secundaria-upload">Escolher</label>
-                                <input name="foto2" id="secundaria-upload" style="display: none;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="mt-3">
-                    <div class="col-12 mt-3 text-center">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-
-            </div>
-            <div class="card-body row">
-
-
-                {{-- <div class="col-3">
-                    <h4 class="card-title mb-3">Foto Principal *SEM FUNDO</h4>
-                    <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable" style="height: 600px !important; display: flex; align-items: center; justify-content: center;">
-                        <div class="dz-message needsclick">
-                            <div class="mb-3">
-                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                            </div>
-                            <h4>Inserir imagem</h4>
-                        </div>
-
-
-                    </form>
-                </div> --}}
-            </div>
-
-            {{-- <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info"
-                            style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Nome</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
-                                        Depoimento</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
-                                    </th>
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Everaldo Júnior</td>
-                                    <td>Meu nome é Everaldo e eu moro em alfenas mas queria estar
-                                        morando em alfenas onde posso comprar todos os alfenas de toda alfenas</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 34px!important;"><i
-                                                    class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
-
-
-        <div class="card duvidas">
-            <div class="card-body">
-                <h4 class="card-title">Cadastro de Dúvidas</h4>
+                <h4 class="card-title">Segunda Galeria</h4>
 
 
 
-                <form action="{{route('painel.expositores.hotsite.duvida.salvar', ['expositor' => $expositor])}}" method="POST">
+                <form action="{{route('painel.expositores.hotsite.galeria2.salvar', ['expositor' => $expositor])}}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="productname">Dúvida</label>
-                                <input id="productname" name="duvida" type="text" class="form-control" placeholder="Insira o nome">
+                                <label for="productname">Título</label>
+                                <input id="productname" name="galeria2_titulo" @if($hotsite) value="{{$hotsite->galeria2_titulo}}" @endif type="text" class="form-control" placeholder="Insira o nome">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="manufacturerbrand">Resposta</label>
-                                <textarea id="textarea" name="resposta" class="form-control" maxlength="107" rows="3" placeholder="Limite de 107 Caracteres"></textarea>
+                                <label for="productname">Descrição</label>
+                                <input id="productname" name="galeria2_descricao" @if($hotsite) value="{{$hotsite->galeria2_descricao}}" @endif type="text" class="form-control"
+                                    placeholder="Insira o nome">
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap gap-2">
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
+                        <a name="" data-bs-toggle="modal" data-bs-target="#modalGaleria2" id="button-add" class="btn btn-success" style="height: 100%;">
+                            <i class="bx bx-plus" aria-hidden="true"></i> Adicionar foto à galeria</a>
                     </div>
                 </form>
+
+
             </div>
+
+
+
             <div class="card-body">
-                <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+                <h4 class="card-title mb-3">Fotos da Galeria (2)</h4>
+
+                <div class="popup-gallery d-flex flex-wrap">
+                    <a href="http://skote-v-light.react.themesbrand.com/static/media/img-2.9ad853b2.jpg" title="Project 1">
+                        <div class="img-fluid">
+                            <img src="http://skote-v-light.react.themesbrand.com/static/media/img-2.9ad853b2.jpg" alt="" width="120">
+                        </div>
+                    </a>
+
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info"
-                            style="width: 1185px;">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending">Módulo</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
-                                        Descrição</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
-                                    </th>
-                                </tr>
-                            </thead>
 
-
-                            <tbody>
-                                @if($hotsite)
-                                @foreach($hotsite->duvidas as $duvida)
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
-                                    <td>{{ $duvida->resposta }}</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 34px!important;"><i
-                                                    class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
-
-
 
         </div>
     </div>
+
+    <div class="card imagens">
+
+        <div class="card-body">
+            <form class="row" action="{{route('painel.expositores.hotsite.foto.salvar', ['expositor' => $expositor])}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="col-12 col-md-4 mt-3 text-center">
+                    <h4 class="card-title">Logo</h4>
+                    <div class="row">
+                        <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                            <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                <img id="logo-preview" @if(!$hotsite || !$hotsite->logo) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->logo) }}" @endif
+                                style="width: 100%; object-fit: cover;" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary" for="logo-upload">Escolher</label>
+                            <input name="logo" id="logo-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mt-3 text-center">
+                    <h4 class="card-title">Foto Principal</h4>
+                    <div class="row">
+
+                        <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                            <picture style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                <img id="principal-preview" @if(!$hotsite || !$hotsite->foto1) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto1) }}" @endif
+                                style="width: 100%; object-fit: cover;" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary" for="principal-upload">Escolher</label>
+                            <input name="foto1" id="principal-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mt-3 text-center">
+                    <h4 class="card-title">Foto da segunda sessão</h4>
+                    <div class="row">
+                        <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                            <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                <img id="secundaria-preview" @if(!$hotsite || !$hotsite->foto2) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($hotsite->foto2) }}" @endif
+                                style="width: 100%; object-fit: cover;" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <label class="btn btn-primary" for="secundaria-upload">Escolher</label>
+                            <input name="foto2" id="secundaria-upload" style="display: none;" type="file">
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-3">
+                <div class="col-12 mt-3 text-center">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="card-body row">
+
+
+            {{-- <div class="col-3">
+                <h4 class="card-title mb-3">Foto Principal *SEM FUNDO</h4>
+                <form action="https://themesbrand.com/" method="post" class="dropzone dz-clickable" style="height: 600px !important; display: flex; align-items: center; justify-content: center;">
+                    <div class="dz-message needsclick">
+                        <div class="mb-3">
+                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                        </div>
+                        <h4>Inserir imagem</h4>
+                    </div>
+
+
+                </form>
+            </div> --}}
+        </div>
+
+        {{-- <div class="card-body">
+            <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+
+                </div>
+            </div>
+        </div> --}}
+    </div>
+
+
+    <div class="card duvidas">
+        <div class="card-body">
+            <h4 class="card-title">Cadastro de Dúvidas</h4>
+
+
+
+            <form action="{{route('painel.expositores.hotsite.duvida.salvar', ['expositor' => $expositor])}}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="productname">Dúvida</label>
+                            <input id="productname" name="duvida" type="text" class="form-control" placeholder="Insira o nome">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="manufacturerbrand">Resposta</label>
+                            <textarea id="textarea" name="resposta" class="form-control" maxlength="107" rows="3" placeholder="Limite de 107 Caracteres"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div id="datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable_info" style="width: 1185px;">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 68px;" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending">Módulo</th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
+                                    Descrição</th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            @if($hotsite)
+                            @foreach($hotsite->duvidas as $duvida)
+                            <tr class="odd">
+                                <td class="sorting_1 dtr-control">{{$duvida->duvida}}</td>
+                                <td>{{ $duvida->resposta }}</td>
+                                <td>
+                                    <div class="btn-group edit-table-button ">
+                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="height: 34px!important;"><i
+                                                class="bx bx-edit"></i></button>
+                                        <div class="dropdown-menu" style="margin: 0px;">
+                                            <a class="dropdown-item" style="color: red" href="{{route('painel.expositores.hotsite.duvida.excluir', ['duvida' => $duvida])}}">Excluir</a>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
 </div>
 
 </div>
@@ -661,6 +587,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+
 </div>
 
 <div id="modalGaleria2" class="modal fade" tabindex="-1" aria-labelledby="modalGaleria2Label" style="display: none;" aria-hidden="true">
@@ -698,6 +625,9 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 
 
 @section('scripts')
+
+
+<script src="{{ asset('\admin\libs\magnific-popup.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
