@@ -67,4 +67,20 @@ class ProfessoresController extends Controller
         return redirect()->back();
     }
 
+    public function destaque(Professor $professor){
+        if($professor->destaque){
+            $professor->destaque = false;
+            $professor->save();
+            return response()->json("retirado");
+        }else{
+            $qtd = Professor::where("destaque", true)->count();
+            if($qtd == 4){
+                return response()->json("erro");    
+            }
+            $professor->destaque = true;
+            $professor->save();
+            return response()->json("destacado");
+        }
+    }
+
 }

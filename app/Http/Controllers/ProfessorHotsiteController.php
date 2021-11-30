@@ -27,7 +27,7 @@ class ProfessorHotsiteController extends Controller
         $hotsite->nome = $request->nome;
         $hotsite->email = $request->email;
         $hotsite->telefone = $request->telefone;
-        $hotsite->site = $request->site;
+        $hotsite->slug = $request->slug;
         $hotsite->video = $request->video;
         $hotsite->sobre = $request->sobre;
 

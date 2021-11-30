@@ -9,6 +9,10 @@ class ProfessorHotsite extends Model
 {
     use HasFactory;
 
+    public function professor(){
+        return $this->belongsTo(Professor::class);
+    }
+
     public function depoimentos(){
         return $this->hasMany(ProfessorHotsiteDepoimento::class);
     }

@@ -39,7 +39,7 @@ Route::get('/duvidas', [\App\Http\Controllers\SiteController::class, 'duvidas'])
 // ENAF ~
 
 Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
-Route::get('/feira/empresas/{categoria}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
+Route::get('/feira/experiencias/{slug}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
 Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
@@ -56,7 +56,7 @@ Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])-
 Route::get('/artigos/', [\App\Http\Controllers\SiteController::class, 'artigoGrid'])->name("site.artigo-grid");
 Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
 
-Route::get('/treinador/{professor}', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
+Route::get('/treinador/{slug}', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
 Route::get('/hotsite/{slug}', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
 
 
@@ -270,6 +270,7 @@ Route::middleware(['admin'])->group(function () {
 
     // ROTAS DE PROFESSORES
     Route::match(['get', 'post'], '/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
+    Route::get('/sistema/professore/destaque/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'destaque'])->name("painel.professor.destaque");
     Route::get('/sistema/professores/cadastrar', [\App\Http\Controllers\ProfessoresController::class, 'cadastrar'])->name("painel.professores.cadastrar");
     Route::get('/sistema/professores/editar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'editar'])->name("painel.professores.editar");
     Route::get('/sistema/professores/deletar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'deletar'])->name("painel.professores.deletar");

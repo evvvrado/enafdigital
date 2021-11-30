@@ -44,7 +44,7 @@
 
                 <div class="_lista">
                     @foreach($professores as $professor)
-                    <div class="_Professor {{Illuminate\Support\Str::slug(config('professores.atuacao_nome')[$professor->atuacao])}}">
+                    <div class="_Professor {{Illuminate\Support\Str::slug(config('professores.atuacao_nome')[$professor->atuacao])}}" @if($professor->hotsite && $professor->hotsite->slug) onclick="window.location.href = '{{route('site.treinador', ['slug' => $professor->hotsite->slug])}}'" @endif>
                         <img src="{{ asset($professor->foto) }}" alt="{{$professor->nome}}" />
                     </div>
                     @endforeach

@@ -87,7 +87,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="manufacturername">Slug</label>
-                                <input class="form-control" name="site" type="url" @if($hotsite) value="{{$hotsite->site}}" @endif placeholder="Insira a URL" id="example-url-input">
+                                <input class="form-control" name="slug" type="text" @if($hotsite) value="{{$hotsite->slug}}" @endif placeholder="Insira a slug" id="example-url-input">
                             </div>
                             <div class="mb-3">
                                 <label for="manufacturername">E-mail</label>

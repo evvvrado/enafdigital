@@ -70,7 +70,7 @@
             65 => "Body Arte para Fisiculturismo ",
             66 => "Músicas para Treino e Academia ",
 
-        ]
+        ],
     ];
 
 ?>

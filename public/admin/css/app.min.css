@@ -5403,3 +5403,7 @@ div.dataTables_wrapper div.dataTables_length select {
     overflow: hidden;
     max-width: 400px;
 }
+
+.fa-star.active{
+    color: orange;
+}

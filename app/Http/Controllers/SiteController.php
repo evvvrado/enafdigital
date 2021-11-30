@@ -325,10 +325,15 @@ class SiteController extends Controller
         return view("site.feira");
     }
 
-    public function feiraEmpresas($categoria)
+    public function feiraEmpresas($slug)
     {
-        $expositores = Expositor::where("categoria", $categoria)->get();
-        return view("site.feira-empresas", ["expositores" => $expositores]);
+        foreach(config("expositores.categorias_nome") as $key => $value){
+            if($slug == Str::slug($value)){
+                $expositores = Expositor::where("categoria", $key)->get();
+                $anunciante = Contrato::where([["categoria", $key], ["inicio", "<=", date('Y-m-d')], ['fim', ">=", date('Y-m-d')], ["ativo", true]])->first();
+            }
+        }
+        return view("site.feira-empresas", ["expositores" => $expositores, "anunciante" => $anunciante]);
     }
 
     public function feiraCatalogo()
