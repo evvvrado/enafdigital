@@ -51,7 +51,7 @@
 @endsection
 
 @section('titulo')
-Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínicas</a> / Cadastrar
+Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congressos</a> / Cadastrar
 @endsection
 
 @section('conteudo')
@@ -61,7 +61,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
     <div class="col-12">
         <div class="card evento">
             <div class="card-body">
-                <h4 class="card-title">Cadastro de Clínica</h4>
+                <h4 class="card-title">Cadastro de Congresso</h4>
                 <form action="{{ route('painel.clinicas.salvar') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="clinica" value="1">

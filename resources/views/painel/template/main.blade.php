@@ -264,7 +264,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('painel.eventos') }}" key="t-default">Eventos</a></li>
-                                <li><a href="{{ route('painel.clinicas') }}" key="t-default">Clínicas</a></li>
+                                <li><a href="{{ route('painel.clinicas') }}" key="t-default">Congressos</a></li>
                                 <li><a href="{{ route('painel.cursos') }}" key="t-default">Cursos</a></li>
                                 <li><a href="{{ route('painel.alunos') }}" key="t-default">Alunos</a></li>
                                 <li><a href="{{ route('painel.professores') }}" key="t-default">Professores</a></li>
@@ -445,7 +445,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     <li><span>
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Professores
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Cursos
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Clínicas
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Congressos
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Eventos
                             <hr>
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Notícias

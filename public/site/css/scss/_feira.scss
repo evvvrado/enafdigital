@@ -139,7 +139,8 @@ section.s_feira {
 
     div._box {
         width: 100%;
-        height: calc(100vh - 90px);
+        height: 100%;
+        // height: calc(100vh - 90px);
 
         position: absolute;
         display: none;
@@ -316,6 +317,39 @@ section.s_feira {
 
             h4::after {
                 content: "Veja onde tem um sistema SCA perto de você";
+            }
+        }
+
+        @include responsive(1320px) {
+            flex-direction: column !important;
+            height: 100vh;
+
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 0.5rem;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $color-second;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                cursor: pointer;
+                background: $color-thirdy;
+            }
+        }
+
+        @include responsive(500px) {
+            aside {
+                margin-left: 0;
             }
         }
     }

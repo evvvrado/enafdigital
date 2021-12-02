@@ -774,7 +774,6 @@ section._meusDados .container-fav ._left .userImg {
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: var(--wine11);
     border-radius: 50%;
 
@@ -804,6 +803,8 @@ body._carrinho header .container-fav {
     align-items: center;
     justify-content: space-between;
     position: relative;
+
+    justify-content: flex-end;
 }
 body._carrinho header .container-fav ._first {
     display: flex;
@@ -856,6 +857,8 @@ section.s_identificacao form label select {
     font-family: "Inter";
     font-weight: bold;
     font-size: 1.2rem;
+
+    margin-top: 11px;
 }
 section.s_identificacao {
     position: relative;
@@ -1253,10 +1256,9 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._inpu
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input input,
 body._carrinho section.s_identificacao .container-fav ._pagamento select {
-    border: 1px solid var(--gray11);
+    /* border: 1px solid var(--gray11); */
     max-width: 31.4rem;
     padding: 1.7rem 4.2rem;
-    border-radius: 0.4rem;
 
     font-size: 1.6rem;
 
@@ -1266,9 +1268,6 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._inpu
     position: absolute;
     top: 2.1rem;
     left: 1.9rem;
-}
-body._carrinho section.s_identificacao .container-fav ._pagamento span {
-    font-size: 1.8rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento p {
     font-size: 1.4rem;
@@ -1312,14 +1311,13 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     padding-top: 2.4rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label span {
-    font-family: 1.6rem;
+    font-family: 1.4rem;
     font-weight: 400;
     position: static;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label input {
     font-size: 1.6rem;
     font-weight: 400;
-    border-radius: 0.4rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label:nth-last-child(3),
 body._carrinho
@@ -1353,6 +1351,29 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
     background: var(--orange2);
 }
+
+section._meusPedidos ._pedidosList ._pedido._approved {
+    border-color: #00ff00;
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status ._icon {
+    background: #0080004d;
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status ._icon img {
+    filter: saturate(0) brightness(0) invert(1);
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status::before {
+    background-color: #00ff00;
+}
+/* 
+section._meusPedidos ._pedidosList ._pedido._approved .btn-primary{
+    background-color: #00a800;
+
+} */
+
+section._meusPedidos ._pedidosList ._pedido._approved h3 {
+    color: #00a800;
+}
+
 @media (max-width: 1400px) {
     header main nav {
         max-width: 60%;

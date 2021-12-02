@@ -135,6 +135,53 @@ class GerencianetController extends Controller
         }
     }
 
+    public function alterar_vencimento(PagamentoBoleto $boleto, Request $request)
+    {
+        // dd($request->all());
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->alterarVencimento($boleto->charge_id, $request->data);
+        if ($res == 200) {
+            $boleto->expira = $request->data;
+            $boleto->save();
+            toastr()->success("Data alterada com sucesso!");
+            return redirect()->back();
+        }
+
+        toastr()->error("Erro ao alterar a data de vencimento.");
+        return redirect()->back();
+    }
+
+    public function alterar_vencimento_parcela_carne(ParcelaCarne $parcela, Request $request)
+    {
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->alterarVencimentoParcela($parcela->carne->carnet_id, $parcela->parcela, $request->data);
+        if ($res == 200) {
+            $parcela->data_expiracao = $request->data;
+            $parcela->save();
+            toastr()->success("Data alterada com sucesso!");
+            return redirect()->back();
+        }
+
+        toastr()->error("Erro ao alterar a data de vencimento.");
+        return redirect()->back();
+    }
+
+    public function cancelar_boleto(PagamentoBoleto $boleto)
+    {
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->cancelarTransacao($boleto->charge_id);
+        if ($res == 200) {
+            $boleto->status = 'canceled';
+            $boleto->save();
+            toastr()->success("Boleto cancelado com sucesso!");
+            return redirect()->back();
+        }
+        toastr()->error("Erro ao cancelar o boleto!");
+        return redirect()->back();
+    }
+
+
+
     public function notificacao()
     {
         Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação no token ' . $_POST['notification']);
@@ -142,7 +189,7 @@ class GerencianetController extends Controller
         $res = $gerencianet->notificacao($_POST["notification"]);
         if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
-            if(!$pagamento){
+            if (!$pagamento) {
                 $pagamento = PagamentoCarneParcela::where("charge_id", $res["charge_id"])->first();
             }
             $pagamento->status = $res["status"];

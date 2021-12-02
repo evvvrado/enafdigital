@@ -38,7 +38,7 @@ class SiteController extends Controller
 
         $eventos = \App\Models\Evento::where([["clinica", false], ["fim", ">=", date("Y-m-d 00:00:00")]])->orderBy("inicio")->get();
         $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
-        $professores = \App\Models\Professor::inRandomOrder()->limit(5)->get();
+        $professores = \App\Models\Professor::where('destaque', 1)->limit(5)->get();
 
         $pagina = Pagina::where("nome", "Home")->first();
         $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(4)->get();
@@ -327,8 +327,8 @@ class SiteController extends Controller
 
     public function feiraEmpresas($slug)
     {
-        foreach(config("expositores.categorias_nome") as $key => $value){
-            if($slug == Str::slug($value)){
+        foreach (config("expositores.categorias_nome") as $key => $value) {
+            if ($slug == Str::slug($value)) {
                 $expositores = Expositor::where("categoria", $key)->get();
                 $anunciante = Contrato::where([["categoria", $key], ["inicio", "<=", date('Y-m-d')], ['fim', ">=", date('Y-m-d')], ["ativo", true]])->first();
             }
@@ -362,12 +362,11 @@ class SiteController extends Controller
     public function hotsite($slug)
     {
         $hotsite = ExpositorHotsite::where("slug", $slug)->first();
-        if($hotsite){
+        if ($hotsite) {
             return view("site.hotsite", ["hotsite" => $hotsite]);
-        }else{
+        } else {
             return redirect()->route("site.index");
         }
-        
     }
 
     // ARTIGO

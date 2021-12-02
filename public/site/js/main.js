@@ -235,26 +235,32 @@ $(document).ready(() => {
     $(".area_SCA").click(() => {
         $("._box").addClass("sca");
         $("._blackground").show();
+        $('html').css('overflow', 'hidden');
     });
 
     $(".area_REDE").click(() => {
         $("._box").addClass("rede");
         $("._blackground").show();
+        $('html').css('overflow', 'hidden');
     });
 
     $(".area_GYMPASS").click(() => {
         $("._box").addClass("gympass");
         $("._blackground").show();
+        $('html').css('overflow', 'hidden');
     });
 
     $(".area_LION").click(() => {
         $("._box").addClass("lionfit");
         $("._blackground").show();
+        $('html').css('overflow', 'hidden');
     });
 
     $("._box ._close").click(() => {
         $("._box").attr("class", "_box");
         $("._blackground").hide();
+        $('html').css('overflow', 'unset');
+
     });
 
     $(".a_d ._t").hover(() => {

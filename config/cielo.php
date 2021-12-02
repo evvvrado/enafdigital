@@ -31,7 +31,10 @@ return [
         "JCB" => "JCB",
         "Discover" => "Discover",
         "Hipercard" => "Hipercard"
+    ],
+    'status' => [
+        0 => "Aguardando Pagamento",
+        1 => "Pagamento Realizado",
+        2 => "Cancelado",
     ]
 ];
-
-?>

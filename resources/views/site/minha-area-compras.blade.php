@@ -138,14 +138,16 @@
 
             <div class="_pedidosList">
                 @if (count($aluno->pedidos) <= 0) <h3>Ainda não há nenhum pedido</h3>
-                    <style>
-                        ._contentList::-webkit-scrollbar {
-                            display: none;
-                        }
-                    </style>
                     @else
                     @foreach ($aluno->pedidos->sortByDesc("created_at") as $pedido)
-                    <div class="_pedido">
+                    <div class="_pedido
+                        @if ($pedido->forma == 0)
+                            @if (config('gerencianet.status')[$pedido->boleto->status] === 'Pagamento Realizado')
+                            _approved               
+                            @endif
+                        @elseif($pedido->forma== 1)
+                            _approved               
+                        @endif">
                         <h3>N.{{ $pedido->codigo }}</h3>
                         <div class="_info">
                             <div class="data">
@@ -172,9 +174,15 @@
                                 <img src="{{ asset('site/img/sistema/dollar.svg') }} " alt="">
                             </div>
                             <div class="_text">
-                                <span>{{config("pagamento.status")[$pedido->status]}}</span>
                                 @if ($pedido->forma == 0)
-                                <p>{{ date('d.m.Y', strtotime($pedido->boleto->expira)) }}</p>
+                                <span>{{config("gerencianet.status")[$pedido->boleto->status]}}</span>
+                                {{-- <p>{{ date('d.m.Y', strtotime($pedido->boleto->expira)) }}</p> --}}
+
+                                @elseif($pedido->forma == 1)
+                                <span>Pagamento Realizado</span>
+
+                                @elseif($pedido->forma == 2)
+                                <span>Verificar<br> parcelas</span>
                                 @endif
                             </div>
                         </div>
