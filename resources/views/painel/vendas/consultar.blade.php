@@ -59,7 +59,15 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
                                     <td class="sorting_1 dtr-control">{{$venda->aluno->nome}}</td>
                                     <td>R$ {{number_format($venda->total, 2 , ",", ".")}}</td>
                                     <td>{{config('pagamento.formas')[$venda->forma]}}</td>
-                                    <td>{{config('pagamento.status')[$venda->status]}}</td>
+                                    <td>
+                                        @if($venda->forma == 0)
+                                            {{ config('gerencianet.status')[$venda->boleto->status] }}
+                                        @elseif($venda->forma == 1)
+                                            {{config("cielo.status")[$venda->cartao->status]}}
+                                        @else
+                                            Consultar parcelas
+                                        @endif
+                                    </td>
                                     <td>
                                         <div class="btn-group edit-table-button ">
                                             <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>

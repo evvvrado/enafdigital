@@ -143,6 +143,7 @@ class SiteController extends Controller
     public function clinicas()
     {
         $eventos = \App\Models\Evento::where([["clinica", true], ["fim", ">=", date("Y-m-d 00:00:00")]])->get();
+        session()->flash("tipo", "congresso");
         return view("site.clinicas", ["eventos" => $eventos]);
     }
 

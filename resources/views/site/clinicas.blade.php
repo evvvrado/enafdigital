@@ -1,5 +1,5 @@
 @include("site.includes.head")
-<title>ENAF - @if(session()->get("tipo") == "clinica") Nossas Congressos @else Nossos Eventos @endif</title>
+<title>ENAF - @if(session()->get("tipo") == "congresso") Nossas Congressos @else Nossos Eventos @endif</title>
 
 <body id="nossoscursos">
 
@@ -10,7 +10,7 @@
     <section class="container-fluid s_search">
         <div class="container-fav">
             <div class="_title">
-                <h4>@if(session()->get("tipo") == "clinica") Nossas Congressos @else Nossos Eventos @endif</h4>
+                <h4>@if(session()->get("tipo") == "congresso") Nossas Congressos @else Nossos Eventos @endif</h4>
             </div>
             <div class="_filters">
                 <label>

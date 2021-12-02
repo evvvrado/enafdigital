@@ -3,7 +3,7 @@
 return [
     'status' => [
         "new" => "Novo",
-        "waiting" => "Aguardando",
+        "waiting" => "Aguardando Pagamento",
         "paid" => "Pago",
         "unpaid" => "Não Pago",
         "refunded" => "Pagamento devolvido",

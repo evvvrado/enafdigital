@@ -44,7 +44,7 @@ Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'fei
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
 Route::get('/congressos', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
-Route::get('/congressos/congressos/{slug}', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
+Route::get('/congressos/congresso/{slug}', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
 Route::get('/eventos', [\App\Http\Controllers\SiteController::class, 'eventos'])->name("site.eventos");
 Route::get('/eventos/evento/{slug}', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");

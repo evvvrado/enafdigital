@@ -86,16 +86,6 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
     <script>
-        var inp = document.getElementById('logo-upload');
-            inp.addEventListener('change', function(e) {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function() {
-                    document.getElementById('logo-preview').src = this.result;
-                };
-                reader.readAsDataURL(file);
-            }, false);
-
             var inp = document.getElementById('banner-upload');
             inp.addEventListener('change', function(e) {
                 var file = this.files[0];

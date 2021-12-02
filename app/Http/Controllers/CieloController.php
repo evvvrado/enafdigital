@@ -55,6 +55,7 @@ class CieloController extends Controller
 
                 $pagamento = new PagamentoCartao;
                 $pagamento->venda_id = $venda->id;
+                $pagamento->status = 1;
                 $pagamento->codigo = $res["payment_id"];
                 $pagamento->numero = $res["numero"];
                 $pagamento->save();

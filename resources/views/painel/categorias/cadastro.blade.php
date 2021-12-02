@@ -33,7 +33,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.categorias') }}">Cate
                             </div>
                             <div class="mb-3">
                                 <label for="price">Valor de Contrato</label>
-                                <input id="price" name="price" name="valor" type="tel" class="form-control" placeholder="Insira o valor">
+                                <input id="price" name="valor" type="tel" class="form-control" placeholder="Insira o valor">
                             </div>
                             <div class="mb-3 ">
                                 <label for="productdesc">Ativo / Inativo</label>
