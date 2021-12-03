@@ -35,7 +35,7 @@
   </section>
 
 
-  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner_divulgacao}}')">
+  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner_divulgacao}}');    background-size: cover;">
     <div class="container-fav">
     </div>
   </section>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="_table fade">
-        @foreach ($evento->pacotes as $pacote)
+        @foreach ($evento->pacotes->take(3) as $pacote)
         <div class="_col">
           <div class="_top">{{ $pacote->nome }}</div>
           <main>
@@ -304,11 +304,12 @@
         <h4>{{ $evento->local_nome }}</h4>
         <p>{{ $evento->local_endereco }}</p>
 
-        <a href="#">Ver no maps</a>
+        <a target="_blank" href="https://maps.google.com/?q={{$evento->local_endereco}}">Ver no maps</a>
       </div>
     </div>
   </section>
 
+  @if (count($evento->hoteis) > 0)
   <section class="container-fluid s_hoteis">
     <div class="container-fav">
       <div class="title">
@@ -336,6 +337,7 @@
       </div>
     </div>
   </section>
+  @endif
 
   @include('site.includes.publicidade')
 

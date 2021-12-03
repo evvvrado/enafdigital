@@ -2109,7 +2109,7 @@ p {
 }
 .d_superMenu .container-fav ._right ._img {
     position: absolute;
-    right: 37.3rem;
+    right: 41.3rem;
 }
 .d_superMenu .container-fav ._right ._text {
     z-index: 2;
@@ -2125,7 +2125,7 @@ p {
 .d_superMenu .container-fav ._right ._text p {
     max-width: 35.5rem;
     position: relative;
-    left: 11.5rem;
+    left: 2.5rem;
 }
 .d_superMenu .container-fav .close_superMenu {
     position: absolute;
@@ -2644,7 +2644,7 @@ section._copyRight p strong {
 }
 
 .d_superMenu._showed .container-fav ._right ._text h6::after {
-    content: "A MAIOR DO BRASIL";
+    content: "A MAIOR FEIRA FITNESS DO BRASIL";
     animation: changetext infinite linear 8s;
 }
 

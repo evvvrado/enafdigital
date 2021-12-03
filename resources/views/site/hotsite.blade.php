@@ -138,10 +138,10 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                         <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" onclick="window.open('{{$parceiro->url}}')" />
                     </picture>
                     <picture>
-                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" />
+                        <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" onclick="window.open('{{$parceiro->url}}')" />
                     </picture>
                     <picture>
-                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" />
+                        <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" onclick="window.open('{{$parceiro->url}}')" />
                     </picture>
                 </div>
                 @endforeach
