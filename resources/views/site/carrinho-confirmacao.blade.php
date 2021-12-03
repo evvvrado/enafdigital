@@ -34,18 +34,13 @@
         <div class="container-fav">
             <div class="_half">
                 <div class="_top">
-                    <div class="_topItem">
-                        <div class="_icon">
-                            <img src="{{ asset('site/img/sistema/approved2.svg') }}" alt="" />
-                        </div>
-                        <span>Compra Realizada com sucesso!</span>
-                    </div>
-                    <div class="_topItem">
-                        <div class="_icon">
-                            <img src="{{ asset('site/img/sistema//happyemoji.svg') }}" alt="" />
-                        </div>
-                        <span>Obrigado por fazer parte da ABS!</span>
-                    </div>
+
+                    <picture><img src="{{ asset('site/img/sistema/approved2.svg')}}" alt=""></picture>
+                    @if ($venda->forma == 0 || $venda->forma == 2)
+                    <h2 style="color: green;">Sua compra foi realizada com sucesso! Aguardando o pagamento.</h2>
+                    @else
+                    <h2 style="color: green;">Sua compra foi realizada com sucesso!</h2>
+                    @endif
                 </div>
                 <div class="_title">
                     <h2>Pedido - {{ $venda->codigo }}</h2>

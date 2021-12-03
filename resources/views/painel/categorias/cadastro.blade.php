@@ -8,7 +8,7 @@
 @endsection
 
 @section('titulo')
-Catálogo / <a style="color: unset" href="{{ route('painel.categorias') }}">Categoria</a> / Cadastrar
+Catálogo / <a style="color: unset" href="{{ route('painel.categorias') }}">Anunciante</a> / Cadastrar
 @endsection
 
 @section('conteudo')
@@ -36,7 +36,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.categorias') }}">Cate
                                 <input id="price" name="valor" type="tel" class="form-control" placeholder="Insira o valor">
                             </div>
                             <div class="mb-3 ">
-                                <label for="productdesc">Ativo / Inativo</label>
+                                <label for="productdesc">Ativo</label>
                                 <div class="form-check form-switch form-switch-lg pt-3 ">
                                     <input class="form-check-input form-control" name="ativo" type="checkbox" id="SwitchCheckSizelg">
                                 </div>

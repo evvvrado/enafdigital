@@ -96,10 +96,10 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                 </label>
                 <label>
                     <span>Telefone</span>
-                    <input type="tel" name="telefone" placeholder="(35) 9 88090305" />
+                    <input type="tel" name="telefone" placeholder="(35) 9 88000000" />
                 </label>
 
-                <button>ENVIAR</button>
+                <button onclick="enviar2()">ENVIAR</button>
             </form>
         </div>
     </section>
@@ -135,13 +135,13 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                 @foreach($hotsite->parceiros->take(5) as $parceiro)
                 <div class="listItem">
                     <picture>
-                        <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" />
+                        <img src="{{ asset($parceiro->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" onclick="window.open('{{$parceiro->url}}')" />
                     </picture>
                     <picture>
-                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" />
+                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" />
                     </picture>
                     <picture>
-                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" />
+                        <img src="{{ asset($hotsite->parceiros->random()->first()->logo) }}" alt="{{$parceiro->nome}}" title="{{$parceiro->nome}}" />
                     </picture>
                 </div>
                 @endforeach
@@ -288,18 +288,18 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
                 <form action="javascript: void(0)">
                     <label>
                         <span>Nome completo</span>
-                        <input type="text" name="nome" placeholder="Seu nome" />
+                        <input type="text" name="nome2" placeholder="Seu nome" />
                     </label>
                     <label>
                         <span>Seu e-mail</span>
-                        <input type="email" name="email" placeholder="email@exemplo.com.br" />
+                        <input type="email" name="email2" placeholder="email@exemplo.com.br" />
                     </label>
                     <label>
                         <span>Telefone</span>
-                        <input type="tel" name="telefone" placeholder="(35) 9 88090305" />
+                        <input type="tel" name="telefone2" placeholder="(35) 9 88000000" />
                     </label>
 
-                    <button>ENVIAR</button>
+                    <button onclick="enviar()">ENVIAR</button>
                 </form>
             </div>
         </div>
@@ -307,6 +307,25 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
 
 
     @include('site.includes.footer')
+
+    <script>
+        function enviar(){
+            var nome = $('input[name = "nome2"]').val();
+            var email = $('input[name = "email2"]').val();
+            var cellphone = $('input[name = "telefone2"]').val();
+
+            window.open(`https://wa.me/{{ \App\Classes\Util::limparString($hotsite->telefone)}}/?text=Ol%C3%A1%2C+sou+${nome}+Me+contate%21+E-mail+${email}+%0D%0A++Celular%3A+${cellphone}`)
+        }
+
+        
+        function enviar2(){
+            var nome = $('input[name = "nome"]').val();
+            var email = $('input[name = "email"]').val();
+            var cellphone = $('input[name = "telefone"]').val();
+
+            window.open(`https://wa.me/{{ \App\Classes\Util::limparString($hotsite->telefone)}}/?text=Ol%C3%A1%2C+sou+${nome}+Me+contate%21+E-mail+${email}+%0D%0A++Celular%3A+${cellphone}`)
+        }
+    </script>
 
 
 

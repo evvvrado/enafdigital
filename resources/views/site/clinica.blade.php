@@ -60,7 +60,7 @@
               @foreach ($pacote->cursos as $curso)
               <strong>{{ $curso->nome }}</strong>
               <span class="_pa">{{ config('cursos.tipo_nome')[$curso->tipo] }}</span>
-              <p class="_date">01/10/2020 das 8h as 12h</p>
+              <p class="_date"></p>
               @endforeach
             </div>
             {{-- <strong>Meeting de musculação</strong>
@@ -279,7 +279,7 @@
       <div class="_pictures">
         @foreach ($evento->participantes as $participante)
         <picture>
-          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{ $participante->url }}'" alt="{{ $participante->nome }}" />
+          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{ $participante->url }}'" title="{{ $participante->nome }}" alt="{{ $participante->nome }}" />
         </picture>
         @endforeach
         {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />

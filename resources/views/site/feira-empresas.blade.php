@@ -38,10 +38,14 @@ $categoriaid = $expositores->first();
     <div class="container-fav">
       @if($anunciante)
       <div class="_box main">
-        <picture>
-          <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
-          <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
-        </picture>
+        <a href="@if($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug){{route('site.hotsite', ['slug'=> $anunciante->expositor->hotsite->slug])}}"
+          @else{{$anunciante->expositor->site}}
+          @endif">
+          <picture>
+            <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
+            <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
+          </picture>
+        </a>
 
         <div>
           <span>{{$anunciante->nome}}</span>
@@ -76,7 +80,8 @@ $categoriaid = $expositores->first();
       @foreach ($expositores->take(12) as $expositor)
       <div class="_box">
         <picture>
-          <a href="{{ $expositor->site }}">
+          <a href="@if($expositor->hotsite && $expositor->hotsite->slug){{route('site.hotsite', ['slug'=> $expositor->hotsite->slug])}}" @else{{$expositor->site}}
+            @endif">
             <img src="{{ asset($expositor->foto) }}" alt="{{ $expositor->nome }}" />
           </a>
         </picture>
@@ -94,10 +99,14 @@ $categoriaid = $expositores->first();
 
       @if($anunciante)
       <div class="_box main">
-        <picture>
-          <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
-          <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
-        </picture>
+        <a href="@if($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug){{route('site.hotsite', ['slug'=> $anunciante->expositor->hotsite->slug])}}"
+          @else{{$anunciante->expositor->site}}
+          @endif">
+          <picture>
+            <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
+            <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
+          </picture>
+        </a>
 
         <div>
           <span>{{$anunciante->nome}}</span>
