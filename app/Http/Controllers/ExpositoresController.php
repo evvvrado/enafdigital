@@ -78,6 +78,16 @@ class ExpositoresController extends Controller
     }
     
     
-    
+    public function destaque(Expositor $expositor){
+        if($expositor->destaque){
+            $expositor->destaque = false;
+            $expositor->save();
+            return response()->json("retirado");
+        }else{
+            $expositor->destaque = true;
+            $expositor->save();
+            return response()->json("destacado");
+        }
+    }
 
 }

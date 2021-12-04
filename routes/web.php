@@ -181,6 +181,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
     Route::get('/sistema/expositores/editar/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
     Route::post('/sistema/expositores/salvar', [\App\Http\Controllers\ExpositoresController::class, 'salvar'])->name("painel.expositores.salvar");
+    Route::get('/sistema/expositores/destaque/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'destaque'])->name("painel.expositores.destaque");
     Route::get('/sistema/expositores/{expositor}/hotsite/', [\App\Http\Controllers\ExpositorHotsiteController::class, 'hotsite'])->name("painel.expositores.hotsite");
     Route::post('/sistema/expositores/{expositor}/hotsite/informacoes/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_informacoes'])->name("painel.expositores.hotsite.informacoes.salvar");
     Route::post('/sistema/expositores/{expositor}/hotsite/textos/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_textos'])->name("painel.expositores.hotsite.textos.salvar");
