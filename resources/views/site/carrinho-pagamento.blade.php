@@ -111,12 +111,9 @@
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" id="parcelas" required>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        @for($i = 1; $i <= $parcelas; $i++)
+                                            <option value="{{$i}}">{{$i}}x - R${{number_format($carrinho->total/$i, 2, ",", ".")}}</option>
+                                        @endfor
                                     </select>
                                 </label>
                                 <button type="submit">

@@ -90,9 +90,32 @@ class ConfiguracoesController extends Controller
 
         $configuracoes->min_valor_parcela_boleto = $request->min_valor_parcela_boleto;
         $configuracoes->max_parcelas_boleto = $request->max_parcelas_boleto;
+
+        $configuracoes->min_valor_parcela_cartao = $request->min_valor_parcela_cartao;
+        $configuracoes->max_parcelas_cartao = $request->max_parcelas_cartao;
+        
+        if($request->usar_configuracoes_gerais_pagamento){
+            $configuracoes->usar_configuracoes_gerais_pagamento = true;
+        }else{
+            $configuracoes->usar_configuracoes_gerais_pagamento = false;
+        }
+        
+        if($request->liberar_boleto){
+            $configuracoes->liberar_boleto = true;
+        }else{
+            $configuracoes->liberar_boleto = false;
+        }
+        
+        if($request->liberar_cartao){
+            $configuracoes->liberar_cartao = true;
+        }else{
+            $configuracoes->liberar_cartao = false;
+        }
+
         $configuracoes->save();
 
-        toastr()->success("Configurações de boleto salvas.");
+        toastr()->success("Configurações de pagamentos salvas.");
         return redirect()->back();
     }
+
 }

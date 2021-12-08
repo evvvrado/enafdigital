@@ -353,11 +353,15 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <li><a href="{{ route('painel.informacoes.municipios') }}" key="t-default">Municípios</a></li>
                             </ul>
                         </li>
-
-
-
-
-
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect">
+                                <i class="bx bx-info-circle" aria-hidden="true"></i>
+                                <span key="t-dashboards">Meios de Pagamento</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('painel.configuracoes.meios-pagamento') }}" key="t-default">Configurar</a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="{{ route('painel.mapa') }}"" class=" waves-effect">
                                 <i class="bx bx-map-alt" aria-hidden="true"></i>

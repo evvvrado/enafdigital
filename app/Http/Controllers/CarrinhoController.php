@@ -96,8 +96,12 @@ class CarrinhoController extends Controller
         }
         $configuracao = Configuracao::first();
         $carrinho = Carrinho::find(session()->get("carrinho"));
+        $parcelas = 0;
+        for($i = 1; (($carrinho->total / $i > $configuracao->min_valor_parcela_cartao) && ($i <= $configuracao->max_parcelas_cartao)); $i++){
+            $parcelas++;
+        }
         $aluno = $carrinho->aluno;
-        return view("site.carrinho-pagamento", ["forma" => "cartao", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao]);
+        return view("site.carrinho-pagamento", ["forma" => "cartao", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao, "parcelas" => $parcelas]);
     }
 
     public function pagamento_boleto()
@@ -132,19 +136,25 @@ class CarrinhoController extends Controller
         if (!session()->get("carrinho")) {
             return redirect()->route('site.index');
         }
+        $configuracao = Configuracao::first();
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $boleto = true;
         $cartao = true;
-        foreach ($carrinho->cursos as $curso) {
-            if (!$curso->gerencianet) {
-                $boleto = false;
-            }
-            if (!$curso->cielo) {
-                $cartao = false;
+        if($configuracao->usar_configuracoes_gerais_pagamento == true){
+            $boleto = $configuracao->liberar_boleto;
+            $cartao = $configuracao->liberar_cartao;
+        }else{
+            foreach ($carrinho->cursos as $curso) {
+                if (!$curso->gerencianet) {
+                    $boleto = false;
+                }
+                if (!$curso->cielo) {
+                    $cartao = false;
+                }
             }
         }
         $aluno = $carrinho->aluno;
-        return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao]);
+        return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao, 'configuracao' => $configuracao]);
     }
 
     public function finalizar_boleto(Request $request)
