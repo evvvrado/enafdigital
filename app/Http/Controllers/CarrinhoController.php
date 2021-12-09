@@ -97,7 +97,7 @@ class CarrinhoController extends Controller
         $configuracao = Configuracao::first();
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $parcelas = 0;
-        for($i = 1; (($carrinho->total / $i > $configuracao->min_valor_parcela_cartao) && ($i <= $configuracao->max_parcelas_cartao)); $i++){
+        for ($i = 1; (($carrinho->total / $i > $configuracao->min_valor_parcela_cartao) && ($i <= $configuracao->max_parcelas_cartao)); $i++) {
             $parcelas++;
         }
         $aluno = $carrinho->aluno;
@@ -140,10 +140,10 @@ class CarrinhoController extends Controller
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $boleto = true;
         $cartao = true;
-        if($configuracao->usar_configuracoes_gerais_pagamento == true){
+        if ($configuracao->usar_configuracoes_gerais_pagamento == true) {
             $boleto = $configuracao->liberar_boleto;
             $cartao = $configuracao->liberar_cartao;
-        }else{
+        } else {
             foreach ($carrinho->cursos as $curso) {
                 if (!$curso->gerencianet) {
                     $boleto = false;
@@ -153,6 +153,7 @@ class CarrinhoController extends Controller
                 }
             }
         }
+
         $aluno = $carrinho->aluno;
         return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao, 'configuracao' => $configuracao]);
     }

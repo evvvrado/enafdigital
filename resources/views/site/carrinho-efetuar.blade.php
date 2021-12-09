@@ -180,6 +180,28 @@
                                 </div>
                             </div>
                             @endif
+
+                            @if(!$boleto && !$cartao)
+                            <p style="color: red!important;">Entre esses cursos há formas diferentes de pagamento. Por favor, remova-os clicando no "X" do carrinho.
+
+
+                                {{--
+                            <ul>
+                                @foreach ($carrinho->cursos as $curso)
+                                @if ($curso->gerencianet)
+                                <li>{{$curso->nome}} <small>BOLETO</small></li>
+                                @endif
+
+                                @if ($curso->cielo)
+                                <li>{{$curso->nome}} <small>CARTÃO</small></li>
+                                @endif
+
+                                @endforeach
+                            </ul> --}}
+
+                            </p>
+                            <img src="{{ asset('site/img/button_example.png') }}" alt="">
+                            @endif
                         </div>
                     </div>
                 </div>

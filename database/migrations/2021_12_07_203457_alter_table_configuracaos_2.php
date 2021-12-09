@@ -18,7 +18,6 @@ class AlterTableConfiguracaos2 extends Migration
             $table->boolean("usar_configuracoes_gerais_pagamento")->default(false);
             $table->boolean("liberar_boleto")->default(false);
             $table->boolean("liberar_cartao")->default(false);
-            $table->boolean("usar_configuracoes_gerais_pagamento")->default(false);
             $table->tinyInteger("max_parcelas_cartao")->default(12);
             $table->double("min_valor_parcela_cartao", 9, 2)->default(5);
         });
