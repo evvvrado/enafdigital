@@ -313,11 +313,13 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                 <h4 class="card-title mb-3">Fotos da Galeria (1)</h4>
 
                 <div class="popup-gallery d-flex flex-wrap">
+                    @if($hotsite)
                     @foreach($hotsite->fotos->where("galeria", 1) as $foto)
                     <div class="img-fluid" style="margin-right: 10px">
                         <img src="{{ asset($foto->foto) }}" alt="" width="120">
                     </div>
                     @endforeach
+                    @endif
 
                 </div>
 
@@ -366,12 +368,15 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                 <h4 class="card-title mb-3">Fotos da Galeria (2)</h4>
 
                 <div class="popup-gallery d-flex flex-wrap">
+
+                    @if($hotsite)
                     @foreach($hotsite->fotos->where("galeria", 2) as $foto)
                     <div class="img-fluid">
                         <img src="{{ asset($foto->foto) }}" alt="" width="120">
                     </div>
                     @endforeach
 
+                    @endif
                 </div>
 
             </div>
