@@ -45,10 +45,9 @@
         }
 
         img {
-          filter: grayscale(1);
+          filter: grayscale(1) brightness(3);
           object-fit: cover;
-          width: auto;
-          height: 100%;
+          width: 100%;
         }
       }
     }

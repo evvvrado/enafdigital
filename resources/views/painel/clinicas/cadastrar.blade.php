@@ -51,7 +51,7 @@
 @endsection
 
 @section('titulo')
-Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínicas</a> / Cadastrar
+Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congressos</a> / Cadastrar
 @endsection
 
 @section('conteudo')
@@ -61,7 +61,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
     <div class="col-12">
         <div class="card evento">
             <div class="card-body">
-                <h4 class="card-title">Cadastro de Clínica</h4>
+                <h4 class="card-title">Cadastro de Congresso</h4>
                 <form action="{{ route('painel.clinicas.salvar') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="clinica" value="1">
@@ -127,7 +127,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                                     Thumbnail
 
                                     <picture style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                        <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                     </picture>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                     Banner
                                     <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                        <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                     </picture>
                                 </div>
                             </div>

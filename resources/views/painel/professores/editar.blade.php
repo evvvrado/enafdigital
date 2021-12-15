@@ -44,12 +44,6 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                                 <label for="empresa">Empresa</label>
                                 <input id="empresa" name="empresa" type="text" class="form-control" value="{{ $professor->empresa }}" maxlength="100">
                             </div>
-                            <div class="mb-3">
-                                <label for="empresa">Mostrar na Página Inicial</label>
-                                <div class="form-check form-switch form-switch-lg pt-3 ">
-                                    <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg">
-                                </div>
-                            </div>
                         </div>
                     </div>
 

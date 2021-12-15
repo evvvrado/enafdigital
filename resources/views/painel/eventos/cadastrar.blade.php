@@ -130,7 +130,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                                         Thumbnail
 
                                         <picture style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                            <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                            <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                         </picture>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                                     <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                         Banner
                                         <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                            <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                            <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                         </picture>
                                     </div>
                                 </div>

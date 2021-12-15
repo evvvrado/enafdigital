@@ -21,6 +21,9 @@ class ContratosController extends Controller
             if($request->expositor_id != null){
                 $filtros[] = ["expositor_id", "=", $request->expositor_id];
             }
+            if($request->categoria != null){
+                $filtros[] = ["categoria", "=", $request->categoria];
+            }
             if($request->valor != null){
                 $filtros[] = ["valor", "=", $request->valor];
             }
@@ -56,6 +59,7 @@ class ContratosController extends Controller
         $contrato->fim = $request->fim;
         $contrato->expositor_id = $request->expositor_id;
         $contrato->valor = $request->valor;
+        $contrato->categoria = $request->categoria;
 
         if($request->ativo){
             $contrato->ativo = true;

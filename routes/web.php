@@ -39,12 +39,12 @@ Route::get('/duvidas', [\App\Http\Controllers\SiteController::class, 'duvidas'])
 // ENAF ~
 
 Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
-Route::get('/feira/empresas/{categoria}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
+Route::get('/feira/experiencias/{slug}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
 Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
-Route::get('/clinicas', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
-Route::get('/clinicas/clinica/{slug}', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
+Route::get('/congressos', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");
+Route::get('/congressos/congresso/{slug}', [\App\Http\Controllers\SiteController::class, 'clinica'])->name("site.clinica");
 Route::get('/eventos', [\App\Http\Controllers\SiteController::class, 'eventos'])->name("site.eventos");
 Route::get('/eventos/evento/{slug}', [\App\Http\Controllers\SiteController::class, 'evento'])->name("site.evento");
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
@@ -56,8 +56,8 @@ Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])-
 Route::get('/artigos/', [\App\Http\Controllers\SiteController::class, 'artigoGrid'])->name("site.artigo-grid");
 Route::get('/blog/blog', [\App\Http\Controllers\SiteController::class, 'blogPost'])->name("site.blog");
 
-Route::get('/treinador', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
-Route::get('/hotsite', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
+Route::get('/treinador/{slug}', [\App\Http\Controllers\TreinadorController::class, 'treinador'])->name("site.treinador");
+Route::get('/hotsite/{slug}', [\App\Http\Controllers\SiteController::class, 'hotsite'])->name("site.hotsite");
 
 
 
@@ -178,33 +178,45 @@ Route::middleware(['admin'])->group(function () {
 
     // ROTAS DE EXPOSITORES
     Route::match(['get', 'post'], '/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
-    Route::get('/sistema/expositores/hotsite', [\App\Http\Controllers\ExpositoresController::class, 'hotsite'])->name("painel.expositores.hotsite");
     Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
     Route::get('/sistema/expositores/editar/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
     Route::post('/sistema/expositores/salvar', [\App\Http\Controllers\ExpositoresController::class, 'salvar'])->name("painel.expositores.salvar");
+    Route::get('/sistema/expositores/destaque/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'destaque'])->name("painel.expositores.destaque");
+    Route::get('/sistema/expositores/{expositor}/hotsite/', [\App\Http\Controllers\ExpositorHotsiteController::class, 'hotsite'])->name("painel.expositores.hotsite");
+    Route::post('/sistema/expositores/{expositor}/hotsite/informacoes/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_informacoes'])->name("painel.expositores.hotsite.informacoes.salvar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/textos/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_textos'])->name("painel.expositores.hotsite.textos.salvar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/foto/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_foto'])->name("painel.expositores.hotsite.foto.salvar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/galeria1/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_galeria1'])->name("painel.expositores.hotsite.galeria1.salvar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/galeria2/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_galeria2'])->name("painel.expositores.hotsite.galeria2.salvar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/galeria/foto/adicionar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'adicionar_foto_galeria'])->name("painel.expositores.hotsite.galeria.foto.adicionar");
+    Route::post('/sistema/expositores/{expositor}/hotsite/galeria/foto/{foto}/excluir', [\App\Http\Controllers\ExpositorHotsiteController::class, 'excluir_foto_galeria'])->name("painel.expositores.hotsite.galeria.foto.excluir");
+    Route::post('/sistema/expositores/{expositor}/hotsite/parceiro/adicionar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_parceiro'])->name("painel.expositores.hotsite.parceiro.adicionar");
+    Route::get('/sistema/expositores/hotsite/parceiro/{parceiro}/excluir', [\App\Http\Controllers\ExpositorHotsiteController::class, 'excluir_parceiro'])->name("painel.expositores.hotsite.parceiro.excluir");
+    Route::post('/sistema/expositores/{expositor}/hotsite/duvida/salvar', [\App\Http\Controllers\ExpositorHotsiteController::class, 'salvar_duvida'])->name("painel.expositores.hotsite.duvida.salvar");
+    Route::get('/sistema/expositores/hotsite/duvida/{duvida}/excluir', [\App\Http\Controllers\ExpositorHotsiteController::class, 'excluir_duvida'])->name("painel.expositores.hotsite.duvida.excluir");
 
     // ROTA DE PUBLICIDADE
-    Route::match(['get','post'], '/sistema/anuncios', [\App\Http\Controllers\AnunciosController::class, 'consultar'])->name("painel.anuncios");
+    Route::match(['get', 'post'], '/sistema/anuncios', [\App\Http\Controllers\AnunciosController::class, 'consultar'])->name("painel.anuncios");
     Route::get('/sistema/anuncios/cadastro', [\App\Http\Controllers\AnunciosController::class, 'cadastrar'])->name("painel.anuncios.cadastro");
     Route::post('/sistema/anuncios/salvar', [\App\Http\Controllers\AnunciosController::class, 'salvar'])->name("painel.anuncios.salvar");
     Route::get('/sistema/anuncios/editar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'editar'])->name("painel.anuncios.editar");
     Route::get('/sistema/anuncios/deletar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'deletar'])->name("painel.anuncios.deletar");
 
 
-    Route::match(['get','post'], '/sistema/patrocinadores', [\App\Http\Controllers\PatrocinadoresController::class, 'consultar'])->name("painel.patrocinadores");
+    Route::match(['get', 'post'], '/sistema/patrocinadores', [\App\Http\Controllers\PatrocinadoresController::class, 'consultar'])->name("painel.patrocinadores");
     Route::get('/sistema/patrocinadores/cadastro', [\App\Http\Controllers\PatrocinadoresController::class, 'cadastrar'])->name("painel.patrocinadores.cadastro");
     Route::get('/sistema/patrocinadores/editar/{patrocinador}', [\App\Http\Controllers\PatrocinadoresController::class, 'editar'])->name("painel.patrocinadores.editar");
     Route::get('/sistema/patrocinadores/deletar/{patrocinador}', [\App\Http\Controllers\PatrocinadoresController::class, 'deletar'])->name("painel.patrocinadores.deletar");
     Route::post('/sistema/patrocinadores/salvar', [\App\Http\Controllers\PatrocinadoresController::class, 'salvar'])->name("painel.patrocinadores.salvar");
 
-    Route::match(['get','post'], '/sistema/apoio', [\App\Http\Controllers\ApoioController::class, 'consultar'])->name("painel.apoio");
+    Route::match(['get', 'post'], '/sistema/apoio', [\App\Http\Controllers\ApoioController::class, 'consultar'])->name("painel.apoio");
     Route::get('/sistema/apoio/cadastro', [\App\Http\Controllers\ApoioController::class, 'cadastrar'])->name("painel.apoio.cadastro");
     Route::get('/sistema/apoio/editar/{apoio}', [\App\Http\Controllers\ApoioController::class, 'editar'])->name("painel.apoio.editar");
     Route::post('/sistema/apoio/salvar', [\App\Http\Controllers\ApoioController::class, 'salvar'])->name("painel.apoio.salvar");
     Route::get('/sistema/apoio/deletar/{apoio}', [\App\Http\Controllers\ApoioController::class, 'deletar'])->name("painel.apoio.deletar");
 
     // ROTA DE INSTITUCIONAL
-    Route::match(['get','post'],'/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
+    Route::match(['get', 'post'], '/sistema/galeria', [\App\Http\Controllers\GaleriaController::class, 'consultar'])->name("painel.galeria");
     Route::post('/sistema/galeria/salvar', [\App\Http\Controllers\GaleriaController::class, 'salvar'])->name("painel.galeria.salvar");
     Route::get('/sistema/galeria/deletar/{galeria}', [\App\Http\Controllers\GaleriaController::class, 'deletar'])->name("painel.galeria.deletar");
     Route::get('/sistema/galeria/foto/{galeria}', [\App\Http\Controllers\GaleriaController::class, 'cadastrar'])->name("painel.galeria.cadastrar");
@@ -219,7 +231,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/depoimento/deletar/{depoimento}', [\App\Http\Controllers\DepoimentoController::class, 'deletar'])->name("painel.depoimento.deletar");
 
 
-    Route::match(['get','post'], '/sistema/duvidas', [\App\Http\Controllers\DuvidasController::class, 'consultar'])->name("painel.duvidas");
+    Route::match(['get', 'post'], '/sistema/duvidas', [\App\Http\Controllers\DuvidasController::class, 'consultar'])->name("painel.duvidas");
     Route::get('/sistema/duvidas/cadastro', [\App\Http\Controllers\DuvidasController::class, 'cadastrar'])->name("painel.duvidas.cadastro");
     Route::get('/sistema/duvidas/editar/{duvida}', [\App\Http\Controllers\DuvidasController::class, 'editar'])->name("painel.duvidas.editar");
     Route::post('/sistema/duvidas/salvar', [\App\Http\Controllers\DuvidasController::class, 'salvar'])->name("painel.duvidas.salvar");
@@ -259,11 +271,19 @@ Route::middleware(['admin'])->group(function () {
 
     // ROTAS DE PROFESSORES
     Route::match(['get', 'post'], '/sistema/professores', [\App\Http\Controllers\ProfessoresController::class, 'consultar'])->name("painel.professores");
+    Route::get('/sistema/professore/destaque/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'destaque'])->name("painel.professor.destaque");
     Route::get('/sistema/professores/cadastrar', [\App\Http\Controllers\ProfessoresController::class, 'cadastrar'])->name("painel.professores.cadastrar");
     Route::get('/sistema/professores/editar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'editar'])->name("painel.professores.editar");
     Route::get('/sistema/professores/deletar/{professor}', [\App\Http\Controllers\ProfessoresController::class, 'deletar'])->name("painel.professores.deletar");
     Route::post('/sistema/professores/salvar', [\App\Http\Controllers\ProfessoresController::class, 'salvar'])->name("painel.professores.salvar");
-    Route::get('/sistema/professores/hotsite', [\App\Http\Controllers\ProfessoresController::class, 'hotsite'])->name("painel.professores.hotsite");
+    Route::get('/sistema/professores/{professor}/hotsite/', [\App\Http\Controllers\ProfessorHotsiteController::class, 'hotsite'])->name("painel.professores.hotsite");
+    Route::post('/sistema/professores/{professor}/hotsite/informacoes/salvar', [\App\Http\Controllers\ProfessorHotsiteController::class, 'salvar_informacoes'])->name("painel.professores.hotsite.informacoes.salvar");
+    Route::post('/sistema/professores/{professor}/hotsite/textos/salvar', [\App\Http\Controllers\ProfessorHotsiteController::class, 'salvar_textos'])->name("painel.professores.hotsite.textos.salvar");
+    Route::post('/sistema/professores/{professor}/hotsite/foto/salvar', [\App\Http\Controllers\ProfessorHotsiteController::class, 'salvar_foto'])->name("painel.professores.hotsite.foto.salvar");
+    Route::post('/sistema/professores/{professor}/hotsite/depoimento/salvar', [\App\Http\Controllers\ProfessorHotsiteController::class, 'salvar_depoimento'])->name("painel.professores.hotsite.depoimento.salvar");
+    Route::get('/sistema/professores/hotsite/depoimento/{depoimento}/excluir', [\App\Http\Controllers\ProfessorHotsiteController::class, 'excluir_depoimento'])->name("painel.professores.hotsite.depoimento.excluir");
+    Route::post('/sistema/professores/{professor}/hotsite/duvida/salvar', [\App\Http\Controllers\ProfessorHotsiteController::class, 'salvar_duvida'])->name("painel.professores.hotsite.duvida.salvar");
+    Route::get('/sistema/professores/hotsite/duvida/{duvida}/excluir', [\App\Http\Controllers\ProfessorHotsiteController::class, 'excluir_duvida'])->name("painel.professores.hotsite.duvida.excluir");
 
     // ROTAS DE MENSAGENS
     Route::get('/sistema/mensagens', [\App\Http\Controllers\MensagemController::class, 'consultar'])->name("painel.mensagens");
@@ -289,7 +309,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/sistema/cursos/{curso}/depoimento/salvar', [\App\Http\Controllers\CursoDepoimentosController::class, 'salvar'])->name("painel.cursos.depoimento.salvar");
     Route::get('/sistema/cursos/depoimento/deletar/{depoimento}', [\App\Http\Controllers\CursoDepoimentosController::class, 'deletar'])->name("painel.cursos.depoimento.deletar");
 
-    // ROTAS DE CLÍNICAS
+    // ROTAS DE CONGRESSOS
     Route::match(['get', 'post'], '/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");
     Route::get('/sistema/clinicas/cadastrar', [\App\Http\Controllers\ClinicaController::class, 'cadastrar'])->name("painel.clinicas.cadastrar");
     Route::get('/sistema/clinicas/editar/{evento}', [\App\Http\Controllers\ClinicaController::class, 'editar'])->name("painel.clinicas.editar");
@@ -326,6 +346,14 @@ Route::middleware(['admin'])->group(function () {
 
     //ROTAS DE VENDAS
     Route::get('/sistema/vendas', [\App\Http\Controllers\VendasController::class, 'consultar'])->name("painel.vendas");
+
+    Route::get('/sistema/venda/{venda}', [\App\Http\Controllers\PagamentosController::class, 'venda'])->name("painel.venda");
+    Route::post('/sistema/venda/boleto/{boleto}/vencimento/alterar', [\App\Http\Controllers\GerencianetController::class, 'alterar_vencimento'])->name("painel.venda.boleto.vencimento.alterar");
+    Route::post('/sistema/venda/carne/parcela/{parcela}/vencimento/alterar', [\App\Http\Controllers\GerencianetController::class, 'alterar_vencimento_parcela_carne'])->name("painel.venda.carne.parcela.vencimento.alterar");
+    Route::get('/sistema/venda/boleto/{boleto}/cancelar', [\App\Http\Controllers\GerencianetController::class, 'cancelar_boleto'])->name("painel.venda.boleto.cancelar");
+    Route::get('/sistema/venda/cielo/estornar/{venda}', [\App\Http\Controllers\CieloController::class, 'estornar'])->name("painel.venda.cielo.estornar");
+    Route::get('/sistema/venda/cielo/capturar/{venda}', [\App\Http\Controllers\CieloController::class, 'capturar'])->name("painel.venda.cielo.capturar");
+
 
     //ROTAS DE CONFIGURAÇÕES
     Route::get('/sistema/informacoes/municipios', [\App\Http\Controllers\InformacoesController::class, 'municipios'])->name("painel.informacoes.municipios");

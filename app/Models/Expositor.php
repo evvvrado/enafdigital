@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Expositor extends Model
 {
     use HasFactory;
+
+    public function hotsite(){
+        return $this->hasOne(ExpositorHotsite::class);
+    }
 }

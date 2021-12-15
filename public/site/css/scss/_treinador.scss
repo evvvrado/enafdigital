@@ -25,21 +25,26 @@ body#treinador {
         height: 101.5rem;
         background-image: url("../img/header_treinador.jpg");
 
-        ._h1 {
-            margin-top: 16.1rem;
-        }
-
-        @include responsive(900px) {
-            background-position: center center;
-        }
-
-        @include responsive(600px) {
-            background-size: auto 100%;
-            background-position: center 10rem;
-            height: 60rem;
+        .container-fav {
+            @include flex(row, flex-start, flex-start);
+            gap: 3rem;
 
             ._h1 {
-                margin-top: 8.1rem;
+                margin-top: 16.1rem;
+            }
+
+            @include responsive(900px) {
+                background-position: center center;
+            }
+
+            @include responsive(600px) {
+                background-size: auto 100%;
+                background-position: center 10rem;
+                height: 60rem;
+
+                ._h1 {
+                    margin-top: 8.1rem;
+                }
             }
         }
     }
@@ -49,12 +54,15 @@ body#treinador {
         .container-fav {
             @include flex(column, center, center);
 
-            img {
+            iframe {
+                width: 100% !important;
+                max-width: 100.03rem !important;
+                height: 50.6rem !important;
+
                 border-radius: 0.8rem;
 
                 z-index: 2;
 
-                cursor: pointer;
                 box-shadow: 10px 20px 40px rgba(19, 51, 113, 0.05);
             }
         }
@@ -100,10 +108,8 @@ body#treinador {
             text-align: center;
         }
         h6 {
-            span {
-                position: relative;
-                @include draw_one(33.4rem, 7.8rem, 0, -5rem);
-            }
+            position: relative;
+            @include draw_one(33.4rem, 7.8rem, 0, 0);
         }
         p {
             max-width: 83.2rem;
@@ -214,10 +220,10 @@ body#treinador {
 
             ._cursoList {
                 margin-top: 4rem;
-                @include flex(row, center, space-between);
+                @include flex(row, flex-start, space-between);
                 transition: 0.32s;
                 min-width: max-content;
-                gap: 35px;
+                gap: 47px;
 
                 white-space: initial;
                 ._curso {
@@ -226,6 +232,8 @@ body#treinador {
                     }
 
                     text-align: center;
+
+                    overflow: hidden;
 
                     scroll-snap-align: center;
                     height: 44.6rem;
@@ -249,6 +257,9 @@ body#treinador {
                         padding-top: 3rem;
                         padding-bottom: 2.6rem;
                         border-bottom: 1px solid $gray-ligher;
+
+                        @include flex(column, center, space-between);
+
                         h6 {
                             font-weight: 500;
                             font-size: 22px;
@@ -266,6 +277,14 @@ body#treinador {
                             letter-spacing: 0.04em;
 
                             color: #647093;
+
+                            max-width: 27.2rem;
+                            height: 6rem;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            text-overflow: ellipsis;
                         }
                     }
 
@@ -299,10 +318,8 @@ body#treinador {
 
                 h6 {
                     position: relative;
-                    @include draw_one(64.4rem, 14rem, -2rem, 2rem);
-                    span {
-                        color: $white;
-                    }
+                    @include flex(column, center, center);
+                    @include draw_one(100%, 100%, unset, 0);
                 }
 
                 p {
@@ -315,9 +332,10 @@ body#treinador {
 
             ._videos {
                 @include flex(row, center, space-between);
+                width: 100%;
                 flex-wrap: wrap;
 
-                img {
+                iframe {
                     margin-top: 3.6rem;
                     border-radius: 0.8rem;
 
@@ -431,7 +449,7 @@ body#treinador {
                         min-width: max-content;
                         white-space: initial;
                         ._depoimento {
-                            max-width: 53rem;
+                            width: 53rem;
                             white-space: initial;
 
                             p._text {
@@ -456,7 +474,7 @@ body#treinador {
                                     margin-left: 2rem;
                                     padding-right: 1.6rem;
 
-                                    border-right: 1px solid $black;
+                                    // border-right: 1px solid $black;
                                 }
                                 a {
                                     @include flex(row, center, flex-start);
@@ -565,6 +583,7 @@ body#treinador {
                 color: $white;
                 p {
                     font-size: 1.8rem;
+                    min-height: 14.5rem;
                 }
 
                 h1 {
@@ -575,6 +594,15 @@ body#treinador {
             }
             ._img {
                 margin-top: -11.1rem;
+                height: 68.9rem;
+
+                img {
+                    width: 100%;
+                    max-width: unset;
+                    height: 100%;
+
+                    object-fit: cover;
+                }
             }
         }
 
@@ -880,7 +908,7 @@ body#treinador {
 
                             button {
                                 @include alternative-btn(5.1rem, $color-second, $white);
-                                font-family: "Gilroy", sans-serif   ;
+                                font-family: "Gilroy", sans-serif;
                                 font-weight: 500;
                                 margin-top: 3rem;
                                 margin-right: auto;

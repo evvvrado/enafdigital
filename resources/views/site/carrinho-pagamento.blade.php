@@ -34,13 +34,26 @@
     <section class="container-fluid s_identificacao">
         <div class="container-fav">
             <div class="_half">
+
                 <div class="_top">
+                    <div class="_title _active">
+                        <div class="_img">
+                            <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
+                        </div>
+                        <h2><a href="/">Home</a></h2>
+                    </div>
+
+                    <div class="arrow _title _active">
+                        <img src="{{ asset('site/img/sistema/loadingArrow.svg') }}" alt="" />
+                    </div>
+
                     <div class="_title _active">
                         <div class="_img">
                             <img src="{{ asset('site/img/sistema/personIdentificacao.svg') }}" alt="" />
                         </div>
-                        <h2>Identificação</h2>
+                        <h2><a href="{{ route('site.carrinho-identificacao')}}">Identificação</a></h2>
                     </div>
+
                     <div class="arrow _title _active">
                         <img src="{{ asset('site/img/sistema/loadingArrow.svg') }}" alt="" />
                     </div>
@@ -52,6 +65,7 @@
                         <h2>Pagamento</h2>
                     </div>
                 </div>
+
                 <div class="_pagamento">
                     <div class="_topInfo">
                         <div class="row">
@@ -96,11 +110,18 @@
                                 </label>
                                 <label>
                                     <span>Parcelas</span>
-                                    <input type="number" name="parcelas" max="10" min="1" step="1" placeholder="0" required />
+                                    <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" id="parcelas" required>
+                                        @for($i = 1; $i <= $parcelas; $i++)
+                                            <option value="{{$i}}">{{$i}}x - R${{number_format($carrinho->total/$i, 2, ",", ".")}}</option>
+                                        @endfor
+                                    </select>
                                 </label>
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
                                 </button>
+
+
+                                <a class="changefom" href="{{ route('site.carrinho-efetuar')}}">Trocar forma de pagamento</a>
                             </form>
                         </div>
                         @else
@@ -117,8 +138,9 @@
                                 @csrf
                                 <label>
                                     <span>Parcelas</span>
-                                    <select name="parcelas" required>
-                                        <option value="1">1x de {{$carrinho->total - ($carrinho->total * 10 / 100)}}</option>
+                                    <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" required>
+                                        <option value="1">1x de
+                                            {{ number_format($carrinho->total - ($carrinho->total * 10) / 100, 2, ",", ".") }}</option>
                                         @for($i = 2; ((($carrinho->total / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
                                             <option value="{{$i}}">{{$i}}x de {{number_format($carrinho->total / $i, 2, ",", ".")}}</option>
                                             @endfor
@@ -127,6 +149,9 @@
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
                                 </button>
+
+
+                                <a class="changefom" href="{{ route('site.carrinho-efetuar')}}">Trocar forma de pagamento</a>
                             </form>
                         </div>
                         @endif

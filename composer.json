@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "developercielo/api-3.0-php": "^1.3",
+        "doctrine/dbal": "^3.2",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "gerencianet/gerencianet-sdk-php": "^4.0",

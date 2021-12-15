@@ -110,7 +110,7 @@
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -240,6 +240,8 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js" integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @include('site.includes.aluno.footer')
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
@@ -264,6 +266,17 @@
                 500
             );
         });
+            // MASCARAS PARA OS FORMULARIOS
+        $(document).ready(function () {
+            $('form label input[name = "cpf"]').mask("000.000.000-00", {
+                reverse: true,
+            });
+            $('form label input[name = "telefone"]').mask("(00) 00000-0000");
+            $('form label input[name = "expiracao"]').mask("00/0000");
+            $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
+        });
+
+
 </script>
 
 </html>

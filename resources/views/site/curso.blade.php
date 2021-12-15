@@ -80,8 +80,8 @@
             </div>
 
             <div class="_video">
-                <iframe style="height: 385px; width: 100%; max-width: 595px" src=" {{ $curso->video }}?autoplay=1" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                {!! \App\Classes\Util::convertYoutube($curso->video) !!}
             </div>
         </div>
 

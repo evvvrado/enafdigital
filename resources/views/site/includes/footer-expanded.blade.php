@@ -68,7 +68,7 @@
                 <nav>
                     <ul>
                         <li><a href="{{ route('site.clinicas') }}">Eventos</a></li>
-                        <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
+                        <li><a href="{{ route('site.clinicas') }}">Congressos</a></li>
                         <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
                         <li><a href="{{ route('site.professores') }}">Professores</a></li>
                         <li><a href="{{ route('site.feira') }}">EXPO ENAF</a></li>

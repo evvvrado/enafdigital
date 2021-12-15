@@ -13,7 +13,7 @@
             <div class="_lists">
                 <ul>
                     <li><a href="{{ route('site.eventos') }}">Eventos</a></li>
-                    <li><a href="{{ route('site.clinicas') }}">Clínicas</a></li>
+                    <li><a href="{{ route('site.clinicas') }}">Congressos</a></li>
                     <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
                     <li><a href="{{ route('site.professores') }}">Professores</a></li>
                     <li><a style="color: green" href="{{ route('site.feira') }}">EXPO ENAF</a></li>

@@ -1,13 +1,13 @@
 @extends('painel.template.main')
 
 @section('styles')
-    <!-- DataTables -->
-    <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- DataTables -->
+<link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('titulo')
-    Listagem de Vendas
+Listagem de Vendas
 @endsection
 
 @section('botoes')
@@ -34,26 +34,32 @@
                     <tbody>
 
                         @foreach($vendas as $venda)
-                            <tr>
-                                <td>
-                                    <div class="dropdown mt-4 mt-sm-0">
-                                        <a href="#" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fas fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-                                            {{--  <a href="{{route('painel.estadual.editar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="bx bx-edit-alt pr-3"></i> Editar</a>
-                                            <a href="{{route('painel.estadual.deletar', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-trash-alt pr-3"></i> Excluir</a>
-                                            <a href="{{route('painel.diretorias', ['estadual' => $estadual])}}" id="" class="dropdown-item" role="button"><i class="fas fa-user pr-3"></i> Diretoria</a>  --}}
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{{$venda->codigo}}</td>
-                                <td>{{$venda->aluno->nome}}</td>
-                                <td>{{config("pagamento.formas")[$venda->forma]}}</td>
-                                <td>{{config("pagamento.status")[$venda->status]}}</td>
-                                <td>R${{number_format($venda->total, 2, ",", ".")}}</td>
+                        <tr>
+                            <td>
+                                <div class="dropdown mt-4 mt-sm-0">
+                                    <a href="#" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-bars" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="dropdown-menu" style="margin: 0px;">
 
-                            </tr>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{$venda->codigo}}</td>
+                            <td>{{$venda->aluno->nome}}</td>
+                            <td>{{config("pagamento.formas")[$venda->forma]}}</td>
+                            <td>
+                                @if($venda->forma == 0)
+                                    {{ config('gerencianet.status')[$venda->boleto->status] }}
+                                @elseif($venda->forma == 1)
+                                    {{config("cielo.status")[$venda->cartao->status]}}
+                                @else
+                                    Consultar parcelas
+                                @endif
+                            </td>
+                            <td>R${{number_format($venda->total, 2, ",", ".")}}</td>
+
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -65,11 +71,11 @@
 @endsection
 
 @section('scripts')
-    <!-- Required datatable js -->
-    <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script>
-        $(document).ready(function() {
+<!-- Required datatable js -->
+<script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script>
+    $(document).ready(function() {
             $('#datatable').DataTable( {
                 language:{
                     "emptyTable": "Nenhum registro encontrado",
@@ -204,5 +210,5 @@
                 } 
             } );
         } );    
-    </script> 
+</script>
 @endsection

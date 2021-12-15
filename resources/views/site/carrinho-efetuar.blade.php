@@ -84,10 +84,22 @@
                 <div class="_top">
                     <div class="_title _active">
                         <div class="_img">
+                            <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
+                        </div>
+                        <h2><a href="/">Home</a></h2>
+                    </div>
+
+                    <div class="arrow _title _active">
+                        <img src="{{ asset('site/img/sistema/loadingArrow.svg') }}" alt="" />
+                    </div>
+
+                    <div class="_title _active">
+                        <div class="_img">
                             <img src="{{ asset('site/img/sistema/personIdentificacao.svg') }}" alt="" />
                         </div>
                         <h2>Identificação</h2>
                     </div>
+
                     <div class="arrow _title _active">
                         <img src="{{ asset('site/img/sistema/loadingArrow.svg') }}" alt="" />
                     </div>
@@ -147,26 +159,48 @@
                         </div>
                         <div class="_buttons">
                             @if($boleto)
-                                <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
-                                    <div class="_icon">
-                                        <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
-                                    </div>
-                                    <div class="_text">
-                                        <span>Boleto Bancário</span>
-                                        <p>10% de desconto</p>
-                                    </div>
+                            <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
+                                <div class="_icon">
+                                    <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
                                 </div>
+                                <div class="_text">
+                                    <span>Boleto Bancário</span>
+                                    <p>10% de desconto</p>
+                                </div>
+                            </div>
                             @endif
                             @if($cartao)
-                                <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
-                                    <div class="_icon">
-                                        <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
-                                    </div>
-                                    <div class="_text">
-                                        <span>Cartão de Crédito</span>
-                                        <p>em até 10x sem juros</p>
-                                    </div>
+                            <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
+                                <div class="_icon">
+                                    <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
                                 </div>
+                                <div class="_text">
+                                    <span>Cartão de Crédito</span>
+                                    <p>em até @if($configuracao->max_parcelas_cartao) {{$configuracao->max_parcelas_cartao}}x @else 10x @endif sem juros</p>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if(!$boleto && !$cartao)
+                            <p style="color: red!important;">Entre esses cursos há formas diferentes de pagamento. Por favor, remova-os clicando no "X" do carrinho.
+
+
+                                {{--
+                            <ul>
+                                @foreach ($carrinho->cursos as $curso)
+                                @if ($curso->gerencianet)
+                                <li>{{$curso->nome}} <small>BOLETO</small></li>
+                                @endif
+
+                                @if ($curso->cielo)
+                                <li>{{$curso->nome}} <small>CARTÃO</small></li>
+                                @endif
+
+                                @endforeach
+                            </ul> --}}
+
+                            </p>
+                            <img src="{{ asset('site/img/button_example.png') }}" alt="">
                             @endif
                         </div>
                     </div>

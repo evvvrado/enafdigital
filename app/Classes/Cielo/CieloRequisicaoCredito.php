@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Classes\Cielo;
+
 use Cielo\API30\Merchant;
 use Cielo\API30\Ecommerce\Environment;
 use Cielo\API30\Ecommerce\Sale;
@@ -10,7 +11,8 @@ use Cielo\API30\Ecommerce\CreditCard;
 
 use Cielo\API30\Ecommerce\Request\CieloRequestException;
 
-class CieloRequisicaoCredito{
+class CieloRequisicaoCredito
+{
 
     public $merchant_id;
     public $merchant_key;
@@ -21,12 +23,13 @@ class CieloRequisicaoCredito{
     public $payment;
 
 
-    public function __construct(){
-        if(env("CIELO_ENV") == "sandbox"){
+    public function __construct()
+    {
+        if (env("CIELO_ENV") == "sandbox") {
             $this->merchant_id = env("CIELO_MERCHANT_ID_SANDBOX");
             $this->merchant_key = env("CIELO_MERCHANT_KEY_SANDBOX");
             $this->environment = Environment::sandbox();
-        }else{
+        } else {
             $this->merchant_id = env("CIELO_MERCHANT_ID");
             $this->merchant_key = env("CIELO_MERCHANT_KEY");
             $this->environment = Environment::production();
@@ -35,33 +38,38 @@ class CieloRequisicaoCredito{
         $this->merchant = new Merchant($this->merchant_id, $this->merchant_key);
     }
 
-    public function addSale($codigo){
+    public function addSale($codigo)
+    {
         $this->sale = new Sale($codigo);
     }
 
-    public function addCustomer($nome){
+    public function addCustomer($nome)
+    {
         $this->customer = $this->sale->customer($nome);
     }
 
-    public function addPayment($valor){
-        $this->payment = $this->sale->payment($valor);
+    public function addPayment($valor)
+    {
+        $this->payment = $this->sale->payment(intval($valor * 100));
+        // dd($this->payment);
     }
 
-    public function addCreditCard($numero, $bandeira, $expiracao, $cvv, $nome, $parcelas){
-        
+    public function addCreditCard($numero, $bandeira, $expiracao, $cvv, $nome, $parcelas)
+    {
         $this->payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
-                        ->creditCard($cvv, $bandeira)
-                        ->setExpirationDate($expiracao)
-                        ->setCardNumber($numero)
-                        ->setHolder($nome);
+            ->creditCard($cvv, $bandeira)
+            ->setExpirationDate($expiracao)
+            ->setCardNumber($numero)
+            ->setHolder($nome);
         $this->payment->setInstallments($parcelas);
-        // dd($this->sale);
     }
 
-    public function efetuar(){
+    public function efetuar()
+    {
         try {
             // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
             $this->sale = (new CieloEcommerce($this->merchant, $this->environment))->createSale($this->sale);
+            // dd($this->sale);
             // Com a venda criada na Cielo, já temos o ID do pagamento, TID e demais
             // dados retornados pela Cielo
             $paymentId = $this->sale->getPayment()->getPaymentId();
@@ -93,11 +101,8 @@ class CieloRequisicaoCredito{
         }
     }
 
-    public function capturar($paymentId, $valor){
-        $res = (new CieloEcommerce($this->merchant, $this->environment))->captureSale($paymentId, $valor, 0);
-        dd($res);
+    public function capturar($paymentId, $valor)
+    {
+        $res = (new CieloEcommerce($this->merchant, $this->environment))->captureSale($paymentId, intval($valor * 100), 0);
     }
-
 }
-
-?>

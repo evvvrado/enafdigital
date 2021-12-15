@@ -157,7 +157,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
 
                                         <picture style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                             <img id="thumbnail-preview" @if (!$curso->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->thumbnail) }}" @endif
-                                            style="height: 100%;"
+                                            style="width: 100%; object-fit: cover;"
                                             alt="">
                                         </picture>
                                     </div>
@@ -178,7 +178,8 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                         <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                             Banner
                             <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                <img id="banner-preview" @if (!$curso->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->banner) }}" @endif style="height: 100%;"
+                                <img id="banner-preview" @if (!$curso->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->banner) }}" @endif style="height: 100%;
+                                width: 100%; object-fit: cover;"
                                 alt="">
                             </picture>
                         </div>
@@ -302,7 +303,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                 <div class="row">
                     <div class="col-12 text-center d-flex align-items-center justify-content-center">
                         <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                            <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                            <img id="depoimento-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                         </picture>
                     </div>
                 </div>

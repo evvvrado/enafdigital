@@ -80,7 +80,7 @@ Blog / <a style="color: unset" href="{{ route('painel.noticias') }}">Noticias</a
                                         Thumbnail
 
                                         <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                            <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                            <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                         </picture>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@ Blog / <a style="color: unset" href="{{ route('painel.noticias') }}">Noticias</a
                         <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                             Banner
                             <picture style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                             </picture>
                         </div>
                     </div>

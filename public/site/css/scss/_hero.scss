@@ -221,6 +221,10 @@ section.s_backtoFeira {
         ._select {
             @include flex(row, center, flex-start);
             gap: 1rem;
+
+            @include responsive(500px) {
+                padding: 15px;
+            }
         }
 
         ._filters {

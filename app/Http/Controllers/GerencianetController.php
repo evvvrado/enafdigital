@@ -80,6 +80,8 @@ class GerencianetController extends Controller
             $venda->parcelas = $parcelas;
             if ($parcelas > 1) {
                 $venda->forma = 2;
+            } else {
+                $venda->forma = 0;
             }
             $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
             $venda->desconto = ($carrinho->total * $desconto / 100);
@@ -98,7 +100,7 @@ class GerencianetController extends Controller
                 $boleto->status = $res["data"]["status"];
                 $boleto->total = $res["data"]["total"];
                 $boleto->save();
-                // $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
+                $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
             } else {
                 $carne = new PagamentoCarne;
                 $carne->venda_id = $venda->id;
@@ -118,6 +120,8 @@ class GerencianetController extends Controller
                     $parcela->save();
                 }
             }
+            $carrinho->aberto = false;
+            $carrinho->save();
             session()->forget("carrinho");
             session()->put(["venda_finalizada" => $venda->id]);
             return redirect()->route("site.carrinho-confirmacao");
@@ -131,6 +135,53 @@ class GerencianetController extends Controller
         }
     }
 
+    public function alterar_vencimento(PagamentoBoleto $boleto, Request $request)
+    {
+        // dd($request->all());
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->alterarVencimento($boleto->charge_id, $request->data);
+        if ($res == 200) {
+            $boleto->expira = $request->data;
+            $boleto->save();
+            toastr()->success("Data alterada com sucesso!");
+            return redirect()->back();
+        }
+
+        toastr()->error("Erro ao alterar a data de vencimento.");
+        return redirect()->back();
+    }
+
+    public function alterar_vencimento_parcela_carne(ParcelaCarne $parcela, Request $request)
+    {
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->alterarVencimentoParcela($parcela->carne->carnet_id, $parcela->parcela, $request->data);
+        if ($res == 200) {
+            $parcela->data_expiracao = $request->data;
+            $parcela->save();
+            toastr()->success("Data alterada com sucesso!");
+            return redirect()->back();
+        }
+
+        toastr()->error("Erro ao alterar a data de vencimento.");
+        return redirect()->back();
+    }
+
+    public function cancelar_boleto(PagamentoBoleto $boleto)
+    {
+        $gerencianet = new GerencianetRequisicaoBoleto();
+        $res = $gerencianet->cancelarTransacao($boleto->charge_id);
+        if ($res == 200) {
+            $boleto->status = 'canceled';
+            $boleto->save();
+            toastr()->success("Boleto cancelado com sucesso!");
+            return redirect()->back();
+        }
+        toastr()->error("Erro ao cancelar o boleto!");
+        return redirect()->back();
+    }
+
+
+
     public function notificacao()
     {
         Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação no token ' . $_POST['notification']);
@@ -138,7 +189,7 @@ class GerencianetController extends Controller
         $res = $gerencianet->notificacao($_POST["notification"]);
         if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
-            if(!$pagamento){
+            if (!$pagamento) {
                 $pagamento = PagamentoCarneParcela::where("charge_id", $res["charge_id"])->first();
             }
             $pagamento->status = $res["status"];

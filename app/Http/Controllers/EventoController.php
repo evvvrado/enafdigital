@@ -17,22 +17,23 @@ class EventoController extends Controller
 {
     //
 
-    public function consultar(Request $request){
-        if($request->isMethod('get')){
+    public function consultar(Request $request)
+    {
+        if ($request->isMethod('get')) {
             $eventos = Evento::where("clinica", false)->get();
             return view("painel.eventos.consultar", ["eventos" => $eventos]);
-        }else{
+        } else {
             $filtros = [];
-            if($request->nome != null){
+            if ($request->nome != null) {
                 $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
             }
-            if($request->local_endereco != null){
+            if ($request->local_endereco != null) {
                 $filtros[] = ["local_endereco", "like", "%" . $request->local_endereco . "%"];
             }
-            if($request->inicio != null){
+            if ($request->inicio != null) {
                 $filtros[] = ["inicio", "=", $request->inicio];
             }
-            if($request->fim != null){
+            if ($request->fim != null) {
                 $filtros[] = ["fim", "=", $request->fim];
             }
             $filtros[] = ["clinica", "=", false];
@@ -40,21 +41,24 @@ class EventoController extends Controller
             return view("painel.eventos.consultar", ["eventos" => $eventos, "filtros" => $request->all()]);
         }
     }
-    
-    public function cadastrar(){
+
+    public function cadastrar()
+    {
         return view("painel.eventos.cadastrar");
     }
 
-    public function editar(Evento $evento){
+    public function editar(Evento $evento)
+    {
         return view("painel.eventos.editar", ["evento" => $evento]);
     }
 
-    public function salvar(Request $request){
-        if($request->evento_id){
+    public function salvar(Request $request)
+    {
+        if ($request->evento_id) {
             $evento = Evento::find($request->evento_id);
             $evento->nome = $request->nome;
             $evento->slug = Str::slug($request->nome);
-        }else{
+        } else {
             $evento = new Evento;
             $evento->nome = $request->nome;
             $evento->slug = Str::slug($request->nome);
@@ -70,43 +74,46 @@ class EventoController extends Controller
         $evento->hora_fim = $request->hora_fim;
         $evento->video = $request->video;
 
-        if($request->file("thumbnail")){
+        if ($request->file("thumbnail")) {
             Storage::delete($evento->thumbnail);
             $evento->thumbnail = $request->file('thumbnail')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
 
-        if($request->file("banner")){
+        if ($request->file("banner")) {
             Storage::delete($evento->banner);
             $evento->banner = $request->file('banner')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
 
-        if($request->clinica){
+        if ($request->clinica) {
             $evento->clinica = true;
         }
 
         $evento->save();
 
-        if($evento->clinica){
-            toastr()->success("Clínica salva com sucesso!");
+        if ($evento->clinica) {
+            toastr()->success("Congresso salva com sucesso!");
             return redirect()->route("painel.clinicas");
-        }else{
+        } else {
             toastr()->success("Evento salvo com sucesso!");
             return redirect()->route("painel.eventos");
         }
-
     }
 
-    public function salvar_local(Request $request, Evento $evento){
+    public function salvar_local(Request $request, Evento $evento)
+    {
         $evento->local_nome = $request->local_nome;
         $evento->local_endereco = $request->local_endereco;
-        if($request->file("local_foto")){
+        if ($request->file("local_foto")) {
             Storage::delete($evento->local_foto);
             $evento->local_foto = $request->file('local_foto')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
         $evento->save();
@@ -114,11 +121,13 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_divulgacao(Request $request, Evento $evento){
-        if($request->file("banner_divulgacao")){
+    public function salvar_divulgacao(Request $request, Evento $evento)
+    {
+        if ($request->file("banner_divulgacao")) {
             Storage::delete($evento->banner_divulgacao);
             $evento->banner_divulgacao = $request->file('banner_divulgacao')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
         $evento->save();
@@ -126,7 +135,8 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function adicionar_curso(Request $request, Evento $evento){
+    public function adicionar_curso(Request $request, Evento $evento)
+    {
         $evento_curso = new EventoCurso;
         $evento_curso->evento_id = $evento->id;
         $evento_curso->curso_id = $request->curso_id;
@@ -136,23 +146,26 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function deletar_curso(EventoCurso $evento_curso){
+    public function deletar_curso(EventoCurso $evento_curso)
+    {
         $evento_curso->delete();
         toastr()->success("Curso removido do evento");
         return redirect()->back();
     }
 
-    public function adicionar_participante(Request $request, Evento $evento){
+    public function adicionar_participante(Request $request, Evento $evento)
+    {
         $participante = new EventoParticipante;
         $participante->evento_id = $evento->id;
         $participante->nome = $request->nome;
         $participante->url = $request->url;
         $participante->tipo = $request->tipo;
 
-        if($request->file("foto")){
+        if ($request->file("foto")) {
             Storage::delete($participante->foto);
             $participante->foto = $request->file('foto')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
 
@@ -161,24 +174,27 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function deletar_participante(EventoParticipante $participante){
+    public function deletar_participante(EventoParticipante $participante)
+    {
         Storage::delete($participante->foto);
         $participante->delete();
         toastr()->success("Participante removido do evento.");
         return redirect()->back();
     }
 
-    public function adicionar_hotel(Request $request, Evento $evento){
+    public function adicionar_hotel(Request $request, Evento $evento)
+    {
         $hotel = new EventoHotel;
         $hotel->evento_id = $evento->id;
         $hotel->nome = $request->nome;
         $hotel->endereco = $request->endereco;
         $hotel->url = $request->url;
-        
-        if($request->file("foto")){
+
+        if ($request->file("foto")) {
             Storage::delete($hotel->foto);
             $hotel->foto = $request->file('foto')->store(
-                'site/imagens/eventos/' . $evento->id, 'local'
+                'site/imagens/eventos/' . $evento->id,
+                'local'
             );
         }
 
@@ -188,14 +204,16 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function deletar_hotel(EventoHotel $hotel){
+    public function deletar_hotel(EventoHotel $hotel)
+    {
         Storage::delete($hotel->foto);
         $hotel->delete();
         toastr()->success("Hotel removido do evento.");
         return redirect()->back();
     }
 
-    public function adicionar_pacote(Request $request, Evento $evento){
+    public function adicionar_pacote(Request $request, Evento $evento)
+    {
         $pacote = new Curso;
         $pacote->evento_id = $evento->id;
         $pacote->nome = $request->nome;
@@ -207,7 +225,7 @@ class EventoController extends Controller
         $pacote->cielo = true;
         $pacote->save();
 
-        foreach($request->cursos as $curso){
+        foreach ($request->cursos as $curso) {
             $pacote_curso = new PacoteCurso;
             $pacote_curso->pacote_id = $pacote->id;
             $pacote_curso->curso_id = $curso;
@@ -218,10 +236,11 @@ class EventoController extends Controller
         return redirect()->back();
     }
 
-    public function deletar_pacote(Curso $pacote){
+    public function deletar_pacote(Curso $pacote)
+    {
         $cursos_ligados = PacoteCurso::where("pacote_id", $pacote->id)->get();
 
-        foreach($cursos_ligados as $curso){
+        foreach ($cursos_ligados as $curso) {
             $curso->delete();
         }
 

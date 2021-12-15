@@ -55,7 +55,7 @@
 @endsection
 
 @section('titulo')
-Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínicas</a> / Editar
+Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congressos</a> / Editar
 @endsection
 
 @section('conteudo')
@@ -77,7 +77,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
     <div class="col-12">
         <div class="card evento active">
             <div class="card-body">
-                <h4 class="card-title">Editar Clínica</h4>
+                <h4 class="card-title">Editar Congresso</h4>
                 <form action="{{ route('painel.clinicas.salvar') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="evento_id" value="{{ $evento->id }}">
@@ -144,7 +144,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
 
                                     <picture style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                         <img id="thumbnail-preview" @if (!$evento->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->thumbnail) }}" @endif
-                                        style="height: 100%;"
+                                        style="width: 100%; object-fit: cover;"
                                         alt="">
                                     </picture>
                                 </div>
@@ -163,7 +163,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                                     Banner
                                     <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                         <img id="banner-preview" @if (!$evento->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner) }}" @endif
-                                        style="height: 100%;" alt="">
+                                        style="width: 100%; object-fit: cover;" alt="">
                                     </picture>
                                 </div>
                             </div>
@@ -197,7 +197,8 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="banner-divulgacao-preview" @if (!$evento->banner_divulgacao) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner_divulgacao) }}" @endif style="height:
+                                    <img id="banner-divulgacao-preview" @if (!$evento->banner_divulgacao) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{
+                                    asset($evento->banner_divulgacao) }}" @endif style="height:
                                     100%;" alt="">
                                 </picture>
                             </div>
@@ -243,7 +244,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture style="height: 525px; width: 100%; max-width: 756px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                     <img id="local-preview" @if (!$evento->local_foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->local_foto) }}" @endif
-                                    style="height: 100%;" alt="">
+                                    style="width: 100%; object-fit: cover;" alt="">
                                 </picture>
                             </div>
                         </div>
@@ -470,7 +471,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                             <div class="col-12 text-center d-flex align-items-start flex-column">
                                 <span class="my-3">Imagem do Hotel</span>
                                 <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="hoteis-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                    <img id="hoteis-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                 </picture>
                             </div>
                         </div>
@@ -577,7 +578,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Clínic
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="participante-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                    <img id="participante-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                 </picture>
                             </div>
                         </div>

@@ -27,8 +27,7 @@
       </div>
 
       <div class="_video">
-        <iframe style="height: 385px; width: 100%; max-width: 595px" src="{{ $evento->video }}?autoplay=1" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {!! \App\Classes\Util::convertYoutube($evento->video) !!}
       </div>
     </div>
 
@@ -36,7 +35,7 @@
   </section>
 
 
-  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner_divulgacao}}')">
+  <section class="container-fluid s_destaque" style="background-image: url('/{{ $evento->banner_divulgacao}}');    background-size: cover;">
     <div class="container-fav">
     </div>
   </section>
@@ -48,7 +47,7 @@
       </div>
 
       <div class="_table fade">
-        @foreach ($evento->pacotes as $pacote)
+        @foreach ($evento->pacotes->take(3) as $pacote)
         <div class="_col">
           <div class="_top">{{ $pacote->nome }}</div>
           <main>
@@ -61,7 +60,7 @@
               @foreach ($pacote->cursos as $curso)
               <strong>{{ $curso->nome }}</strong>
               <span class="_pa">{{ config('cursos.tipo_nome')[$curso->tipo] }}</span>
-              <p class="_date">01/10/2020 das 8h as 12h</p>
+              <p class="_date"></p>
               @endforeach
             </div>
             {{-- <strong>Meeting de musculação</strong>
@@ -280,7 +279,7 @@
       <div class="_pictures">
         @foreach ($evento->participantes as $participante)
         <picture>
-          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{ $participante->url }}'" alt="{{ $participante->nome }}" />
+          <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{ $participante->url }}'" title="{{ $participante->nome }}" alt="{{ $participante->nome }}" />
         </picture>
         @endforeach
         {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />
@@ -305,11 +304,12 @@
         <h4>{{ $evento->local_nome }}</h4>
         <p>{{ $evento->local_endereco }}</p>
 
-        <a href="#">Ver no maps</a>
+        <a target="_blank" href="https://maps.google.com/?q={{$evento->local_endereco}}">Ver no maps</a>
       </div>
     </div>
   </section>
 
+  @if (count($evento->hoteis) > 0)
   <section class="container-fluid s_hoteis">
     <div class="container-fav">
       <div class="title">
@@ -337,6 +337,7 @@
       </div>
     </div>
   </section>
+  @endif
 
   @include('site.includes.publicidade')
 

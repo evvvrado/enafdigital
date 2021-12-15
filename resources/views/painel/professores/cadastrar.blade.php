@@ -43,12 +43,6 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                                 <label for="empresa">Empresa</label>
                                 <input id="empresa" name="empresa" type="text" class="form-control" placeholder="Insira o nome" maxlength="100">
                             </div>
-                            <div class="mb-3">
-                                <label for="empresa">Mostrar na Página Inicial</label>
-                                <div class="form-check form-switch form-switch-lg pt-3 ">
-                                    <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg">
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -58,7 +52,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
                                 <picture style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
-                                    <img id="foto-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="height: 100%;" alt="">
+                                    <img id="foto-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                 </picture>
                             </div>
                         </div>

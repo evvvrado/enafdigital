@@ -16,6 +16,7 @@ use App\Models\Aluno;
 use App\Models\Venda;
 use App\Models\Matricula;
 use App\Models\Expositor;
+use App\Models\ExpositorHotsite;
 use App\Models\Contrato;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,7 @@ class SiteController extends Controller
 
         $eventos = \App\Models\Evento::where([["clinica", false], ["fim", ">=", date("Y-m-d 00:00:00")]])->orderBy("inicio")->get();
         $cursos = Curso::where("pacote", false)->orderBy("created_at", "DESC")->get();
-        $professores = \App\Models\Professor::inRandomOrder()->limit(5)->get();
+        $professores = \App\Models\Professor::where('destaque', 1)->limit(5)->get();
 
         $pagina = Pagina::where("nome", "Home")->first();
         $destaques = Noticia::where("publicada", true)->orderBy("publicacao", "DESC")->take(4)->get();
@@ -142,6 +143,7 @@ class SiteController extends Controller
     public function clinicas()
     {
         $eventos = \App\Models\Evento::where([["clinica", true], ["fim", ">=", date("Y-m-d 00:00:00")]])->get();
+        session()->flash("tipo", "congresso");
         return view("site.clinicas", ["eventos" => $eventos]);
     }
 
@@ -324,10 +326,15 @@ class SiteController extends Controller
         return view("site.feira");
     }
 
-    public function feiraEmpresas($categoria)
+    public function feiraEmpresas($slug)
     {
-        $expositores = Expositor::where("categoria", $categoria)->get();
-        return view("site.feira-empresas", ["expositores" => $expositores]);
+        foreach (config("expositores.categorias_nome") as $key => $value) {
+            if ($slug == Str::slug($value)) {
+                $expositores = Expositor::where("categoria", $key)->get();
+                $anunciante = Contrato::where([["categoria", $key], ["inicio", "<=", date('Y-m-d')], ['fim', ">=", date('Y-m-d')], ["ativo", true]])->first();
+            }
+        }
+        return view("site.feira-empresas", ["expositores" => $expositores, "anunciante" => $anunciante]);
     }
 
     public function feiraCatalogo()
@@ -353,9 +360,14 @@ class SiteController extends Controller
         return view("site.clinica", ["evento" => $evento]);
     }
 
-    public function hotsite()
+    public function hotsite($slug)
     {
-        return view("site.hotsite");
+        $hotsite = ExpositorHotsite::where("slug", $slug)->first();
+        if ($hotsite) {
+            return view("site.hotsite", ["hotsite" => $hotsite]);
+        } else {
+            return redirect()->route("site.index");
+        }
     }
 
     // ARTIGO

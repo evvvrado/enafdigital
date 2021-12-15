@@ -60,6 +60,9 @@
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                             colspan="1" style="width: 10px;"
                                             aria-label="Start date: activate to sort column ascending"></th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                            colspan="1" style="width: 10px;"
+                                            aria-label="Start date: activate to sort column ascending"></th>
                                     </tr>
                                 </thead>
 
@@ -71,6 +74,13 @@
                                             <td>{{ $expositor->site }}</td>
                                             <td>{{ $expositor->telefone }}</td>
                                             <td>{{ $expositor->email }}</td>
+                                            <td class="text-center">
+                                                @if($expositor->destaque) 
+                                                    <i class="fas fa-star active destaque cpointer" pid="{{$expositor->id}}"></i>
+                                                @else
+                                                    <i class="far fa-star destaque cpointer" pid="{{$expositor->id}}"></i>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="btn-group edit-table-button ">
                                                     <button type="button" class="btn btn-info dropdown-toggle"
@@ -80,7 +90,7 @@
                                                         <a class="dropdown-item"
                                                             href="{{ route('painel.expositores.editar', ['expositor' => $expositor]) }}">Editar</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('painel.expositores.hotsite') }}">Hotsite</a>
+                                                            href="{{ route('painel.expositores.hotsite', ['expositor' => $expositor]) }}">Hotsite</a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" style="color: red" href="#">Excluir</a>
                                                     </div>
@@ -319,6 +329,42 @@
         $(document).ready(() => {
 
             $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
+
+            $(".destaque").click(function(){
+                var pid = $(this).attr("pid");
+                var elem = $(this);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: "/sistema/expositores/destaque/" + pid,
+                    // beforeSend: function() {
+                    //     $("#botoes-prosseguir").hide();
+                    //     $("#gif-ajax-direto").show();
+                    // },
+                    success: function(ret) {
+                        if(ret == "retirado"){
+                            elem.removeClass("fas");
+                            elem.addClass("far");
+                            elem.removeClass("active");
+                        }else if(ret == "destacado"){
+                            elem.removeClass("far");
+                            elem.addClass("fas");
+                            elem.addClass("active");
+                        }
+                        
+                    },
+                    error: function(ret) {
+                        console.log("Deu muito ruim");
+                        console.log(ret);
+                    }
+                });
+            }); 
         })
     </script>
 @endsection

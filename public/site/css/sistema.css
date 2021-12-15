@@ -774,7 +774,6 @@ section._meusDados .container-fav ._left .userImg {
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: var(--wine11);
     border-radius: 50%;
 
@@ -804,6 +803,8 @@ body._carrinho header .container-fav {
     align-items: center;
     justify-content: space-between;
     position: relative;
+
+    justify-content: flex-end;
 }
 body._carrinho header .container-fav ._first {
     display: flex;
@@ -846,13 +847,13 @@ body._carrinho header .container-fav ._first ._duvidas p {
 }
 
 section.s_identificacao form label input,
-section.s_identificacao form label textarea {
+section.s_identificacao form label textarea,
+section.s_identificacao form label select {
     width: 100%;
-    border: solid 2px var(--gray13);
+    border: solid 1px #d8d8d8;
     padding-top: 0.8rem;
     padding-left: 2.7rem;
-    height: 6.2rem;
-
+    height: 5.2rem;
     font-family: "Inter";
     font-weight: bold;
     font-size: 1.2rem;
@@ -1253,10 +1254,9 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._inpu
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input input,
 body._carrinho section.s_identificacao .container-fav ._pagamento select {
-    border: 1px solid var(--gray11);
+    /* border: 1px solid var(--gray11); */
     max-width: 31.4rem;
     padding: 1.7rem 4.2rem;
-    border-radius: 0.4rem;
 
     font-size: 1.6rem;
 
@@ -1266,9 +1266,6 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._inpu
     position: absolute;
     top: 2.1rem;
     left: 1.9rem;
-}
-body._carrinho section.s_identificacao .container-fav ._pagamento span {
-    font-size: 1.8rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento p {
     font-size: 1.4rem;
@@ -1312,14 +1309,13 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     padding-top: 2.4rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label span {
-    font-family: 1.6rem;
+    font-family: 1.4rem;
     font-weight: 400;
     position: static;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label input {
     font-size: 1.6rem;
     font-weight: 400;
-    border-radius: 0.4rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label:nth-last-child(3),
 body._carrinho
@@ -1353,6 +1349,29 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
     background: var(--orange2);
 }
+
+section._meusPedidos ._pedidosList ._pedido._approved {
+    border-color: #00ff00;
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status ._icon {
+    background: #0080004d;
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status ._icon img {
+    filter: saturate(0) brightness(0) invert(1);
+}
+section._meusPedidos ._pedidosList ._pedido._approved ._status::before {
+    background-color: #00ff00;
+}
+/* 
+section._meusPedidos ._pedidosList ._pedido._approved .btn-primary{
+    background-color: #00a800;
+
+} */
+
+section._meusPedidos ._pedidosList ._pedido._approved h3 {
+    color: #00a800;
+}
+
 @media (max-width: 1400px) {
     header main nav {
         max-width: 60%;
@@ -1482,7 +1501,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 
 @media only screen and (max-width: 730px) {
     section.s_identificacao .container-fav ._half .content ._offtitle ._right {
-        display: none;
+        /* display: none; */
     }
     section.s_identificacao .container-fav ._half .content ._offtitle ._left {
         width: 100%;
@@ -1499,8 +1518,11 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
 }
 
 @media only screen and (max-width: 600px) {
+    section._minhasMatriculas ._matriculasList._expanded {
+        flex-wrap: nowrap;
+    }
     section._minhasMatriculas ._matriculasList._expanded ._matricula {
-        max-width: 100%;
+        max-width: 35rem;
     }
     section._minhasMatriculas ._matriculasList ._matricula {
         max-width: 28rem;
@@ -1525,13 +1547,19 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
         text-align: center;
         gap: 4rem;
     }
+    section.s_identificacao .container-fav ._half .content ._offtitle {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     section._menu {
         display: none;
         padding: 2rem;
     }
     ._menuMax {
         display: block;
-        margin-top: 44px;
+        padding-top: 44px;
+        padding-bottom: 10px;
         background: white;
     }
     body._carrinho header .container-fav ._first ._duvidas {
@@ -2079,7 +2107,7 @@ p {
 }
 .d_superMenu .container-fav ._right ._img {
     position: absolute;
-    right: 37.3rem;
+    right: 41.3rem;
 }
 .d_superMenu .container-fav ._right ._text {
     z-index: 2;
@@ -2095,7 +2123,7 @@ p {
 .d_superMenu .container-fav ._right ._text p {
     max-width: 35.5rem;
     position: relative;
-    left: 11.5rem;
+    left: 2.5rem;
 }
 .d_superMenu .container-fav .close_superMenu {
     position: absolute;
@@ -2614,7 +2642,7 @@ section._copyRight p strong {
 }
 
 .d_superMenu._showed .container-fav ._right ._text h6::after {
-    content: "A MAIOR DO BRASIL";
+    content: "A MAIOR FEIRA FITNESS DO BRASIL";
     animation: changetext infinite linear 8s;
 }
 

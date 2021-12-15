@@ -35,9 +35,11 @@ body#hotsite {
                 min-height: 59.1rem;
 
                 ._col {
+                    width: 100%;
                     max-width: 40rem;
 
                     &:first-child {
+                        width: 100%;
                         max-width: 25.2rem;
                     }
                     h1 {
@@ -48,6 +50,11 @@ body#hotsite {
                         text-align: right;
                         position: relative;
                         @include draw_two(21.2rem, 1.6rem, 20.5rem, 0);
+
+                        &::after {
+                            top: unset;
+                            bottom: -4rem;
+                        }
                     }
                     h2 {
                         font-style: normal;
@@ -209,7 +216,7 @@ body#hotsite {
         padding-top: 12.5rem;
 
         .container-fav {
-            @include flex(row, center, space-around);
+            @include flex(row, flex-start, space-around);
 
             h3 {
                 font-weight: bold;
@@ -224,8 +231,6 @@ body#hotsite {
                 font-weight: 300;
                 font-size: 1.8rem;
                 letter-spacing: 0.02em;
-
-                color: #f2e116;
             }
 
             p {
@@ -248,6 +253,11 @@ body#hotsite {
 
                     max-height: 30.5rem;
                     max-width: 45.6rem;
+                    overflow: hidden;
+
+                    img {
+                        object-fit: cover;
+                    }
                 }
             }
             ._right {
@@ -255,6 +265,7 @@ body#hotsite {
                     font-size: 3.8rem;
                 }
 
+                width: 100%;
                 max-width: 47.7rem;
             }
         }
@@ -303,6 +314,12 @@ body#hotsite {
 
                         width: 13.5rem;
                         height: 6.1rem;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
 
                         @include flex(column, center, center);
                     }
@@ -335,8 +352,6 @@ body#hotsite {
                     font-weight: 300;
                     font-size: 1.8rem;
                     letter-spacing: 0.02em;
-
-                    color: #f2e116;
                 }
 
                 margin-bottom: 1.6rem;
@@ -349,6 +364,16 @@ body#hotsite {
 
                 picture {
                     cursor: pointer;
+                    width: 100%;
+                    max-width: 28.4rem;
+                    height: 35.9rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+                    }
                 }
             }
         }
@@ -595,18 +620,18 @@ body#hotsite {
             }
         }
     }
-    
+
     @include responsive(992px) {
-        section.h_hero{
-            .container-fav{
+        section.h_hero {
+            .container-fav {
                 position: relative;
-                ._image{
-                    ._col{
+                ._image {
+                    ._col {
                         position: relative;
                         z-index: 2;
                         top: 12rem;
                     }
-                    ._banner{
+                    ._banner {
                         position: absolute;
                         z-index: 1;
                         top: -6rem;
@@ -615,26 +640,26 @@ body#hotsite {
                         width: 100%;
                         max-width: 61.3rem;
 
-                        img[alt="Imagem Personalizada"]{
+                        img[alt="Imagem Personalizada"] {
                             max-width: 100%;
                             height: auto;
                         }
-                        img[alt="Chatbox"]{
+                        img[alt="Chatbox"] {
                             right: 0;
-                        }   
+                        }
                     }
                 }
             }
         }
 
-        section.h_form{
-            .container-fav{
-                form{
-                    label{
+        section.h_form {
+            .container-fav {
+                form {
+                    label {
                         max-width: 100%;
                     }
 
-                    button{
+                    button {
                         padding: 2rem 6.7rem;
                         line-height: 0;
                     }
@@ -642,23 +667,23 @@ body#hotsite {
             }
         }
 
-        section.h_sobre{
-            .container-fav{
-                ._right{
+        section.h_sobre {
+            .container-fav {
+                ._right {
                     max-width: 53.4rem;
                 }
             }
         }
 
-        section.h_galeria{
-            .container-fav{
-                padding: 8.7rem 4rem!important;
+        section.h_galeria {
+            .container-fav {
+                padding: 8.7rem 4rem !important;
             }
         }
 
-        section.h_empresas{
-            .container-fav{
-                ._list{
+        section.h_empresas {
+            .container-fav {
+                ._list {
                     flex-direction: column;
                     justify-content: center;
                 }
@@ -666,51 +691,50 @@ body#hotsite {
         }
     }
 
-
-    @include responsive(600px){
-        section.h_hero{
-            .container-fav{
-                ._image{
+    @include responsive(600px) {
+        section.h_hero {
+            .container-fav {
+                ._image {
                     min-height: 40rem;
                 }
             }
         }
-        section.h_duvidas{
-            .container-fav{
-                ._top{
-                    h4::after{
+        section.h_duvidas {
+            .container-fav {
+                ._top {
+                    h4::after {
                         right: 0;
                     }
                 }
             }
         }
 
-        section.h_form{
-            .container-fav{
-                form{
+        section.h_form {
+            .container-fav {
+                form {
                     padding: 6.2rem 3rem;
                 }
             }
         }
 
-        section.h_duvidas{
-            .container-fav{
-                ._top{
-                    h4{
+        section.h_duvidas {
+            .container-fav {
+                ._top {
+                    h4 {
                         width: 100%;
                     }
                 }
             }
         }
-        section.h_contato{
-            .container-fav{
-                ._info{
-                    .informacoes{
+        section.h_contato {
+            .container-fav {
+                ._info {
+                    .informacoes {
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
                     }
-                    ._col{
+                    ._col {
                         width: 100%;
                     }
                 }
