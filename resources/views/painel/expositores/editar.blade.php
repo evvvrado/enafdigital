@@ -57,7 +57,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                 <span class="mb-3">
-                                    Logo do Expositor
+                                    Imagem do Expositor
                                 </span>
                                 <picture style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                     <img id="banner-preview" @if (!$expositor->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($expositor->foto) }}" @endif style="height:
@@ -86,7 +86,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
     <script>
-            var inp = document.getElementById('banner-upload');
+        var inp = document.getElementById('banner-upload');
             inp.addEventListener('change', function(e) {
                 var file = this.files[0];
                 var reader = new FileReader();

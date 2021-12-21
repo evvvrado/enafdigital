@@ -30,31 +30,33 @@ section.s_outrasEmpresas {
             font-size: 1.8rem;
             color: $color-darkest;
           }
-          
-          main{
-            @include flex(row,center,space-between);
+
+          main {
+            @include flex(row, center, flex-end);
+            gap: 3rem;
+
             width: 100%;
             max-width: 65.1rem;
             gap: 2rem;
 
-            legend:last-child{
+            legend:last-child {
               width: 100%;
-              max-width: 12.8rem;
+              max-width: 18.8rem;
             }
           }
 
-          @include responsive(800px){
+          @include responsive(800px) {
             height: auto;
             padding-top: 2rem;
             padding-bottom: 2rem;
 
-            main{
+            main {
               flex-direction: column;
               gap: 2rem;
               max-width: unset;
               width: auto;
-              legend{
-                border: none!important;
+              legend {
+                border: none !important;
               }
             }
           }
@@ -64,10 +66,10 @@ section.s_outrasEmpresas {
             line-height: 2.1rem;
             color: $color-alternative;
 
-            @include flex(row,center,center);
+            @include flex(row, center, center);
             gap: 2rem;
 
-            &:not(:last-child){
+            &:not(:last-child) {
               padding-right: 2rem;
               border-right: 1px solid #5b647b5e;
             }

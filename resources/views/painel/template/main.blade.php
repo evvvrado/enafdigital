@@ -352,6 +352,9 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('painel.informacoes.municipios') }}" key="t-default">Municípios</a></li>
                             </ul>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('painel.usuarios') }}" key="t-default">Usuários</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="waves-effect">
@@ -464,9 +467,9 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Depoimentos
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Dúvidas
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Galeria
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> CRUD- Hotsites
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Gerenciamento de Financeiro
                             <hr>
-                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Hotsites 🔥
-                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Financeiro 💰
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Dashboard 💻
                         </span>
                     </li>

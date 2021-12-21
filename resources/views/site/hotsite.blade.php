@@ -33,7 +33,7 @@ $expositor = App\Models\Expositor::where("id", $hotsite->expositor_id)->first();
             <div class="_content fade">
                 <div class="logo">
                     <a href="{{ $hotsite->site }}" style="width: 80%" target="_blank">
-                        <img src="{{ asset($hotsite->logo) }}" style="width: 100%" alt="Logo do expositor" /></a>
+                        <img src="{{ asset($hotsite->logo) }}" style="width: 100%" alt="Imagem do Expositor" /></a>
                 </div>
 
                 <div class="contat">

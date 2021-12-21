@@ -58,10 +58,14 @@ Catalogo / <a style="color: unset" href="{{ route('painel.categorias') }}">Anunc
 
 
                             <tbody>
+                                @php
+                                $categorias = config('expositores.categorias_nome');
+                                @endphp
+
                                 @foreach ($contratos as $contrato)
                                 <tr class="odd">
                                     <td class="sorting_1 dtr-control">{{ $contrato->nome }}</td>
-                                    <td>{{ $contrato->expositor->nome }}</td>
+                                    <td>{{ $categorias[$contrato->categoria] }}</td>
                                     <td>{{ date('d/m/Y', strtotime($contrato->inicio)) }}</td>
                                     <td>{{ date('d/m/Y', strtotime($contrato->inicio)) }}</td>
                                     <td>R$ {{ number_format($contrato->valor, 2, ',', '.') }}</td>

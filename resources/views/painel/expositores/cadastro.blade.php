@@ -28,8 +28,8 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                                 <input id="nome" name="nome" type="text" placeholder="Insira o Nome" class="form-control" maxlength="100">
                             </div>
                             <div class="mb-3">
-                                <label for="telefone">Telefone</label>
-                                <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone" id="example-tel-input" maxlength="20">
+                                <label for="site">Site</label>
+                                <input class="form-control" name="site" type="url" placeholder="Insira a URL" id="example-url-input" maxlength="255">
                             </div>
                             <div class="mb-3">
                                 <label for="categoria">Categoria</label>
@@ -42,8 +42,8 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <label for="site">Site</label>
-                                <input class="form-control" name="site" type="url" placeholder="Insira a URL" id="example-url-input" maxlength="255">
+                                <label for="telefone">Telefone</label>
+                                <input class="form-control" name="telefone" type="tel" placeholder="Insira o telefone" id="example-tel-input" maxlength="20">
                             </div>
                             <div class="mb-3">
                                 <label for="email">E-mail</label>
@@ -55,7 +55,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         <div class="row">
                             <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                 <span class="mb-3">
-                                    Logo do Expositor
+                                    Imagem do Expositor
                                 </span>
                                 <picture style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                     <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">

@@ -28,7 +28,7 @@ section.s_empresas {
           height: 12.6rem;
           overflow: hidden;
           width: 102%;
-          @include flex(row, center, center);
+          @include flex(row, flex-end, center);
 
           border-bottom: solid 1px #5b647b33;
           a {
