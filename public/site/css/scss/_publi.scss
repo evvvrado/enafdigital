@@ -40,8 +40,14 @@
     }
 
     @include responsive(730px) {
+        .container-fav {
+            a {
+                height: unset;
+            }
+        }
         img[data-size="responsive"] {
             display: block;
+            height: unset;
         }
 
         img[data-size="desktop"] {
