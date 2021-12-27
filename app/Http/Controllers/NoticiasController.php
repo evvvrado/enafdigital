@@ -92,16 +92,19 @@ class NoticiasController extends Controller
         $noticia->save();
         
         $noticia->tags()->detach();
-        foreach($request->tags as $tag){
-            if(is_numeric($tag)){
-                $noticia->tags()->attach($tag);
-            }else{
-                $nova_tag = new Tag;
-                $nova_tag->nome = $tag;
-                $nova_tag->save();
-                $noticia->tags()->attach($nova_tag);
+
+        if($requqest->tags){
+            foreach($request->tags as $tag){
+                if(is_numeric($tag)){
+                    $noticia->tags()->attach($tag);
+                }else{
+                    $nova_tag = new Tag;
+                    $nova_tag->nome = $tag;
+                    $nova_tag->save();
+                    $noticia->tags()->attach($nova_tag);
+                }
             }
-        }    
+        }
         
         // Log::channel('noticias')->info('<b>CADASTRANDO NOTICIA</b>: O usuario <b>' . session()->get("usuario")["usuario"] . '</b> cadastrou a noticia <b>' . $noticia->titulo . '</b>');
         toastr()->success("Notícia salva com sucesso!");
