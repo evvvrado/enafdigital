@@ -6,13 +6,13 @@
             <p>Estamos prontos para te ajudar</p>
         </div>
         <div class="_buttons">
-            <div style="cursor: pointer" onclick="window.open('https://web.whatsapp.com/send?phone=3599725-9528')">
+            <div style="cursor: pointer" onclick="window.open('https://api.whatsapp.com/send?phone=3599725-9528')">
                 <img src="{{ asset('site/img/sistema/chat.svg') }}" alt="" />
             </div>
             <div style="cursor: pointer" onclick="window.open('tel:(35) 99725-9528')">
                 <img src="{{ asset('site/img/sistema/call.svg') }}" alt="" />
             </div>
-            <div style="cursor: pointer" onclick="window.open('https://web.whatsapp.com/send?phone=3599725-9528')">
+            <div style="cursor: pointer" onclick="window.open('https://api.whatsapp.com/send?phone=3599725-9528')">
                 <img src="{{ asset('site/img/sistema/whatsappButton.svg') }}" alt="" />
             </div>
             <div style="cursor: pointer" onclick="window.open('mailto:contato@enafdigital.com.br')">
