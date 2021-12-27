@@ -29,7 +29,7 @@ Blog / <a style="color: unset" href="{{ route('painel.noticias') }}">Noticias</a
                             </div>
                             <div class="mb-3">
                                 <label for="categoria">Categoria</label>
-                                <select class="form-control" name="categoria_id" id="select_categoria">
+                                <select class="form-control" name="categoria_id" id="select_categoria" required>
                                     @foreach (\App\Models\Categoria::all() as $categoria)
                                     <option value="{{ $categoria->id }}" @if($noticia->categoria_id == $categoria->id) selected @endif>{{ $categoria->nome }}</option>}
                                     @endforeach
