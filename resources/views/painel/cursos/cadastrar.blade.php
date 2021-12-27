@@ -85,7 +85,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                             </div>
                             <div class="mb-3">
                                 <label for="titulo">Título do paragrafo</label>
-                                <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Insira o titulo">
+                                <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Insira o titulo" maxlength="250">
                             </div>
                             <div class="mb-3">
                                 <label for="video">URL Do Vídeo</label>
@@ -115,14 +115,14 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
 
                             <div class="mb-3">
                                 <label for="descricao">Descrição</label>
-                                <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3" placeholder="Limite de 107 Caracteres" required></textarea>
+                                <textarea id="textarea" name="descricao" class="form-control" maxlength="250" rows="3" placeholder="Limite de 107 Caracteres" required></textarea>
                             </div>
 
 
 
                             <div class="mb-3">
                                 <label for="sobre">Sobre o curso</label>
-                                <textarea id="textarea" name="sobre" class="form-control" maxlength="107" rows="3" placeholder="Descrição breve sobre o curso" required></textarea>
+                                <textarea id="textarea" name="sobre" class="form-control" maxlength="250" rows="3" placeholder="Descrição breve sobre o curso" required></textarea>
                             </div>
 
 
