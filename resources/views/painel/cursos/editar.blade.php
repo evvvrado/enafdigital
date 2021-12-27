@@ -122,9 +122,8 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                             </div>
                             <div class="mb-3">
                                 <label for="sobre">Sobre o curso</label>
-                                <textarea id="textarea" name="sobre" class="form-control" maxlength="250" rows="3" placeholder="Descrição breve sobre o curso" required>{!! $curso->sobre !!}</textarea>
+                                <textarea id="textarea" name="sobre" class="form-control" rows="3" placeholder="Descrição breve sobre o curso" required>{!! $curso->sobre !!}</textarea>
                             </div>
-
 
                             <div class="mb-3 row">
                                 <div class="col">
@@ -219,7 +218,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label for="descricao">Descrição</label>
-                        <textarea id="textarea" name="descricao" class="form-control" maxlength="107" rows="3" placeholder="Limite de 107 Caracteres" required></textarea>
+                        <textarea id="textarea" name="descricao" class="form-control" rows="3" required></textarea>
                     </div>
                 </div>
             </div>
