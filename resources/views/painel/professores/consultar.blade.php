@@ -62,9 +62,9 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                                         <td>{{config("professores.atuacao_nome")[$professor->atuacao]}}</td>
                                         <td class="text-center">
                                             @if($professor->destaque) 
-                                                <i class="fas fa-star active destaque cpointer" pid="{{$professor->id}}"></i>
+                                                <i class="fas fa-star active destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
                                             @else
-                                                <i class="far fa-star destaque cpointer" pid="{{$professor->id}}"></i>
+                                                <i class="far fa-star destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
                                             @endif
                                         </td>
                                         <td>
@@ -160,6 +160,45 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
 <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script>
+
+    function destacar(pid){
+        
+        var elem = $(".destaque[pid='"+pid+"']");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "/sistema/professore/destaque/" + pid,
+            // beforeSend: function() {
+            //     $("#botoes-prosseguir").hide();
+            //     $("#gif-ajax-direto").show();
+            // },
+            success: function(ret) {
+                if(ret == "retirado"){
+                    elem.removeClass("fas");
+                    elem.addClass("far");
+                    elem.removeClass("active");
+                }else if(ret == "destacado"){
+                    elem.removeClass("far");
+                    elem.addClass("fas");
+                    elem.addClass("active");
+                }else{
+                    toastr.error('Já existem 4 professores em destaque. Retire um para adicionar outro.', 'Erro')
+                }
+                
+            },
+            error: function(ret) {
+                console.log("Deu muito ruim");
+                console.log(ret);
+            }
+        });
+    }
+
     $(document).ready(function() {
             $('#datatable').DataTable( {
                 language:{
@@ -304,43 +343,43 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                 $("select").val("-1");
             });
 
-            $(".destaque").click(function(){
-                var pid = $(this).attr("pid");
-                var elem = $(this);
+            // $(".destaque").click(function(){
+            //     var pid = $(this).attr("pid");
+            //     var elem = $(this);
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
-                    }
-                });
+            //     $.ajaxSetup({
+            //         headers: {
+            //             'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
+            //         }
+            //     });
 
-                $.ajax({
-                    type: "GET",
-                    url: "/sistema/professore/destaque/" + pid,
-                    // beforeSend: function() {
-                    //     $("#botoes-prosseguir").hide();
-                    //     $("#gif-ajax-direto").show();
-                    // },
-                    success: function(ret) {
-                        if(ret == "retirado"){
-                            elem.removeClass("fas");
-                            elem.addClass("far");
-                            elem.removeClass("active");
-                        }else if(ret == "destacado"){
-                            elem.removeClass("far");
-                            elem.addClass("fas");
-                            elem.addClass("active");
-                        }else{
-                            toastr.error('Já existem 4 professores em destaque. Retire um para adicionar outro.', 'Erro')
-                        }
+            //     $.ajax({
+            //         type: "GET",
+            //         url: "/sistema/professore/destaque/" + pid,
+            //         // beforeSend: function() {
+            //         //     $("#botoes-prosseguir").hide();
+            //         //     $("#gif-ajax-direto").show();
+            //         // },
+            //         success: function(ret) {
+            //             if(ret == "retirado"){
+            //                 elem.removeClass("fas");
+            //                 elem.addClass("far");
+            //                 elem.removeClass("active");
+            //             }else if(ret == "destacado"){
+            //                 elem.removeClass("far");
+            //                 elem.addClass("fas");
+            //                 elem.addClass("active");
+            //             }else{
+            //                 toastr.error('Já existem 4 professores em destaque. Retire um para adicionar outro.', 'Erro')
+            //             }
                         
-                    },
-                    error: function(ret) {
-                        console.log("Deu muito ruim");
-                        console.log(ret);
-                    }
-                });
-            }); 
+            //         },
+            //         error: function(ret) {
+            //             console.log("Deu muito ruim");
+            //             console.log(ret);
+            //         }
+            //     });
+            // }); 
         } );    
 
         $(document).ready(() => {
