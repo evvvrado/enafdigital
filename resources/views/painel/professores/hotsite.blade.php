@@ -70,6 +70,13 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
     <div class="col-12">
         <div class="card inicio">
             <div class="card-body">
+                @if($hotsite)
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            <a name="" id="" class="btn btn-primary" target="_blank" href="{{route('site.treinador', ['slug' => $hotsite->slug])}}" role="button">Visualizar Hotsite</a>
+                        </div>
+                    </div>
+                @endif
                 <h4 class="card-title">Informações</h4>
                 <form action="{{route('painel.professores.hotsite.informacoes.salvar', ['professor' => $professor])}}" method="POST">
                     @csrf
