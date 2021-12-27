@@ -84,7 +84,7 @@
                     <a href="https://www.facebook.com/ABS-Brasil-105852698310241" title="Facebook" target="_blank"
                         rel="nofollow noopener"><img width="27" height="27"
                             src="{{ asset('site//img/ico_face.svg') }}" alt="Facebook"></a>
-                    <a class="whatsapp" href="https://api.whatsapp.com/send?phone=55DEFINIR" title="WhatsApp"
+                    <a class="whatsapp" href="https://api.whatsapp.com/send?phone=55{{$configuracoes->whatsapp}}" title="WhatsApp"
                         target="_blank" rel="nofollow noopener"><img width="27" height="27"
                             src="{{ asset('site//img/ico_whats.svg') }}" alt="WhatsApp"></a>
                 </div>
