@@ -93,7 +93,7 @@ class NoticiasController extends Controller
         
         $noticia->tags()->detach();
 
-        if($requqest->tags){
+        if($request->tags){
             foreach($request->tags as $tag){
                 if(is_numeric($tag)){
                     $noticia->tags()->attach($tag);
