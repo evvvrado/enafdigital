@@ -138,7 +138,7 @@
                 <div class="_info">
                     <picture>
                         <img src="{{ asset($professor->foto) }}" alt="Imagem do professor" alt="{{$professor->nome}}" @if($professor->hotsite)
-                        onclick="window.open('{{ $professor->hotsite }}')"
+                        onclick="window.open('{{route('site.treinador', ['slug' => $professor->hotsite->slug])}}')"
                         @endif>
                     </picture>
 
