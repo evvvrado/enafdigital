@@ -141,9 +141,9 @@
                     </picture>
 
                     <h4>{{$professor->nome}}</h4>
-                    <p> A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
+                    {{-- <p> A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
                         "Conteúdo aqui, conteúdo aqui", fazendo com que ele tenha uma aparência similar a de um texto
-                        legível.</p>
+                        legível.</p> --}}
 
                 </div>
                 @endforeach

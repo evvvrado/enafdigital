@@ -4,8 +4,8 @@
             <h4>Cursos</h4>
             <div class="_filter">
                 <nav>
-                    <div class="_filterItem active">Online</div>
-                    <div class="_filterItem ">EAD</div>
+                    <div class="_filterItem">Online</div>
+                    <div class="_filterItem active">EAD</div>
                     <div class="_filterItem">Presenciais</div>
                 </nav>
             </div>

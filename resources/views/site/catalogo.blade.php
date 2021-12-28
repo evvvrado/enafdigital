@@ -7,6 +7,9 @@
 
     @php
     $anunciante = App\Models\Contrato::where([["inicio", "<=", date('Y-m-d')], ['fim', ">=" , date('Y-m-d')], ["ativo", true]])->inRandomOrder()->first();
+
+        $topcinco = App\Models\Expositor::where("destaque", true)->inRandomOrder();
+
         @endphp
 
 
@@ -93,6 +96,71 @@
         </section>
         --}}
 
+
+
+
+        @if ($topcinco->count() >= 5)
+        <section class="container-fluid s_top5">
+            <div class="--mask">
+
+                <div class="content">
+
+                    <div class="--list">
+                        <div class="--item">
+                            <picture>
+                                <img src="{{ asset('/site/img/feira/catalogo/1_vector.svg') }}">
+                            </picture>
+                            <picture
+                                onclick="window.location.href = '@if ($topcinco->first()->hotsite && $topcinco->first()->hotsite->slug){{ route('site.hotsite', ['slug' => $topcinco->first()->hotsite->slug]) }} @else{{ $topcinco->first()->site }}@endif'">
+                                <img src="{{ asset($topcinco->first()->foto) }}" title="{{$topcinco->first()->nome}}">
+                            </picture>
+                        </div>
+                        <div class="--item">
+                            <picture>
+                                <img src="{{ asset('/site/img/feira/catalogo/2_vector.svg') }}">
+                            </picture>
+                            <picture
+                                onclick="window.location.href = '@if ($topcinco->get(2)->hotsite && $topcinco->get(2)->hotsite->slug){{ route('site.hotsite', ['slug' => $topcinco->get(2)->hotsite->slug]) }} @else{{ $topcinco->get(2)->site }}@endif'">
+                                <img src="{{ asset($topcinco->get(2)->foto) }}" title="{{$topcinco->get(2)->nome}}">
+                            </picture>
+                        </div>
+                        <div class="--item">
+                            <picture>
+                                <img src="{{ asset('/site/img/feira/catalogo/3_vector.svg') }}">
+                            </picture>
+                            <picture
+                                onclick="window.location.href = '@if ($topcinco->get(3)->hotsite && $topcinco->get(3)->hotsite->slug){{ route('site.hotsite', ['slug' => $topcinco->get(3)->hotsite->slug]) }} @else{{ $topcinco->get(3)->site }}@endif'">
+                                <img src="{{ asset($topcinco->get(3)->foto) }}" title="{{$topcinco->get(3)->nome}}">
+                            </picture>
+                        </div>
+                        <div class="--item">
+                            <picture>
+                                <img src="{{ asset('/site/img/feira/catalogo/4_vector.svg') }}">
+                            </picture>
+                            <picture
+                                onclick="window.location.href = '@if ($topcinco->get(4)->hotsite && $topcinco->get(4)->hotsite->slug){{ route('site.hotsite', ['slug' => $topcinco->get(4)->hotsite->slug]) }} @else{{ $topcinco->get(4)->site }}@endif'">
+                                <img src="{{ asset($topcinco->get(4)->foto) }}" title="{{$topcinco->get(4)->nome}}">
+                            </picture>
+                        </div>
+                        <div class="--item">
+                            <picture>
+                                <img src="{{ asset('/site/img/feira/catalogo/5_vector.svg') }}">
+                            </picture>
+                            <picture
+                                onclick="window.location.href = '@if ($topcinco->get(5)->hotsite && $topcinco->get(5)->hotsite->slug){{ route('site.hotsite', ['slug' => $topcinco->get(5)->hotsite->slug]) }} @else{{ $topcinco->get(5)->site }}@endif'">
+                                <img src="{{ asset($topcinco->get(5)->foto) }}" title="{{$topcinco->get(5)->nome}}">
+                            </picture>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        @endif
+
+
+
+
         @foreach (config('expositores.categorias_nome') as $codigo => $nome)
 
         @if (\App\Models\Expositor::where('categoria', $codigo)->count() > 0)
@@ -135,59 +203,7 @@
 
 
 
-        {{--
-        <section class="container-fluid s_top5">
-            <div class="--mask">
 
-                <div class="content">
-
-                    <div class="--list">
-                        <div class="--item">
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/1_vector.svg') }}">
-                            </picture>
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
-                            </picture>
-                        </div>
-                        <div class="--item">
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/2_vector.svg') }}">
-                            </picture>
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
-                            </picture>
-                        </div>
-                        <div class="--item">
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/3_vector.svg') }}">
-                            </picture>
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
-                            </picture>
-                        </div>
-                        <div class="--item">
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/4_vector.svg') }}">
-                            </picture>
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
-                            </picture>
-                        </div>
-                        <div class="--item">
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/5_vector.svg') }}">
-                            </picture>
-                            <picture>
-                                <img src="{{ asset('/site/img/feira/catalogo/verticalExample.jpg') }}">
-                            </picture>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        --}}
 
         {{--
         <section class="container-fluid s_catalogoList --livro">

@@ -79,6 +79,10 @@ Route::get('/noticia/{categoria}/{noticia}', [\App\Http\Controllers\SiteControll
 Route::get('/artigo/{categoria}/{noticia}', [\App\Http\Controllers\SiteController::class, 'noticia'])->name("site.artigo");
 Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 'recuperar_senha'])->name("site.recuperar-senha");
 
+
+
+Route::get('/publicidade/clicar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'clicar'])->name("site.index");
+
 //ROTAS DE CARRINHO
 Route::get('/carrinho/adicionar/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
 Route::get('/carrinho/remover/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'remover'])->name("site.carrinho-remover");

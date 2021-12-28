@@ -251,6 +251,17 @@ body#catalogo {
                     gap: 1rem;
 
                     .--item {
+                        picture:last-child {
+                            height: 20rem;
+                            width: 13.8rem;
+
+                            img {
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
                         @include flex(row, flex-start, flex-start);
 
                         transition: 0.32s;
