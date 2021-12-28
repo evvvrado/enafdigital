@@ -47,7 +47,7 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">
                                             Atuação</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 20px;" aria-label="Office: activate to sort column ascending">
-                                            </th>
+                                        </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;"
                                             aria-label="Start date: activate to sort column ascending"></th>
                                     </tr>
@@ -61,10 +61,10 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                                         <td>{{$professor->empresa}}</td>
                                         <td>{{config("professores.atuacao_nome")[$professor->atuacao]}}</td>
                                         <td class="text-center">
-                                            @if($professor->destaque) 
-                                                <i class="fas fa-star active destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
+                                            @if($professor->destaque)
+                                            <i class="fas fa-star active destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
                                             @else
-                                                <i class="far fa-star destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
+                                            <i class="far fa-star destaque cpointer" onclick="destacar({!!$professor->id!!})" pid="{{$professor->id}}"></i>
                                             @endif
                                         </td>
                                         <td>
@@ -160,7 +160,6 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
 <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script>
-
     function destacar(pid){
         
         var elem = $(".destaque[pid='"+pid+"']");
@@ -188,7 +187,7 @@ Projeto / <a style="color: unset" href="{{route('painel.professores')}}">Profess
                     elem.addClass("fas");
                     elem.addClass("active");
                 }else{
-                    toastr.error('Já existem 4 professores em destaque. Retire um para adicionar outro.', 'Erro')
+                    toastr.error('Já existem 20 professores em destaque. Retire um para adicionar outro.', 'Erro')
                 }
                 
             },

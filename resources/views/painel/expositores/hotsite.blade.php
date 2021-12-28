@@ -203,6 +203,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                             </div>
                         </div>
                         <h4 class="card-title my-3">Logo do Parceiro</h4>
+                        <small>Logo sem fundo na horizontal 135px x 61px</small>
                         <div class="col-12 mt-3">
                             <div class="row">
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center">

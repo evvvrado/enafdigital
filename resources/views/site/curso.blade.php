@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <p>
-                            {!! $modulo->descricao !!}
+                            {!! str_replace("\n", "<br>" ,$modulo->descricao) !!}
                         </p>
                     </div>
                     @endforeach
