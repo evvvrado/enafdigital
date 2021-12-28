@@ -116,6 +116,7 @@ class CursosController extends Controller
                 mkdir($destinationPath);
             }
             $img = Image::make($image->path());
+            $img->save($destinationPath . '/' . $input['imagename']);
             $curso->thumbnail = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
 
@@ -129,6 +130,7 @@ class CursosController extends Controller
                 mkdir($destinationPath);
             }
             $img = Image::make($image->path());
+            $img->save($destinationPath . '/' . $input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
 
