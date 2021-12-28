@@ -12,51 +12,56 @@ class CursosController extends Controller
 {
     //
 
-    public function getCurso(Curso $curso){
+    public function getCurso(Curso $curso)
+    {
         return response()->json($curso->toJson());
     }
 
-    public function consultar(Request $request){
-        if($request->isMethod('get')){
+    public function consultar(Request $request)
+    {
+        if ($request->isMethod('get')) {
             $cursos = Curso::all();
             return view("painel.cursos.consultar", ["cursos" => $cursos]);
-        }else{
+        } else {
             $filtros = [];
-            if($request->nome != null){
+            if ($request->nome != null) {
                 $filtros[] = ["nome", "like", "%" . $request->nome . "%"];
             }
-            if($request->tipo != null && $request->tipo != -1){
+            if ($request->tipo != null && $request->tipo != -1) {
                 $filtros[] = ["tipo", "=", $request->tipo];
             }
-            if($request->total_horas != null){
+            if ($request->total_horas != null) {
                 $filtros[] = ["total_horas", "=", $request->total_horas];
             }
-            if($request->valor_minimo != null){
+            if ($request->valor_minimo != null) {
                 $filtros[] = ["valor", ">=", $request->valor_minimo];
             }
-            if($request->valor_maximo != null){
+            if ($request->valor_maximo != null) {
                 $filtros[] = ["valor", "<=", $request->valor_maximo];
             }
             $cursos = Curso::where($filtros)->get();
             return view("painel.cursos.consultar", ['cursos' => $cursos, "filtros" => $request->all()]);
         }
     }
-    
-    public function cadastrar(){
+
+    public function cadastrar()
+    {
         return view("painel.cursos.cadastrar");
     }
-    
-    public function editar(Curso $curso){
+
+    public function editar(Curso $curso)
+    {
         return view("painel.cursos.editar", ['curso' => $curso]);
     }
 
-    public function salvar(Request $request){
-        if($request->curso_id){
+    public function salvar(Request $request)
+    {
+        if ($request->curso_id) {
             $curso = Curso::find($request->curso_id);
             $curso->nome = $request->nome;
             $curso->slug = Str::slug($request->nome);
             $curso->save();
-        }else{
+        } else {
             $curso = new Curso;
             $curso->nome = $request->nome;
             $curso->slug = Str::slug($request->nome);
@@ -70,62 +75,60 @@ class CursosController extends Controller
         $curso->descricao = $request->descricao;
         $curso->titulo = $request->titulo;
         $curso->sobre = $request->sobre;
-        
-        if($request->gerencianet){
+
+        if ($request->gerencianet) {
             $curso->gerencianet = true;
-        }else{
+        } else {
             $curso->gerencianet = false;
         }
 
-        if($request->cielo){
+        if ($request->cielo) {
             $curso->cielo = true;
-        }else{
+        } else {
             $curso->cielo = false;
         }
-        
-        if($request->certificacao){
+
+        if ($request->certificacao) {
             $curso->certificacao = true;
-        }else{
+        } else {
             $curso->certificacao = false;
         }
 
         // dd($curso->professores);
 
         $curso->professores()->wherePivotNotIn("professor_id", $request->professores)->detach();
-        foreach($request->professores as $professor){
-            if(!$curso->professores->contains($professor)){
+        foreach ($request->professores as $professor) {
+            if (!$curso->professores->contains($professor)) {
                 $curso->professores()->attach($professor);
             }
         }
-        
+
         $curso->video = $request->video;
         $curso->valor = $request->valor;
 
         // THUMBNAIL
-        if($request->file("thumbnail")){
+        if ($request->file("thumbnail")) {
             Storage::delete($curso->thumbnail);
             $image = $request->file('thumbnail');
-            $input['imagename'] = time().'.'.$image->extension();
+            $input['imagename'] = time() . '.' . $image->extension();
             $destinationPath = public_path('site/imagens/cursos/' . $curso->id);
-            if(!is_dir($destinationPath)){
+            if (!is_dir($destinationPath)) {
                 mkdir($destinationPath);
             }
             $img = Image::make($image->path());
-            $img->resize(360, 200)->save($destinationPath.'/'.$input['imagename']);
             $curso->thumbnail = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
-        
+
         // BANNER
-        if($request->file("banner")){
+        if ($request->file("banner")) {
             Storage::delete($curso->banner);
             $image = $request->file('banner');
-            $input['imagename'] = time().'.'.$image->extension();
+            $input['imagename'] = time() . '.' . $image->extension();
             $destinationPath = public_path('site/imagens/cursos/' . $curso->id);
-            if(!is_dir($destinationPath)){
+            if (!is_dir($destinationPath)) {
                 mkdir($destinationPath);
             }
             $img = Image::make($image->path());
-            $img->resize(1200, 546)->save($destinationPath.'/'.$input['imagename']);
             $curso->banner = 'site/imagens/cursos/' . $curso->id . "/" . $input['imagename'];
         }
 
@@ -134,11 +137,12 @@ class CursosController extends Controller
         return redirect()->route("painel.cursos");
     }
 
-    public function ativo(Curso $curso){
-        if($curso->ativo){
+    public function ativo(Curso $curso)
+    {
+        if ($curso->ativo) {
             $curso->ativo = false;
             toastr()->success("Curso desativado");
-        }else{
+        } else {
             $curso->ativo = true;
             toastr()->success("Curso ativado");
         }
@@ -146,7 +150,8 @@ class CursosController extends Controller
         return redirect()->back();
     }
 
-    public function processa_editor($id, $conteudo){
+    public function processa_editor($id, $conteudo)
+    {
         libxml_use_internal_errors(true);
         $dom = new \DOMDocument();
         $dom->loadHTML(
@@ -161,14 +166,14 @@ class CursosController extends Controller
 
             if (preg_match('/data:image/', $src)) {
                 preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
-                if(!is_dir('site/imagens/cursos/')){
+                if (!is_dir('site/imagens/cursos/')) {
                     mkdir('site/imagens/cursos/');
                 }
-                if(!is_dir('site/imagens/cursos/' . $id . "/")){
+                if (!is_dir('site/imagens/cursos/' . $id . "/")) {
                     mkdir('site/imagens/cursos/' . $id . "/");
                 }
                 $mimeType = $groups['mime'];
-                if(!is_dir('site/imagens/cursos/' . $id . "/")){
+                if (!is_dir('site/imagens/cursos/' . $id . "/")) {
                     mkdir('site/imagens/cursos/' . $id . "/");
                 }
                 $path = 'site/imagens/cursos/' . $id . "/" . uniqid('', true) . '.' . $mimeType;

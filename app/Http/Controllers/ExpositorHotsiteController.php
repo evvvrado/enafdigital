@@ -14,14 +14,16 @@ class ExpositorHotsiteController extends Controller
 {
     //
 
-    public function hotsite(Expositor $expositor){
+    public function hotsite(Expositor $expositor)
+    {
         return view("painel.expositores.hotsite", ['expositor' => $expositor, 'hotsite' => $expositor->hotsite]);
     }
 
 
-    public function salvar_informacoes(Request $request, Expositor $expositor){
+    public function salvar_informacoes(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
@@ -42,9 +44,10 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_textos(Request $request, Expositor $expositor){
+    public function salvar_textos(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
@@ -63,32 +66,36 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_foto(Request $request, Expositor $expositor){
-        
+    public function salvar_foto(Request $request, Expositor $expositor)
+    {
+
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
 
-        if($request->file("logo")){
+        if ($request->file("logo")) {
             Storage::delete($hotsite->logo);
             $hotsite->logo = $request->file('logo')->store(
-                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+                'site/imagens/expositores/' . $expositor->id . '/hotsite',
+                'local'
             );
         }
 
-        if($request->file("foto1")){
+        if ($request->file("foto1")) {
             Storage::delete($hotsite->foto1);
             $hotsite->foto1 = $request->file('foto1')->store(
-                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+                'site/imagens/expositores/' . $expositor->id . '/hotsite',
+                'local'
             );
         }
 
-        if($request->file("foto2")){
+        if ($request->file("foto2")) {
             Storage::delete($hotsite->foto2);
             $hotsite->foto2 = $request->file('foto2')->store(
-                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+                'site/imagens/expositores/' . $expositor->id . '/hotsite',
+                'local'
             );
         }
 
@@ -99,9 +106,10 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_galeria1(Request $request, Expositor $expositor){
+    public function salvar_galeria1(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
@@ -116,9 +124,10 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_galeria2(Request $request, Expositor $expositor){
+    public function salvar_galeria2(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
@@ -133,19 +142,21 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function adicionar_foto_galeria(Request $request, Expositor $expositor){
+    public function adicionar_foto_galeria(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
         }
 
-        if($request->file("foto")){
+        if ($request->file("foto")) {
             $foto = new ExpositorHotsiteFoto;
             $foto->expositor_hotsite_id = $hotsite->id;
             $foto->galeria = $request->galeria;
             $foto->foto = $request->file('foto')->store(
-                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+                'site/imagens/expositores/' . $expositor->id . '/hotsite',
+                'local'
             );
             $foto->save();
         }
@@ -153,10 +164,21 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function salvar_duvida(Request $request, Expositor $expositor){
+    public function excluir_foto_galeria(ExpositorHotsiteFoto $foto)
+    {
+        Storage::disk('public')->delete($foto->preview);
+
+        toastr()->success("Foto removida com sucesso!");
+
+        $foto->delete();
+        return redirect()->back();
+    }
+
+    public function salvar_duvida(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
 
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
             $hotsite->save();
@@ -174,16 +196,18 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function excluir_duvida(ExpositorHotsiteDuvida $duvida){
+    public function excluir_duvida(ExpositorHotsiteDuvida $duvida)
+    {
         $duvida->delete();
         toastr()->success("Dúvida removida com sucesso!");
         return redirect()->back();
     }
 
-    public function salvar_parceiro(Request $request, Expositor $expositor){
+    public function salvar_parceiro(Request $request, Expositor $expositor)
+    {
         $hotsite = $expositor->hotsite;
 
-        if(!$hotsite){
+        if (!$hotsite) {
             $hotsite = new ExpositorHotsite;
             $hotsite->expositor_id = $expositor->id;
             $hotsite->save();
@@ -194,9 +218,10 @@ class ExpositorHotsiteController extends Controller
         $parceiro->nome = $request->nome;
         $parceiro->url = $request->url;
 
-        if($request->file("logo")){
+        if ($request->file("logo")) {
             $parceiro->logo = $request->file('logo')->store(
-                'site/imagens/expositores/'. $expositor->id.'/hotsite', 'local'
+                'site/imagens/expositores/' . $expositor->id . '/hotsite',
+                'local'
             );
         }
 
@@ -208,7 +233,8 @@ class ExpositorHotsiteController extends Controller
         return redirect()->back();
     }
 
-    public function excluir_parceiro(ExpositorHotsiteParceiro $parceiro){
+    public function excluir_parceiro(ExpositorHotsiteParceiro $parceiro)
+    {
         Storage::delete($parceiro->logo);
         $parceiro->delete();
         toastr()->success("Parceiro removido com sucesso!");

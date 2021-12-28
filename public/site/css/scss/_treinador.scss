@@ -247,6 +247,9 @@ body#treinador {
                 ._curso {
                     ._pic {
                         width: 100%;
+                        img {
+                            width: 100%;
+                        }
                     }
 
                     text-align: center;
@@ -254,7 +257,7 @@ body#treinador {
                     overflow: hidden;
 
                     scroll-snap-align: center;
-                    height: 44.6rem;
+                    height: 50.599999999999994rem;
                     width: 100%;
                     max-width: 37.3rem;
                     transition: 0.32s;

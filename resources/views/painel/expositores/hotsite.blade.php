@@ -4,7 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <link href="{{ asset('admin/libs/select2/css/select2.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" href="{{ asset('\admin\libs\magnific-popup.css')}}">
+<link rel="stylesheet" href="{{ asset('\admin\libs\magnific-popup\magnific-popup.css')}}">
 {{--
 <link href="{{asset('admin/libs/select2/css/select2-bootstrap4.css')}}" id="app-style" rel="stylesheet" type="text/css" /> --}}
 
@@ -317,7 +317,9 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                     @if($hotsite)
                     @foreach($hotsite->fotos->where("galeria", 1) as $foto)
                     <div class="img-fluid" style="margin-right: 10px">
-                        <img src="{{ asset($foto->foto) }}" alt="" width="120">
+                        <a href="{{route('painel.expositores.hotsite.galeria.foto.excluir', ['foto' => $foto])}}">
+                            <img style="cursor:pointer;" src="{{ asset($foto->foto) }}" alt="" width="120">
+                        </a>
                     </div>
                     @endforeach
                     @endif
@@ -633,7 +635,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 @section('scripts')
 
 
-<script src="{{ asset('\admin\libs\magnific-popup.js')}}"></script>
+<script src="{{ asset('\admin\libs\magnific-popup\jquery.magnific-popup.min.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script src="{{ asset('admin/libs/select2/js/select2.min.js') }}"></script>
