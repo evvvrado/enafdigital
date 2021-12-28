@@ -38,9 +38,9 @@ Route::get('/duvidas', [\App\Http\Controllers\SiteController::class, 'duvidas'])
 
 // ENAF ~
 
-Route::get('/feira', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
-Route::get('/feira/experiencias/{slug}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
-Route::get('/feira/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
+Route::get('/expo', [\App\Http\Controllers\SiteController::class, 'feira'])->name("site.feira");
+Route::get('/expo/experiencias/{slug}', [\App\Http\Controllers\SiteController::class, 'feiraEmpresas'])->name("site.feiraEmpresas");
+Route::get('/expo/catalogo', [\App\Http\Controllers\SiteController::class, 'feiraCatalogo'])->name("site.catalogo");
 
 Route::get('/professores', [\App\Http\Controllers\SiteController::class, 'professores'])->name("site.professores");
 Route::get('/congressos', [\App\Http\Controllers\SiteController::class, 'clinicas'])->name("site.clinicas");

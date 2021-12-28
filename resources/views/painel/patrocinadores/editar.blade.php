@@ -40,8 +40,18 @@ Publicidade / <a style="color: unset" href="{{ route('painel.patrocinadores') }}
 
                     <div class="col-12 mt-3">
                         <div class="row">
+                            <div class="text-center mb-3">
+                                <small>Logo sem fundo 115px x 45px</small>
+                            </div>
                             <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                <picture style="height: 80px; background-color:#f3f4f6; width: 100%; max-width: 400px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
+                                <picture style="    height: 85px;
+                                    background-color: #f3f4f6;
+                                    width: 100%;
+                                    max-width: 115px                                ;
+                                    overflow: hidden;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;">
                                     <img id="banner-preview" @if(!$patrocinador->foto) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($patrocinador->foto) }}" @endif
                                     style="width: 100%; object-fit: cover;" alt="">
                                 </picture>

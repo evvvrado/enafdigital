@@ -45,6 +45,7 @@ Publicidade / <a style="color: unset" href="{{ route('painel.anuncios') }}">Anú
                                 <div class="row">
                                     <div class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
                                         Mobile
+                                        <small>205px x 337px</small>
 
                                         <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                             <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
@@ -65,6 +66,7 @@ Publicidade / <a style="color: unset" href="{{ route('painel.anuncios') }}">Anú
                                 <div class="row">
                                     <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                                         Desktop
+                                        <small>1213px x 332px</small>
                                         <picture style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                             <img id="logo-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                         </picture>
