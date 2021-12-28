@@ -25,6 +25,12 @@ body#treinador {
         height: 101.5rem;
         background-image: url("../img/header_treinador.jpg");
 
+        @include responsive(600px) {
+            position: relative;
+            height: 62.5rem !important;
+            background-size: 100% 100% !important;
+        }
+
         .container-fav {
             @include flex(row, flex-start, flex-start);
             gap: 3rem;
@@ -47,12 +53,15 @@ body#treinador {
             }
 
             @include responsive(600px) {
-                background-size: auto 100%;
-                background-position: center 10rem;
-                height: 60rem;
-
                 ._h1 {
-                    margin-top: 8.1rem;
+                    margin-top: 1 8.1rem;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .trainer {
+                    position: absolute;
+                    z-index: 1;
                 }
             }
         }
@@ -759,7 +768,7 @@ body#treinador {
                     }
 
                     @include responsive(600px) {
-                        width: max-content;
+                        width: 100%;
                     }
                 }
             }

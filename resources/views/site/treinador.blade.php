@@ -353,7 +353,7 @@
                     </div>
                 </div>
                 <div class="_col">
-                    <form action="/">
+                    <form action="javascript: void(0);">
                         <label>
                             <p>Nome</p>
                             <input type="text" />
@@ -366,10 +366,22 @@
                             <p>Telefone</p>
                             <input type="tel" />
                         </label>
-                        <button>Quero me inscrever</button>
+                        <button onclick="sendmessage()">Quero me inscrever</button>
                     </form>
                 </div>
             </div>
         </div>
 
         @include('site.includes.footer')
+
+
+        <script>
+            function sendmessage() {
+                var nome = $('input[type = "text"]').val();
+                var email = $('input[type = "email"]').val();
+                var cellphone = $('input[type = "tel"]').val();
+                var number = '55{{ \App\Classes\Util::limparString($professor->hotsite->telefone) }}';
+    
+                window.open(`https://wa.me/${number}/?text=Ol%C3%A1%2C+sou+${nome}+.+Me+contate%21+E-mail+${email}+%0D%0A++Celular%3A+${cellphone}`)
+            }
+        </script>

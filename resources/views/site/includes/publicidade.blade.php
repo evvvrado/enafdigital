@@ -7,7 +7,7 @@ $publicidade = $publicidades->first();
 
 <section class="container-fluid s_publi">
   <div class="container-fav">
-    <a target="_blank" rel="noopener" href="/" title="Conheça {{$publicidade->nome}}">
+    <a target="_blank" rel="noopener" href="{{$publicidade->url}}" title="Conheça {{$publicidade->nome}}">
       <img src="{{ asset($publicidade->imagem_desktop) }}" rel="noopener" data-size="desktop" alt="" />
       <img src="{{ asset($publicidade->imagem_mobile) }}" rel="noopener" data-size="responsive" alt="" />
     </a>

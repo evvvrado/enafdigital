@@ -60,7 +60,7 @@
       <div class="_col">
         <div class="_pic">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.6516434026657!2d-45.44527188505813!3d-21.560472485712726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ca9284e7b2deef%3A0x5c26d9833dafe570!2sR.%20Cel.%20Jos%C3%A9%20Alves%2C%20361%20-%20Vila%20Pinto%2C%20Varginha%20-%20MG%2C%2037010-540!5e0!3m2!1spt-BR!2sbr!4v1633273799905!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.3012805171807!2d-43.96197338509894!3d-19.953828086590324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697777a2018f7%3A0x4ae6ff1a84e0326c!2sAv.%20Raja%20Gab%C3%A1glia%2C%202000%20-%20Estoril%2C%20Belo%20Horizonte%20-%20MG%2C%2030494-170!5e0!3m2!1spt-BR!2sbr!4v1640697705920!5m2!1spt-BR!2sbr"
             width="590 " height="283" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <p>Endereço: Av. Raja Gabaglia, 2000 - Sala 805E e PVMT 08 - Bloco 1
