@@ -172,7 +172,7 @@
                     <div class="_professores">
                         @foreach ($professores->shuffle() as $professor)
                         <div class="_professor">
-                            <img src="{{ asset($professor->foto) }}" alt="{{ $professor->nome}}" />
+                            <img src="{{ asset($professor->foto) }}" alt="{{ $professor->nome}}" title="{{ $professor->nome}}" />
                         </div>
 
                         @endforeach

@@ -37,7 +37,7 @@
                 $cont = 0;
                 @endphp
                 @foreach($cursos as $curso)
-                <div class="_curso">
+                <div class="_curso" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                     <div class="_pic">
                         <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
                     </div>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="_bottom">
                             <p class="curso_price">R$ {{number_format($curso->valor, 2, ",", ".")}}</p>
-                            <button onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">Ver mais</button>
+                            <button>Ver mais</button>
                         </div>
                     </div>
                 </div>

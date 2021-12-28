@@ -33,6 +33,15 @@ body#treinador {
                 margin-top: 16.1rem;
             }
 
+            .trainer {
+                height: 51.4rem;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
+
             @include responsive(900px) {
                 background-position: center center;
             }
@@ -56,7 +65,7 @@ body#treinador {
 
             iframe {
                 width: 100% !important;
-                max-width: 100.03rem !important;
+                max-width: 90.03rem !important;
                 height: 50.6rem !important;
 
                 border-radius: 0.8rem;
@@ -109,7 +118,7 @@ body#treinador {
         }
         h6 {
             position: relative;
-            @include draw_one(33.4rem, 7.8rem, 0, 0);
+            @include draw_one(100%, 7.8rem, 0, 0);
         }
         p {
             max-width: 83.2rem;

@@ -78,6 +78,7 @@ Blog / <a style="color: unset" href="{{ route('painel.artigos') }}">Artigos</a> 
                                 <div class="row">
                                     <div class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
                                         Thumbnail
+                                        <small>Uma imagem quadrada em uma alta resolução</small>
 
                                         <picture style="height: 281px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                             <img id="thumbnail-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
@@ -99,6 +100,7 @@ Blog / <a style="color: unset" href="{{ route('painel.artigos') }}">Artigos</a> 
                     <div class="row">
                         <div class="col-12 text-center d-flex align-items-center justify-content-center  flex-column">
                             Banner
+                            <small>Uma imagem escura em uma alta resolução</small>
                             <picture style="height: 281px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                 <img id="banner-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                             </picture>

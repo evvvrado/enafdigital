@@ -141,6 +141,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congres
                             <div class="row">
                                 <div class=" text-center d-flex align-items-center justify-content-center flex-column">
                                     Thumbnail
+                                    <small>Uma imagem quadrada em uma alta resolução</small>
 
                                     <picture style="height: 350px; max-width: 350px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                         <img id="thumbnail-preview" @if (!$evento->thumbnail) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->thumbnail) }}" @endif
@@ -161,6 +162,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congres
                             <div class="row">
                                 <div class="col-8 text-center d-flex align-items-center justify-content-center  flex-column">
                                     Banner
+                                    <small>Uma imagem escura em uma alta resolução</small>
                                     <picture style="height: 350px; width: 100%; background-color: #f3f4f6;overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                         <img id="banner-preview" @if (!$evento->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($evento->banner) }}" @endif
                                         style="width: 100%; object-fit: cover;" alt="">

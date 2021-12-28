@@ -50,13 +50,19 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
 
                     <div class="col-12 mt-3">
                         <div class="row">
-                            <div class="col-12 text-center d-flex align-items-center justify-content-center">
+                            <div class="col-12 text-center d-flex align-items-center justify-content-center flex-column">
+
+                                Foto do professor
+                                <small>Uma imagem na vertical alta resolução</small>
+
+
                                 <picture style="height: 464px; max-width: 281px; overflow: hidden; display: flex; align-items:center; justify-content: center;">
                                     <img id="foto-preview" src="{{ asset('admin/images/thumb-padrao.png') }}" style="width: 100%; object-fit: cover;" alt="">
                                 </picture>
                             </div>
                         </div>
                         <div class="row mt-3">
+
                             <div class="col-12 text-center">
                                 <label class="btn btn-primary" for="foto-upload">Escolher</label>
                                 <input name="foto" id="foto-upload" style="display: none;" type="file">

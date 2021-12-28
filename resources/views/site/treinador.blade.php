@@ -131,7 +131,8 @@
                             </p>
                             <div class="_end">
                                 <div class="_pic">
-                                    <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" style="width: 50px; height: 50px;" />
+                                    <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" style="
+                                    object-fit: cover; width: 50px; height: 50px;" />
                                 </div>
                                 <p>{{$depoimento->nome}}</p>
                                 {{-- <a href="/">

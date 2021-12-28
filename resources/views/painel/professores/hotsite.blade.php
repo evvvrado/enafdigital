@@ -71,11 +71,11 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
         <div class="card inicio">
             <div class="card-body">
                 @if($hotsite)
-                    <div class="row">
-                        <div class="col-12 text-end">
-                            <a name="" id="" class="btn btn-primary" target="_blank" href="{{route('site.treinador', ['slug' => $hotsite->slug])}}" role="button">Visualizar Hotsite</a>
-                        </div>
+                <div class="row">
+                    <div class="col-12 text-end">
+                        <a name="" id="" class="btn btn-primary" target="_blank" href="{{route('site.treinador', ['slug' => $hotsite->slug])}}" role="button">Visualizar Hotsite</a>
                     </div>
+                </div>
                 @endif
                 <h4 class="card-title">Informações</h4>
                 <form action="{{route('painel.professores.hotsite.informacoes.salvar', ['professor' => $professor])}}" method="POST">
@@ -277,6 +277,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                             </div>
                         </div>
                         <div class="row mt-3">
+
                             <div class="col-12 text-center">
                                 <label class="btn btn-primary" for="depoimento-upload">Escolher</label>
                                 <input name="foto" id="depoimento-upload" style="display: none;" type="file">
@@ -424,6 +425,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
 
             <div class="card-body row">
                 <h4 class="card-title">Foto Principal</h4>
+                <small>Uma imagem na vertical em alta resolução *SEM FUNDO</small>
 
 
 
