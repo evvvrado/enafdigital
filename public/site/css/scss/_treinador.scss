@@ -310,6 +310,11 @@ body#treinador {
                             -webkit-line-clamp: 3;
                             -webkit-box-orient: vertical;
                             text-overflow: ellipsis;
+
+                            @include responsive(600px) {
+                                height: 5rem;
+                                -webkit-line-clamp: 2;
+                            }
                         }
                     }
 
@@ -559,10 +564,12 @@ body#treinador {
         }
 
         @include responsive(830px) {
+            padding-top: 12rem;
             .container-fav {
                 flex-direction: column;
                 ._title {
                     margin-bottom: 8rem;
+                    transform: scale(0.6);
                 }
                 main {
                     &::after {
