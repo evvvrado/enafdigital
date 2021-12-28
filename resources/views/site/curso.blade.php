@@ -137,7 +137,9 @@
                 @foreach($curso->professores as $professor)
                 <div class="_info">
                     <picture>
-                        <img src="{{ asset($professor->foto) }}" alt="Imagem do professor" alt="{{$professor->nome}}" onclick="">
+                        <img src="{{ asset($professor->foto) }}" alt="Imagem do professor" alt="{{$professor->nome}}" @if($professor->hotsite)
+                        onclick="window.open('{{ $professor->hotsite }}')"
+                        @endif>
                     </picture>
 
                     <h4>{{$professor->nome}}</h4>
