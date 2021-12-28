@@ -306,6 +306,7 @@ Route::middleware(['admin'])->group(function () {
     Route::match(['get', 'post'], '/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
     Route::get('/sistema/curso/ativo/{curso}', [\App\Http\Controllers\CursosController::class, 'ativo'])->name("painel.curso.ativo");
     Route::get('/sistema/cursos/cadastrar', [\App\Http\Controllers\CursosController::class, 'cadastrar'])->name("painel.cursos.cadastrar");
+    Route::get('/sistema/cursos/destaque/{curso}', [\App\Http\Controllers\CursosController::class, 'destaque'])->name("painel.cursos.destaque");
     Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");
     Route::get('/sistema/cursos/editar/{curso}', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
     Route::post('/sistema/cursos/{curso}/modulo/salvar', [\App\Http\Controllers\ModulosController::class, 'salvar'])->name("painel.cursos.modulo.salvar");

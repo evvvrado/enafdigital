@@ -13,7 +13,7 @@
         </div>
         <div class="_cursosList">
 
-            @foreach ($cursos->where('tipo', 1)->take(4) as $curso)
+            @foreach ($cursos->where('tipo', 1)->where('destaque', 1)->take(4) as $curso)
 
             <div class="_curso online" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">
@@ -45,7 +45,7 @@
 
 
 
-            @foreach ($cursos->where('tipo', 0)->take(4) as $curso)
+            @foreach ($cursos->where('tipo', 0)->where('destaque', 1)->take(4) as $curso)
 
             <div class="_curso ead" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">
@@ -73,7 +73,7 @@
 
 
 
-            @foreach ($cursos->where('tipo', 2)->take(4) as $curso)
+            @foreach ($cursos->where('tipo', 2)->where('destaque', 1)->take(4) as $curso)
 
             <div class="_curso presencial" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">

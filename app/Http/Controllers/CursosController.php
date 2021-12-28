@@ -191,4 +191,19 @@ class CursosController extends Controller
 
         return $dom->saveHTML();
     }
+
+
+    public function destaque(Curso $curso)
+    {
+        if ($curso->destaque) {
+            $curso->destaque = false;
+            $curso->save();
+            return response()->json("retirado");
+        } else {
+            $qtd = Curso::where("destaque", true)->count();
+            $curso->destaque = true;
+            $curso->save();
+            return response()->json("destacado");
+        }
+    }
 }
