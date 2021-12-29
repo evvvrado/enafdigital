@@ -162,7 +162,7 @@
                 </p>
                 <span>E o melhor: você tem flexibilidade de horários, estuda de onde quiser e com a mesma qualidade. </span>
 
-                <button onclick="window.location.href = '{{ route('site.professores')}}'">
+                <button onclick="window.location.href = '{{ route('site.professorees')}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para direita" />
                 </button>
             </div>
@@ -171,7 +171,8 @@
                 <div class="_content">
                     <div class="_professores">
                         @foreach ($professores->shuffle() as $professor)
-                        <div class="_professor">
+                        <div class="_professor" @if($professor->hotsite && $professor->hotsite->slug)
+                            onclick="window.location.href = '{{route('site.treinador', ['slug' => $professor->hotsite->slug])}}'" @endif>
                             <img src="{{ asset($professor->foto) }}" alt="{{ $professor->nome}}" title="{{ $professor->nome}}" />
                         </div>
 

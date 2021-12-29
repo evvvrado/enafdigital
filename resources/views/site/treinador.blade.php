@@ -75,7 +75,7 @@
             <div class="_content fade">
                 <div class="_cursoList">
                     @foreach($professor->cursos as $curso)
-                    <div class="_curso">
+                    <div class="_curso" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                         <div class="_pic">
                             <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
                         </div>

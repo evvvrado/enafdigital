@@ -67,13 +67,13 @@
             <div class="_end">
                 <nav>
                     <ul>
-                        <li><a href="{{ route('site.clinicas') }}">Eventos</a></li>
+                        <li><a href="{{ route('site.eventos') }}">Eventos</a></li>
                         <li><a href="{{ route('site.clinicas') }}">Congressos</a></li>
                         <li><a href="{{ route('site.cursos') }}">Cursos</a></li>
                         <li><a href="{{ route('site.professores') }}">Professores</a></li>
                         <li><a href="{{ route('site.feira') }}">EXPO ENAF</a></li>
                         <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
-                        <li><a href="{{ route('site.blog-lista') }}">Artigos</a></li>
+                        <li><a href="{{ route('site.artigo-grid') }}">Artigos</a></li>
                         <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
                         <li><a href="{{ route('site.contato') }}">Imprensa</a></li>
                         <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
