@@ -162,7 +162,7 @@
                 </p>
                 <span>E o melhor: você tem flexibilidade de horários, estuda de onde quiser e com a mesma qualidade. </span>
 
-                <button onclick="window.location.href = '{{ route('site.professorees')}}'">
+                <button onclick="window.location.href = '{{ route('site.professores')}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Seta para direita" />
                 </button>
             </div>

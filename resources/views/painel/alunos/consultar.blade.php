@@ -21,7 +21,7 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a>
 
                 <a name="" style="opacity: 0; pointer-events: none; id=" button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;"
                     href="{{route('painel.professores.cadastrar')}}">
-                    <i" class="bx bx-plus" aria-hidden="true"></i> Adicionar
+                    <i class="bx bx-plus" aria-hidden="true"></i> Adicionar
                 </a>
             </div>
             <div class="card">
