@@ -81,7 +81,7 @@ Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 're
 
 
 
-Route::get('/publicidade/clicar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'clicar'])->name("site.index");
+Route::get('/publicidade/clicar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'clicar'])->name("site.publicidade.clicar");
 
 //ROTAS DE CARRINHO
 Route::get('/carrinho/adicionar/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
