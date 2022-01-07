@@ -14,7 +14,6 @@ $publicidade = $publicidades->first();
   </div>
 </section>
 
-@endif
 
 <script src="{{ asset('site/js/jquery.min.js') }}"></script>
 <script src="{{ asset('site/js/jquery-ui.js') }}"></script>
@@ -42,3 +41,4 @@ $publicidade = $publicidades->first();
                 });
   }); 
 </script>
+@endif

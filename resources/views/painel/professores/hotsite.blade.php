@@ -200,7 +200,9 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                     @csrf
                     <div class="row">
                         <div class="mb-3">
-                            <label for="productname">Sessão 1</label>
+                            <label for="productname">Sobre o treinador
+                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_sobre.png')}}"></i>
+                            </label>
                             <input id="productname" name="sessao1_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao1_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>
                         <div class="col-12 mb-3">
@@ -212,7 +214,9 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
 
                     <div class="row">
                         <div class="mb-3">
-                            <label for="productname">Sessão 2</label>
+                            <label for="productname">Sobre os cursos
+                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_cursos.png')}}"></i>
+                            </label>
                             <input id="productname" name="sessao2_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao2_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>
                         <div class="col-12 mb-3">
@@ -226,7 +230,9 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
 
                     <div class="row">
                         <div class="mb-3">
-                            <label for="productname">Sessão 3</label>
+                            <label for="productname">Sobre os depoimentos
+                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_depoimentos.png')}}"></i>
+                            </label>
                             <input id="productname" name="sessao3_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao3_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>
                         <div class="col-12 mb-3">
@@ -585,6 +591,27 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
 
 
         </div>
+
+
+
+
+        <div id="modalInfo" class="modal fade" tabindex="-1" aria-labelledby="modalInfoLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0" id="modalInfoLabel">Posição no site</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="card-body container-fluid">
+                            <img id="modalInfoImg" src="" alt="" style="width: 100%">
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
     </div>
 </div>
 
@@ -640,6 +667,12 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
             $('#summernote').summernote({
                 height: 600,
             });
+
+            $(".info").click(function(){
+                var img = $(this).attr("dir");
+                $("#modalInfoImg").attr("src", img);
+                $("#modalInfo").modal("show");
+            })
 
             $('#select_tag').select2({});
 

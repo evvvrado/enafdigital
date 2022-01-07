@@ -33,7 +33,7 @@
         </div>
     </section>
 
-    <section class="container-fluid s_hero" style="background-image: url('{{ asset($curso->banner)}}')">
+    <section class="container-fluid s_hero" style="background-image: url('{{ asset($curso->banner)}}');background-blend-mode: soft-light;">
         <div class="container-fav">
             <div class="_h1 fade">
                 <h6>CURSO {{ strtoupper(config('cursos.tipo_nome')[$curso->tipo]) }}</h6>

@@ -2508,6 +2508,9 @@ footer {
     border-top: 1px solid var(--gray11);
 }
 
+label {
+    position: relative;
+}
 footer section.s_faleConosco {
     border-bottom: 1px solid var(--gray11);
     padding-bottom: 9rem !important;

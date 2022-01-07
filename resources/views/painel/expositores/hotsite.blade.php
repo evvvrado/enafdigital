@@ -135,7 +135,11 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                     @csrf
                     <div class="row">
                         <div class="mb-3">
-                            <label for="productname">Sessão 1</label>
+                            <label for="productname">
+                                Sessão Lateral na Home
+                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_hero.png')}}"></i>
+
+                            </label>
                             <input id="productname" name="sessao1_titulo" @if($hotsite) value="{{$hotsite->sessao1_titulo}}" @endif type="text" placeholder="Texto inicial" class="form-control">
                         </div>
                         <div class="col-12 mb-3">
@@ -149,7 +153,9 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         <div class="col-6">
 
                             <div class="mb-3">
-                                <label for="productname">Coluna 01</label>
+                                <label for="productname">Coluna 01
+                                    <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna1.png')}}"></i>
+                                </label>
                                 <input id="productname" name="coluna1_titulo" type="text" @if($hotsite) value="{{$hotsite->coluna1_titulo}}" @endif placeholder="Título da Coluna" class="form-control">
                             </div>
                             <div class="col-12 mb-3">
@@ -160,7 +166,10 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         <div class="col-6">
 
                             <div class="mb-3">
-                                <label for="productname">Coluna 02</label>
+                                <label for="productname">Coluna 02
+                                    <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna2.png')}}"></i>
+
+                                </label>
                                 <input id="productname" name="coluna2_titulo" @if($hotsite) value="{{$hotsite->coluna2_titulo}}" @endif type="text" placeholder="Título da Coluna" class="form-control">
                             </div>
                             <div class="col-12 mb-3">
@@ -374,8 +383,10 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 
                     @if($hotsite)
                     @foreach($hotsite->fotos->where("galeria", 2) as $foto)
-                    <div class="img-fluid">
-                        <img src="{{ asset($foto->foto) }}" alt="" width="120">
+                    <div class="img-fluid" style="margin-right: 10px">
+                        <a href="{{route('painel.expositores.hotsite.galeria.foto.excluir', ['foto' => $foto])}}">
+                            <img style="cursor:pointer;" src="{{ asset($foto->foto) }}" alt="" width="120">
+                        </a>
                     </div>
                     @endforeach
 
@@ -632,6 +643,27 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 
 
 
+
+
+
+<div id="modalInfo" class="modal fade" tabindex="-1" aria-labelledby="modalInfoLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="modalInfoLabel">Posição no site</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card-body container-fluid">
+                    <img id="modalInfoImg" src="" alt="" style="width: 100%">
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
 @section('scripts')
 
 
@@ -705,6 +737,12 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
             $('#summernote').summernote({
                 height: 600,
             });
+
+            $(".info").click(function(){
+                var img = $(this).attr("dir");
+                $("#modalInfoImg").attr("src", img);
+                $("#modalInfo").modal("show");
+            })
 
             $('#select_tag').select2({});
 
