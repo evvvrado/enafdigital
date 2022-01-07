@@ -137,7 +137,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
                         <div class="mb-3">
                             <label for="productname">
                                 Sessão Lateral na Home
-                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_hero.png')}}"></i>
+                                <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_expositores_hero.png')}}"></i>
 
                             </label>
                             <input id="productname" name="sessao1_titulo" @if($hotsite) value="{{$hotsite->sessao1_titulo}}" @endif type="text" placeholder="Texto inicial" class="form-control">
@@ -154,7 +154,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 
                             <div class="mb-3">
                                 <label for="productname">Coluna 01
-                                    <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna1.png')}}"></i>
+                                    <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna1.png')}}"></i>
                                 </label>
                                 <input id="productname" name="coluna1_titulo" type="text" @if($hotsite) value="{{$hotsite->coluna1_titulo}}" @endif placeholder="Título da Coluna" class="form-control">
                             </div>
@@ -167,7 +167,7 @@ Catálogo / <a style="color: unset" href="{{ route('painel.expositores') }}">Exp
 
                             <div class="mb-3">
                                 <label for="productname">Coluna 02
-                                    <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna2.png')}}"></i>
+                                    <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_expositores_coluna2.png')}}"></i>
 
                                 </label>
                                 <input id="productname" name="coluna2_titulo" @if($hotsite) value="{{$hotsite->coluna2_titulo}}" @endif type="text" placeholder="Título da Coluna" class="form-control">

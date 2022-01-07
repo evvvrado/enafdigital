@@ -154,6 +154,7 @@
                 <div class="_pictures">
                     @foreach($curso->professores as $professor)
                     <picture>
+                        <span>{{$professor->nome}}</span>
                         <img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" title="{{$professor->nome}}" />
                     </picture>
                     @endforeach

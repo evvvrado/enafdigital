@@ -5228,14 +5228,3 @@ div.dataTables_wrapper div.dataTables_length select {
 .fa-star.active {
     color: orange;
 }
-
-i.info {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    bottom: 0;
-    cursor: pointer !important;
-}
-i.info::before {
-    cursor: pointer !important;
-}

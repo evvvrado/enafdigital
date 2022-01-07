@@ -201,7 +201,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                     <div class="row">
                         <div class="mb-3">
                             <label for="productname">Sobre o treinador
-                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_sobre.png')}}"></i>
+                                <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_professor_sobre.png')}}"></i>
                             </label>
                             <input id="productname" name="sessao1_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao1_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>
@@ -215,7 +215,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                     <div class="row">
                         <div class="mb-3">
                             <label for="productname">Sobre os cursos
-                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_cursos.png')}}"></i>
+                                <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_professor_cursos.png')}}"></i>
                             </label>
                             <input id="productname" name="sessao2_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao2_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>
@@ -231,7 +231,7 @@ Projeto / <a style="color: unset" href="{{ route('painel.professores') }}">Profe
                     <div class="row">
                         <div class="mb-3">
                             <label for="productname">Sobre os depoimentos
-                                <i class="fas fa-info-circle info" dir="{{ asset('site/img/sistema/hotsite_professor_depoimentos.png')}}"></i>
+                                <i class="fas fa-info-circle info c-pointer" dir="{{ asset('site/img/sistema/hotsite_professor_depoimentos.png')}}"></i>
                             </label>
                             <input id="productname" name="sessao3_titulo" type="text" @if($hotsite) value="{{$hotsite->sessao3_titulo}}" @endif placeholder="Título da Sessão" class="form-control">
                         </div>

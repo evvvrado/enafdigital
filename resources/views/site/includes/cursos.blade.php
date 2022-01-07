@@ -13,7 +13,7 @@
         </div>
         <div class="_cursosList">
 
-            @foreach ($cursos->where('destaque', 1) as $curso)
+            @foreach ($cursos->where('destaque', 1)->where('tipo', 1) as $curso)
 
             <div class="_curso online" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                 <div class="_pic">

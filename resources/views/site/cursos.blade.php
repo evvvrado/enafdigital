@@ -36,7 +36,7 @@
                 @php
                 $cont = 0;
                 @endphp
-                @foreach($cursos as $curso)
+                @foreach($cursos->where('destaque', 1) as $curso)
                 <div class="_curso" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->slug])}}'">
                     <div class="_pic">
                         <img src="{{ asset($curso->thumbnail) }}" alt="{{$curso->nome}}" />
