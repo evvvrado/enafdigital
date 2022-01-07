@@ -5228,3 +5228,7 @@ div.dataTables_wrapper div.dataTables_length select {
 .fa-star.active {
     color: orange;
 }
+
+.c-pointer {
+    cursor: pointer;
+}
