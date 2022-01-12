@@ -106,5 +106,5 @@ Route::is('site.minha-area-matricula.conteudo'))
         </nav>
     </div>
 </header>
-
+@include('site.includes.barra_login')
 @endif

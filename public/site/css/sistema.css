@@ -2701,6 +2701,8 @@ section._copyRight p strong {
 .s_parceiros .container-fav ._apoio ._apoiador {
     margin-top: 4.5rem;
     position: relative;
+    height: 4.6rem;
+    max-width: 20rem;
     display: block;
 }
 .s_parceiros .container-fav ._apoio ._apoiador::after {
@@ -2720,6 +2722,14 @@ section._copyRight p strong {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+.s_parceiros .container-fav ._patrocinadores ._patrocinadorList ._patrocinador {
+    height: 4.6rem;
+    max-width: 20rem;
+}
+.s_parceiros .container-fav ._patrocinadores ._patrocinadorList img {
+    object-fit: cover;
+    width: 100%;
 }
 @media (max-width: 900px) {
     .s_parceiros .container-fav {
