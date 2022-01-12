@@ -84,10 +84,12 @@ class CieloController extends Controller
 
                 return redirect()->route("site.carrinho-confirmacao");
             } else {
+                Log::channel('cartao')->error('ERRO:' . json_encode($res));
                 session()->flash("erro", config("cielo.erros")[$res["retorno"]]);
                 return redirect()->route("site.carrinho.pagamento.cartao");
             }
         } else {
+            Log::channel('cartao')->error('ERRO:' . json_encode($res));
             session()->flash("erro", "Erro nos dados do cartão. Verifique se as informações estão corretas e tente novamente.");
             return redirect()->route("site.carrinho.pagamento.cartao");
         }

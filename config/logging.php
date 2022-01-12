@@ -107,6 +107,12 @@ return [
             'level' => env('LOG_LEVEL', 'info'),
         ],
 
+        'cartao' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/cartao.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+        ],
+
         'app' => [
             'driver' => 'single',
             'path' => storage_path('logs/app.log'),
