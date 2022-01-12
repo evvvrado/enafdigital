@@ -151,19 +151,19 @@
                                         <h5>Registrar conta</h5>
                                     </div>
                                     <div class="mt-4">
-                                        <form novalidate="" action="{{ route('site.aluno.cadastrar') }}" method="post" class="form-horizontal av-invalid">
+                                        <form action="{{ route('site.aluno.cadastrar') }}" method="post" class="form-horizontal av-invalid">
                                             @csrf
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="nome" class="">Nome</label>
-                                                    <input name="nome" placeholder="Digide seu nome" required="" id="nome" type="name"
+                                                    <input name="nome" placeholder="Digide seu nome" required="" id="nome" pattern="^[A-zÀ-ÿ][A-zÀ-ÿ]+\s[A-zÀ-ÿ][A-zÀ-ÿ]+.+" type="name"
                                                         class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="email" class="">E-mail</label>
-                                                    <input name=" email" placeholder="Digite seu email" required="" id="emailregister" type="email"
+                                                    <input name=" email" placeholder="Digite seu email" required id="emailregister" type="email"
                                                         class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                             </div>
