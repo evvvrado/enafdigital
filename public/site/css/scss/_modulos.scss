@@ -19,7 +19,8 @@ section.s_content {
       gap: 14.1rem;
 
       ._modulos {
-        width: 65.1rem;
+        width: 100%;
+        max-width: 65.1rem;
         @include flex(Column, center, space-between);
         gap: 2.1rem;
 

@@ -33,6 +33,7 @@ $aluno = App\Models\Aluno::find(session()->get("aluno")["id"]);
         height: 4rem;
         position: fixed;
         z-index: 665;
+        top: 0;
         font-family: "Poppins", sans-serif;
         color: #fff;
 
