@@ -60,12 +60,13 @@ class GerencianetController extends Controller
                 'message' => 'Acompanhe o status do seu pagamento no seu painel do cliente.', // mensagem a ser exibida no boleto
             ]);
             $res = $gerencianet->gerarBoleto();
+            Log::channel('boletos')->info('BOLETO GERADO:' . json_encode($res));
         } else {
             $gerencianet->addParcelas($parcelas);
             $res = $gerencianet->gerarCarne();
+            Log::channel('boletos')->info('CARNÊ GERADO:' . json_encode($res));
         }
 
-        // dd($res);
         if ($res["code"] == 200) {
 
             $desconto = $desconto / 100;
@@ -86,6 +87,7 @@ class GerencianetController extends Controller
             $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
             $venda->desconto = ($carrinho->total * $desconto / 100);
             $venda->save();
+            Log::channel('boletos')->info('VENDA GERADA:' . json_encode($res));
 
             if ($parcelas == 1) {
                 $boleto = new PagamentoBoleto;
@@ -101,6 +103,7 @@ class GerencianetController extends Controller
                 $boleto->total = $res["data"]["total"];
                 $boleto->save();
                 $gerencianet->enviarBoletoEmail($boleto->charge_id, $aluno->email);
+                Log::channel('boletos')->info('PAGAMENTO POR BOLETO GERADO:' . json_encode($res));
             } else {
                 $carne = new PagamentoCarne;
                 $carne->venda_id = $venda->id;
@@ -108,6 +111,8 @@ class GerencianetController extends Controller
                 $carne->status = $res["data"]["status"];
                 $carne->link = $res["data"]["pdf"]["carnet"];
                 $carne->save();
+                Log::channel('boletos')->info('PAGAMENTO POR CARNÊ GERADO:' . json_encode($res));
+
                 foreach ($res["data"]["charges"] as $charge) {
                     $parcela = new PagamentoCarneParcela;
                     $parcela->pagamento_carne_id = $carne->id;
@@ -119,6 +124,8 @@ class GerencianetController extends Controller
                     $parcela->link = $charge["pdf"]["charge"];
                     $parcela->save();
                 }
+
+                Log::channel('boletos')->info('PARCELAS DO CARNÊ GERADOS:' . json_encode($res));
             }
             $carrinho->aberto = false;
             $carrinho->save();
@@ -126,10 +133,10 @@ class GerencianetController extends Controller
             session()->put(["venda_finalizada" => $venda->id]);
             return redirect()->route("site.carrinho-confirmacao");
         } else {
-            foreach ($carrinho->produtos as $produto) {
-                // $produto->turma->inscritos -= 1;
-                // $produto->turma->save();
-            }
+            // foreach ($carrinho->produtos as $produto) {
+            //     $produto->turma->inscritos -= 1;
+            //     $produto->turma->save();
+            // }
             Log::channel('boletos')->error('ERRO:' . json_encode($res));
             session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
             return redirect()->route("site.carrinho.pagamento.boleto");
@@ -185,7 +192,7 @@ class GerencianetController extends Controller
 
     public function notificacao()
     {
-        Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação no token ' . $_POST['notification']);
+        Log::channel('notificacoes')->info('NOTIFICAÇÃO: Tentativa de notificação - ' . json_encode($_POST));
         $gerencianet = new GerencianetRequisicaoBoleto();
         $res = $gerencianet->notificacao($_POST["notification"]);
         if ($res["code"] == 200) {
@@ -197,9 +204,9 @@ class GerencianetController extends Controller
             Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
             $pagamento->save();
         } elseif ($res["code"] == -1) {
-            Log::channel('notificacoes')->error('ERRO:' . $res["erro"]);
+            Log::channel('notificacoes')->error('ERRO:' . json_encode($res));
         } else {
-            Log::channel('notificacoes')->error('ERRO:' . $res["erro"] . "\n" . $res["descricao"]);
+            Log::channel('notificacoes')->error('ERRO:' . json_encode($res));
         }
     }
 }

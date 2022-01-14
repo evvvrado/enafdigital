@@ -90,7 +90,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                             </div>
                             <div class="mb-3">
                                 <label for="video">URL Do Vídeo</label>
-                                <input id="video" name="video" type="text" class="form-control" placeholder="youtu.be/linkdovideo" maxlength="255" value="{{ $curso->video }}">
+                                <input id="video" name="video" type="text" class="form-control" placeholder="youtu.be/linkdovideo" maxlength="700" value="{{ $curso->video }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
