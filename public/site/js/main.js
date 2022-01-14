@@ -6,7 +6,7 @@ $('a[href*="#"]')
         // On-page links
         if (
             location.pathname.replace(/^\//, "") ==
-                this.pathname.replace(/^\//, "") &&
+            this.pathname.replace(/^\//, "") &&
             location.hostname == this.hostname
         ) {
             // Figure out element to scroll to
@@ -41,23 +41,23 @@ $('a[href*="#"]')
         }
     });
 
-    
-    var gallery_images = $('section.s_galeria .container-fav ._content ._galeriaList ._picture img');
-    var imageindex;
 
-    function getImage(image) {
-        $('.fullscreen-image').toggleClass("showed")
-        $('.fullscreen-image picture img').attr('src', $(image).attr('src'));
+var gallery_images = $('section.s_galeria .container-fav ._content ._galeriaList ._picture img');
+var imageindex;
 
-        imageindex = $(image).closest('div._picture').index();
-        console.log(imageindex)
-    }
+function getImage(image) {
+    $('.fullscreen-image').toggleClass("showed")
+    $('.fullscreen-image picture img').attr('src', $(image).attr('src'));
+
+    imageindex = $(image).closest('div._picture').index();
+    console.log(imageindex)
+}
 
 
 
 $(document).ready(() => {
 
-    
+
     $(".fade").first().removeClass("fade");
 
     $(".back-drop").animate(
@@ -78,7 +78,7 @@ $(document).ready(() => {
             if (
                 $(document).scrollTop() >=
                 $(this).closest("div.container-fav").offset().top -
-                    ($(window).height() * 3) / 4
+                ($(window).height() * 3) / 4
             ) {
                 $(this).removeClass("fade");
             }
@@ -88,7 +88,7 @@ $(document).ready(() => {
             if (
                 $(document).scrollTop() >=
                 $(".s_depoimentos .container-fav").offset().top -
-                    $(".s_depoimentos .container-fav ._numeros").height() * 2
+                $(".s_depoimentos .container-fav ._numeros").height() * 2
             ) {
                 while (i < $(".s_depoimentos ._boxes ._box").length) {
                     var max =
@@ -172,7 +172,7 @@ $(document).ready(() => {
         }
     });
 
- 
+
     // $(".s_galeria .container-fav ._content ._galeriaList ._picture img").click(
     //     (e) => {
     //         if (document.fullscreenElement == null)
@@ -182,30 +182,30 @@ $(document).ready(() => {
     // );
 
 
-    $(".fullscreen-image span").click(function() {
+    $(".fullscreen-image span").click(function () {
         $('.fullscreen-image').toggleClass("showed")
     })
 
-    $("section.s_galeria .container-fav ._content ._galeriaList ._picture img").click(function() {
+    $("section.s_galeria .container-fav ._content ._galeriaList ._picture img").click(function () {
         getImage(this)
     })
 
     $("body:not('body#galerias') .fullscreen-image div button:nth-child(2)").click(() => {
-        if(imageindex >= gallery_images.length - 1) return false;
+        if (imageindex >= gallery_images.length - 1) return false;
 
         imageindex++;
-        var source =  $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+        var source = $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
 
 
         $('.fullscreen-image picture img').attr('src', source.src);
     })
     $("body:not('body#galerias') .fullscreen-image div button:first-child").click(() => {
-        if(imageindex <= 0) return false;
+        if (imageindex <= 0) return false;
 
         imageindex--;
-        var source =  $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+        var source = $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
 
-        
+
         $('.fullscreen-image picture img').attr('src', source.src);
     })
 
@@ -232,29 +232,29 @@ $(document).ready(() => {
         $("._blackground, ._form").hide();
     });
 
-    $(".area_SCA").click(() => {
-        $("._box").addClass("sca");
-        $("._blackground").show();
-        $('html').css('overflow', 'hidden');
-    });
+    // $(".area_SCA").click(() => {
+    //     $("._box").addClass("sca");
+    //     $("._blackground").show();
+    //     $('html').css('overflow', 'hidden');
+    // });
 
-    $(".area_REDE").click(() => {
-        $("._box").addClass("rede");
-        $("._blackground").show();
-        $('html').css('overflow', 'hidden');
-    });
+    // $(".area_REDE").click(() => {
+    //     $("._box").addClass("rede");
+    //     $("._blackground").show();
+    //     $('html').css('overflow', 'hidden');
+    // });
 
-    $(".area_GYMPASS").click(() => {
-        $("._box").addClass("gympass");
-        $("._blackground").show();
-        $('html').css('overflow', 'hidden');
-    });
+    // $(".area_GYMPASS").click(() => {
+    //     $("._box").addClass("gympass");
+    //     $("._blackground").show();
+    //     $('html').css('overflow', 'hidden');
+    // });
 
-    $(".area_LION").click(() => {
-        $("._box").addClass("lionfit");
-        $("._blackground").show();
-        $('html').css('overflow', 'hidden');
-    });
+    // $(".area_LION").click(() => {
+    //     $("._box").addClass("lionfit");
+    //     $("._blackground").show();
+    //     $('html').css('overflow', 'hidden');
+    // });
 
     $("._box ._close").click(() => {
         $("._box").attr("class", "_box");
