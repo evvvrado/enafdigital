@@ -25,9 +25,9 @@ section.s_empresas {
         max-width: 38.4rem;
 
         picture {
-          height: 12.6rem;
+          height: 11.6rem;
           overflow: hidden;
-          width: 102%;
+          width: 100%;
           @include flex(row, flex-end, center);
 
           border-bottom: solid 1px #5b647b33;
