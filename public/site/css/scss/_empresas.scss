@@ -184,6 +184,10 @@ section.s_empresas {
     .container-fav {
       justify-content: center;
 
+      ._box.main {
+        height: 20.5rem;
+      }
+
       ._box:not(.main) {
         max-width: 100%;
         overflow: unset;
