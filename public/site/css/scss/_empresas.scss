@@ -185,7 +185,9 @@ section.s_empresas {
       justify-content: center;
 
       ._box.main {
-        height: 20.5rem;
+        picture {
+          height: 20.5rem;
+        }
       }
 
       ._box:not(.main) {
