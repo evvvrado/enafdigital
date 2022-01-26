@@ -21,15 +21,15 @@ class CieloController extends Controller
     {
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-        // $validator = new CreditCardValidator();
-        // $valido = $validator->isValid(str_replace(" ", "", $request->numero));
-        // if ($valido) {
-        //     $bandeira = $validator->getType(str_replace(" ", "", $request->numero))->getNiceType();
-        // } else {
-        //     session()->flash("erro", "Número de cartão inválido");
-        //     return redirect()->back();
-        // }
-        $bandeira = 'Visa';
+        $validator = new CreditCardValidator();
+        $valido = $validator->isValid(str_replace(" ", "", $request->numero));
+        if ($valido) {
+            $bandeira = $validator->getType(str_replace(" ", "", $request->numero))->getNiceType();
+        } else {
+            session()->flash("erro", "Número de cartão inválido");
+            return redirect()->back();
+        }
+        // $bandeira = 'Visa';
         $cielo = new CieloRequisicaoCredito();
 
         $cielo->addSale($codigo);
@@ -41,7 +41,7 @@ class CieloController extends Controller
 
         if ($res["status"] == 200) {
 
-            if ($res["retorno"] == "00" || $res["retorno"] == "11" || $res["retorno"] == "4") {
+            if ($res["retorno"] == "00" || $res["retorno"] == "11") {
                 $venda = new Venda;
                 $venda->aluno_id = session()->get("aluno")["id"];
                 $venda->carrinho_id = $carrinho->id;
