@@ -12,6 +12,7 @@ use App\Models\Matricula;
 use Jlorente\CreditCards\CreditCardTypeConfig;
 use Jlorente\CreditCards\CreditCardValidator;
 use App\Classes\Cielo\CieloRequisicaoCredito;
+use App\Classes\Email;
 
 class CieloController extends Controller
 {
@@ -20,15 +21,15 @@ class CieloController extends Controller
     {
         $carrinho = Carrinho::find(session()->get("carrinho"));
         $codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-        $validator = new CreditCardValidator();
-        $valido = $validator->isValid(str_replace(" ", "", $request->numero));
-        if ($valido) {
-            $bandeira = $validator->getType(str_replace(" ", "", $request->numero))->getNiceType();
-        } else {
-            session()->flash("erro", "Número de cartão inválido");
-            return redirect()->back();
-        }
-        // $bandeira = 'visa';
+        // $validator = new CreditCardValidator();
+        // $valido = $validator->isValid(str_replace(" ", "", $request->numero));
+        // if ($valido) {
+        //     $bandeira = $validator->getType(str_replace(" ", "", $request->numero))->getNiceType();
+        // } else {
+        //     session()->flash("erro", "Número de cartão inválido");
+        //     return redirect()->back();
+        // }
+        $bandeira = 'Visa';
         $cielo = new CieloRequisicaoCredito();
 
         $cielo->addSale($codigo);
@@ -40,7 +41,7 @@ class CieloController extends Controller
 
         if ($res["status"] == 200) {
 
-            if ($res["retorno"] == "00" || $res["retorno"] == "11") {
+            if ($res["retorno"] == "00" || $res["retorno"] == "11" || $res["retorno"] == "4") {
                 $venda = new Venda;
                 $venda->aluno_id = session()->get("aluno")["id"];
                 $venda->carrinho_id = $carrinho->id;
@@ -83,6 +84,11 @@ class CieloController extends Controller
                 session()->forget("carrinho");
                 session()->put(["venda_finalizada" => $venda->id]);
 
+                $file = file_get_contents('email/comprovante-compra.html');
+                $file = str_replace("{{NOME}}", $venda->aluno->nome, $file);
+                $file = str_replace("{{VALOR}}", number_format($venda->total, 2, ",", "."), $file);
+                $file = str_replace("{{CODIGO}}", $venda->codigo, $file);
+                Email::enviar($file, "Confirmação de Compra", $venda->aluno->email, false);
                 return redirect()->route("site.carrinho-confirmacao");
             } else {
                 Log::channel('cartao')->error('ERRO:' . json_encode($res));
