@@ -301,22 +301,19 @@ $categoriaid = $expositores->first();
 
 
             <main>
-              {{--
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                {{ $expositor->telefone }}
-              </legend> --}}
 
+              @if ($expositor->telefone)
               <legend>
                 <div class="_icon">
                   <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
                 </div>
                 {{ $expositor->telefone }}
               </legend>
+              @endif
 
+              @if ($expositor->site)
               <legend>{{ $expositor->site }}</legend>
+              @endif
             </main>
           </a>
         </li>
