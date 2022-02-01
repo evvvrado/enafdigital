@@ -276,7 +276,7 @@
                             </div> --}}
                         </div>
 
-                        <a href="{{ route('site.minha-conta')}}" class="_right">
+                        <a href="{{ route('site.minha-conta')}}#registrar" class="_right">
                             <div class="_icon">
                                 <img src="{{ asset('site/img/sistema/register.svg') }}" alt="" />
                             </div>
