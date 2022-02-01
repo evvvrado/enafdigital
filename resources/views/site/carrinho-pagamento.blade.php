@@ -102,7 +102,7 @@
                                 </label>
                                 <label>
                                     <span>Validade</span>
-                                    <input type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" />
+                                    <input type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="5" />
                                 </label>
                                 <label>
                                     <span>CVV</span>
@@ -111,9 +111,8 @@
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" id="parcelas" required>
-                                        @for($i = 1; $i <= $parcelas; $i++)
-                                            <option value="{{$i}}">{{$i}}x - R${{number_format($carrinho->total/$i, 2, ",", ".")}}</option>
-                                        @endfor
+                                        @for($i = 1; $i <= $parcelas; $i++) <option value="{{$i}}">{{$i}}x - R${{number_format($carrinho->total/$i, 2, ",", ".")}}</option>
+                                            @endfor
                                     </select>
                                 </label>
                                 <button type="submit">

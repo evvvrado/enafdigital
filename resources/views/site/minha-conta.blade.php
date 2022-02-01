@@ -56,7 +56,6 @@
                                         <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200" class="mx-auto auth-logo-dark" />
                                         <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200" class="mx-auto auth-logo-light" />
                                     </a>
-                                    '
                                 </div>
                                 <div class="my-auto login-box">
                                     <div>
@@ -395,6 +394,14 @@
         $('.forgot-password').hide();
         $('.send-email').hide();
         $('.register').hide();
+
+        if(window.location.href.indexOf("#registrar") != -1){
+            $('.login-box').hide();
+            $('.forgot-password').hide();
+            $('.send-email').hide();
+            $('.register').show();
+
+        }
 
 
         $(document).ready(function() {
