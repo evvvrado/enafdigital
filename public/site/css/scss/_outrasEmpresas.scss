@@ -29,14 +29,19 @@ section.s_outrasEmpresas {
             font-weight: 500;
             font-size: 1.8rem;
             color: $color-darkest;
+            width: 100%;
+            display: block;
           }
 
           main {
-            @include flex(row, center, flex-end);
+            // @include flex(row, center, flex-end);
+
+            @include flex(row, center, space-between);
+
             gap: 3rem;
 
             width: 100%;
-            max-width: 65.1rem;
+            // max-width: 65.1rem;
             gap: 2rem;
 
             legend:last-child {
