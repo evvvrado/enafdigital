@@ -312,7 +312,7 @@ $categoriaid = $expositores->first();
               @endif
 
               @if ($expositor->site)
-              <legend>{{ $expositor->site }}</legend>
+              <legend>{!! \App\Classes\Util::limparURL($expositor->site) !!}</legend>
               @endif
               {{--
             </main> --}}

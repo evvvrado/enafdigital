@@ -2,9 +2,11 @@
 
 namespace App\Classes;
 
-class Util{
-    
-    public static function convertYoutube($string){
+class Util
+{
+
+    public static function convertYoutube($string)
+    {
         return preg_replace(
             "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
             "<iframe width=\"350\" height=\"200\" src=\"//www.youtube.com/embed/$2\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
@@ -12,7 +14,8 @@ class Util{
         );
     }
 
-    public static function convertStringToDate($string){
+    public static function convertStringToDate($string)
+    {
         $year = substr($string, 0, 4);
         $month = substr($string, 4, 2);
         $day = substr($string, 6, 2);
@@ -20,7 +23,8 @@ class Util{
         return $day . "/" . $month . "/" . $year;
     }
 
-    public static function convertDateToString($string){
+    public static function convertDateToString($string)
+    {
         $year = substr($string, 6, 4);
         $month = substr($string, 3, 2);
         $day = substr($string, 0, 2);
@@ -28,12 +32,34 @@ class Util{
         return $year . "-" . $month . "-" . $day;
     }
 
-    public static function limparString($string) {
+    public static function limparURL($url)
+    {
+        $disallowed = array('http://', 'https://', 'com/');
+
+        foreach ($disallowed as $d) {
+            if (strpos($url, $d) === 0) {
+                $tratada =  str_replace($d, '', $url);
+            }
+        }
+
+        if (strpos($tratada, '/') > 0) {
+            return str_replace('/', '', $tratada);
+        }
+
+
+
+        if ($tratada) {
+            return $tratada;
+        } else {
+            return $url;
+        }
+    }
+
+
+    public static function limparString($string)
+    {
         $string = str_replace(' ', '', $string); // Remove espaços
-     
+
         return preg_replace('/[^A-Za-z0-9]/', '', $string); // Remove caracteres especiais
-     }
-
+    }
 }
-
-?>
