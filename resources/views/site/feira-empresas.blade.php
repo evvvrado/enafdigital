@@ -300,7 +300,7 @@ $categoriaid = $expositores->first();
             <span>{{ $expositor->nome }}</span>
 
 
-            <main>
+            {{-- <main> --}}
 
               @if ($expositor->telefone)
               <legend>
@@ -314,7 +314,8 @@ $categoriaid = $expositores->first();
               @if ($expositor->site)
               <legend>{{ $expositor->site }}</legend>
               @endif
-            </main>
+              {{--
+            </main> --}}
           </a>
         </li>
 
