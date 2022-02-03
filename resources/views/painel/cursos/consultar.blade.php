@@ -67,7 +67,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                                 {{-- <a class="dropdown-item" href="{{ route('painel.categorias.editar') }}">Consultar</a> --}}
                                                 <a class="dropdown-item" href="{{ route('painel.cursos.editar', ['curso' => $curso]) }}">Editar</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                {{-- <a class="dropdown-item" style="color: red" href="#">Excluir</a> --}}
                                             </div>
                                         </div>
 
