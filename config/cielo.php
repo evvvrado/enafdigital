@@ -18,6 +18,7 @@ return [
         "62" => "Transação não permitida. Contante o banco emissor do cartão",
         "78" => "Cartão não foi desbloqueado.",
         "82" => "Erro no cartão. Verifique as informações digitadas e tente novamente.",
+        "83" => "Transação não autorizada. Tente novamente.",
         "91" => "Banco fora do ar.",
         "96" => "Erro ao efetuar a transação. Tente novamente"
     ],

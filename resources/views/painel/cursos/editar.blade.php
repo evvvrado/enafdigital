@@ -147,6 +147,37 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label>Local de pagamento</label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="checkout_interno" value="1" id="checkout_interno1" @if($curso->checkout_interno == 1) checked="" @endif>
+                                <label class="form-check-label" for="checkout_interno1">
+                                    Checkout Interno
+                                </label>
+                            </div>
+                        </div>
+                        <div class="px-3">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="checkout_interno" value="0" id="checkout_interno2" @if($curso->checkout_interno == 0) checked="" @endif>
+                                <label class="form-check-label" for="checkout_interno2">
+                                    Checkout Externo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row-checkout-link" @if($curso->checkout_interno == 1) style="display: none;" @endif>
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="checkout_link">Link de checkout</label>
+                                <input id="checkout_link" name="checkout_link" type="text" class="form-control" value="{{$curso->checkout_link}}" placeholder="Insira o link de checkout" maxlength="250">
+                            </div>
+                        </div>
+                    </div>
                     <div class="row flex-row">
                         <div class="card-body col-4">
                             <div class="col-12 mt-3">
@@ -449,6 +480,14 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
 
 
             $('.select2-selection.select2-selection--multiple').addClass('form-control');
+
+            $("input[name='checkout_interno']").change(function(){
+                if($(this).val() == 0){
+                    $("#row-checkout-link").slideDown(500);
+                }else{
+                    $("#row-checkout-link").slideUp(500);
+                }
+            });
         });
 
 

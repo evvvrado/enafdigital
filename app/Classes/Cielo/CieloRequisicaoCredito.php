@@ -8,6 +8,7 @@ use Cielo\API30\Ecommerce\Sale;
 use Cielo\API30\Ecommerce\CieloEcommerce;
 use Cielo\API30\Ecommerce\Payment;
 use Cielo\API30\Ecommerce\CreditCard;
+use Illuminate\Support\Facades\Log;
 
 use Cielo\API30\Ecommerce\Request\CieloRequestException;
 

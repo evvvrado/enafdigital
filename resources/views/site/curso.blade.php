@@ -28,7 +28,7 @@
             </span>
 
             <span>
-                <div class="_btn" onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'">Comprar</dvi>
+                <div class="_btn" @if($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'"  @endif>Comprar</div>
             </span>
         </div>
     </section>
@@ -63,7 +63,7 @@
                     </span>
 
                     <span>
-                        <div class="_btn" onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'">Comprar</dvi>
+                        <div class="_btn" @if($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'"  @endif>Comprar</div>
                     </span>
                 </div>
             </div>
