@@ -4,38 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classes\Gerencianet\GerencianetRequisicaoBoleto;
+use App\Classes\Gerencianet\GerencianetRequisicaoCartao;
 use Illuminate\Support\Facades\Log;
 use App\Models\Carrinho;
+use App\Models\CarrinhoProduto;
 use App\Models\Aluno;
 use App\Models\Venda;
+use App\Models\Curso;
 use App\Models\PagamentoBoleto;
 use App\Models\PagamentoCarne;
 use App\Models\PagamentoCarneParcela;
+use App\Models\PagamentoCartao;
+use App\Models\Matricula;
+use App\Classes\Util;
 
 class GerencianetController extends Controller
 {
     //
-    public function boleto($parcelas)
+    public function boleto(Request $request, Curso $curso)
     {
         $gerencianet = new GerencianetRequisicaoBoleto();
-        $carrinho = Carrinho::find(session()->get("carrinho"));
+        // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
-        if ($parcelas == 1) {
+        if ($request->parcelas == 1) {
             $desconto = 1000;
         } else {
             $desconto = 0;
         }
         // $gerencianet->enviarBoletoEmail(1334034, 'gusouza980@gmail.com');
         $turmas = [];
-        foreach ($carrinho->produtos as $produto) {
+        // foreach ($carrinho->produtos as $produto) {
             // $produto->turma->inscritos += 1;
             // $produto->turma->save();
-            $gerencianet->addItem([
-                'name' => $produto->curso->titulo, // nome do item, produto ou serviço
-                'amount' => 1, // quantidade
-                'value' => intval($produto->total * 100)
-            ]);
-        }
+        $gerencianet->addItem([
+            'name' => $curso->titulo, // nome do item, produto ou serviço
+            'amount' => 1, // quantidade
+            'value' => intval($curso->valor * 100)
+        ]);
+        // }
 
         $cpf = str_replace(".", "", $aluno->cpf);
         $cpf = str_replace("-", "", $cpf);
@@ -50,7 +56,7 @@ class GerencianetController extends Controller
             'phone_number' => $telefone, // telefone do cliente
         ]);
 
-        if ($parcelas == 1) {
+        if ($request->parcelas == 1) {
             $gerencianet->addDesconto([
                 'type' => 'percentage',
                 'value' => $desconto
@@ -62,7 +68,7 @@ class GerencianetController extends Controller
             $res = $gerencianet->gerarBoleto();
             Log::channel('boletos')->info('BOLETO GERADO:' . json_encode($res));
         } else {
-            $gerencianet->addParcelas($parcelas);
+            $gerencianet->addParcelas($request->parcelas);
             $res = $gerencianet->gerarCarne();
             Log::channel('boletos')->info('CARNÊ GERADO:' . json_encode($res));
         }
@@ -71,25 +77,39 @@ class GerencianetController extends Controller
 
             $desconto = $desconto / 100;
 
+            $carrinho = new Carrinho();
+            $carrinho->aluno_id = session()->get("aluno")["id"];
+            $carrinho->ultima_notificacao = date("Y-m-d");
+            $carrinho->save();
+
+            $produto = new CarrinhoProduto;
+            $produto->carrinho_id = $carrinho->id;
+            $produto->curso_id = $curso->id;
+            $produto->total = $curso->valor;
+            $produto->save();
+
+            $carrinho->total += $produto->total;
+            $carrinho->save();
+
             $venda = new Venda;
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
-            $venda->codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
+            $venda->codigo = date("Ymd") . str_pad(random_int(1, 99999999), 8, "0", STR_PAD_LEFT);
             $venda->total = $carrinho->total - ($carrinho->total * $desconto / 100);
             $venda->status = 0;
             $venda->gateway = 0;
-            $venda->parcelas = $parcelas;
-            if ($parcelas > 1) {
+            $venda->parcelas = $request->parcelas;
+            if ($request->parcelas > 1) {
                 $venda->forma = 2;
             } else {
                 $venda->forma = 0;
             }
-            $venda->valor_parcela = number_format($venda->total / $parcelas, 2, ".", "");
+            $venda->valor_parcela = number_format($venda->total / $request->parcelas, 2, ".", "");
             $venda->desconto = ($carrinho->total * $desconto / 100);
             $venda->save();
             Log::channel('boletos')->info('VENDA GERADA:' . json_encode($res));
 
-            if ($parcelas == 1) {
+            if ($request->parcelas == 1) {
                 $boleto = new PagamentoBoleto;
                 $boleto->venda_id = $venda->id;
                 $boleto->charge_id = $res["data"]["charge_id"];
@@ -141,6 +161,111 @@ class GerencianetController extends Controller
             session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
             return redirect()->route("site.carrinho.pagamento.boleto");
         }
+    }
+
+    public function credito(Request $request, Curso $curso){
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        $gerencianet = new GerencianetRequisicaoCartao();
+
+        $gerencianet->addItem([
+            'name' => $curso->titulo, // nome do item, produto ou serviço
+            'amount' => 1, // quantidade
+            'value' => intval($curso->valor * 100)
+        ]);
+
+        $gerencianet->addParcelas($request->parcelas);
+
+        $gerencianet->setPaymentToken($request->payment_token);
+
+        $gerencianet->addCustomer([
+            'name' => $aluno->nome,
+            'cpf' => Util::limparString($aluno->cpf),
+            'phone_number' => Util::limparString($aluno->telefone),
+            'email' => $aluno->email,
+            'birth' => $aluno->nascimento
+        ]);
+
+        $gerencianet->addBillingAddress([
+            'street' => $aluno->rua,
+            'number' => 190,
+            'neighborhood' => $aluno->bairro,
+            'zipcode' => Util::limparString($aluno->cep),
+            'city' => $aluno->cidade,
+            'state' => $aluno->estado
+        ]);
+
+        // $gerencianet->addDesconto([
+        //     'type' => 'percentage',
+        //     'value' => 0
+        // ]);
+
+        $res = $gerencianet->efetuarPagamento();
+
+        if ($res["code"] == 200) {
+            $carrinho = new Carrinho();
+            $carrinho->aluno_id = session()->get("aluno")["id"];
+            $carrinho->ultima_notificacao = date("Y-m-d");
+            $carrinho->save();
+
+            $produto = new CarrinhoProduto;
+            $produto->carrinho_id = $carrinho->id;
+            $produto->curso_id = $curso->id;
+            $produto->total = $curso->valor;
+            $produto->save();
+
+            $carrinho->total += $produto->total;
+            $carrinho->save();
+
+            $venda = new Venda;
+            $venda->aluno_id = $aluno->id;
+            $venda->carrinho_id = $carrinho->id;
+            $venda->codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
+            $venda->total = $carrinho->total;
+            $venda->status = config("gerencianet.status_code")[$res["data"]["status"]];
+            $venda->gateway = 0;
+            $venda->parcelas = $request->parcelas;
+            $venda->forma = 1;
+            $venda->valor_parcela = number_format($venda->total / $request->parcelas, 2, ".", "");
+            $venda->desconto = 0;
+            $venda->save();
+            Log::channel('cartao')->info('VENDA GERADA (GERENCIANET):' . json_encode($res));
+
+            $pagamento = new PagamentoCartao;
+            $pagamento->venda_id = $venda->id;
+            $pagamento->status = config("gerencianet.status_code")[$res["data"]["status"]];
+            $pagamento->codigo = $res["data"]["charge_id"];
+            $pagamento->gateway = 0;
+            $pagamento->save();
+
+            foreach ($venda->carrinho->produtos as $produto) {
+                if (!$produto->curso->pacote) {
+                    $matricula = new Matricula;
+                    $matricula->aluno_id = $venda->aluno_id;
+                    $matricula->curso_id = $produto->curso_id;
+                    $matricula->save();
+                } else {
+                    foreach ($produto->curso->cursos as $curso) {
+                        $matricula = new Matricula;
+                        $matricula->aluno_id = $venda->aluno_id;
+                        $matricula->curso_id = $curso->id;
+                        $matricula->save();
+                    }
+                }
+            }
+            $carrinho->aberto = false;
+            $carrinho->save();
+            session()->put(["venda_finalizada" => $venda->id]);
+            return redirect()->route("site.carrinho-confirmacao");
+        } else {
+            // foreach ($carrinho->produtos as $produto) {
+            //     $produto->turma->inscritos -= 1;
+            //     $produto->turma->save();
+            // }
+            Log::channel('cartao')->error('ERRO (GERENCIANET:' . json_encode($res));
+            session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
+            return redirect()->route("site.carrinho.pagamento.cartao", ['curso' => $curso]);
+        }
+
     }
 
     public function alterar_vencimento(PagamentoBoleto $boleto, Request $request)

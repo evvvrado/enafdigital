@@ -61,7 +61,7 @@
 
             <div class="pop-up-buttons">
                 <button class="cancel" onclick="activepopup()">Cancelar</button>
-                <button class="confirm" onclick="window.location = '{{route('site.carrinho.finalizar.boleto')}}'">Finalizar Compra</button>
+                <button class="confirm" onclick="window.location = '{{route('site.carrinho.finalizar.boleto', ['curso' => $curso])}}'">Finalizar Compra</button>
             </div>
 
         </div>
@@ -159,7 +159,7 @@
                         </div>
                         <div class="_buttons">
                             @if($boleto)
-                            <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto')}}'">
+                            <div class="bolet button" onclick="window.location.href = '{{route('site.carrinho.pagamento.boleto', ['curso' => $curso])}}'">
                                 <div class="_icon">
                                     <img src="{{ asset('site/img/sistema/boleto.svg') }}" alt="" />
                                 </div>
@@ -170,7 +170,7 @@
                             </div>
                             @endif
                             @if($cartao)
-                            <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao')}}'">
+                            <div class="creditCard button" onclick="window.location.href = '{{route('site.carrinho.pagamento.cartao', ['curso' => $curso])}}'">
                                 <div class="_icon">
                                     <img src="{{ asset('site/img/sistema/creditcard.svg') }}" alt="" />
                                 </div>

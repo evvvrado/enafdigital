@@ -84,16 +84,17 @@ Route::get('/recuperar-senha', [\App\Http\Controllers\SiteController::class, 're
 Route::get('/publicidade/clicar/{anuncio}', [\App\Http\Controllers\AnunciosController::class, 'clicar'])->name("site.publicidade.clicar");
 
 //ROTAS DE CARRINHO
-Route::get('/carrinho/adicionar/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
-Route::get('/carrinho/remover/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'remover'])->name("site.carrinho-remover");
-Route::get('/carrinho/pagamento/cartao', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_cartao'])->name("site.carrinho.pagamento.cartao");
-Route::get('/carrinho/pagamento/boleto', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_boleto'])->name("site.carrinho.pagamento.boleto");
-Route::get('/carrinho/identificacao', [\App\Http\Controllers\CarrinhoController::class, 'identificacao'])->name("site.carrinho-identificacao");
-Route::post('/carrinho/identificar', [\App\Http\Controllers\CarrinhoController::class, 'identificar'])->name("site.carrinho-identificar");
-Route::get('/carrinho/confirmacao', [\App\Http\Controllers\CarrinhoController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
-Route::get('/carrinho/efetuar', [\App\Http\Controllers\CarrinhoController::class, 'efetuar'])->name("site.carrinho-efetuar");
-Route::post('/carrinho/finalizar/boleto', [\App\Http\Controllers\CarrinhoController::class, 'finalizar_boleto'])->name("site.carrinho.finalizar.boleto");
-Route::post('/carrinho/finalizar/credito/cielo', [\App\Http\Controllers\CieloController::class, 'finalizar_credito'])->name("site.carrinho.finalizar.credito.cielo");
+// Route::get('/carrinho/adicionar/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'adicionar'])->name("site.carrinho-adicionar");
+// Route::get('/carrinho/remover/{curso}', [\App\Http\Controllers\CarrinhoController::class, 'remover'])->name("site.carrinho-remover");
+Route::get('/compra/{curso}/pagamento/cartao', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_cartao'])->name("site.carrinho.pagamento.cartao");
+Route::get('/compra/{curso}/pagamento/boleto', [\App\Http\Controllers\CarrinhoController::class, 'pagamento_boleto'])->name("site.carrinho.pagamento.boleto");
+Route::get('/compra/{curso}/identificacao', [\App\Http\Controllers\CarrinhoController::class, 'identificacao'])->name("site.carrinho-identificacao");
+Route::post('/compra/{curso}/identificar', [\App\Http\Controllers\CarrinhoController::class, 'identificar'])->name("site.carrinho-identificar");
+Route::get('/compra/confirmacao', [\App\Http\Controllers\CarrinhoController::class, 'confirmacao'])->name("site.carrinho-confirmacao");
+Route::get('/compra/{curso}/efetuar', [\App\Http\Controllers\CarrinhoController::class, 'efetuar'])->name("site.carrinho-efetuar");
+Route::post('/compra/{curso}/finalizar/boleto/', [\App\Http\Controllers\GerencianetController::class, 'boleto'])->name("site.carrinho.finalizar.boleto");
+Route::post('/compra/{curso}/finalizar/credito/cielo', [\App\Http\Controllers\CieloController::class, 'credito'])->name("site.carrinho.finalizar.credito.cielo");
+Route::post('/compra/{curso}/finalizar/credito/gerencianet', [\App\Http\Controllers\GerencianetController::class, 'credito'])->name("site.carrinho.finalizar.credito.gerencianet");
 
 // ROTAS GERENCIANET
 Route::get('/carrinho/finalizar/boleto/gerencianet/{parcelas}', [\App\Http\Controllers\GerencianetController::class, 'boleto'])->name("site.carrinho.finalizar.boleto.gerencianet");

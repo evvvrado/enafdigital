@@ -70,7 +70,12 @@ class CarrinhoController extends Controller
         return redirect()->back();
     }
 
-    public function identificar(Request $request)
+    public function identificacao(Curso $curso)
+    {
+        return view("site.carrinho-identificacao", ["curso" => $curso]);
+    }
+
+    public function identificar(Request $request, Curso $curso)
     {
         $aluno = Aluno::where("email", $request->email)->first();
         if ($aluno && Hash::check($request->senha, $aluno->senha)) {
@@ -78,46 +83,37 @@ class CarrinhoController extends Controller
             $aluno->save();
             session()->put(["aluno" => $aluno->toArray()]);
             Log::channel('acessos')->info('LOGIN: O aluno ' . $aluno->nome . ' logou no sistema.');
-            if (session()->get("produto_adicionar")) {
-                return redirect(session()->get("produto_adicionar"));
-            } else {
-                return redirect()->route('site.minha-area');
-            }
+            return redirect()->route('site.carrinho-efetuar', ['curso' => $curso]);
         } else {
             session()->flash("erro", "E-mail ou senha incorretos");
             return redirect()->back();
         }
     }
 
-    public function pagamento_cartao()
+    public function pagamento_cartao(Curso $curso)
     {
-        if (!session()->get("carrinho")) {
-            return redirect()->route('site.index');
-        }
+        // if (!session()->get("carrinho")) {
+        //     return redirect()->route('site.index');
+        // }
         $configuracao = Configuracao::first();
-        $carrinho = Carrinho::find(session()->get("carrinho"));
         $parcelas = 0;
-        for ($i = 1; (($carrinho->total / $i > $configuracao->min_valor_parcela_cartao) && ($i <= $configuracao->max_parcelas_cartao)); $i++) {
+        for ($i = 1; (($curso->valor / $i > $configuracao->min_valor_parcela_cartao) && ($i <= $configuracao->max_parcelas_cartao)); $i++) {
             $parcelas++;
         }
-        $aluno = $carrinho->aluno;
-        return view("site.carrinho-pagamento", ["forma" => "cartao", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao, "parcelas" => $parcelas]);
+        // $carrinho = Carrinho::find(session()->get("carrinho"));
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.carrinho-pagamento", ["forma" => "cartao", "curso" => $curso, "aluno" => $aluno, "configuracao" => $configuracao, "parcelas" => $parcelas]);
     }
 
-    public function pagamento_boleto()
+    public function pagamento_boleto(Curso $curso)
     {
-        if (!session()->get("carrinho")) {
-            return redirect()->route('site.index');
-        }
+        // if (!session()->get("carrinho")) {
+        //     return redirect()->route('site.index');
+        // }
         $configuracao = Configuracao::first();
-        $carrinho = Carrinho::find(session()->get("carrinho"));
-        $aluno = $carrinho->aluno;
-        return view("site.carrinho-pagamento", ["forma" => "boleto", "carrinho" => $carrinho, "aluno" => $aluno, "configuracao" => $configuracao]);
-    }
-
-    public function identificacao()
-    {
-        return view("site.carrinho-identificacao");
+        // $carrinho = Carrinho::find(session()->get("carrinho"));
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.carrinho-pagamento", ["forma" => "boleto", "curso" => $curso, "aluno" => $aluno, "configuracao" => $configuracao]);
     }
 
     public function confirmacao()
@@ -131,31 +127,38 @@ class CarrinhoController extends Controller
         }
     }
 
-    public function efetuar()
+    public function efetuar(Curso $curso)
     {
-        if (!session()->get("carrinho")) {
-            return redirect()->route('site.index');
+        if (!session()->get("aluno")) {
+            return redirect()->route('site.carrinho-identificacao', ['curso' => $curso]);
         }
         $configuracao = Configuracao::first();
-        $carrinho = Carrinho::find(session()->get("carrinho"));
+        // $carrinho = Carrinho::find(session()->get("carrinho"));
         $boleto = true;
         $cartao = true;
         if ($configuracao->usar_configuracoes_gerais_pagamento == true) {
             $boleto = $configuracao->liberar_boleto;
             $cartao = $configuracao->liberar_cartao;
         } else {
-            foreach ($carrinho->cursos as $curso) {
-                if (!$curso->gerencianet) {
-                    $boleto = false;
-                }
-                if (!$curso->cielo) {
-                    $cartao = false;
-                }
+            // foreach ($carrinho->cursos as $curso) {
+            //     if (!$curso->gerencianet) {
+            //         $boleto = false;
+            //     }
+            //     if (!$curso->cielo) {
+            //         $cartao = false;
+            //     }
+            // }
+
+            if (!$curso->gerencianet) {
+                $boleto = false;
+            }
+            if (!$curso->cielo) {
+                $cartao = false;
             }
         }
 
-        $aluno = $carrinho->aluno;
-        return view("site.carrinho-efetuar", ["carrinho" => $carrinho, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao, 'configuracao' => $configuracao]);
+        $aluno = Aluno::find(session()->get("aluno")["id"]);
+        return view("site.carrinho-efetuar", ["curso" => $curso, "aluno" => $aluno, 'boleto' => $boleto, 'cartao' => $cartao, 'configuracao' => $configuracao]);
     }
 
     public function finalizar_boleto(Request $request)

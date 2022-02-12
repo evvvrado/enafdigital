@@ -63,7 +63,13 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
                                         @if($venda->forma == 0)
                                             {{ config('gerencianet.status')[$venda->boleto->status] }}
                                         @elseif($venda->forma == 1)
-                                            {{config("cielo.status")[$venda->cartao->status]}}
+                                            @if($venda->gateway == 1)
+                                                {{config("cielo.status")[$venda->cartao->status]}}
+                                            @else
+                                                @if($venda->cartao)
+                                                    {{config("gerencianet.code_status")[$venda->cartao->status]}}
+                                                @endif
+                                            @endif
                                         @else
                                             Consultar parcelas
                                         @endif

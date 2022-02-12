@@ -147,29 +147,54 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <label>Local de pagamento</label>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row">
-                        <div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="checkout_interno" value="1" id="checkout_interno1" @if($curso->checkout_interno == 1) checked="" @endif>
-                                <label class="form-check-label" for="checkout_interno1">
-                                    Checkout Interno
-                                </label>
+                    
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <label>Local de pagamento</label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="checkout_interno" value="1" id="checkout_interno1" @if($curso->checkout_interno == 1) checked="" @endif>
+                                        <label class="form-check-label" for="checkout_interno1">
+                                            Checkout Interno
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="px-3">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="checkout_interno" value="0" id="checkout_interno2" @if($curso->checkout_interno == 0) checked="" @endif>
+                                        <label class="form-check-label" for="checkout_interno2">
+                                            Checkout Externo
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="px-3">
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="checkout_interno" value="0" id="checkout_interno2" @if($curso->checkout_interno == 0) checked="" @endif>
-                                <label class="form-check-label" for="checkout_interno2">
-                                    Checkout Externo
-                                </label>
+                        <div class="col-12 col-md-6">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <label>Gateway de Cartão</label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                @foreach(config("gateways.nomes") as $key => $gateway)
+                                    <div>
+                                        <div class="form-check mb-3 px-3">
+                                            <input class="form-check-input" type="radio" name="gateway_cartao" value="{{$key}}" @if($curso->gateway_cartao == $key) checked="" @endif>
+                                            <label class="form-check-label">
+                                                {{$gateway}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row" id="row-checkout-link" @if($curso->checkout_interno == 1) style="display: none;" @endif>
                         <div class="col-12">
                             <div class="mb-3">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Venda;
+use App\Models\Curso;
+use App\Models\CarrinhoProduto;
 use Illuminate\Support\Facades\Log;
 use App\Models\PagamentoCartao;
 use App\Models\Carrinho;
@@ -17,10 +19,10 @@ use App\Classes\Email;
 class CieloController extends Controller
 {
     //
-    public function finalizar_credito(Request $request)
+    public function credito(Request $request, Curso $curso)
     {
-        $carrinho = Carrinho::find(session()->get("carrinho"));
-        $codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
+        // $carrinho = Carrinho::find(session()->get("carrinho"));
+        $codigo = date("Ymd") . str_pad(random_int(0, 99999999), 8, "0", STR_PAD_LEFT);
         $validator = new CreditCardValidator();
         $valido = $validator->isValid(str_replace(" ", "", $request->numero));
         if ($valido) {
@@ -34,14 +36,29 @@ class CieloController extends Controller
 
         $cielo->addSale($codigo);
         $cielo->addCustomer($request->nome);
-        $cielo->addPayment($carrinho->total);
+        $cielo->addPayment($curso->valor);
         // $cielo->addCreditCard($request->numero, $bandeira, $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
         $cielo->addCreditCard(str_replace(" ", "", $request->numero), config("cielo.bandeiras")[$bandeira], $request->expiracao, $request->cvv, $request->nome, $request->parcelas);
         $res = $cielo->efetuar();
 
         if ($res["status"] == 200) {
 
-            if ($res["retorno"] == "00" || $res["retorno"] == "11") {
+            if ($res["retorno"] == "00" || $res["retorno"] == "11" || $res["retorno"] == "04") {
+
+                $carrinho = new Carrinho();
+                $carrinho->aluno_id = session()->get("aluno")["id"];
+                $carrinho->ultima_notificacao = date("Y-m-d");
+                $carrinho->save();
+
+                $produto = new CarrinhoProduto;
+                $produto->carrinho_id = $carrinho->id;
+                $produto->curso_id = $curso->id;
+                $produto->total = $curso->valor;
+                $produto->save();
+
+                $carrinho->total += $produto->total;
+                $carrinho->save();
+
                 $venda = new Venda;
                 $venda->aluno_id = session()->get("aluno")["id"];
                 $venda->carrinho_id = $carrinho->id;
@@ -93,12 +110,12 @@ class CieloController extends Controller
             } else {
                 Log::channel('cartao')->error('ERRO:' . json_encode($res));
                 session()->flash("erro", config("cielo.erros")[$res["retorno"]]);
-                return redirect()->route("site.carrinho.pagamento.cartao");
+                return redirect()->route("site.carrinho.pagamento.cartao", ["curso" => $curso]);
             }
         } else {
             Log::channel('cartao')->error('ERRO:' . json_encode($res));
             session()->flash("erro", "Erro nos dados do cartão. Verifique se as informações estão corretas e tente novamente.");
-            return redirect()->route("site.carrinho.pagamento.cartao");
+            return redirect()->route("site.carrinho.pagamento.cartao", ["curso" => $curso]);
         }
     }
 

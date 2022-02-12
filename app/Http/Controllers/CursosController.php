@@ -77,6 +77,7 @@ class CursosController extends Controller
         $curso->sobre = $request->sobre;
         $curso->checkout_interno = $request->checkout_interno;
         $curso->checkout_link = $request->checkout_link;
+        $curso->gateway_cartao = $request->gateway_cartao;
 
         if ($request->gerencianet) {
             $curso->gerencianet = true;

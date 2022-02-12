@@ -70,9 +70,9 @@ Route::is('site.minha-area-matricula.conteudo'))
             <ul>
                 <li><a href="{{ route('site.contato') }}">CONTATO</a></li>
                 <li><img src="{{ asset('site/img/hotsite/user.svg') }}" alt="Ícone de Usuário" /></li>
-                @if(session()->get("carrinho"))
+                {{-- @if(session()->get("carrinho"))
                 <li><img src="{{ asset('site/img/hotsite/cart.svg') }}" alt="Ícone de Carrinho" /></li>
-                @endif
+                @endif --}}
             </ul>
         </nav>
     </div>
@@ -100,7 +100,7 @@ Route::is('site.minha-area-matricula.conteudo'))
                 <li><a href="{{ route('site.minha-area') }}"><img src="{{ asset('site/img/user.svg') }}" alt="Ícone de Usuário" /></a></li>
                 @endif
                 {{-- @if(session()->get("carrinho")) --}}
-                <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li>
+                {{-- <li class="_carrinho_button"><img src="{{ asset('site/img/cart.svg') }}" alt="Ícone de Carrinho" /></li> --}}
                 {{-- @endif --}}
             </ul>
         </nav>

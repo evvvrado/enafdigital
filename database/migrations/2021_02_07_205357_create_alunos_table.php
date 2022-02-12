@@ -24,7 +24,7 @@ class CreateAlunosTable extends Migration
             $table->string("token_senha", 20)->nullable();
             $table->string("rua", 100)->nullable();
             $table->string("cidade", 50)->nullable();
-            $table->string("estado", 50)->nullable();
+            $table->string("estado", 2)->nullable();
             $table->string("avatar", 255)->nullable();
             $table->timestamps();
         });

@@ -235,7 +235,7 @@
                             @endif
 
 
-                            <form action="{{route('site.carrinho-identificar')}}" method="POST">
+                            <form action="{{route('site.carrinho-identificar', ['curso' => $curso])}}" method="POST">
                                 @csrf
                                 <label>
                                     <span>Meu e-mail</span>

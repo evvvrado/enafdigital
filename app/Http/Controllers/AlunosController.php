@@ -38,6 +38,13 @@ class AlunosController extends Controller
         $aluno->senha = Hash::make($request->senha);
         $aluno->cpf = $request->cpf;
         $aluno->telefone = $request->telefone;
+        $aluno->nascimento = $request->nascimento;
+        $aluno->rua = $request->rua;
+        $aluno->numero = $request->numero;
+        $aluno->bairro = $request->bairro;
+        $aluno->cidade = $request->cidade;
+        $aluno->estado = $request->estado;
+        $aluno->cep = $request->cep;
         $aluno->ultimo_acesso = date("Y-m-d");
         $aluno->save();
         session()->put(["aluno" => $aluno->toArray()]);

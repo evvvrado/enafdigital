@@ -173,25 +173,37 @@
                                             </td>
                                         </tr>
                                     @elseif($venda->forma == 1)
-                                        <tr>
-                                            <td><b>Cartão:</b></td>
-                                            <td class="px-2">{{ $venda->cartao->numero }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Status:</b></td>
-                                            <td class="px-2">{{ config('cielo.status')[$venda->cartao->status] }}
-                                            </td>
-                                        </tr>
-                                        @if ($venda->cartao->status != 2)
+                                        @if($venda->gateway == 1)
                                             <tr>
-                                                <td>
-                                                    <button class="btn-primary btn my-4">
-                                                        <a style="color: white;"
-                                                            href="{{ route('painel.venda.cielo.estornar', ['venda' => $venda]) }}">Estornar
-                                                            pagamento</a>
-                                                    </button>
+                                                <td><b>Cartão:</b></td>
+                                                <td class="px-2">{{ $venda->cartao->numero }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Status:</b></td>
+                                                <td class="px-2">{{ config('cielo.status')[$venda->cartao->status] }}
                                                 </td>
-                                                <td>
+                                            </tr>
+                                            @if ($venda->cartao->status != 2)
+                                                <tr>
+                                                    <td>
+                                                        <button class="btn-primary btn my-4">
+                                                            <a style="color: white;"
+                                                                href="{{ route('painel.venda.cielo.estornar', ['venda' => $venda]) }}">Estornar
+                                                                pagamento</a>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @else
+                                            <tr>
+                                                <td><b>Charge Id:</b></td>
+                                                <td class="px-2">{{ $venda->cartao->codigo }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Status:</b></td>
+                                                <td class="px-2">{{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->cartao->status]] }}
                                                 </td>
                                             </tr>
                                         @endif

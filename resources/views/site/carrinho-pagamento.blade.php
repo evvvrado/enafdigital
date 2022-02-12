@@ -51,7 +51,7 @@
                         <div class="_img">
                             <img src="{{ asset('site/img/sistema/personIdentificacao.svg') }}" alt="" />
                         </div>
-                        <h2><a href="{{ route('site.carrinho-identificacao')}}">Identificação</a></h2>
+                        <h2><a href="{{ route('site.carrinho-identificacao', ['curso' => $curso])}}">Identificação</a></h2>
                     </div>
 
                     <div class="arrow _title _active">
@@ -86,12 +86,15 @@
                             <p>Digite os dados do seu cartão abaixo:</p>
                         </div>
                         <div class="_form">
-                            <div>
-                                <small style="color: red;">{{session()->get("erro")}}</small>
+                            <div id="div-erro" style="margin-bottom: 20px;">
+                                @if (session()->get('erro'))
+                                    <small>{{ session()->get('erro') }}</small>
+                                @endif
                             </div>
 
-                            <form action="{{route('site.carrinho.finalizar.credito.cielo')}}" method="POST">
+                            <form id="form-cartao" @if($curso->gateway_cartao == 1) action="{{route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso])}}" @else action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
                                 @csrf
+                                <input type="hidden" name="payment_token">
                                 <label>
                                     <span>N. Cartão</span>
                                     <input type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
@@ -111,16 +114,17 @@
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" id="parcelas" required>
-                                        @for($i = 1; $i <= $parcelas; $i++) <option value="{{$i}}">{{$i}}x - R${{number_format($carrinho->total/$i, 2, ",", ".")}}</option>
+                                        @for($i = 1; $i <= $parcelas; $i++) <option value="{{$i}}">{{$i}}x - R${{number_format($curso->valor/$i, 2, ",", ".")}}</option>
                                             @endfor
                                     </select>
                                 </label>
-                                <button type="submit">
+                                <div id="div-ajax" style="width: 100%; max-width: 31.5rem; display: none; position: absolute; width: 250px;height: 250px; right: 0; left: 0; margin: 0 auto;">
+                                    <img src="{{asset('site/imagens/ajax.gif')}}" style="margin: 0 auto;" width="250px" alt="">
+                                </div>
+                                <button type="submit" id="btn-form-cartao">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
                                 </button>
-
-
-                                <a class="changefom" href="{{ route('site.carrinho-efetuar')}}">Trocar forma de pagamento</a>
+                                <a class="changefom" href="{{ route('site.carrinho-efetuar', ['curso' => $curso])}}">Trocar forma de pagamento</a>
                             </form>
                         </div>
                         @else
@@ -133,15 +137,15 @@
                                 <small style="color: red;">{{session()->get("erro")}}</small>
                             </div>
 
-                            <form action="{{route('site.carrinho.finalizar.boleto')}}" method="POST">
+                            <form action="{{route('site.carrinho.finalizar.boleto', ['curso' => $curso])}}" method="POST">
                                 @csrf
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" required>
                                         <option value="1">1x de
-                                            {{ number_format($carrinho->total - ($carrinho->total * 10) / 100, 2, ",", ".") }}</option>
-                                        @for($i = 2; ((($carrinho->total / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
-                                            <option value="{{$i}}">{{$i}}x de {{number_format($carrinho->total / $i, 2, ",", ".")}}</option>
+                                            {{ number_format($curso->valor - ($curso->valor * 10) / 100, 2, ",", ".") }}</option>
+                                        @for($i = 2; ((($curso->valor / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
+                                            <option value="{{$i}}">{{$i}}x de {{number_format($curso->valor / $i, 2, ",", ".")}}</option>
                                             @endfor
                                     </select>
                                 </label>
@@ -150,7 +154,7 @@
                                 </button>
 
 
-                                <a class="changefom" href="{{ route('site.carrinho-efetuar')}}">Trocar forma de pagamento</a>
+                                <a class="changefom" href="{{ route('site.carrinho-efetuar', ['curso' => $curso])}}">Trocar forma de pagamento</a>
                             </form>
                         </div>
                         @endif
@@ -164,7 +168,49 @@
 
     @include('site.includes.aluno.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
-    @include('site.includes.gerencianet')
+    @if($curso->gateway_cartao == 0)
+        <script src=" {{ asset('site/js/bandeira.js') }}"></script>
+        @include('site.includes.gerencianet')
+        <script>
+            $gn.ready(function(checkout) {
+                $("#btn-form-cartao").on("click", function(e) {
+                    e.preventDefault();
+                    $("#btn-form-cartao").hide();
+                    $("#div-ajax").show();
+                    var cartao = $("input[name='numero']").val();
+                    var nome = $("input[name='nome']").val();
+                    var validade = $("input[name='expiracao']").val();
+                    validade = validade.split("/");
+                    var cvv = $("input[name='cvv']").val();
+                    var bandeira = getCardBrand(cartao);
+                    checkout.getPaymentToken({
+                            brand: bandeira, // bandeira do cartão
+                            number: cartao, // número do cartão
+                            cvv: cvv, // código de segurança
+                            expiration_month: validade[0], // mês de vencimento
+                            expiration_year: validade[1] // ano de vencimento
+                        },
+                        function(error, response) {
+                            if (error) {
+                                // Trata o erro ocorrido
+                                $("#div-erro").html("<small style='font-size: 12px;'>Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.</small>")
+                                $("#btn-form-cartao").show();
+                                $("#div-ajax").hide();
+                            } else {
+                                if(response.data && response.data.payment_token){
+                                    $("input[name='payment_token']").val(response.data.payment_token);
+                                    $("#form-cartao").submit();
+                                }else{
+                                    $("#div-erro").html("<small style='font-size: 12px;'>Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.</small>")
+                                }
+                            }
+                        }
+                    );
+                });
+
+            });
+        </script>
+    @endif
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
         integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
