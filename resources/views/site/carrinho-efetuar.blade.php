@@ -79,8 +79,8 @@
 
 
     <section class="container-fluid s_identificacao">
-        <div class="container-fav">
-            <div class="_half">
+        <div class="container-fav" style="display: flex; gap: 5rem; align-content: space-between; justify-content: flex-start;">
+            <div class="_half" style="justify-content: flex-start; width: 100%;">
                 <div class="_top">
                     <div class="_title _active">
                         <div class="_img">
@@ -204,6 +204,11 @@
                             @endif
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="_half" style="justify-content: flex-start; width: 70%;">
+                <div class="publi">
+                    <img src="{{ asset('site/img/sistema/publi.png') }}" alt="publicidade">
                 </div>
             </div>
         </div>
