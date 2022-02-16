@@ -27,13 +27,13 @@
   <link rel="stylesheet" href="{{ asset('/site/css/style.css') }}" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W4HSERN8S"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFRK1GXJXY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        gtag('config', 'G-5W4HSERN8S');
+  gtag('config', 'G-NFRK1GXJXY');
   </script>
 
 </head>

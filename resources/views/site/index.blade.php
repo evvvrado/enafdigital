@@ -13,7 +13,7 @@
                 <h6>UM NOVO CICLO</h6>
                 <h1>Conectar para<br> evoluir</h1>
                 <p>
-                    No mundo, tudo evolui e se transforma. E para nós, que trabalharmos com movimento, não poderia ser diferente. Você está preparado para estabelecer as conexões que irão impactar sua
+                    No mundo, tudo evolui e se transforma. E para nós, que trabalhamos com movimento, não poderia ser diferente. Você está preparado para estabelecer as conexões que irão impactar sua
                     vida?
                 </p>
                 <button name="hero_button">
