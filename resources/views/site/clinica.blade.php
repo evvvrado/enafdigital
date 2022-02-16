@@ -70,7 +70,7 @@
 
           <div class="_bottom">
             <strong>R$ {{ number_format($pacote->valor, 2, ',', '.') }}</strong>
-            <button onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $pacote]) }}'">Comprar</button>
+            <button onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $pacote]) }}'">Comprar</button>
           </div>
         </div>
         @endforeach
@@ -189,7 +189,7 @@
             </div>
             <div class="_bottom">
               <p class="curso_price">R$ {{ number_format($curso->curso->valor, 2, ',', '.') }}</p>
-              <button onclick="window.location.href ='{{ route('site.carrinho-adicionar', ['curso' => $curso]) }}'">Comprar</button>
+              <button onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'">Comprar</button>
             </div>
           </div>
         </div>
