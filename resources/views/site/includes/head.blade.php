@@ -36,4 +36,6 @@
   gtag('config', 'G-NFRK1GXJXY');
   </script>
 
+  <meta name="facebook-domain-verification" content="g43nelr9ia3gs6rctulsoh1epvbrkx" />
+
 </head>
