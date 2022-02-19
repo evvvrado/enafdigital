@@ -222,9 +222,7 @@
         .container-fav {
             overflow-x: hidden;
             ._cursosList {
-                overflow-x: scroll;
                 // animation: autoscroll-long infinite 12s linear;
-
                 overflow-x: scroll;
                 scroll-snap-type: x mandatory;
                 display: inline-block;
@@ -319,5 +317,28 @@
 
     @include responsive(900px) {
         margin-right: 0;
+    }
+}
+
+body#clinica {
+    @include responsive(800px) {
+        .s_cursos {
+            .container-fav {
+                ._cursosList {
+                    overflow: scroll;
+                    scroll-snap-type: x mandatory;
+                    .scroll {
+                        @include flex(row, flex-start, flex-start);
+                        gap: 3rem;
+                        flex-wrap: nowrap;
+                        width: max-content;
+
+                        ._curso {
+                            scroll-snap-align: start;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
