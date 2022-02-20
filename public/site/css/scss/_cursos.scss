@@ -321,6 +321,11 @@
 }
 
 body#clinica {
+    .scroll {
+        @include flex(row, flex-start, flex-start);
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
     @include responsive(800px) {
         .s_cursos {
             .container-fav {
