@@ -327,6 +327,8 @@ body#clinica {
                 ._cursosList {
                     overflow: scroll;
                     scroll-snap-type: x mandatory;
+                    white-space: unset;
+                    display: flex;
                     .scroll {
                         @include flex(row, flex-start, flex-start);
                         gap: 3rem;
