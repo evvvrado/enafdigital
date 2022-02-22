@@ -175,25 +175,27 @@
         </div>
       </div>
       <div class="_cursosList">
-        @foreach ($evento->cursos_ligados as $curso)
-        <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->curso->slug])}}'">
-          <div class="_pic">
-            <img src="{{ asset($curso->curso->thumbnail) }}" alt="{{ $curso->curso->nome }}" />
-          </div>
-          <div class="_content">
-            <div class="_top">
-              <h4 class="curso_name">{{ $curso->curso->nome }}</h4>
-              <p class="curso_description">
-                {!! $curso->curso->descricao !!}
-              </p>
+        <div class="scroll">
+          @foreach ($evento->cursos_ligados as $curso)
+          <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}" onclick="window.location.href = '{{route('site.curso', ['slug' => $curso->curso->slug])}}'">
+            <div class="_pic">
+              <img src="{{ asset($curso->curso->thumbnail) }}" alt="{{ $curso->curso->nome }}" />
             </div>
-            <div class="_bottom">
-              <p class="curso_price">R$ {{ number_format($curso->curso->valor, 2, ',', '.') }}</p>
-              <button onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'">Comprar</button>
+            <div class="_content">
+              <div class="_top">
+                <h4 class="curso_name">{{ $curso->curso->nome }}</h4>
+                <p class="curso_description">
+                  {!! $curso->curso->descricao !!}
+                </p>
+              </div>
+              <div class="_bottom">
+                <p class="curso_price">R$ {{ number_format($curso->curso->valor, 2, ',', '.') }}</p>
+                <button onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'">Comprar</button>
+              </div>
             </div>
           </div>
+          @endforeach
         </div>
-        @endforeach
       </div>
     </div>
   </section>
