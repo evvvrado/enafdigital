@@ -66,7 +66,7 @@
                                 <tbody>
                                     <tr>
                                         <td><b>Aluno:</b></td>
-                                        <td class="px-2">{{ $venda->aluno->nome }}</td>
+                                        <td class="px-2"><a href="">{{ $venda->aluno->nome }}</a></td>
                                     </tr>
                                     <tr>
                                         <td><b>Forma:</b></td>
@@ -96,40 +96,24 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($venda->forma == 2)
-                            <div class="col-12 col-md-7">
-                                <h4 class="card-title">Parcelas do Carnê</h4>
-                                {{-- <hr> --}}
-                                <table class="table">
-                                    <thead>
-                                        <th>
-                                        <td>Valor</td>
-                                        <td>Status</td>
-                                        <td>Vencimento</td>
-                                        <td>Link</td>
-                                        </td>
-                                        </th>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($venda->carne->parcelas as $parcela)
-                                            <tr>
-                                                <td><b>{{ $parcela->parcela }}</b></td>
-                                                <td>R${{ number_format($parcela->valor, 2, ',', '.') }}</td>
-                                                <td>{{ config('gerencianet.status')[$parcela->status] }}</td>
-                                                <td>{{ date('d/m/Y', strtotime($parcela->data_expiracao)) }} @if ($parcela->status != 'canceled' && $parcela->status != 'paid')
-                                                        - <button class="btn-primary btn"><a style="color: white;"
-                                                                class="cpointer" data-bs-toggle="modal"
-                                                                data-bs-target="#modalAlterarVencimentoParcela{{ $parcela->id }}">Alterar</a></button>
-                                                    @endif
-                                                </td>
-                                                <td><button class="btn-primary btn"><a style="color:white"
-                                                            href="{{ $parcela->link }}">Visualizar</a></button></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        @endif
+                        <div class="col-12 col-md-7">
+                            <h4 class="card-title">Produtos</h4>
+                            <table class="table">
+                                <thead>
+                                    <th>Curso</th>
+                                    <th>Valor</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($venda->carrinho->produtos as $produto)
+                                        <tr>
+                                            <td>{{ $produto->curso->titulo }}</td>
+                                            <td>R${{ number_format($produto->total, 2, ',', '.') }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        
                     </div>
 
                     <div class="row mt-5">
@@ -222,7 +206,40 @@
                                 </tbody>
                             </table>
                         </div>
-
+                        @if ($venda->forma == 2)
+                            <div class="col-12 col-md-7">
+                                <h4 class="card-title">Parcelas do Carnê</h4>
+                                {{-- <hr> --}}
+                                <table class="table">
+                                    <thead>
+                                        <th>
+                                        <td>Valor</td>
+                                        <td>Status</td>
+                                        <td>Vencimento</td>
+                                        <td>Link</td>
+                                        </td>
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($venda->carne->parcelas as $parcela)
+                                            <tr>
+                                                <td><b>{{ $parcela->parcela }}</b></td>
+                                                <td>R${{ number_format($parcela->valor, 2, ',', '.') }}</td>
+                                                <td>{{ config('gerencianet.status')[$parcela->status] }}</td>
+                                                <td>{{ date('d/m/Y', strtotime($parcela->data_expiracao)) }} @if ($parcela->status != 'canceled' && $parcela->status != 'paid')
+                                                        - <button class="btn-primary btn"><a style="color: white;"
+                                                                class="cpointer" data-bs-toggle="modal"
+                                                                data-bs-target="#modalAlterarVencimentoParcela{{ $parcela->id }}">Alterar</a></button>
+                                                    @endif
+                                                </td>
+                                                <td><button class="btn-primary btn"><a style="color:white"
+                                                            href="{{ $parcela->link }}">Visualizar</a></button></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
