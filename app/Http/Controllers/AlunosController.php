@@ -11,19 +11,21 @@ class AlunosController extends Controller
 {
     //
 
-    public function consultar(){
+    public function consultar()
+    {
         $alunos = Aluno::all();
         return view("painel.alunos.consultar", ["alunos" => $alunos]);
     }
 
-    public function cadastrar(Request $request){
+    public function cadastrar(Request $request)
+    {
 
         $aluno = Aluno::where("email", $request->email)->orWhere("cpf", $request->cpf)->first();
-        if($aluno){
+        if ($aluno) {
             session()->flash("erro", "O email ou CPF já pertence a um usuário cadastrado.");
             return redirect()->back();
         }
-        
+
         $validated = $request->validate([
             'nome' => 'max:50',
             'email' => 'max:50|unique:alunos',
@@ -48,31 +50,41 @@ class AlunosController extends Controller
         $aluno->ultimo_acesso = date("Y-m-d");
         $aluno->save();
         session()->put(["aluno" => $aluno->toArray()]);
-        if(session()->get("produto_adicionar")){
+        if (session()->get("produto_adicionar")) {
             return redirect(session()->get("produto_adicionar"));
-        }else{
+        } else {
             return redirect()->route('site.minha-area');
         }
     }
 
-    public function logar(Request $request){
+
+
+    public function detalhes()
+    {
+        $alunos = Aluno::all();
+        return view("painel.alunos.detalhes", ["alunos" => $alunos]);
+    }
+
+    public function logar(Request $request)
+    {
         $aluno = Aluno::where("email", $request->email)->first();
-        if($aluno && Hash::check($request->senha, $aluno->senha)){
+        if ($aluno && Hash::check($request->senha, $aluno->senha)) {
             $aluno->ultimo_acesso = date("Y-m-d");
             $aluno->save();
             session()->put(["aluno" => $aluno->toArray()]);
             Log::channel('acessos')->info('LOGIN: O aluno ' . $aluno->nome . ' logou no sistema.');
-            if(session()->get("produto_adicionar")){
+            if (session()->get("produto_adicionar")) {
                 return redirect(session()->get("produto_adicionar"));
-            }else{
+            } else {
                 return redirect()->route('site.minha-area');
             }
-        }else{
+        } else {
             session()->flash("erro", "E-mail ou senha incorretos");
             return redirect()->back();
         }
     }
-    public function deslogar(){
+    public function deslogar()
+    {
         session()->forget("aluno");
         return redirect()->route("site.index");
     }

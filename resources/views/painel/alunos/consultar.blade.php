@@ -33,6 +33,8 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a>
                                 <th>Email</th>
                                 <th>Telefone</th>
                                 <th>CPF</th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
+                                </th>
                             </tr>
                         </thead>
 
@@ -45,6 +47,15 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a>
                                 <td>{{$aluno->email}}</td>
                                 <td>{{$aluno->telefone}}</td>
                                 <td>{{$aluno->cpf}}</td>
+                                <td>
+                                    <div class="btn-group edit-table-button ">
+                                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                class="bx bx-dots-horizontal-rounded"></i></button>
+                                        <div class="dropdown-menu" style="margin: 0px;">
+                                            <a class="dropdown-item" href="{{ route('painel.alunos.detalhes') }}">Detalhes</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

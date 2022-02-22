@@ -11,12 +11,11 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
 @endsection
 
 @section('conteudo')
-
 <div class="row">
     <div class="col-9">
 
         <div class="row"">
-                                               <div class=" col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
+            <div class=" col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
             <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;" style="padding-left: 0;" href="{{ route('painel.cursos.cadastrar') }}">
                 <i class="bx bx-plus" aria-hidden="true"></i> Adicionar</a>
@@ -61,17 +60,17 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
                                     <td>{{config('pagamento.formas')[$venda->forma]}}</td>
                                     <td>
                                         @if($venda->forma == 0)
-                                            {{ config('gerencianet.status')[$venda->boleto->status] }}
+                                        {{ config('gerencianet.status')[$venda->boleto->status] }}
                                         @elseif($venda->forma == 1)
-                                            @if($venda->gateway == 1)
-                                                {{config("cielo.status")[$venda->cartao->status]}}
-                                            @else
-                                                @if($venda->cartao)
-                                                    {{config("gerencianet.code_status")[$venda->cartao->status]}}
-                                                @endif
-                                            @endif
+                                        @if($venda->gateway == 1)
+                                        {{config("cielo.status")[$venda->cartao->status]}}
                                         @else
-                                            Consultar parcelas
+                                        @if($venda->cartao)
+                                        {{config("gerencianet.code_status")[$venda->cartao->status]}}
+                                        @endif
+                                        @endif
+                                        @else
+                                        Consultar parcelas
                                         @endif
                                     </td>
                                     <td>
@@ -102,8 +101,6 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
     </div>
 </div> <!-- end col -->
 <div class="col-3">
-
-
     <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
         <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;" href="">Filtros</a>
     </div>
@@ -162,7 +159,6 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
     </div>
 </div>
 </div>
-
 @endsection
 
 
