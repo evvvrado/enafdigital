@@ -79,6 +79,7 @@ class CieloRequisicaoCredito
             $return = [
                 "status" => 200,
                 "retorno" => $this->sale->getPayment()->getReturnCode(),
+                "mensagem" => $this->sale->getPayment()->getReturnMessage(),
                 "payment_id" => $paymentId,
                 "numero" => $cardNumber
             ];
