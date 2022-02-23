@@ -43,7 +43,7 @@ class CieloController extends Controller
 
         if ($res["status"] == 200) {
 
-            if ($res["retorno"] == "00" || $res["retorno"] == "11" || $res["retorno"] == "04") {
+            if ($res["retorno"] == "00" || $res["retorno"] == "11") {
 
                 $carrinho = new Carrinho();
                 $carrinho->aluno_id = session()->get("aluno")["id"];
@@ -109,7 +109,11 @@ class CieloController extends Controller
                 return redirect()->route("site.carrinho-confirmacao");
             } else {
                 Log::channel('cartao')->error('ERRO:' . json_encode($res));
-                session()->flash("erro", config("cielo.erros")[$res["retorno"]]);
+                if(isset(config("cielo.erros")[$res["retorno"]])){
+                    session()->flash("erro", config("cielo.erros")[$res["retorno"]]);
+                }else{
+                    session()->flash("erro", $res["mensagem"]);
+                }
                 return redirect()->route("site.carrinho.pagamento.cartao", ["curso" => $curso]);
             }
         } else {
