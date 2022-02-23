@@ -209,4 +209,9 @@ class CursosController extends Controller
             return response()->json("destacado");
         }
     }
+
+    public function matriculas()
+    {
+        return view("painel.cursos.matriculas");
+    }
 }

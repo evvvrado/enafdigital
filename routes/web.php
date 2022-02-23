@@ -310,10 +310,13 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/cursos/destaque/{curso}', [\App\Http\Controllers\CursosController::class, 'destaque'])->name("painel.cursos.destaque");
     Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");
     Route::get('/sistema/cursos/editar/{curso}', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
+    Route::get('/sistema/cursos/matriculas', [\App\Http\Controllers\CursosController::class, 'matriculas'])->name("painel.cursos.matriculas");
     Route::post('/sistema/cursos/{curso}/modulo/salvar', [\App\Http\Controllers\ModulosController::class, 'salvar'])->name("painel.cursos.modulo.salvar");
     Route::get('/sistema/cursos/modulo/deletar/{modulo}', [\App\Http\Controllers\ModulosController::class, 'deletar'])->name("painel.cursos.modulo.deletar");
     Route::post('/sistema/cursos/{curso}/depoimento/salvar', [\App\Http\Controllers\CursoDepoimentosController::class, 'salvar'])->name("painel.cursos.depoimento.salvar");
     Route::get('/sistema/cursos/depoimento/deletar/{depoimento}', [\App\Http\Controllers\CursoDepoimentosController::class, 'deletar'])->name("painel.cursos.depoimento.deletar");
+
+
 
     // ROTAS DE CONGRESSOS
     Route::match(['get', 'post'], '/sistema/clinicas', [\App\Http\Controllers\ClinicaController::class, 'consultar'])->name("painel.clinicas");
@@ -370,6 +373,7 @@ Route::middleware(['admin'])->group(function () {
 
     //ROTAS DE ALUNOS
     Route::get('/sistema/alunos', [\App\Http\Controllers\AlunosController::class, 'consultar'])->name("painel.alunos");
+    Route::get('/sistema/alunos/detalhes', [\App\Http\Controllers\AlunosController::class, 'detalhes'])->name("painel.alunos.detalhes");
 
     // ROTAS DE DESTAQUES
     Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");
