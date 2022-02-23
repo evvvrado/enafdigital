@@ -707,6 +707,9 @@ section._meusDados .container-fav ._dados .dados-div {
     gap: 1.2rem;
     width: 100%;
 }
+section._meusDados .container-fav ._dados ._dadosComponent::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
 section._meusDados .container-fav ._dados ._dadosComponent {
     width: 100%;
     max-width: 40rem;

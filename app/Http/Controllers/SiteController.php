@@ -195,6 +195,8 @@ class SiteController extends Controller
         $aluno->rua = $request->rua;
         $aluno->cidade = $request->cidade;
         $aluno->estado = $request->estado;
+        $aluno->cep = $request->cep;
+        $aluno->nascimento = $request->nascimento;
         $aluno->save();
         return redirect()->back();
     }

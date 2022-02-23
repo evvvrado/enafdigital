@@ -161,9 +161,28 @@
                             <img src="{{ asset('site/img/sistema/phoneData.svg') }}" alt="">
                         </div>
                     </label>
+
+
+                    <label>
+                        <input type="date" name="nascimento" value="{{$aluno->nascimento}}" class="_dadosComponent">
+                        <div class="_icon">
+                            <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
+                        </div>
+                    </label>
+
+
+
                 </div>
 
                 <div class="dados-div">
+
+                    <label>
+                        <input type="tel" name="cep" placeholder="Seu CEP" value="{{ $aluno->cep }}" class="_dadosComponent">
+                        <div class="_icon">
+                            <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
+                        </div>
+                    </label>
+
 
                     <label>
                         <input type="text" name="rua" placeholder="Rua, 180" value="{{ $aluno->rua }}" class="_dadosComponent">
@@ -274,6 +293,7 @@
             $('form label input[name = "telefone"]').mask("(00) 00000-0000");
             $('form label input[name = "expiracao"]').mask("00/0000");
             $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
+            $('form label input[name= "cep"]').mask("00000-000");
         });
 
 
