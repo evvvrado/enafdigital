@@ -106,15 +106,25 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
 
 
 
-                            <div class="mb-3">
-                                <label class="control-label">Tipo de Curso</label>
-                                <select class="form-control" name="tipo">
-                                    @foreach (config('cursos.tipo_nome') as $codigo => $tipo)
-                                    <option value="{{ $codigo }}" @if ($curso->tipo == $codigo) selected @endif>
-                                        {{ $tipo }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="row mt-3 mb-3">
+                                <div class="col-10">
+                                    <label class="control-label">Tipo de Curso</label>
+                                    <select class="form-control" name="tipo">
+                                        @foreach (config('cursos.tipo_nome') as $codigo => $tipo)
+                                        <option value="{{ $codigo }}" @if ($curso->tipo == $codigo) selected @endif>
+                                            {{ $tipo }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-2">
+                                    <label for="productdesc">Certificado</label>
+                                    <div class="form-check form-switch form-switch-lg pt-3 ">
+                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" @if($curso->certificacao) checked="" @endif>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="mb-3">
                                 <label for="descricao">Descrição</label>
                                 <textarea id="textarea" name="descricao" class="form-control" maxlength="250" rows="3" placeholder="Limite de 107 Caracteres"
@@ -125,81 +135,109 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                 <textarea id="textarea" name="sobre" class="form-control" rows="3" placeholder="Descrição breve sobre o curso" required>{!! $curso->sobre !!}</textarea>
                             </div>
 
-                            <div class="mb-3 row">
-                                <div class="col">
-                                    <label for="productdesc">Certificado</label>
-                                    <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" name="certificacao" type="checkbox" id="SwitchCheckSizelg" @if($curso->certificacao) checked="" @endif>
+
+                            <div class="col-12 col-md-6">
+                                <div class="row mb-3 mt-3">
+                                    <div class="col-12">
+                                        <label>Local de pagamento</label>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <label for="productdesc">Pagamento Por Boleto</label>
-                                    <div class="form-check form-switch form-switch-lg pt-3 ">
-                                        <input class="form-check-input form-control" name="gerencianet" type="checkbox" id="SwitchCheckSizelg" @if($curso->gerencianet) checked="" @endif>
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="checkout_interno" value="1" id="checkout_interno1" @if($curso->checkout_interno == 1) checked="" @endif>
+                                            <label class="form-check-label" for="checkout_interno1">
+                                                Checkout Interno
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="px-3">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="checkout_interno" value="0" id="checkout_interno2" @if($curso->checkout_interno == 0) checked="" @endif>
+                                            <label class="form-check-label" for="checkout_interno2">
+                                                Checkout Externo
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="row" id="row-checkout-info" @if(!$curso->checkout_interno == 1) style="display: none;" @endif>
+
+                        <div class="col">
+                            <label for="productdesc">Pagamento Por Boleto</label>
+                            <div class="form-check form-switch form-switch-lg pt-3 ">
+                                <input class="form-check-input form-control" name="gerencianet" type="checkbox" id="SwitchCheckSizelg" @if($curso->gerencianet) checked="" @endif>
+                            </div>
+                        </div>
+
+
+                        <div id="boletoGate" @if(!$curso->gerencianet) style="display: none;" @endif class="col">
+                            <div class="row mt-3">
+
+                                <div class="col-6">
+                                    <label>Gateway de Boleto</label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <div class="form-check mb-3 px-3">
+                                        <input class="form-check-input" type="radio" checked>
+                                        <label class="form-check-label">
+                                            Gerencianet
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="row">
+
                                 <div class="col">
                                     <label for="productdesc">Pagamento Por Cartão</label>
                                     <div class="form-check form-switch form-switch-lg pt-3 ">
                                         <input class="form-check-input form-control" name="cielo" type="checkbox" id="SwitchCheckSizelg" @if($curso->cielo) checked="" @endif>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <label>Local de pagamento</label>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row">
-                                <div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="radio" name="checkout_interno" value="1" id="checkout_interno1" @if($curso->checkout_interno == 1) checked="" @endif>
-                                        <label class="form-check-label" for="checkout_interno1">
-                                            Checkout Interno
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="px-3">
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="radio" name="checkout_interno" value="0" id="checkout_interno2" @if($curso->checkout_interno == 0) checked="" @endif>
-                                        <label class="form-check-label" for="checkout_interno2">
-                                            Checkout Externo
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <label>Gateway de Cartão</label>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row">
-                                @foreach(config("gateways.nomes") as $key => $gateway)
-                                    <div>
-                                        <div class="form-check mb-3 px-3">
-                                            <input class="form-check-input" type="radio" name="gateway_cartao" value="{{$key}}" @if($curso->gateway_cartao == $key) checked="" @endif>
-                                            <label class="form-check-label">
-                                                {{$gateway}}
-                                            </label>
+
+                                <div id="cartaoGate" @if(!$curso->cielo) style="display: none" @endif class="col">
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <label>Gateway de Cartão</label>
                                         </div>
                                     </div>
-                                @endforeach
+                                    <div class="d-flex flex-row">
+                                        @foreach(config("gateways.nomes") as $key => $gateway)
+                                        <div>
+                                            <div class="form-check mb-3 px-3">
+                                                <input class="form-check-input" type="radio" name="gateway_cartao" value="{{$key}}" @if($key==1) checked="" @endif>
+                                                <label class="form-check-label">
+                                                    {{$gateway}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row" id="row-checkout-link" @if($curso->checkout_interno == 1) style="display: none;" @endif>
+
+                    <div class="row" id="row-checkout-link" @if(!$curso->checkout_interno == 0) style="display: none;" @endif>
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="checkout_link">Link de checkout</label>
-                                <input id="checkout_link" name="checkout_link" type="text" class="form-control" value="{{$curso->checkout_link}}" placeholder="Insira o link de checkout" maxlength="250">
+                                <input id="checkout_link" name="checkout_link" type="text" class="form-control" value="{{$curso->checkout_link}}" placeholder="Insira o link de checkout"
+                                    maxlength="250">
                             </div>
                         </div>
                     </div>
@@ -505,6 +543,34 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
 
 
             $('.select2-selection.select2-selection--multiple').addClass('form-control');
+
+            $("input[name='checkout_interno']").change(function(){
+                if($(this).val() == 0){
+                    $("#row-checkout-link").slideDown(500);
+                    $("#row-checkout-info").slideUp(500);
+                }else{
+                    $("#row-checkout-link").slideUp(500);
+                    $("#row-checkout-info").slideDown(500);
+                }
+            });
+
+            $('input[name="cielo"]').change(function() {
+                if($('#cartaoGate').attr('style') == 'display: none' || $('#cartaoGate').attr('style') == 'display: none;'){
+                    $('#cartaoGate').show();
+                }else{
+                    $('#cartaoGate').hide();
+                }
+            })
+
+
+
+            $('input[name="gerencianet"]').change(function() {
+                if($('#boletoGate').attr('style') == 'display: none' || $('#boletoGate').attr('style') == 'display: none;'){
+                    $('#boletoGate').show();
+                }else{
+                    $('#boletoGate').hide();
+                }
+            })
 
             $("input[name='checkout_interno']").change(function(){
                 if($(this).val() == 0){

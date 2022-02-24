@@ -22,7 +22,7 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/carrinhoPhone.svg') }}" alt="" />
                     </div>
-                    <p>Dúvida na compra ligue - 35 992611988</p>
+                    <p>Dúvida na compra ligue - 35 997259528</p>
                 </div>
             </div>
             {{-- <section class="_meuCarrinho">
