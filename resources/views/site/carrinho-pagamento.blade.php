@@ -86,11 +86,9 @@
                             <p>Digite os dados do seu cartão abaixo:</p>
                         </div>
                         <div class="_form">
-                            <div id="div-erro" style="margin-bottom: 20px;">
-                                @if (session()->get('erro'))
-                                <small>{{ session()->get('erro') }}</small>
-                                @endif
-                            </div>
+                            @if (session()->get('erro'))
+                            <small>{{ session()->get('erro') }}</small>
+                            @endif
 
                             <form id="form-cartao" @if($curso->gateway_cartao == 1) action="{{route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso])}}" @else
                                 action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
@@ -106,18 +104,23 @@
                                 </label>
                                 <label>
                                     <span>Validade</span>
-                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="7" pattern="(0?[1-9]|1[0-2])\/(\d{4})" />
+                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="6" pattern="(0?[1-9]|1[0-2])\/(\d{4})" />
                                 </label>
                                 <label class="cvv">
                                     <span>CVV</span>
                                     <input required type="tel" maxlength="3" placeholder="000" name="cvv" />
 
                                     <picture>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: #11aacc;transform: ;msFilter:;">
+                                        <svg title="Informação fica atrás do cartão" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"
+                                            style="fill: #11aacc;transform: ;msFilter:;">
                                             <path
                                                 d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 8.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-2zm6 7.5H5v-2h6v2zm8 0h-6v-2h6v2z">
                                             </path>
                                         </svg>
+
+                                        <span>
+                                            Informação atrás do cartão
+                                        </span>
                                     </picture>
 
                                 </label>
@@ -244,4 +247,14 @@
     $('form label input[name = "telefone"]').mask("(00) 00000-0000");
     $('form label input[name = "expiracao"]').mask("00/0000");
     $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
+
+    $('input[name="expiracao"]').keydown(() =>{
+        if($('input[name="expiracao"]').val().length < 6){
+            $('input:not(input[name="expiracao"])').attr('disabled', '');
+            $('input[name="expiracao"]').css('border-color', 'red');
+        }else{
+            $('input:not(input[name="expiracao"])').removeAttr('disabled');
+            $('input[name="expiracao"]').css('border-color', '#d8d8d8');
+        }
+    })
     </script>

@@ -17,7 +17,7 @@ $aluno = App\Models\Aluno::find(session()->get("aluno")["id"]);
 <section class="container-fluid s_welcome">
     <div class="main container-fav">
         <div class="text">
-            <span>Seja bem-vindo de volta, {{$aluno->nome}}! <a href="{{ route('site.aluno.deslogar') }}">Sair</a></span>
+            <span>Seja bem-vindo de volta, <strong style="color: #fbff36">{{$aluno->nome}}</strong>! <a href="{{ route('site.aluno.deslogar') }}">Sair</a></span>
         </div>
     </div>
 </section>

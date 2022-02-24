@@ -2786,9 +2786,32 @@ label.cvv picture {
     top: 0;
     bottom: 0;
 
+    cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     margin: auto 0;
+}
+
+label.cvv picture span {
+    background-color: rgba(0, 0, 0, 0.377);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+
+    display: none;
+
+    color: white !important;
+
+    border-radius: 1rem;
+    position: absolute !important;
+    left: 5.5rem !important;
+    width: max-content;
+}
+
+label.cvv picture:hover span {
+    display: block;
 }
