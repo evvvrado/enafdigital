@@ -164,6 +164,7 @@ class GerencianetController extends Controller
     }
 
     public function credito(Request $request, Curso $curso){
+        dd($request->payment_token);
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         $gerencianet = new GerencianetRequisicaoCartao();
 
