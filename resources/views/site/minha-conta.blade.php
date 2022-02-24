@@ -134,7 +134,7 @@
 
                                     <div class="mt-4 mt-md-5 text-center">
                                         <p class="mb-0">
-                                            © 2021 ENAF. Feito com
+                                            © 2022 ENAF. Feito com
                                             <i class="
                                                     mdi mdi-heart
                                                     text-danger
@@ -236,7 +236,7 @@
 
                                             <div class="mt-4 mt-md-5 text-center">
                                                 <p class="mb-0">
-                                                    © 2021 ENAF. Feito com
+                                                    © 2022 ENAF. Feito com
                                                     <i class="
                                                             mdi mdi-heart
                                                             text-danger

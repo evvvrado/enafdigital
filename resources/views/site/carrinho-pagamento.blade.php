@@ -32,8 +32,8 @@
     <!-- HEADER -->
 
     <section class="container-fluid s_identificacao">
-        <div class="container-fav">
-            <div class="_half">
+        <div class="container-fav" style="display: flex; gap: 5rem; align-content: space-between; justify-content: flex-start;">
+            <div class="_half" style="justify-content: flex-start; width: 100%;">
 
                 <div class="_top">
                     <div class="_title _active">
@@ -86,13 +86,24 @@
                             <p>Digite os dados do seu cartão abaixo:</p>
                         </div>
                         <div class="_form">
-                            @if (session()->get('erro'))
-                            <small>{{ session()->get('erro') }}</small>
-                            @endif
+
+                            <div id="div-erro">
+                                <div class="box">
+                                    <div class="col-12 text-center">
+                                        <img src="{{ asset('site/img/icone_erro.png') }}" style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
+                                    </div>
+                                    <h1>Ocorreu um erro !</h1>
+                                    <h2>{{ session()->get('erro') }}</h2>
+                                </div>
+                            </div>
+
 
                             <form id="form-cartao" @if($curso->gateway_cartao == 1) action="{{route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso])}}" @else
                                 action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
+
                                 @csrf
+
+
                                 <input type="hidden" name="payment_token">
                                 <label>
                                     <span>N. Cartão</span>
@@ -102,9 +113,11 @@
                                     <span>Nome do cartão</span>
                                     <input required type="text" name="nome" placeholder="Nome do cartão" />
                                 </label>
-                                <label>
+                                <label class="validade">
                                     <span>Validade</span>
-                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="6" pattern="(0?[1-9]|1[0-2])\/(\d{4})" />
+                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" />
+
+                                    <p>Ano composto por 4 digitos! MM/YYYY</p>
                                 </label>
                                 <label class="cvv">
                                     <span>CVV</span>
@@ -131,8 +144,10 @@
                                             @endfor
                                     </select>
                                 </label>
-                                <div id="div-ajax" style="width: 100%; max-width: 31.5rem; display: none; position: absolute; width: 250px;height: 250px; right: 0; left: 0; margin: 0 auto;">
-                                    <img src="{{asset('site/imagens/ajax.gif')}}" style="margin: 0 auto;" width="250px" alt="">
+                                <div id="div-ajax">
+                                    <picture>
+                                        <img src="{{ asset('site/img/sistema/loadingEnaf.png') }}" alt="">
+                                    </picture>
                                 </div>
                                 <button type="submit" id="btn-form-cartao">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
@@ -174,8 +189,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="_half" style="justify-content: flex-start; width: 70%;">
+                <div class="publi">
+                    <img src="{{ asset('site/img/sistema/publi.png') }}" alt="publicidade">
+                </div>
+            </div>
+
         </div>
     </section>
+
 
 
 
@@ -206,7 +229,8 @@
                         function(error, response) {
                             if (error) {
                                 // Trata o erro ocorrido
-                                $("#div-erro").html("<small style='font-size: 12px;'>Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.</small>")
+                                $("#div-erro h2").html("Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.")
+                                $('#div-erro').attr('show', '')
                                 $("#btn-form-cartao").show();
                                 $("#div-ajax").hide();
                             } else {
@@ -214,7 +238,8 @@
                                     $("input[name='payment_token']").val(response.data.payment_token);
                                     $("#form-cartao").submit();
                                 }else{
-                                    $("#div-erro").html("<small style='font-size: 12px;'>Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.</small>")
+                                    $('#div-erro').attr('show', '')
+                                    $("#div-erro").html("Não foi possível validar o cartão. Por favor, verifique os dados e tente novamente.")
                                 }
                             }
                         }
@@ -256,5 +281,10 @@
             $('input:not(input[name="expiracao"])').removeAttr('disabled');
             $('input[name="expiracao"]').css('border-color', '#d8d8d8');
         }
+    })
+    
+    
+    $('#div-erro').click(() => {
+        $('#div-erro').removeAttr('show');
     })
     </script>
