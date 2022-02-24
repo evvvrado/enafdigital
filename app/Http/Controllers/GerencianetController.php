@@ -168,7 +168,7 @@ class GerencianetController extends Controller
         $gerencianet = new GerencianetRequisicaoCartao();
 
         $gerencianet->addItem([
-            'name' => $curso->titulo, // nome do item, produto ou serviço
+            'name' => $curso->nome, // nome do item, produto ou serviço
             'amount' => 1, // quantidade
             'value' => intval($curso->valor * 100)
         ]);
