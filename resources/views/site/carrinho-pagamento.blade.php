@@ -106,7 +106,7 @@
                                 </label>
                                 <label>
                                     <span>Validade</span>
-                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="5" pattern="(0[1-9]|1[012]).[0-9]{4}" />
+                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="7" pattern="(0?[1-9]|1[0-2])\/(\d{4})" />
                                 </label>
                                 <label class="cvv">
                                     <span>CVV</span>
