@@ -20,7 +20,7 @@
                     <div class="_svg">
                         <img src="{{ asset('site/img/sistema/carrinhoPhone.svg') }}" alt="" />
                     </div>
-                    <p>Dúvida na compra ligue - 35 992611988</p>
+                    <p>Dúvida na compra ligue - 35 997259528</p>
                 </div>
             </div>
 
@@ -88,28 +88,38 @@
                         <div class="_form">
                             <div id="div-erro" style="margin-bottom: 20px;">
                                 @if (session()->get('erro'))
-                                    <small>{{ session()->get('erro') }}</small>
+                                <small>{{ session()->get('erro') }}</small>
                                 @endif
                             </div>
 
-                            <form id="form-cartao" @if($curso->gateway_cartao == 1) action="{{route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso])}}" @else action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
+                            <form id="form-cartao" @if($curso->gateway_cartao == 1) action="{{route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso])}}" @else
+                                action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
                                 @csrf
                                 <input type="hidden" name="payment_token">
                                 <label>
                                     <span>N. Cartão</span>
-                                    <input type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
+                                    <input required type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
                                 </label>
                                 <label>
                                     <span>Nome do cartão</span>
-                                    <input type="text" name="nome" placeholder="Nome do cartão" />
+                                    <input required type="text" name="nome" placeholder="Nome do cartão" />
                                 </label>
                                 <label>
                                     <span>Validade</span>
-                                    <input type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="5" />
+                                    <input required type="tel" inputmode="numeric" name="expiracao" placeholder="00/0000" maxlength="7" minlength="7" pattern="(0?[1-9]|1[0-2])\/(\d{4})" />
                                 </label>
-                                <label>
+                                <label class="cvv">
                                     <span>CVV</span>
-                                    <input type="tel" maxlength="3" placeholder="000" name="cvv" />
+                                    <input required type="tel" maxlength="3" placeholder="000" name="cvv" />
+
+                                    <picture>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: #11aacc;transform: ;msFilter:;">
+                                            <path
+                                                d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 8.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-2zm6 7.5H5v-2h6v2zm8 0h-6v-2h6v2z">
+                                            </path>
+                                        </svg>
+                                    </picture>
+
                                 </label>
                                 <label>
                                     <span>Parcelas</span>
@@ -169,10 +179,10 @@
     @include('site.includes.aluno.footer')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
     @if($curso->gateway_cartao == 0)
-        <script src=" {{ asset('site/js/bandeira.js') }}"></script>
-        @include('site.includes.gerencianet')
-        <script>
-            $gn.ready(function(checkout) {
+    <script src=" {{ asset('site/js/bandeira.js') }}"></script>
+    @include('site.includes.gerencianet')
+    <script>
+        $gn.ready(function(checkout) {
                 $("#btn-form-cartao").on("click", function(e) {
                     e.preventDefault();
                     $("#btn-form-cartao").hide();
@@ -209,7 +219,7 @@
                 });
 
             });
-        </script>
+    </script>
     @endif
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
         integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

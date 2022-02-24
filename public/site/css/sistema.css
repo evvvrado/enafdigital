@@ -707,6 +707,9 @@ section._meusDados .container-fav ._dados .dados-div {
     gap: 1.2rem;
     width: 100%;
 }
+section._meusDados .container-fav ._dados ._dadosComponent::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
 section._meusDados .container-fav ._dados ._dadosComponent {
     width: 100%;
     max-width: 40rem;
@@ -1726,11 +1729,12 @@ section._meusPedidos ._pedidosList ._pedido._approved h3 {
 
 .detalhesdeCurso .container-fav main .list article {
     width: 100%;
-    max-width: 35.4rem;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 6rem;
 
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -1740,6 +1744,7 @@ section._meusPedidos ._pedidosList ._pedido._approved h3 {
     font-weight: 300;
     font-size: 1.269rem;
     line-height: 1.5rem;
+    padding-top: 2rem;
 
     color: #1ac7d6;
 }
@@ -1747,7 +1752,7 @@ section._meusPedidos ._pedidosList ._pedido._approved h3 {
 .detalhesdeCurso .container-fav main .list article picture {
     height: 5rem;
     width: 5rem;
-    background: #1ac6d644;
+    background: #cefbff;
 
     display: flex;
     align-items: center;
@@ -1758,12 +1763,17 @@ section._meusPedidos ._pedidosList ._pedido._approved h3 {
 .detalhesdeCurso .container-fav main .list article .content {
     display: flex;
     flex-direction: column;
+
+    max-width: 34%;
 }
 .detalhesdeCurso .container-fav main .list article .content span {
     font-weight: normal;
     font-style: normal;
     font-size: 1.8rem;
     line-height: 1.8rem;
+
+    max-width: 100%;
+    max-height: 400px;
 
     color: #1ac7d6;
 }
@@ -2751,4 +2761,34 @@ section._copyRight p strong {
         gap: 5rem;
         align-items: center;
     }
+
+    section.s_identificacao .container-fav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+label.cvv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+label.cvv input {
+    max-width: 85%;
+}
+label.cvv picture {
+    padding-top: 1.3rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto 0;
 }

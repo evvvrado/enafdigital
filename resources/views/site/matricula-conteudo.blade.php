@@ -143,7 +143,7 @@
                     </picture>
                     <div class="content">
                         <span>{{ $conteudo->descricao }}</span>
-                        <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a>
+                        {{-- <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a> --}}
                     </div>
                     </article>
                     @endforeach
