@@ -337,11 +337,15 @@ class GerencianetController extends Controller
                 }
             }
             if($pagamento){
-                $pagamento->status = $res["status"];
+                if($tipo != "cartão"){
+                    $pagamento->status = $res["status"];
+                }else{
+                    $pagamento->status = config("gerencianet.status_code")[$res["status"]];
+                }
                 Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento do ' . $tipo . ' ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
                 $pagamento->save();
 
-                if($pagamento->status == "paid"){
+                if($res["status"] == "paid"){
                     foreach ($venda->carrinho->produtos as $produto) {
                         if (!$produto->curso->pacote) {
                             $matricula = new Matricula;
