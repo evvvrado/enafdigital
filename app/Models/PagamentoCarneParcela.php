@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PagamentoCarneParcela extends Model
 {
     use HasFactory;
+
+    public function carne(){
+        return $this->belongsTo(PagamentoCarne::class);
+    }
 }

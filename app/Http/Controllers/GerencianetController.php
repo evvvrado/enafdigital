@@ -237,18 +237,20 @@ class GerencianetController extends Controller
             $pagamento->gateway = 0;
             $pagamento->save();
 
-            foreach ($venda->carrinho->produtos as $produto) {
-                if (!$produto->curso->pacote) {
-                    $matricula = new Matricula;
-                    $matricula->aluno_id = $venda->aluno_id;
-                    $matricula->curso_id = $produto->curso_id;
-                    $matricula->save();
-                } else {
-                    foreach ($produto->curso->cursos as $curso) {
+            if($pagamento->status == "paid"){
+                foreach ($venda->carrinho->produtos as $produto) {
+                    if (!$produto->curso->pacote) {
                         $matricula = new Matricula;
                         $matricula->aluno_id = $venda->aluno_id;
-                        $matricula->curso_id = $curso->id;
+                        $matricula->curso_id = $produto->curso_id;
                         $matricula->save();
+                    } else {
+                        foreach ($produto->curso->cursos as $curso) {
+                            $matricula = new Matricula;
+                            $matricula->aluno_id = $venda->aluno_id;
+                            $matricula->curso_id = $curso->id;
+                            $matricula->save();
+                        }
                     }
                 }
             }
@@ -322,12 +324,44 @@ class GerencianetController extends Controller
         $res = $gerencianet->notificacao($_POST["notification"]);
         if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
+            $tipo = "boleto";
+            $venda = $pagamento->venda;
             if (!$pagamento) {
                 $pagamento = PagamentoCarneParcela::where("charge_id", $res["charge_id"])->first();
+                $tipo = "carnê";
+                $venda = $pagamento->carne->venda;
+                if(!$pagamento){
+                    $pagamento = PagamentoCartao::where("codigo", $res["charge_id"])->first();
+                    $tipo = "cartão";
+                    $venda = $pagamento->venda;
+                }
             }
-            $pagamento->status = $res["status"];
-            Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
-            $pagamento->save();
+            if($pagamento){
+                $pagamento->status = $res["status"];
+                Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento do ' . $tipo . ' ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
+                $pagamento->save();
+
+                if($pagamento->status == "paid"){
+                    foreach ($venda->carrinho->produtos as $produto) {
+                        if (!$produto->curso->pacote) {
+                            $matricula = new Matricula;
+                            $matricula->aluno_id = $venda->aluno_id;
+                            $matricula->curso_id = $produto->curso_id;
+                            $matricula->save();
+                        } else {
+                            foreach ($produto->curso->cursos as $curso) {
+                                $matricula = new Matricula;
+                                $matricula->aluno_id = $venda->aluno_id;
+                                $matricula->curso_id = $curso->id;
+                                $matricula->save();
+                            }
+                        }
+                    }
+                }
+            }else{
+                Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento ' . $res["charge_id"] . " não encontrado no sistema");
+            }
+            
         } elseif ($res["code"] == -1) {
             Log::channel('notificacoes')->error('ERRO:' . json_encode($res));
         } else {
