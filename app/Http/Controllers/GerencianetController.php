@@ -237,7 +237,7 @@ class GerencianetController extends Controller
             $pagamento->gateway = 0;
             $pagamento->save();
 
-            if($pagamento->status == "paid"){
+            if($res["data"]["status"] == "paid"){
                 foreach ($venda->carrinho->produtos as $produto) {
                     if (!$produto->curso->pacote) {
                         $matricula = new Matricula;
@@ -325,16 +325,20 @@ class GerencianetController extends Controller
         if ($res["code"] == 200) {
             $pagamento = PagamentoBoleto::where("charge_id", $res["charge_id"])->first();
             $tipo = "boleto";
-            $venda = $pagamento->venda;
             if (!$pagamento) {
                 $pagamento = PagamentoCarneParcela::where("charge_id", $res["charge_id"])->first();
                 $tipo = "carnê";
-                $venda = $pagamento->carne->venda;
                 if(!$pagamento){
                     $pagamento = PagamentoCartao::where("codigo", $res["charge_id"])->first();
                     $tipo = "cartão";
-                    $venda = $pagamento->venda;
+                    if($pagamento){
+                        $venda = $pagamento->venda;
+                    }
+                }else{
+                    $venda = $pagamento->carne->venda;
                 }
+            }else{
+                $venda = $pagamento->venda;
             }
             if($pagamento){
                 if($tipo != "cartão"){
@@ -345,7 +349,7 @@ class GerencianetController extends Controller
                 Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento do ' . $tipo . ' ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
                 $pagamento->save();
 
-                if($res["status"] == "paid"){
+                if($res["status"] == "paid" && $venda){
                     foreach ($venda->carrinho->produtos as $produto) {
                         if (!$produto->curso->pacote) {
                             $matricula = new Matricula;
