@@ -174,15 +174,18 @@
                                 <img src="{{ asset('site/img/sistema/dollar.svg') }} " alt="">
                             </div>
                             <div class="_text">
-                                @if ($pedido->forma == 0)
-                                <span>{{config("gerencianet.status")[$pedido->boleto->status]}}</span>
-                                {{-- <p>{{ date('d.m.Y', strtotime($pedido->boleto->expira)) }}</p> --}}
-
+                                @if($pedido->forma == 0)
+                                    {{ config('gerencianet.status')[$pedido->boleto->status] }}
                                 @elseif($pedido->forma == 1)
-                                <span>Pagamento Realizado</span>
-
-                                @elseif($pedido->forma == 2)
-                                <span>Verificar<br> parcelas</span>
+                                    @if($pedido->gateway == 1)
+                                        {{config("cielo.status")[$pedido->cartao->status]}}
+                                    @else
+                                    @if($pedido->cartao)
+                                        {{config('gerencianet.status')[config("gerencianet.code_status")[$pedido->cartao->status]]}}
+                                    @endif
+                                @endif
+                                @else
+                                    Consultar parcelas
                                 @endif
                             </div>
                         </div>
