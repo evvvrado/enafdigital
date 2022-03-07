@@ -216,7 +216,8 @@ class GerencianetRequisicaoBoleto{
               $api = new Gerencianet($this->options);
               $chargeNotification = $api->getNotification($params, []);
             // Para identificar o status atual da sua transação você deverá contar o número de situações contidas no array, pois a última posição guarda sempre o último status. Veja na um modelo de respostas na seção "Exemplos de respostas" abaixo.
-            
+            Log::channel('notificacoes')->info('NOTIFICAÇÃO ('.$token.'): ' . json_encode($chargeNotification));
+
             // Veja abaixo como acessar o ID e a String referente ao último status da transação.
               
               // Conta o tamanho do array data (que armazena o resultado)
