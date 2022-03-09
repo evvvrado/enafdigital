@@ -62,7 +62,7 @@ class GerencianetController extends Controller
                 'value' => $desconto
             ]);
             $gerencianet->addBoleto([
-                'expire_at' => date("Y-m-d", strtotime("+15 days")), // data de vencimento do titulo
+                'expire_at' => date("Y-m-d", strtotime("+3 days")), // data de vencimento do titulo
                 'message' => 'Acompanhe o status do seu pagamento no seu painel do cliente.', // mensagem a ser exibida no boleto
             ]);
             $res = $gerencianet->gerarBoleto();
