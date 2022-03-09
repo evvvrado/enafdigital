@@ -62,7 +62,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.clinicas') }}">Congres
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                                 <div class="dropdown-menu" style="margin: 0px;">
                                                     <a class="dropdown-item" href="{{ route('painel.clinicas.editar', ['evento' => $evento]) }}">Editar</a>
-                                                    <div class="dropdown-divider"></div>
+                                                    {{-- <div class="dropdown-divider"></div> --}}
                                                     {{-- <a class="dropdown-item" style="color: red" href="#">Excluir</a> --}}
                                                 </div>
                                             </div>

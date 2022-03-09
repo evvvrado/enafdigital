@@ -176,7 +176,7 @@
                                 </div>
                                 <div class="_text">
                                     <span>Cartão de Crédito</span>
-                                    <p>em até @if($configuracao->max_parcelas_cartao) {{$configuracao->max_parcelas_cartao}}x @else 10x @endif sem juros</p>
+                                    <p>em até @if($configuracao->max_parcelas_cartao) {{$configuracao->max_parcelas_cartao}}x @else 10x @endif</p>
                                 </div>
                             </div>
                             @endif
