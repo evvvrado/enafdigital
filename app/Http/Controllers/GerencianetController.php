@@ -159,7 +159,7 @@ class GerencianetController extends Controller
             // }
             Log::channel('boletos')->error('ERRO:' . json_encode($res));
             session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
-            return redirect()->route("site.carrinho.pagamento.boleto");
+            return redirect()->route("site.carrinho.pagamento.boleto", ['curso' => $curso]);
         }
     }
 
