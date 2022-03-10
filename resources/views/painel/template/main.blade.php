@@ -25,6 +25,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
     <link href="{{ asset('admin/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     @toastr_css
     @yield("styles")
+    @livewireStyles
+    @stack('styles')
 </head>
 
 <body data-sidebar="dark">
@@ -340,6 +342,16 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
 
                         </li>
 
+                        <li>
+                            <a href="javascript: void(0);" class="waves-effect">
+                                <i class="fas fa-tasks"></i>
+                                <span key="t-dashboards">Demandas</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('painel.demandas') }}" key="t-default">Consultar</a></li>
+                            </ul>
+
+                        </li>
 
 
                         <li class="menu-title" key="t-menu">Configurações</li>
@@ -529,6 +541,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
     <script src="{{ asset('admin/libs/node-waves/waves.min.js') }}"></script>
     @toastr_js
     @toastr_render
+    @livewireScripts
 
     <!-- dashboard init -->
     {{-- <script src="{{asset('admin/js/pages/dashboard.init.js')}}"></script> --}}

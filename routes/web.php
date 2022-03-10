@@ -302,6 +302,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/configuracoes/meios-pagamento', [\App\Http\Controllers\ConfiguracoesController::class, 'meios_pagamento'])->name("painel.configuracoes.meios-pagamento");
     Route::post('/sistema/configuracoes/meios-pagamento/salvar', [\App\Http\Controllers\ConfiguracoesController::class, 'meios_pagamento_salvar'])->name("painel.configuracoes.meios-pagamento.salvar");
 
+    // ROTAS DE DEMANDAS
+    Route::get('/sistema/demandas', [\App\Http\Controllers\DemandasController::class, 'consultar'])->name("painel.demandas");
+
     // ROTAS DE CURSOS
     Route::get('/sistema/cursos/api/getCurso/{curso}', [\App\Http\Controllers\CursosController::class, 'getCurso']);
     Route::match(['get', 'post'], '/sistema/cursos', [\App\Http\Controllers\CursosController::class, 'consultar'])->name("painel.cursos");
