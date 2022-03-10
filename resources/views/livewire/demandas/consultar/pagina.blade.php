@@ -12,12 +12,12 @@
                         @foreach ($demandas as $demanda)
                             <div class="accordion-item col-6 mb-3">
                                 <h2 class="accordion-header" id="demanda{{ $demanda->id }}">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseDemanda{{ $demanda->id }}" aria-expanded="true" aria-controls="collapseDemanda{{ $demanda->id }}">
                                         {{ $demanda->descricao }} @if($demanda->finalizada) <i class="fas fa-check-circle ms-4 fa-lg" style="color: green;"></i> @else <i class="fas fa-clock ms-4 fa-lg" style="color: orange;"></i> @endif
                                     </button>
                                 </h2>
-                                <div id="collapseDemanda{{ $demanda->id }}" class="accordion-collapse collapse show"
+                                <div id="collapseDemanda{{ $demanda->id }}" class="accordion-collapse collapse"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <table class="table" style="width: 100%;">

@@ -48,15 +48,15 @@ class Pagina extends Component
             $this->filtros[] = ["descricao", "LIKE", "%" . $this->descricao . "%"];
         }
 
-        if($this->solicitante_id && $this->solicitante_id != -1){
+        if($this->solicitante_id !== null && $this->solicitante_id != -1){
             $this->filtros[] = ["solicitante_id", "=", $this->solicitante_id];
         }
 
-        if($this->solicitado_id && $this->solicitado_id != -1){
-            $this->filtros[] = ["solicitado_id", "=", $this->solicitante_id];
+        if($this->solicitado_id !== null && $this->solicitado_id != -1){
+            $this->filtros[] = ["solicitado_id", "=", $this->solicitado_id];
         }
 
-        if($this->finalizada && $this->finalizada != -1){
+        if($this->finalizada !== null && $this->finalizada != -1){
             $this->filtros[] = ["finalizada", "=", $this->finalizada];
         }
 
