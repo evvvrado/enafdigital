@@ -38,6 +38,7 @@ class Pagina extends Component
         $demanda = Demanda::find($demanda);
         $demanda = $demanda->first();
         $demanda->finalizada = true;
+        $demanda->entrega = date("Y-m-d");
         $demanda->save();
     }
 
@@ -78,9 +79,9 @@ class Pagina extends Component
     {
         // dd($this->filtros);
         if($this->filtros){
-            $demandas = Demanda::where($this->filtros)->get();
+            $demandas = Demanda::where($this->filtros)->orderBy("created_at", "DESC")->get();
         }else{
-            $demandas = Demanda::all();
+            $demandas = Demanda::orderBy("created_at", "DESC")->get();
         }
         return view('livewire.demandas.consultar.pagina', ["demandas" => $demandas]);
     }
