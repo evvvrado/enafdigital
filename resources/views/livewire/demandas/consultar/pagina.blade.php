@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="accordion row">
                         @foreach ($demandas as $demanda)
-                            <div class="accordion-item col-6">
+                            <div class="accordion-item col-6 mb-3">
                                 <h2 class="accordion-header" id="demanda{{ $demanda->id }}">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseDemanda{{ $demanda->id }}" aria-expanded="true" aria-controls="collapseDemanda{{ $demanda->id }}">

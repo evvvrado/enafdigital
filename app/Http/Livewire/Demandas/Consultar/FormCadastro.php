@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Demanda;
 use Illuminate\Support\Facades\Storage;
+use App\Classes\Util;
 
 class FormCadastro extends Component
 {
@@ -77,7 +78,7 @@ class FormCadastro extends Component
 
         $demanda->estimativa = $this->estimativa;
         $demanda->save();
-
+        Util::limparLivewireTemp();
         $this->emit('atualizaConsulta');
         $this->dispatchBrowserEvent('fechaModalCadastro');
 
