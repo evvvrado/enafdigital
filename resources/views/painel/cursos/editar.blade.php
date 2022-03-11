@@ -217,7 +217,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                         @foreach(config("gateways.nomes") as $key => $gateway)
                                         <div>
                                             <div class="form-check mb-3 px-3">
-                                                <input class="form-check-input" type="radio" name="gateway_cartao" value="{{$key}}" @if($key==1) checked="" @endif>
+                                                <input class="form-check-input" type="radio" name="gateway_cartao" value="{{$key}}" @if($curso->gateway_cartao == $key) checked="" @endif>
                                                 <label class="form-check-label">
                                                     {{$gateway}}
                                                 </label>
