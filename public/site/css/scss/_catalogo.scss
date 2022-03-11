@@ -18,6 +18,8 @@ body#catalogo {
         position: relative;
 
         .container-fav {
+            position: relative;
+            z-index: 3;
             .buttonline {
                 @include flex(row, center, space-between);
                 gap: 1.3rem;
@@ -25,8 +27,6 @@ body#catalogo {
                 max-width: 51.2rem;
 
                 margin-top: 3rem;
-                position: relative;
-                z-index: 3;
 
                 a {
                     height: 6.2rem;
@@ -64,8 +64,11 @@ body#catalogo {
             height: 100%;
             width: 100%;
 
+            top: 0;
+            right: 0;
+
             z-index: 2;
-            background: radial-gradient(circle, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 1) 100%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
         }
 
         @include responsive(600px) {
