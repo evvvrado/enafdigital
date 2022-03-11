@@ -24,6 +24,8 @@ section.s_embaixadores {
                 overflow: hidden;
 
                 @include flex(row, center, center);
+
+                position: relative;
             }
 
             img {
@@ -39,6 +41,39 @@ section.s_embaixadores {
                 min-width: 100%;
                 min-height: 100%;
                 object-fit: cover;
+            }
+
+            span {
+                transition: 0.32s;
+                position: absolute;
+                bottom: 0;
+
+                opacity: 0;
+
+                height: 100%;
+                width: 100%;
+
+                background: rgba(0, 0, 0, 0.281);
+
+                color: white;
+
+                pointer-events: none;
+
+                text-align: center;
+
+                @include flex(row, flex-end, center);
+
+                padding-bottom: 30px;
+
+                font-size: 15px;
+
+                z-index: 2;
+            }
+
+            &:hover {
+                span {
+                    opacity: 1;
+                }
             }
 
             &::after {

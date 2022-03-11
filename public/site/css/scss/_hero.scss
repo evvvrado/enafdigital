@@ -63,6 +63,7 @@ section.s_hero {
     #clinica & {
         background-size: cover;
         background-position: center;
+        background-blend-mode: soft-light;
 
         .container-fav {
             @include flex(row, flex-end, flex-start);
@@ -245,9 +246,18 @@ section.s_backtoFeira {
                 line-height: 400%;
                 text-align: center;
 
-                &:first-child {
-                    color: $color-thirdy;
-                    border-bottom: solid 3px $color-thirdy;
+                body#feira & {
+                    &:first-child {
+                        color: $color-thirdy;
+                        border-bottom: solid 3px $color-thirdy;
+                    }
+                }
+
+                body#catalogo & {
+                    &:last-child {
+                        color: $color-thirdy;
+                        border-bottom: solid 3px $color-thirdy;
+                    }
                 }
             }
         }
