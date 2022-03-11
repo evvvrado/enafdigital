@@ -246,14 +246,14 @@ section.s_backtoFeira {
                 line-height: 400%;
                 text-align: center;
 
-                body#feira {
+                body#feira & {
                     &:first-child {
                         color: $color-thirdy;
                         border-bottom: solid 3px $color-thirdy;
                     }
                 }
 
-                body#catalogo {
+                body#catalogo & {
                     &:last-child {
                         color: $color-thirdy;
                         border-bottom: solid 3px $color-thirdy;
