@@ -282,6 +282,8 @@
         @foreach ($evento->participantes as $participante)
         <picture>
           <img src="{{ asset($participante->foto) }}" onclick="window.location.href = '{{ $participante->url }}'" title="{{ $participante->nome }}" alt="{{ $participante->nome }}" />
+
+          <span>{{$participante->nome}}</span>
         </picture>
         @endforeach
         {{-- <img src="{{ asset('site/img/pic_embaixador02.png') }}" onclick="" alt="Embaixador ENAF" />

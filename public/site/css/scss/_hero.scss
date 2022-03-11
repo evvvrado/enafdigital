@@ -245,9 +245,18 @@ section.s_backtoFeira {
                 line-height: 400%;
                 text-align: center;
 
-                &:first-child {
-                    color: $color-thirdy;
-                    border-bottom: solid 3px $color-thirdy;
+                body#feira {
+                    &:first-child {
+                        color: $color-thirdy;
+                        border-bottom: solid 3px $color-thirdy;
+                    }
+                }
+
+                body#catalogo {
+                    &:last-child {
+                        color: $color-thirdy;
+                        border-bottom: solid 3px $color-thirdy;
+                    }
                 }
             }
         }

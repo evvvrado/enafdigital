@@ -43,6 +43,31 @@
             </div>
         </section>
 
+
+        <section class="container-fluid s_backtoFeira">
+            <div class="container-fav">
+                <div class="_select" style="opacity: 0; pointer-events: none;">
+                    <div class="_icon">
+                        <img src="{{ asset('site/img/icon_filter.svg') }}" alt="Ícone de Filtro" />
+                    </div>
+                    <a>SELECIONAR SESSÃO</a>
+                </div>
+
+
+
+                <div class="_filters">
+                    <a href="{{route('site.feira')}}">
+                        Visite nossa feira
+                    </a>
+                    <a href="{{ route('site.catalogo')}}">Tenha nova experiência</a>
+                </div>
+            </div>
+
+
+
+        </section>
+
+
         {{--
         <section class="container-fluid s_catalogoList">
             <h2>Pilates</h2>
