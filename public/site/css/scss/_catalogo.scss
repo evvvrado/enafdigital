@@ -15,9 +15,9 @@ body#catalogo {
         background-image: url("../img/feira/catalogo/banner_hero.jpg");
         background-size: cover;
 
-        .container-fav {
-            position: relative;
+        position: relative;
 
+        .container-fav {
             .buttonline {
                 @include flex(row, center, space-between);
                 gap: 1.3rem;
@@ -56,16 +56,16 @@ body#catalogo {
                     }
                 }
             }
+        }
 
-            &::after {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: 100%;
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
 
-                z-index: 2;
-                background-color: radial-gradient(circle, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 1) 100%);
-            }
+            z-index: 2;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 1) 100%);
         }
 
         @include responsive(600px) {
