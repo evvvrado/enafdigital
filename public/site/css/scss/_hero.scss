@@ -214,6 +214,10 @@ section.s_backtoFeira {
     background: #f6f6f6;
     height: 8.4rem;
 
+    body#catalogo & {
+        background: #3c445b;
+    }
+
     .container-fav {
         @include flex(row, center, space-between);
         gap: 1rem;
