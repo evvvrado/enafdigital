@@ -63,6 +63,7 @@ section.s_hero {
     #clinica & {
         background-size: cover;
         background-position: center;
+        background-blend-mode: soft-light;
 
         .container-fav {
             @include flex(row, flex-end, flex-start);

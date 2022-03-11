@@ -34,6 +34,7 @@
                     max-width: 28rem;
                     overflow: hidden;
                     border-radius: 0.8rem;
+                    position: relative;
 
                     @include flex(row, flex-start, center);
 
