@@ -29,6 +29,13 @@
         </div>
         <div class="col-12">
             <div class="mb-3">
+              <label for="" class="form-label">Título</label>
+              <input type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" maxlength="255" placeholder="" wire:model='titulo'>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3">
               <label for="" class="form-label">Descrição</label>
               <input type="text"
                 class="form-control" name="" id="" aria-describedby="helpId" maxlength="255" placeholder="" wire:model='descricao'>
@@ -44,6 +51,17 @@
                     @endforeach
                 </select>
                 @error('setor') <span class="error">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="" class="form-label">Urgência</label>
+                <select class="form-control" name="" id="" wire:model='urgente'>
+                    {{-- <option value="-1">Selecione a urgência</option> --}}
+                    <option value="0">Sem Urgência</option>
+                    <option value="1">Urgente</option>
+                </select>
+                @error('urgente') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="col-12">

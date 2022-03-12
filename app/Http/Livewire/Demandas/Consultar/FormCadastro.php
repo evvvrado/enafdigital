@@ -21,6 +21,8 @@ class FormCadastro extends Component
     public $arquivo;
     public $estimativa;
     public $setor;
+    public $urgente;
+    public $titulo;
 
     protected $rules = [
         "solicitante_id" => "required|not_in: -1",
@@ -51,6 +53,8 @@ class FormCadastro extends Component
         $this->demanda_id = null;
         $this->arquivo = null;
         $this->setor = null;
+        $this->urgente = 0;
+        $this->titulo = null;
         $this->dispatchBrowserEvent("abreModalCadastro");
     }
 
@@ -63,6 +67,8 @@ class FormCadastro extends Component
         $this->estimativa = $demanda->estimativa;
         $this->demanda_id = $demanda->id;
         $this->setor = $demanda->setor;
+        $this->urgente = $demanda->urgente;
+        $this->titulo = $demanda->titulo;
         $this->dispatchBrowserEvent("abreModalCadastro");
     }
 
@@ -75,8 +81,10 @@ class FormCadastro extends Component
         }
         $demanda->solicitante_id = $this->solicitante_id;
         $demanda->solicitado_id = $this->solicitado_id;
+        $demanda->titulo = $this->titulo;
         $demanda->descricao = $this->descricao;
         $demanda->setor = $this->setor;
+        $demanda->urgente = $this->urgente;
 
         if($this->arquivo){
             Storage::delete($demanda->arquivo);
@@ -94,6 +102,8 @@ class FormCadastro extends Component
         $this->descricao = null;
         $this->arquivo = null;
         $this->estimativa = null;
+        $this->titulo = null;
+        $this->urgente = 0;
         $this->demanda_id = null;
     }
 

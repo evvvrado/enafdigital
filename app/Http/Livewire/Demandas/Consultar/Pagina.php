@@ -15,6 +15,8 @@ class Pagina extends Component
     public $solicitado_id;
     public $finalizada;
     public $estimativa;
+    public $titulo;
+    public $urgente;
     public $filtros;
     public $setor;
 
@@ -51,6 +53,10 @@ class Pagina extends Component
 
     public function setFiltros(){
         $this->filtros = [];
+
+        if($this->titulo){
+            $this->filtros[] = ["titulo", "LIKE", "%" . $this->titulo . "%"];
+        }
         
         if($this->descricao){
             $this->filtros[] = ["descricao", "LIKE", "%" . $this->descricao . "%"];
@@ -62,6 +68,10 @@ class Pagina extends Component
 
         if($this->solicitado_id !== null && $this->solicitado_id != -1){
             $this->filtros[] = ["solicitado_id", "=", $this->solicitado_id];
+        }
+
+        if($this->urgente !== null && $this->urgente != -1){
+            $this->filtros[] = ["urgente", "=", $this->urgente];
         }
 
         if($this->finalizada !== null && $this->finalizada != -1){

@@ -1,7 +1,21 @@
 <div class="row">
 
-    <div class="col-12 mb-4">
-        <a name="" id="" class="btn btn-primary" wire:click="$emit('carregaModalCadastro')">Nova Demanda</a>
+    <div class="col-12 d-flex flex-row align-items-center mb-4">
+        <div>
+            <a name="" id="" class="btn btn-primary" wire:click="$emit('carregaModalCadastro')">Nova Demanda</a>
+        </div>
+        <div class="ms-5">
+            <i class="fas fa-check-circle fa-lg" style="color: green;"></i> Demanda Concluída
+        </div>
+        <div class="ms-3">
+            <i class="fas fa-clock fa-lg" style="color: orange;"></i> Demanda em andamento
+        </div>
+        <div class="ms-3">
+            <i class="fas fa-exclamation-circle fa-lg" style="color: orange;"></i> Demanda Urgente
+        </div>
+        <div class="ms-3 d-flex align-items-center">
+            <button class="px-3 py-2 me-2" style="background-color: red; border: 1px solid red; border-radius: 5px;"></button> Prazo vencido
+        </div>
     </div>
     <hr>
     <div class="col-12">
@@ -12,9 +26,9 @@
                         @foreach ($demandas as $demanda)
                             <div class="accordion-item col-6 mb-3">
                                 <h2 class="accordion-header" id="demanda{{ $demanda->id }}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button @if($demanda->estimativa < date("Y-m-d") && !$demanda->finalizada) vencida @endif collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseDemanda{{ $demanda->id }}" aria-expanded="true" aria-controls="collapseDemanda{{ $demanda->id }}">
-                                        {{ $demanda->descricao }} @if($demanda->finalizada) <i class="fas fa-check-circle ms-4 fa-lg" style="color: green;"></i> @else <i class="fas fa-clock ms-4 fa-lg" style="color: orange;"></i> @endif
+                                        {{ $demanda->titulo }} @if($demanda->finalizada) <i class="fas fa-check-circle ms-4 fa-lg" style="color: green;"></i> @else <i class="fas fa-clock ms-4 fa-lg" style="color: orange;"></i> @endif @if($demanda->urgente) <i class="fas fa-exclamation-circle fa-lg mx-3" style="color: orange;"></i> @endif
                                     </button>
                                 </h2>
                                 <div id="collapseDemanda{{ $demanda->id }}" class="accordion-collapse collapse"
@@ -22,6 +36,9 @@
                                     <div class="accordion-body">
                                         <table class="table" style="width: 100%;">
                                             <tbody>
+                                                <tr>
+                                                    <td colspan="4">{{ $demanda->descricao }}</td>
+                                                </tr>
                                                 <tr>
                                                     <td><b>Solicitante</b></td>
                                                     <td>{{ $demanda->solicitante->nome }}</td>
@@ -75,6 +92,10 @@
                         <form id="form-filtro" method="POST">
                             @csrf
                             <div class="mb-3">
+                                <label>Título</label>
+                                <input type="text" class="form-control" wire:model="titulo">
+                            </div>
+                            <div class="mb-3">
                                 <label>Descriçao</label>
                                 <input type="text" class="form-control" wire:model="descricao">
                             </div>
@@ -103,6 +124,16 @@
                                     <option value="0">Em aberto</option>
                                     <option value="1">Finalizado</option>
                                 </select>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Urgência</label>
+                                    <select class="form-control" name="" id="" wire:model='urgente'>
+                                        <option value="-1">Selecione a Urgência</option>
+                                        <option value="0">Sem Urgência</option>
+                                        <option value="1">Urgente</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label>Estimativa de Entrega</label>
@@ -146,7 +177,13 @@
             color: white;
             border-color: #2db83d;
         }
-
+        .accordion-button.vencida{
+            background-color:#ff0000 !important;
+            color: white !important;
+        }
+        .accordion-button.vencida::after{
+            filter: brightness(100);
+        }
     </style>
 @endpush
 
