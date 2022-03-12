@@ -8,12 +8,22 @@
                 @if($comentarios)
                     @foreach($comentarios as $comentario)
                         <div class="row mb-4">
-                            <div class="d-flex @if($comentario->usuario_id == session()->get('usuario')['id']) justify-content-end @else justify-content-start @endif">
+                            <div class="d-flex align-items-center @if($comentario->usuario_id == session()->get('usuario')['id']) justify-content-end @else justify-content-start @endif">
+                                @if($comentario->usuario_id != session()->get('usuario')['id'])
+                                    <div class="me-3">
+                                        <img src="{{ asset($comentario->usuario->foto) }}" style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                    </div>
+                                @endif
                                 <div class="@if($comentario->usuario_id == session()->get('usuario')['id']) comentario-proprio @else comentario-outros @endif text-end">
                                     <b>{{ $comentario->usuario->nome }}</b>
                                     <p>{{ $comentario->conteudo }}</p>
                                     <small>{{ date("d/m/Y H:i:s", strtotime($comentario->created_at)) }}</small>
                                 </div>
+                                @if($comentario->usuario_id == session()->get('usuario')['id'])
+                                    <div class="ms-3">
+                                        <img src="{{ asset($comentario->usuario->foto) }}" style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach
