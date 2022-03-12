@@ -36,6 +36,18 @@
         </div>
         <div class="col-12">
             <div class="mb-3">
+                <label for="" class="form-label">Setor</label>
+                <select class="form-control" name="" id="" wire:model='setor'>
+                    <option value="-1">Selecione o setor</option>
+                    @foreach(config("demandas.setores") as $key => $setor)
+                        <option value="{{ $key }}">{{ $setor }}</option>
+                    @endforeach
+                </select>
+                @error('setor') <span class="error">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="mb-3">
               <label for="" class="form-label">Estimativa de Entrega</label>
               <input type="date" class="form-control" min="{{ date('Y-m-d') }}" required wire:model='estimativa'>
             </div>

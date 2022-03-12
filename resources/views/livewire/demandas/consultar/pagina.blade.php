@@ -4,6 +4,12 @@
         <a name="" id="" class="btn btn-primary" wire:click="$emit('carregaModalCadastro')">Nova Demanda</a>
     </div>
     <hr>
+    <div class="col-12 mb-4">
+        <a name="" id="" class="btn btn-primary btn-setor @if($setor == 0) ativo @endif" wire:click="trocaSetor(0)">Sócios</a>
+        <a name="" id="" class="btn btn-primary btn-setor @if($setor == 1) ativo @endif" wire:click="trocaSetor(1)">Gerência</a>
+        <a name="" id="" class="btn btn-primary btn-setor @if($setor == 2) ativo @endif" wire:click="trocaSetor(2)">Sistema</a>
+        <a name="" id="" class="btn btn-primary btn-setor @if($setor == 3) ativo @endif" wire:click="trocaSetor(3)">Mini Contratos</a>
+    </div>
     <div class="col-12">
         <div class="row">
             <div class="col-9">
@@ -41,9 +47,13 @@
                                         </table>
                                         <div class="row">
                                             <div class="col-12 text-center">
-                                                <i class="fas fa-edit fa-lg cpointer" wire:click='editar("{{ $demanda->id }}")' style="color: orange;"></i>
+                                                @if($demanda->setor != 3) <i class="fas fa-edit fa-lg cpointer" wire:click='editar("{{ $demanda->id }}")' style="color: orange;"></i> @endif
                                                 <i class="fas fa-times-circle ms-3 fa-lg cpointer" wire:click='excluir("{{ $demanda->id }}")' style="color: red;"></i>
                                                 <i class="fas fa-check ms-3 fa-lg cpointer" wire:click='finalizar("{{ $demanda->id }}")' style="color: green;"></i>
+                                                <button type="button" class="btn header-item noti-icon waves-effect" wire:click="$emit('carregaModalComentarios', {{ $demanda->id }})">
+                                                    <i class="bx bx-message-alt-dots" style="color: darkcyan"></i>
+                                                    <span class="badge bg-danger rounded-pill">0</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -131,5 +141,21 @@
             padding: 10px;
         }
 
+        .btn-setor.ativo{
+            background-color: #2db83d;
+            color: white;
+            border-color: #2db83d;
+        }
+
     </style>
+@endpush
+
+@push('scripts')
+
+    <script>
+        window.addEventListener('abreModalComentarios', (event) => {
+            $("#modalComentarios").modal("show");
+        });
+    </script>
+
 @endpush

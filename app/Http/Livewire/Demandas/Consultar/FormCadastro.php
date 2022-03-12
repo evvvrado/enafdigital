@@ -20,10 +20,12 @@ class FormCadastro extends Component
     public $descricao;
     public $arquivo;
     public $estimativa;
+    public $setor;
 
     protected $rules = [
         "solicitante_id" => "required|not_in: -1",
         "solicitado_id" => "required|not_in: -1",
+        "setor" => "required|not_in: -1",
     ];
 
     protected $messages = [
@@ -31,6 +33,8 @@ class FormCadastro extends Component
         "solicitado_id.required" => "Selecione um solicitado",
         "solicitante_id.not_in" => "Selecione um solicitante",
         "solicitado_id.not_in" => "Selecione um solicitado",
+        "setor.required" => "Selecione um setor",
+        "setor.not_in" => "Selecione um setor",
     ];
 
     protected $listeners = ["carregaModalEdicao", "carregaModalCadastro"];
@@ -46,6 +50,7 @@ class FormCadastro extends Component
         $this->estimativa = null;
         $this->demanda_id = null;
         $this->arquivo = null;
+        $this->setor = null;
         $this->dispatchBrowserEvent("abreModalCadastro");
     }
 
@@ -57,6 +62,7 @@ class FormCadastro extends Component
         $this->descricao = $demanda->descricao;
         $this->estimativa = $demanda->estimativa;
         $this->demanda_id = $demanda->id;
+        $this->setor = $demanda->setor;
         $this->dispatchBrowserEvent("abreModalCadastro");
     }
 
@@ -70,6 +76,7 @@ class FormCadastro extends Component
         $demanda->solicitante_id = $this->solicitante_id;
         $demanda->solicitado_id = $this->solicitado_id;
         $demanda->descricao = $this->descricao;
+        $demanda->setor = $this->setor;
 
         if($this->arquivo){
             Storage::delete($demanda->arquivo);

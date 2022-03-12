@@ -16,11 +16,13 @@ class Pagina extends Component
     public $finalizada;
     public $estimativa;
     public $filtros;
+    public $setor;
 
     protected $listeners = ["atualizaConsulta" => '$refresh'];
 
     public function mount($usuarios){
         $this->usuarios = $usuarios;
+        $this->setor = 0;
     }
 
     public function editar($demenda){
@@ -40,6 +42,10 @@ class Pagina extends Component
         $demanda->finalizada = true;
         $demanda->entrega = date("Y-m-d");
         $demanda->save();
+    }
+
+    public function trocaSetor($setor){
+        $this->setor = $setor;
     }
 
     public function setFiltros(){
@@ -64,6 +70,8 @@ class Pagina extends Component
         if($this->estimativa){
             $this->filtros[] = ["estimativa", "=", $this->estimativa];
         }
+
+        $this->filtros[] = ["setor", "=", $this->setor];
     }
 
     public function limpaFiltros(){
@@ -81,7 +89,7 @@ class Pagina extends Component
         if($this->filtros){
             $demandas = Demanda::where($this->filtros)->orderBy("created_at", "DESC")->get();
         }else{
-            $demandas = Demanda::orderBy("created_at", "DESC")->get();
+            $demandas = Demanda::where("setor", $this->setor)->orderBy("created_at", "DESC")->get();
         }
         return view('livewire.demandas.consultar.pagina', ["demandas" => $demandas]);
     }
