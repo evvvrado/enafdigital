@@ -46,6 +46,7 @@ class Pagina extends Component
 
     public function trocaSetor($setor){
         $this->setor = $setor;
+        $this->limpaFiltros();
     }
 
     public function setFiltros(){
