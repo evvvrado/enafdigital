@@ -63,7 +63,7 @@ $isApp = true;
               <img src="{{ asset('site/img/icon_googleplay.svg') }}" alt="Ícone de Cursor" />
             </div>
 
-            <a href="{{ $anunciante->expositor->site }}" target="_blank">Baixar no Google Play</a>
+            <a href="{{ $anunciante->expositor->email }}" target="_blank">Baixar no Google Play</a>
           </span>
 
           <span>
@@ -71,7 +71,7 @@ $isApp = true;
               <img src="{{ asset('site/img/icon_appstore.svg') }}" alt="Ícone de Evenelope" />
             </div>
 
-            <a href="{{ $anunciante->expositor->email }}">Baixar na App Store</a>
+            <a href="{{ $anunciante->expositor->site }}">Baixar na App Store</a>
           </span>
         </div>
       </div>
@@ -91,13 +91,13 @@ $isApp = true;
           <span>{{ $expositor->nome }}</span>
           <ul>
             <li>
-              <a href="{{ $expositor->site }}">
+              <a href="{{ $expositor->email }}">
                 <img style="display: unset;" src="{{ asset('/site/img/icon_googleplay.svg') }}" alt="Ícone">
               </a>
             </li>
 
             <li>
-              <a href="{{ $expositor->email }}">
+              <a href="{{ $expositor->site }}">
                 <img style="display: unset;" src="{{ asset('/site/img/icon_appstore.svg') }}" alt="Ícone">
               </a>
             </li>
