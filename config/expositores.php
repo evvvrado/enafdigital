@@ -23,7 +23,7 @@ return [
         19 => 'Entidades e Sindicatos',
         20 => 'Equipamentos Ar livre',
         21 => 'Equipamento Articulado',
-        22 => 'Equipamentos Box / Funcional',
+        22 => 'Equipamentos Box e Funcional',
         23 => 'Equipamentos Cardio',
         24 => 'Equipamentos Musculação',
         25 => 'Universor Bike',
@@ -54,5 +54,7 @@ return [
         50 => 'Universidades',
         51 => 'Tecnologia',
         52 => 'Moda Vestuário',
+        53 => 'Piscina',
+        54 => 'ENAF DIGITAL',
     ],
 ];

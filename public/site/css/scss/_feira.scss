@@ -1015,6 +1015,7 @@ div._aFeira {
                 // margin-right: 1.6rem;
 
                 background: url("../img/feira/content_border.svg");
+                background-position: 4px 6px;
 
                 @include flex(row, center, center);
 
@@ -1335,6 +1336,7 @@ div._aFeira {
 
                     &::after {
                         top: 12.5rem;
+                        left: 0;
                         content: url("../img/feira/content_details_1150.png");
                     }
                 }
@@ -1361,7 +1363,7 @@ div._aFeira {
                     &::after {
                         content: "";
                         left: -11px;
-                        top: 4px;
+                        top: -5px;
                         width: 100%;
                         height: 100%;
 
