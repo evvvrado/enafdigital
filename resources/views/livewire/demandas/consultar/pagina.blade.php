@@ -1,7 +1,21 @@
 <div class="row">
 
-    <div class="col-12 mb-4">
-        <a name="" id="" class="btn btn-primary" wire:click="$emit('carregaModalCadastro')">Nova Demanda</a>
+    <div class="col-12 d-flex flex-row align-items-center mb-4">
+        <div>
+            <a name="" id="" class="btn btn-primary" wire:click="$emit('carregaModalCadastro')">Nova Demanda</a>
+        </div>
+        <div class="ms-5">
+            <i class="fas fa-check-circle fa-lg" style="color: green;"></i> Demanda Concluída
+        </div>
+        <div class="ms-3">
+            <i class="fas fa-clock fa-lg" style="color: orange;"></i> Demanda em andamento
+        </div>
+        <div class="ms-3">
+            <i class="fas fa-exclamation-circle fa-lg" style="color: orange;"></i> Demanda Urgente
+        </div>
+        <div class="ms-3 d-flex align-items-center">
+            <button class="px-3 py-2 me-2" style="background-color: red; border: 1px solid red; border-radius: 5px;"></button> Prazo vencido
+        </div>
     </div>
     <hr>
     <div class="col-12">
@@ -12,9 +26,9 @@
                         @foreach ($demandas as $demanda)
                             <div class="accordion-item col-6 mb-3">
                                 <h2 class="accordion-header" id="demanda{{ $demanda->id }}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button @if($demanda->estimativa < date("Y-m-d") && !$demanda->finalizada) vencida @endif collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseDemanda{{ $demanda->id }}" aria-expanded="true" aria-controls="collapseDemanda{{ $demanda->id }}">
-                                        {{ $demanda->descricao }} @if($demanda->finalizada) <i class="fas fa-check-circle ms-4 fa-lg" style="color: green;"></i> @else <i class="fas fa-clock ms-4 fa-lg" style="color: orange;"></i> @endif
+                                        {{ $demanda->titulo }} @if($demanda->finalizada) <i class="fas fa-check-circle ms-4 fa-lg" style="color: green;"></i> @else <i class="fas fa-clock ms-4 fa-lg" style="color: orange;"></i> @endif @if($demanda->urgente) <i class="fas fa-exclamation-circle fa-lg mx-3" style="color: orange;"></i> @endif
                                     </button>
                                 </h2>
                                 <div id="collapseDemanda{{ $demanda->id }}" class="accordion-collapse collapse"
@@ -22,6 +36,9 @@
                                     <div class="accordion-body">
                                         <table class="table" style="width: 100%;">
                                             <tbody>
+                                                <tr>
+                                                    <td colspan="4">{{ $demanda->descricao }}</td>
+                                                </tr>
                                                 <tr>
                                                     <td><b>Solicitante</b></td>
                                                     <td>{{ $demanda->solicitante->nome }}</td>
@@ -41,9 +58,13 @@
                                         </table>
                                         <div class="row">
                                             <div class="col-12 text-center">
-                                                <i class="fas fa-edit fa-lg cpointer" wire:click='editar("{{ $demanda->id }}")' style="color: orange;"></i>
-                                                <i class="fas fa-times-circle ms-3 fa-lg cpointer" wire:click='excluir("{{ $demanda->id }}")' style="color: red;"></i>
+                                                @if($demanda->setor != 3) <i class="fas fa-edit fa-lg cpointer" wire:click='editar("{{ $demanda->id }}")' style="color: orange;"></i> @endif
+                                                {{-- <i class="fas fa-times-circle ms-3 fa-lg cpointer" wire:click='excluir("{{ $demanda->id }}")' style="color: red;"></i> --}}
                                                 <i class="fas fa-check ms-3 fa-lg cpointer" wire:click='finalizar("{{ $demanda->id }}")' style="color: green;"></i>
+                                                <button type="button" class="btn header-item noti-icon waves-effect" wire:click="$emit('carregaModalComentarios', {{ $demanda->id }})">
+                                                    <i class="bx bx-message-alt-dots" style="color: darkcyan"></i>
+                                                    <span class="badge bg-danger rounded-pill">{{ $demanda->comentarios->count() }}</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -60,10 +81,20 @@
                     <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;"
                         href="">Filtros</a>
                 </div>
+                <div class="col-12 mb-4">
+                    <a name="" id="" class="btn btn-primary btn-setor @if($setor == 0) ativo @endif" wire:click="trocaSetor(0)">Sócios</a>
+                    <a name="" id="" class="btn btn-primary btn-setor @if($setor == 1) ativo @endif" wire:click="trocaSetor(1)">Gerência</a>
+                    <a name="" id="" class="btn btn-primary btn-setor @if($setor == 2) ativo @endif" wire:click="trocaSetor(2)">Sistema</a>
+                    <a name="" id="" class="btn btn-primary btn-setor @if($setor == 3) ativo @endif" wire:click="trocaSetor(3)">Mini Contratos</a>
+                </div>
                 <div class="card filter-body">
                     <div class="card-body">
                         <form id="form-filtro" method="POST">
                             @csrf
+                            <div class="mb-3">
+                                <label>Título</label>
+                                <input type="text" class="form-control" wire:model="titulo">
+                            </div>
                             <div class="mb-3">
                                 <label>Descriçao</label>
                                 <input type="text" class="form-control" wire:model="descricao">
@@ -93,6 +124,16 @@
                                     <option value="0">Em aberto</option>
                                     <option value="1">Finalizado</option>
                                 </select>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Urgência</label>
+                                    <select class="form-control" name="" id="" wire:model='urgente'>
+                                        <option value="-1">Selecione a Urgência</option>
+                                        <option value="0">Sem Urgência</option>
+                                        <option value="1">Urgente</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label>Estimativa de Entrega</label>
@@ -131,5 +172,27 @@
             padding: 10px;
         }
 
+        .btn-setor.ativo{
+            background-color: #2db83d;
+            color: white;
+            border-color: #2db83d;
+        }
+        .accordion-button.vencida{
+            background-color:#ff0000 !important;
+            color: white !important;
+        }
+        .accordion-button.vencida::after{
+            filter: brightness(100);
+        }
     </style>
+@endpush
+
+@push('scripts')
+
+    <script>
+        window.addEventListener('abreModalComentarios', (event) => {
+            $("#modalComentarios").modal("show");
+        });
+    </script>
+
 @endpush

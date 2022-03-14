@@ -15,12 +15,16 @@ class Pagina extends Component
     public $solicitado_id;
     public $finalizada;
     public $estimativa;
+    public $titulo;
+    public $urgente;
     public $filtros;
+    public $setor;
 
     protected $listeners = ["atualizaConsulta" => '$refresh'];
 
     public function mount($usuarios){
         $this->usuarios = $usuarios;
+        $this->setor = 0;
     }
 
     public function editar($demenda){
@@ -42,8 +46,17 @@ class Pagina extends Component
         $demanda->save();
     }
 
+    public function trocaSetor($setor){
+        $this->setor = $setor;
+        $this->limpaFiltros();
+    }
+
     public function setFiltros(){
         $this->filtros = [];
+
+        if($this->titulo){
+            $this->filtros[] = ["titulo", "LIKE", "%" . $this->titulo . "%"];
+        }
         
         if($this->descricao){
             $this->filtros[] = ["descricao", "LIKE", "%" . $this->descricao . "%"];
@@ -57,6 +70,10 @@ class Pagina extends Component
             $this->filtros[] = ["solicitado_id", "=", $this->solicitado_id];
         }
 
+        if($this->urgente !== null && $this->urgente != -1){
+            $this->filtros[] = ["urgente", "=", $this->urgente];
+        }
+
         if($this->finalizada !== null && $this->finalizada != -1){
             $this->filtros[] = ["finalizada", "=", $this->finalizada];
         }
@@ -64,6 +81,8 @@ class Pagina extends Component
         if($this->estimativa){
             $this->filtros[] = ["estimativa", "=", $this->estimativa];
         }
+
+        $this->filtros[] = ["setor", "=", $this->setor];
     }
 
     public function limpaFiltros(){
@@ -81,7 +100,7 @@ class Pagina extends Component
         if($this->filtros){
             $demandas = Demanda::where($this->filtros)->orderBy("created_at", "DESC")->get();
         }else{
-            $demandas = Demanda::orderBy("created_at", "DESC")->get();
+            $demandas = Demanda::where("setor", $this->setor)->orderBy("created_at", "DESC")->get();
         }
         return view('livewire.demandas.consultar.pagina', ["demandas" => $demandas]);
     }

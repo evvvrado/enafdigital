@@ -16,4 +16,8 @@ class Demanda extends Model
     public function solicitado(){
         return $this->belongsTo(Usuario::class, "solicitado_id", "id");
     }
+
+    public function comentarios(){
+        return $this->hasMany(DemandaComentario::class);
+    }
 }

@@ -549,6 +549,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
     <!-- App js -->
     <script src="{{ asset('admin/js/app.js') }}"></script>
     @yield("scripts")
+    @stack("scripts")
 </body>
 
 </html>
