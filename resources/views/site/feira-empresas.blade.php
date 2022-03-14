@@ -2,18 +2,18 @@
 
 @php
 $categorias = config('expositores.categorias_nome');
-$categoriaid = $expositores->first();
+$expositor = $expositores->first();
 $isApp = false;
 
 
 
-if($categoriaid == 6){
+if($expositor->categoria == 6){
 $isApp = true;
 }
 @endphp
 
-@if ($categoriaid)
-<title>ENAF - {{ $categorias[$categoriaid->categoria] }}</title>
+@if ($expositor)
+<title>ENAF - {{ $categorias[$expositor->categoria] }}</title>
 @else
 <title>ENAF - Vazio</title>
 @endif
@@ -63,7 +63,7 @@ $isApp = true;
               <img src="{{ asset('site/img/icon_googleplay.svg') }}" alt="Ícone de Cursor" />
             </div>
 
-            <a href="{{ $anunciante->expositor->site }}" target="_blank">{{ $anunciante->expositor->site }}</a>
+            <a href="{{ $anunciante->expositor->site }}" target="_blank">Baixar no Google Play</a>
           </span>
 
           <span>
@@ -71,7 +71,7 @@ $isApp = true;
               <img src="{{ asset('site/img/icon_appstore.svg') }}" alt="Ícone de Evenelope" />
             </div>
 
-            <a href="{{ $anunciante->expositor->email }}">{{ $anunciante->expositor->email }}</a>
+            <a href="{{ $anunciante->expositor->email }}">Baixar na App Store</a>
           </span>
         </div>
       </div>
@@ -90,8 +90,17 @@ $isApp = true;
         <div>
           <span>{{ $expositor->nome }}</span>
           <ul>
-            <li><a href="{{ $expositor->site }}">{{ $expositor->site }}</a></li>
-            <li><a href="{{ $expositor->email }}">{{ $expositor->email }}</a></li>
+            <li>
+              <a href="{{ $expositor->site }}">
+                <img style="display: unset;" src="{{ asset('/site/img/icon_googleplay.svg') }}" alt="Ícone">
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ $expositor->email }}">
+                <img style="display: unset;" src="{{ asset('/site/img/icon_appstore.svg') }}" alt="Ícone">
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -111,24 +120,24 @@ $isApp = true;
         @foreach ($expositores->where("destaque", false) as $expositor)
 
         <li>
-          <a href="{{ $expositor->site }}">
+          <a href="#">
             <span>{{ $expositor->nome }}</span>
 
 
 
-            <legend>
+            <legend onclick="window.open('{{ $expositor->site }}')">
               <div class="_icon">
                 <img src="{{ asset('/site/img/icon_appstore.svg') }}" alt="Ícone">
               </div>
-              {{ $expositor->email }}
+              Baixar na Appstore
             </legend>
 
 
-            <legend>
+            <legend onclick="window.open('{{ $expositor->email }}')">
               <div class="_icon">
                 <img src="{{ asset('/site/img/icon_googleplay.svg') }}" alt="Ícone">
               </div>
-              {{ $expositor->site }}
+              Baixar na Google Play
             </legend>
           </a>
         </li>
