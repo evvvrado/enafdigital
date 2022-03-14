@@ -17,7 +17,7 @@ return [
         13 => 'Catracas',
         14 => 'Comunicação Visual',
         15 => 'Consultoria Jurídica',
-        16 => 'Convênios - Planos de saúde',
+        16 => 'Convênios e Planos de saúde',
         17 => 'Corretora de Seguros',
         18 => 'Entidades Bancarias',
         19 => 'Entidades e Sindicatos',

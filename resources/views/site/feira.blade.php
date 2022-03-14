@@ -1226,7 +1226,8 @@
                             <path d="M150.344 207.211L0.00141907 207.211L0.00142012 20.6242L17.578 42.2562L150.344 207.211Z" fill="#85C70B"
                                 onclick="window.location.href = '{{route('site.feiraEmpresas', 'pass-diarias')}}'" />
 
-                            <rect x="778.613" y="0.416016" width="235.001" height="198.963" fill="#DEC300" />
+                            <rect x="778.613" y="0.416016" width="235.001" height="198.963" fill="#DEC300"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamentos-musculacao')}}'" />
 
 
                             <path d="M1048.11 0.416016H1193.64L1137.74 74.8602L1048.11 199.379V0.416016Z" fill="#DEC300"
@@ -1287,7 +1288,7 @@
                             <path d="M0 731H203.569V843.745H0V731Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'acessorios-fisioterapia')}}'" />
 
 
-                            <path d="M239 688H474V900H239V688Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'nutricao-exportiva')}}'" />
+                            <path d="M239 688H474V900H239V688Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'nutricao-sportiva')}}'" />
 
 
                             <path d="M0 594H203.569V706.745H0V594Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'acessorios-fitness')}}'" />
