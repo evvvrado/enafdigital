@@ -1434,65 +1434,195 @@
                         </svg> --}}
 
                         <svg class="mobile-style" style="display:none;" width="332" height="1121" viewBox="0 0 332 1121" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="107" y="2" width="104" height="52" fill="#DEC300" />
-                            <path d="M13.3359 2H91.1978V94.0646H87.2124L13.3359 2Z" fill="#DEC300" />
-                            <path d="M67.4023 94.0644L0.470167 94.0644L0.470168 10.9963L8.29524 20.6269L67.4023 94.0644Z" fill="#85C70B" />
-                            <rect x="107" y="63" width="105" height="45" fill="#DEC300" />
-                            <path d="M331.457 535.078L226.835 535.078L226.835 495.456L331.457 495.456L331.457 524.424L331.457 535.078Z" fill="#08ADDA" />
-                            <path d="M285.152 479.949L226.836 479.949L226.836 440.327L243.671 440.327L274.063 469.295L285.152 479.949Z" fill="#08ADDA" />
-                            <path d="M252.371 440.328H331.454V479.95H293.498L266.99 454.352L252.371 440.328Z" fill="#08ADDA" />
-                            <rect x="227" y="551" width="104" height="25" fill="#08ADDA" />
-                            <rect x="227" y="588" width="104" height="25" fill="#08ADDA" />
-                            <path d="M121 588H211V613H107L121 588Z" fill="#08ADDA" />
-                            <path d="M211 613H107V656H211V613Z" fill="#08ADDA" />
-                            <rect x="227" y="625" width="104" height="25" fill="#08ADDA" />
-                            <rect x="227" width="104" height="25" fill="#DEC300" />
-                            <rect x="227" y="662" width="104" height="25" fill="#08ADDA" />
-                            <rect x="227" y="37" width="104" height="25" fill="#DEC300" />
-                            <rect x="227" y="111" width="104" height="25" fill="#DEC300" />
-                            <rect x="107" y="662" width="104" height="25" fill="#08ADDA" />
-                            <rect x="227" y="699" width="104" height="25" fill="#08ADDA" />
-                            <rect x="227" y="74" width="104" height="25" fill="#DEC300" />
-                            <rect x="227" y="148" width="104" height="25" fill="#DEC300" />
-                            <rect x="107" y="699" width="104" height="25" fill="#08ADDA" />
-                            <rect y="182" width="91" height="90" fill="#85C70B" />
-                            <path d="M107.082 435.221H211.328L107.082 575.838V435.221Z" fill="#85C70B" />
-                            <path d="M106.703 272.831L211.325 272.831L211.325 272.832L106.703 143.556L106.703 272.831Z" fill="#85C70B" />
-                            <path d="M211.328 578.145L124.633 578.145L153.072 539.746L211.328 461.079L211.328 578.145Z" fill="#08ADDA" />
-                            <path d="M211.328 118.32L106.706 118.321L211.328 247.989L211.328 118.32Z" fill="#DEC300" />
-                            <path d="M0.46875 109.568H80.2661L91.0972 123.521V173H0.46875V109.568Z" fill="#85C70B" />
-                            <rect y="287" width="91" height="40" fill="#85C70B" />
-                            <rect x="107" y="285" width="104" height="136" fill="#85C70B" />
-                            <rect y="456" width="91" height="45" fill="#85C70B" />
-                            <rect y="513" width="91" height="45" fill="#85C70B" />
-                            <rect y="398" width="91" height="45" fill="#85C70B" />
-                            <rect y="340" width="91" height="45" fill="#85C70B" />
-                            <path d="M0.46875 568H91.0972V597.262L0.46875 723.294V568Z" fill="#85C70B" />
-                            <path d="M91.1989 723.293L17.6128 722.748L57.5199 668.932L91.1992 623.568L91.1989 723.293Z" fill="#08ADDA" />
-                            <rect x="227" y="185" width="104.622" height="89.2779" fill="#DEC300" />
-                            <path d="M239.168 282.701H323.962L292.536 325.173L283.431 337.493L239.168 282.701Z" fill="#DEC300" />
-                            <path d="M226.832 413.812L226.832 292.205L259.786 332.996L273.801 350.464L226.832 413.812Z" fill="#85C70B" />
-                            <path d="M236.334 421.017L331.471 295.348V421.017H243H236.334Z" fill="#DEC300" />
-                            <rect y="739" width="91" height="40" fill="#08ADDA" />
-                            <rect y="784" width="91" height="40" fill="#08ADDA" />
-                            <path d="M106.535 738.822H162.963L141.29 767.687L106.535 815.967V738.822Z" fill="#1AC7D6" />
-                            <path d="M0.164062 829.383H91.2824V833.35L57.6637 878.136H0.164062V829.383Z" fill="#1AC7D6" />
-                            <rect x="268.426" y="844.314" width="63.0289" height="54.8367" fill="#1AC7D6" />
-                            <rect x="268.426" y="912.652" width="63.0289" height="54.8367" fill="#1AC7D6" />
-                            <path d="M106.535 837.502L171.245 750.016V895H106.535V837.502Z" fill="#1AC7D6" />
+                            <rect x="107" y="2" width="104" height="52" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'metadologia-e-programas-de-treinamento')}}'" />/>
+
+
+                            <path d="M13.3359 2H91.1978V94.0646H87.2124L13.3359 2Z" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'avaliacao-fisica')}}'" />/>
+
+
+                            <path d=" M67.4023 94.0644L0.470167 94.0644L0.470168 10.9963L8.29524 20.6269L67.4023 94.0644Z" fill="#85C70B"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'pass-diarias')}}'" /> />
+
+
+                            <rect x="107" y="63" width="105" height="45" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'anilhas-e-peso-livre')}}'" />
+
+
+                            <path d="M331.457 535.078L226.835 535.078L226.835 495.456L331.457 495.456L331.457 524.424L331.457 535.078Z" fill="#08ADDA"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'mentoria-e-consultoria-fitness')}}'" />
+
+
+                            <path d="M285.152 479.949L226.836 479.949L226.836 440.327L243.671 440.327L274.063 469.295L285.152 479.949Z" fill="#08ADDA"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'piscina')}}'" />
+
+
+                            <path d="M252.371 440.328H331.454V479.95H293.498L266.99 454.352L252.371 440.328Z" fill="#08ADDA"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamentos-ar-livre')}}'" />
+
+
+                            <rect x="227" y="551" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'franquias')}}'" />
+
+
+                            <rect x="227" y="588" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'manutencao-e-reforma')}}'" />
+
+
+                            <path d="M121 588H211V613H107L121 588Z" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'moda-vestuario')}}'" />
+
+
+                            <path d="M211 613H107V656H211V613Z" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'moda-vestuario')}}'" />
+
+
+                            <rect x="227" y="625" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'monitoramento')}}'" />
+
+
+                            <rect x="227" width="104" height="25" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamento-musculacao')}}'" />
+
+
+                            <rect x="227" y="662" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'empresas-eventos')}}'" />
+
+
+                            <rect x="227" y="37" width="104" height="25" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'universor-bike')}}'" />
+
+
+                            <rect x="227" y="111" width="104" height="25" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'running')}}'" />
+
+
+                            <rect x="107" y="662" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'apps-fitness')}}'" />
+
+
+                            <rect x="227" y="699" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'bebedouros')}}'" />
+
+
+                            <rect x="227" y="74" width="104" height="25" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'pilates')}}'" />
+
+
+                            <rect x="227" y="148" width="104" height="25" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamento-articulado')}}'" />
+
+
+                            <rect x="107" y="699" width="104" height="25" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'entidades-bancarias')}}'" />
+
+
+                            <rect y="182" width="91" height="90" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamento-articulado')}}'" />
+
+
+                            <path d="M107.082 435.221H211.328L107.082 575.838V435.221Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'confeccao-sportiva')}}'" />
+
+
+                            <path d="M106.703 272.831L211.325 272.831L211.325 272.832L106.703 143.556L106.703 272.831Z" fill="#85C70B"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'produtos-naturais')}}'" />
+
+
+                            <path d="M211.328 578.145L124.633 578.145L153.072 539.746L211.328 461.079L211.328 578.145Z" fill="#08ADDA"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'suplementacao')}}'" />
+
+
+                            <path d="M211.328 118.32L106.706 118.321L211.328 247.989L211.328 118.32Z" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'tecnologia')}}'" />
+
+
+                            <path d="M0.46875 109.568H80.2661L91.0972 123.521V173H0.46875V109.568Z" fill="#85C70B"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamentos-cardio')}}'" />
+
+
+                            <rect y="287" width="91" height="40" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'catracas')}}'" />
+
+
+                            <rect x="107" y="285" width="104" height="136" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'acessoria-fitness')}}'" />
+
+
+                            <rect y="456" width="91" height="45" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'nutricao-sportiva')}}'" />
+
+
+                            <rect y="513" width="91" height="45" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'brindes-e-acessorios')}}'" />
+
+
+                            <rect y="398" width="91" height="45" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'climatizadores')}}'" />
+
+
+                            <rect y="340" width="91" height="45" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'pisos-profissionais-e-grama')}}'" />
+
+
+                            <path d="M0.46875 568H91.0972V597.262L0.46875 723.294V568Z" fill="#85C70B" onclick="window.location.href = '{{route('site.feiraEmpresas', 'acessorios-fisioterapia')}}'" />
+
+
+                            <path d="M91.1989 723.293L17.6128 722.748L57.5199 668.932L91.1992 623.568L91.1989 723.293Z" fill="#08ADDA"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'moveis-de-decoracao')}}'" />
+
+
+                            <rect x="227" y="185" width="104.622" height="89.2779" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'arquitetura')}}'" />
+
+
+                            <path d="M239.168 282.701H323.962L292.536 325.173L283.431 337.493L239.168 282.701Z" fill="#DEC300"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'sistema-de-gestao')}}'" />
+
+
+                            <path d="M226.832 413.812L226.832 292.205L259.786 332.996L273.801 350.464L226.832 413.812Z" fill="#85C70B"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'enaf-digital')}}'" />
+
+
+                            <path d="M236.334 421.017L331.471 295.348V421.017H243H236.334Z" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'estetica')}}'" />
+
+
+                            <rect y="739" width="91" height="40" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'equipamentos-box-e-funcional')}}'" />
+
+
+                            <rect y="784" width="91" height="40" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'entidades-bancarias')}}'" />
+
+
+                            <path d="M106.535 738.822H162.963L141.29 767.687L106.535 815.967V738.822Z" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'livraria')}}'" />
+
+
+                            <path d="M0.164062 829.383H91.2824V833.35L57.6637 878.136H0.164062V829.383Z" fill="#1AC7D6"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'radio-e-tv-online')}}'" />
+
+
+                            <rect x="268.426" y="844.314" width="63.0289" height="54.8367" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'corretora-de-seguros')}}'" />
+
+
+                            <rect x="268.426" y="912.652" width="63.0289" height="54.8367" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'gadget')}}'" />
+
+
+                            <path d="M106.535 837.502L171.245 750.016V895H106.535V837.502Z" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'consultoria-juridica')}}'" />
+
+
                             <path d="M68.9562 885.689L91.1446 855.734L91.2831 969.791H6.77734L68.9562 885.689Z" fill="#1AC7D6" />
-                            <path d="M0 891.748H47.5994L25.7478 922.038L0 955.936V891.748Z" fill="#1AC7D6" />
-                            <rect x="188" y="739" width="143" height="90" fill="#08ADDA" />
-                            <rect x="187.875" y="912.652" width="64.7099" height="55.1379" fill="#1AC7D6" />
-                            <rect x="106" y="912.652" width="64.7099" height="55.1379" fill="#1AC7D6" />
-                            <rect x="187.875" y="985.648" width="64.7099" height="55.1379" fill="#1AC7D6" />
-                            <rect x="187.875" y="1056.11" width="64.7099" height="64.7051" fill="#1AC7D6" />
-                            <rect x="268.57" y="985.648" width="62.8834" height="55.1379" fill="#1AC7D6" />
+
+
+                            <path d="M0 891.748H47.5994L25.7478 922.038L0 955.936V891.748Z" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'adquirentes')}}'" />
+
+
+                            <rect x="188" y="739" width="143" height="90" fill="#08ADDA" onclick="window.location.href = '{{route('site.feiraEmpresas', 'lojas-de-sport')}}'" />
+
+
+                            <rect x="187.875" y="912.652" width="64.7099" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'comunicacao-visual')}}'" />
+
+
+                            <rect x="106" y="912.652" width="64.7099" height="55.1379" fill="#1AC7D6"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'convenios-e-planos-de-saude')}}'" />
+
+
+                            <rect x="187.875" y="985.648" width="64.7099" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'agencias-de-marketing')}}'" />
+
+
+                            <rect x="187.875" y="1056.11" width="64.7099" height="64.7051" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'area-kids')}}'" />
+
+
+                            <rect x="268.57" y="985.648" width="62.8834" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'grafica')}}'" />
+
+
                             <rect x="268.57" y="1056.11" width="62.8834" height="64.7051" fill="#1AC7D6" />
-                            <rect x="1.93359" y="985.648" width="89.3479" height="55.1379" fill="#1AC7D6" />
-                            <rect x="2" y="1056" width="169" height="65" fill="#1AC7D6" />
-                            <rect x="106.535" y="985.648" width="64.7099" height="55.1379" fill="#1AC7D6" />
-                            <rect x="187.875" y="844.012" width="64.7099" height="55.1379" fill="#1AC7D6" />
+
+
+                            <rect x="1.93359" y="985.648" width="89.3479" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'corretora-de-seguros')}}'" />
+
+
+                            <rect x="2" y="1056" width="169" height="65" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'beneficios-para-colaboradores')}}'" />
+
+
+                            <rect x="106.535" y="985.648" width="64.7099" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'universidades')}}'" />
+
+
+                            <rect x="187.875" y="844.012" width="64.7099" height="55.1379" fill="#1AC7D6" onclick="window.location.href = '{{route('site.feiraEmpresas', 'agencias-de-marketing')}}'" />
+
+
                         </svg>
 
 
