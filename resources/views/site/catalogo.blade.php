@@ -58,7 +58,7 @@
                     <a href="{{ route('site.feira') }}">
                         Visite nossa feira
                     </a>
-                    <a href="{{ route('site.catalogo') }}">Tenha nova experiência</a>
+                    <a href="{{ route('site.catalogo') }}">Nosso catálogo</a>
                 </div>
             </div>
 

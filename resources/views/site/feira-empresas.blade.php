@@ -8,7 +8,7 @@ $categoriaid = $expositores->first();
 @if ($categoriaid)
 <title>ENAF - {{ $categorias[$categoriaid->categoria] }}</title>
 @else
-<title>ENAF- Vazio</title>
+<title>ENAF - Vazio</title>
 @endif
 
 <body id="feiraEmpresas">

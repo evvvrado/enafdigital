@@ -23,9 +23,9 @@
 
             <div class="_filters">
                 <a href="javascript(0): void">
-                    Visite nossa feira
+                    Nossa feira
                 </a>
-                <a href="{{ route('site.catalogo')}}">Tenha nova experiência</a>
+                <a href="{{ route('site.catalogo')}}">Visite nosso catálogo</a>
             </div>
         </div>
 
@@ -1220,7 +1220,8 @@
                             <rect x="240" y="149" width="235" height="67" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'pilates')}}'" />
 
 
-                            <path d="M28.9062 0.416016H203.799V207.21H194.847L28.9062 0.416016Z" fill="#DEC300" onclick="window.location.href = '{{route('site.feiraEmpresas', 'avaiacao-fisica')}}'" />
+                            <path d="M28.9062 0.416016H203.799V207.21H194.847L28.9062 0.416016Z" fill="#DEC300"
+                                onclick="window.location.href = '{{route('site.feiraEmpresas', 'avaliacao-fisica')}}'" />
 
 
                             <path d="M150.344 207.211L0.00141907 207.211L0.00142012 20.6242L17.578 42.2562L150.344 207.211Z" fill="#85C70B"

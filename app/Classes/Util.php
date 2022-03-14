@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Classes;
+
 use Illuminate\Support\Facades\Storage;
 
 class Util
@@ -36,6 +37,7 @@ class Util
     public static function limparURL($url)
     {
         $disallowed = array('http://', 'https://', 'com/');
+        $tratada = null;
 
         foreach ($disallowed as $d) {
             if (strpos($url, $d) === 0) {
@@ -43,8 +45,10 @@ class Util
             }
         }
 
-        if (strpos($tratada, '/') > 0) {
-            return str_replace('/', '', $tratada);
+        if ($tratada) {
+            if (strpos($tratada, '/') > 0) {
+                return str_replace('/', '', $tratada);
+            }
         }
 
 
@@ -64,13 +68,14 @@ class Util
         return preg_replace('/[^A-Za-z0-9]/', '', $string); // Remove caracteres especiais
     }
 
-    public static function limparLivewireTemp(){
+    public static function limparLivewireTemp()
+    {
         $storage = Storage::disk('local');
-        foreach($storage->allFiles('livewire-tmp') as $filePathname){
-           $stamp = now()->subSeconds(4)->timestamp;
-           if($stamp > $storage->lastModified($filePathname)){
-               $storage->delete($filePathname);
-           }
+        foreach ($storage->allFiles('livewire-tmp') as $filePathname) {
+            $stamp = now()->subSeconds(4)->timestamp;
+            if ($stamp > $storage->lastModified($filePathname)) {
+                $storage->delete($filePathname);
+            }
         }
     }
 }
