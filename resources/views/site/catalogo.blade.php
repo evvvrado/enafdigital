@@ -184,7 +184,7 @@
 
 
         @foreach (config('expositores.categorias_nome') as $codigo => $nome)
-        @if (\App\Models\Expositor::where(['categoria', $codigo], ['destaque', 1])->count() > 0)
+        @if (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->count() > 0)
         <section class="container-fluid s_catalogoList">
             <h2 onclick="window.location.href = '{{ route('site.feiraEmpresas', Illuminate\Support\Str::slug($nome)) }}'">
                 {{ $nome }}</h2>
@@ -204,7 +204,7 @@
                 <div class="content">
 
                     <div class="--list">
-                        @foreach (\App\Models\Expositor::where(['categoria', $codigo], ['destaque', 1])->get() as $expositor)
+                        @foreach (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->get() as $expositor)
                         <div class="--item"
                             onclick="window.location.href = '@if ($expositor->hotsite && $expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $expositor->hotsite->slug]) }} @else{{ $expositor->site }} @endif'">
                             <img src="{{ asset($expositor->foto) }}" title="{{ $expositor->nome }}" />
