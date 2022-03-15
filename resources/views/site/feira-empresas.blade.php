@@ -2,13 +2,20 @@
 
 @php
 $categorias = config('expositores.categorias_nome');
-$categoriaid = $expositores->first();
+$expositor = $expositores->first();
+$isApp = false;
+
+
+
+if($expositor->categoria == 6){
+$isApp = true;
+}
 @endphp
 
-@if ($categoriaid)
-<title>ENAF - {{ $categorias[$categoriaid->categoria] }}</title>
+@if ($expositor)
+<title>ENAF - {{ $categorias[$expositor->categoria] }}</title>
 @else
-<title>ENAF- Vazio</title>
+<title>ENAF - Vazio</title>
 @endif
 
 <body id="feiraEmpresas">
@@ -24,15 +31,129 @@ $categoriaid = $expositores->first();
   </section>
 
   <section class="container-fluid s_backtoFeira">
-    <div class="container-fav">
+    <div class="container-fav" style="justify-content: flex-start; gap: 4rem;">
       <div style="padding: 15px; display: flex; gap: 1rem; align-items:center;">
         <div class="_icon">
           <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
         </div>
         <a href="{{ route('site.feira') }}">Voltar para feira</a>
       </div>
+      <div style="padding: 15px; display: flex; gap: 1rem; align-items:center;">
+        <div class="_icon">
+          <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
+        </div>
+        <a href="{{ route('site.feira') }}">Voltar para o catálogo</a>
+      </div>
     </div>
   </section>
+
+  @if($isApp)
+
+  <section class="container-fluid s_empresas">
+    <div class="container-fav">
+      @if ($anunciante)
+      <div class="_box main">
+        <a href=" @if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug){{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else{{
+          $anunciante->expositor->site }}@endif">
+          <picture>
+            <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
+            <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
+          </picture>
+        </a>
+
+        <div>
+          <span>{{ $anunciante->nome }}</span>
+
+          <span>
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_googleplay.svg') }}" alt="Ícone de Cursor" />
+            </div>
+
+            <a href="{{ $anunciante->expositor->site }}" target="_blank">Baixar no Google Play</a>
+          </span>
+
+          <span>
+            <div class="_icon">
+              <img src="{{ asset('site/img/icon_appstore.svg') }}" alt="Ícone de Evenelope" />
+            </div>
+
+            <a href="{{ $anunciante->expositor->email }}">Baixar na App Store</a>
+          </span>
+        </div>
+      </div>
+      @endif
+
+      @foreach ($expositores->where("destaque", true) as $expositor)
+      <div class="_box">
+        <picture>
+          <a href=" @if ($expositor->hotsite &&
+                            $expositor->hotsite->slug){{ route('site.hotsite', ['slug' => $expositor->hotsite->slug]) }}" @else{{ $expositor->site }}
+            @endif">
+            <img src="{{ asset($expositor->foto) }}" alt="{{ $expositor->nome }}" />
+          </a>
+        </picture>
+
+        <div>
+          <span>{{ $expositor->nome }}</span>
+          <ul>
+            <li>
+              <a href="{{ $expositor->site }}">
+                <img style="display: unset;" src="{{ asset('/site/img/icon_googleplay.svg') }}" alt="Ícone">
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ $expositor->email }}">
+                <img style="display: unset;" src="{{ asset('/site/img/icon_appstore.svg') }}" alt="Ícone">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      @endforeach
+
+    </div>
+  </section>
+
+  <section class="container-fluid s_outrasEmpresas">
+    <div class="container-fav">
+      <div class="_title">
+        <h4>Outras empresas</h4>
+      </div>
+
+      <ul>
+
+        @foreach ($expositores->where("destaque", false) as $expositor)
+
+        <li>
+          <a href="#">
+            <span>{{ $expositor->nome }}</span>
+
+
+
+            <legend onclick="window.open('{{ $expositor->email }}')">
+              <div class="_icon">
+                <img src="{{ asset('/site/img/icon_appstore.svg') }}" alt="Ícone">
+              </div>
+              Baixar na Appstore
+            </legend>
+
+
+            <legend onclick="window.open('{{ $expositor->site }}')">
+              <div class="_icon">
+                <img src="{{ asset('/site/img/icon_googleplay.svg') }}" alt="Ícone">
+              </div>
+              Baixar na Google Play
+            </legend>
+          </a>
+        </li>
+
+        @endforeach
+      </ul>
+    </div>
+  </section>
+
+  @else
 
   <section class="container-fluid s_empresas">
     <div class="container-fav">
@@ -97,191 +218,6 @@ $categoriaid = $expositores->first();
       </div>
       @endforeach
 
-      {{-- <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (3') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (4') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (5') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (6') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (7') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (8') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (9') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (10') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (11') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (12') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="_box">
-        <picture>
-          <a href="{{ route('site.hotsite')}}">
-            <img src="{{ asset('site/img/logo_empresa (1') }}).png" alt="Empresa Embaixadora" />
-          </a>
-        </picture>
-
-        <div>
-          <span>Mizuno</span>
-          <ul>
-            <li><a href="">mizuno.com.br</a></li>
-            <li><a href="">35 99261 5899</a></li>
-            <li><a href="">contato@mizuno.com.br</a></li>
-          </ul>
-        </div>
-      </div> --}}
     </div>
   </section>
 
@@ -320,111 +256,12 @@ $categoriaid = $expositores->first();
         </li>
 
         @endforeach
-
-
-
-        {{-- <li>
-          <a href="https://probiótica.com.br">
-            <span>Probiótica</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>probiótica.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://hyp8.com.br">
-            <span>hyp8</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>hyp8.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://gefit.com.br">
-            <span>Gefit</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>gefit.com.br</legend>
-
-            </main>
-          </a>
-        </li>
-        <li>
-          <a href="https://universal.com.br">
-            <span>Universal</span>
-
-
-            <main>
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>
-                <div class="_icon">
-                  <img src="{{ asset('/site/img/icon_call.svg') }}" alt="Ícone de Chamada">
-                </div>
-                35 9 8809 4603
-              </legend>
-
-              <legend>universal.com.br</legend>
-            </main>
-          </a>
-        </li> --}}
       </ul>
     </div>
   </section>
+
+  @endif
+
 
   @include('site.includes.publicidade')
 

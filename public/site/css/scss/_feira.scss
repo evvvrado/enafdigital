@@ -1024,7 +1024,7 @@ div._aFeira {
                     cursor: pointer;
                     transition: 0.32s;
                     &:hover {
-                        opacity: 0.8;
+                        filter: brightness(0.7);
                     }
                 }
 
