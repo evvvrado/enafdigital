@@ -31,12 +31,18 @@ $isApp = true;
   </section>
 
   <section class="container-fluid s_backtoFeira">
-    <div class="container-fav">
+    <div class="container-fav" style="justify-content: flex-start; gap: 4rem;">
       <div style="padding: 15px; display: flex; gap: 1rem; align-items:center;">
         <div class="_icon">
           <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
         </div>
         <a href="{{ route('site.feira') }}">Voltar para feira</a>
+      </div>
+      <div style="padding: 15px; display: flex; gap: 1rem; align-items:center;">
+        <div class="_icon">
+          <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
+        </div>
+        <a href="{{ route('site.feira') }}">Voltar para o catálogo</a>
       </div>
     </div>
   </section>
