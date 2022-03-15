@@ -131,30 +131,38 @@
 <div class="detalhesdeCurso container-fluid">
     <div class="container-fav">
         <h1>{{ $matricula->curso->nome }}</h1>
-        {{--
+
         <main>
             <div class="list">
-                @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
+
+
+                <article>
+                    <div class="date">
+                        Sobre <br>
+
+                    </div>
+                    <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
+                    </picture>
+
+
+                    <div class="content">
+                        <span>{{$matricula->curso->sobre}}</span>
+                    </div>
+                </article>
+
+                {{-- @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
                     <div class="date">
                         {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
-                        20:00
                     </div>
                     <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
                     </picture>
                     <div class="content">
                         <span>{{ $conteudo->descricao }}</span>
-                        <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a>
                     </div>
                     </article>
-                    @endforeach
+                    @endforeach --}}
             </div>
-        </main> --}}
-
-
-
-        <div style="max-width: 80%">
-            <span>{{$matricula->curso->sobre}}</span>
-        </div>
+        </main>
     </div>
 
     @include('site.includes.aluno.footer')
