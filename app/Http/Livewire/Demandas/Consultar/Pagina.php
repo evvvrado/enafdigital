@@ -33,14 +33,12 @@ class Pagina extends Component
 
     public function excluir($demanda){
         $demanda = Demanda::find($demanda);
-        $demanda = $demanda->first();
         Storage::delete($demanda->arquivo);
         $demanda->delete();
     }
 
     public function finalizar($demanda){
         $demanda = Demanda::find($demanda);
-        $demanda = $demanda->first();
         $demanda->finalizada = true;
         $demanda->entrega = date("Y-m-d");
         $demanda->save();

@@ -11,7 +11,7 @@
                             <div class="d-flex align-items-center @if($comentario->usuario_id == session()->get('usuario')['id']) justify-content-end @else justify-content-start @endif">
                                 @if($comentario->usuario_id != session()->get('usuario')['id'])
                                     <div class="me-3">
-                                        <img src="{{ asset($comentario->usuario->foto) }}" style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                        <img @if($comentario->usuario->foto) src="{{ asset($comentario->usuario->foto) }}" @else src="{{ asset('admin/images/thumb-padrao.png') }}" @endif style="width: 50px; height: 50px; border-radius: 50%;" alt="">
                                     </div>
                                 @endif
                                 <div class="@if($comentario->usuario_id == session()->get('usuario')['id']) comentario-proprio @else comentario-outros @endif text-end">
@@ -21,7 +21,7 @@
                                 </div>
                                 @if($comentario->usuario_id == session()->get('usuario')['id'])
                                     <div class="ms-3">
-                                        <img src="{{ asset($comentario->usuario->foto) }}" style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                        <img @if($comentario->usuario->foto) src="{{ asset($comentario->usuario->foto) }}" @else src="{{ asset('admin/images/thumb-padrao.png') }}" @endif style="width: 50px; height: 50px; border-radius: 50%;" alt="">
                                     </div>
                                 @endif
                             </div>

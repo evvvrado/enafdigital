@@ -60,7 +60,7 @@
                                             <div class="col-12 text-center">
                                                 @if($demanda->setor != 3) <i class="fas fa-edit fa-lg cpointer" wire:click='editar("{{ $demanda->id }}")' style="color: orange;"></i> @endif
                                                 {{-- <i class="fas fa-times-circle ms-3 fa-lg cpointer" wire:click='excluir("{{ $demanda->id }}")' style="color: red;"></i> --}}
-                                                <i class="fas fa-check ms-3 fa-lg cpointer" wire:click='finalizar("{{ $demanda->id }}")' style="color: green;"></i>
+                                                <i class="fas fa-check ms-3 fa-lg cpointer" wire:click='finalizar({{ $demanda->id }})' style="color: green;"></i>
                                                 <button type="button" class="btn header-item noti-icon waves-effect" wire:click="$emit('carregaModalComentarios', {{ $demanda->id }})">
                                                     <i class="bx bx-message-alt-dots" style="color: darkcyan"></i>
                                                     <span class="badge bg-danger rounded-pill">{{ $demanda->comentarios->count() }}</span>
