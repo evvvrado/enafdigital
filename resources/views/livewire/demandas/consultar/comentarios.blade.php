@@ -14,7 +14,7 @@
                                         <img @if($comentario->usuario->foto) src="{{ asset($comentario->usuario->foto) }}" @else src="{{ asset('admin/images/thumb-padrao.png') }}" @endif style="width: 50px; height: 50px; border-radius: 50%;" alt="">
                                     </div>
                                 @endif
-                                <div class="@if($comentario->usuario_id == session()->get('usuario')['id']) comentario-proprio @else comentario-outros @endif text-end">
+                                <div class="@if($comentario->usuario_id == session()->get('usuario')['id']) comentario-proprio text-end @else comentario-outros text-start @endif ">
                                     <b>{{ $comentario->usuario->nome }}</b>
                                     <p>{{ $comentario->conteudo }}</p>
                                     <small>{{ date("d/m/Y H:i:s", strtotime($comentario->created_at)) }}</small>
