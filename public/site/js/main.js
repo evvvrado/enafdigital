@@ -367,6 +367,30 @@ setInterval(depoimentoSlide, 5000);
 
 
 
-console.log("%c👋 Opa, bom dia!\n%cEstá perdido? a estrada é pelo %coutro lado!!\n%cMas já que já está aqui, da uma olhadinha no nosso site\n%chttps://hyp8.com.br ✨", "font-family: consolas;", "font-family: consolas;", "font-family: consolas; font-weight: bold;color: red;", "font-family: consolas;", "font-family: consolas; color:$FF3434; ")
+console.log("%c👋 Opa, bom dia!\n%cEstá perdido? a estrada é pelo %coutro lado!!\n%cMas já que já está aqui, da uma olhadinha no nosso site\n%chttps://hyp8.com.br ✨", "font-family: consolas;", "font-family: consolas;", "font-family: consolas; font-weight: bold;color: red;", "font-family: consolas;", "font-family: consolas; color:$FF3434; ");
 
 
+
+
+(function ($) {
+    $.fn.showModal = function () {
+        $(this).attr('show', '');
+
+        return this;
+    }
+
+
+    $.fn.hideModal = function () {
+        $(this).removeAttr('show');
+        return this;
+    }
+
+})(jQuery);
+
+$('.close-modal, .modal .close').click(function () {
+    $(this).closest('div.modal').hideModal()
+})
+
+setTimeout(() => {
+    $('.modal_box').showModal()
+}, 3000);

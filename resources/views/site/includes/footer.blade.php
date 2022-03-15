@@ -80,6 +80,17 @@
 
 <script src="{{ asset('/site/js/main.js') }}"></script>
 
+
+
+@if(session()->get('erro'))
+
+<script>
+    $('.erro_modal').showModal();
+</script>
+
+@endif
+
+
 </body>
 
 </html>

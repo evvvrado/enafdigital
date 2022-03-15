@@ -6,6 +6,9 @@
     </svg>
 </section>
 
+
+
+
 <div class="container-fluid d_superMenu">
     <div class="container-fav">
         <div class="_left">
@@ -107,4 +110,35 @@ Route::is('site.minha-area-matricula.conteudo'))
     </div>
 </header>
 @include('site.includes.barra_login')
+@endif
+
+
+@if(session()->get('erro'))
+
+<div class="erro_modal modal">
+    <div class=" container-fluid">
+        <div class="container-fav">
+            <div class="box">
+
+                <div class="close">
+                    <img src="{{ asset('/site/img/close_icon.svg') }}" alt="Fechar">
+                </div>
+
+                <strong>Ocorreu um erro</strong>
+
+                <p>
+                    {{ session()->get('erro') }}
+                </p>
+
+                <button onclick="$('div.erro_modal').hideModal()">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="close-modal">
+
+    </div>
+</div>
+
 @endif

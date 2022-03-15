@@ -98,7 +98,18 @@
     $('.footer_expanded button').click(()=>{
         window.location.href="{{ route('site.aguarde') }}"
     })
+
 </script>
+
+
+
+@if(session()->get('erro'))
+
+<script>
+    $('.erro_modal').showModal();
+</script>
+
+@endif
 
 
 </body>
