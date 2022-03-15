@@ -137,7 +137,7 @@
 
 
                 <article>
-                    <div class="date">
+                    <div class="date" style="width: 65px;">
                         Sobre <br>
 
                     </div>
