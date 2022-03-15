@@ -147,12 +147,10 @@
                     </div>
                     </article>
                     @endforeach --}}
+            </div>
 
-                    <article>
-                        <div class="content">
-                            <span>{{$matricula->curso->sobre}}</span>
-                        </div>
-                    </article>
+            <div>
+                <span>{{$matricula->curso->sobre}}</span>
             </div>
         </main>
     </div>
