@@ -21,6 +21,7 @@ use App\Models\Contrato;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use App\Classes\Util;
 
 class SiteController extends Controller
 {
@@ -187,6 +188,12 @@ class SiteController extends Controller
 
     public function minhaAreaDadosSalvar(Request $request)
     {
+
+        if(!Util::validaCPF($request->cpf)){
+            session()->flash("erro", "O CPF informado é inválido");
+            return redirect()->back();
+        }
+
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         $aluno->nome = $request->nome;
         $aluno->email = $request->email;

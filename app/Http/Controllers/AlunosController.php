@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Aluno;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use App\Classes\Util;
 
 class AlunosController extends Controller
 {
@@ -33,6 +34,10 @@ class AlunosController extends Controller
             'tel' => 'max:15'
         ]);
 
+        if(!Util::validaCPF($request->cpf)){
+            session()->flash("erro", "O CPF informado é inválido");
+            return redirect()->back();
+        }
 
         $aluno = new Aluno;
         $aluno->nome = $request->nome;
