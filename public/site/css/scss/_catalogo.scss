@@ -212,7 +212,9 @@ body#catalogo {
                 .--list {
                     @include flex(row, flex-start, flex-start);
                     width: max-content;
+                    width: 2300vw;
                     position: relative;
+                    padding-left: 15rem;
                     gap: 0.5rem;
 
                     .--item {
