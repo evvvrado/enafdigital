@@ -131,10 +131,10 @@
 <div class="detalhesdeCurso container-fluid">
     <div class="container-fav">
         <h1>{{ $matricula->curso->nome }}</h1>
-
+        {{--
         <main>
             <div class="list">
-                {{-- @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
+                @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
                     <div class="date">
                         {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
                         20:00
@@ -146,13 +146,15 @@
                         <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a>
                     </div>
                     </article>
-                    @endforeach --}}
+                    @endforeach
             </div>
+        </main> --}}
 
-            <div>
-                <span>{{$matricula->curso->sobre}}</span>
-            </div>
-        </main>
+
+
+        <div style="max-width: 80%">
+            <span>{{$matricula->curso->sobre}}</span>
+        </div>
     </div>
 
     @include('site.includes.aluno.footer')
