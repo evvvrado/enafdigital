@@ -42,7 +42,7 @@ $isApp = true;
         <div class="_icon">
           <img src="{{ asset('site/img/halfarrowleft_back.svg') }}" alt="Seta para esquerda" />
         </div>
-        <a href="{{ route('site.feira') }}">Voltar para o catálogo</a>
+        <a href="{{ route('site.catalogo') }}">Voltar para o catálogo</a>
       </div>
     </div>
   </section>
@@ -126,7 +126,7 @@ $isApp = true;
         @foreach ($expositores->where("destaque", false) as $expositor)
 
         <li>
-          <a href="#">
+          <a href="javascript: void(0);">
             <span>{{ $expositor->nome }}</span>
 
 

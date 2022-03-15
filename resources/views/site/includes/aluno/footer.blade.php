@@ -15,7 +15,7 @@
             <div style="cursor: pointer" onclick="window.open('https://api.whatsapp.com/send?phone=3599725-9528')">
                 <img src="{{ asset('site/img/sistema/whatsappButton.svg') }}" alt="" />
             </div>
-            <div style="cursor: pointer" onclick="window.open('mailto:contato@enafdigital.com.br')">
+            <div style="cursor: pointer" onclick="window.open('mailto:contato@enaf.com.br')">
                 <img src="{{ asset('site/img/sistema/envelopButton.svg') }}" alt="" />
             </div>
         </div>
