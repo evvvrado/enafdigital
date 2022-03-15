@@ -49,8 +49,9 @@
             <div class="_content">
                 <h6>Próximo evento</h6>
                 <h2 class="event_name">{{$evento->nome}}</h2>
-                <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}<br> {{ $evento->hora_inicio }} às {{ $evento->hora_fim
-                    }}</span>
+                <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}
+                    {{-- <br> {{ $evento->hora_inicio }} às {{ $evento->hora_fim}} --}}
+                </span>
                 <p class="event_local">{{$evento->local_endereco}}</p>
                 <button name="event_button" onclick="window.location.href = '{{route('site.clinica', ['slug' => $evento->slug])}}'">
                     <img src="{{ asset('site/img/arrowright_white.svg') }}" alt="Vamos nessa!" title="Vamos nessa!" />
@@ -78,7 +79,7 @@
                         </div>
                         <div class="_bottom">
                             <span class="event_date">{{date('d/m', strtotime($evento->inicio))}} a {{date('d/m', strtotime($evento->fim))}}</span>
-                            <p class="event_time">Horário: {{ $evento->hora_inicio }} às {{ $evento->hora_fim }}</p>
+                            {{-- <p class="event_time">Horário: {{ $evento->hora_inicio }} às {{ $evento->hora_fim }}</p> --}}
                             <button>Ver mais</button>
                         </div>
                     </div>
