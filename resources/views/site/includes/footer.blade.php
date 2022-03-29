@@ -13,7 +13,7 @@
                     <div class="_icon">
                         <img src="{{ asset('/site/img/icon_envelop_footer.svg') }}" alt="Ícone de Envelope" />
                     </div>
-                    <a href="mailto:contato@enafdigital.com.br"> contato@enafdigital.com.br </a>
+                    <a href="mailto:contato@enaf.com.br"> contato@enaf.com.br </a>
                 </div>
 
                 <div class="_social">
@@ -79,6 +79,17 @@
 <script src="{{ asset('site/js/jquery-ui.js') }}"></script>
 
 <script src="{{ asset('/site/js/main.js') }}"></script>
+
+
+
+@if(session()->get('erro'))
+
+<script>
+    $('.erro_modal').showModal();
+</script>
+
+@endif
+
 
 </body>
 

@@ -134,19 +134,33 @@
 
         <main>
             <div class="list">
-                @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
+
+
+                <article>
+                    <div class="date" style="width: 65px;">
+                        Sobre <br>
+
+                    </div>
+                    <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
+                    </picture>
+
+
+                    <div class="content">
+                        <span>{{$matricula->curso->sobre}}</span>
+                    </div>
+                </article>
+
+                {{-- @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
                     <div class="date">
                         {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
-                        {{-- 20:00 --}}
                     </div>
                     <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
                     </picture>
                     <div class="content">
                         <span>{{ $conteudo->descricao }}</span>
-                        {{-- <a href="{{ asset($conteudo->arquivo) }}" download>Baixar</a> --}}
                     </div>
                     </article>
-                    @endforeach
+                    @endforeach --}}
             </div>
         </main>
     </div>

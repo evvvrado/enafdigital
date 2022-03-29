@@ -1,0 +1,140 @@
+div.modal {
+    .container-fluid {
+        .container-fav {
+            .box {
+                padding-top: 2.3rem;
+                padding-bottom: 4.5rem;
+                text-align: center;
+                @include flex(column, center, flex-start);
+                position: relative;
+
+                .close {
+                    position: absolute;
+                    right: 0.7rem;
+                    top: 0.5rem;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
+                strong {
+                    display: block;
+                    font-weight: 500;
+                    font-size: 3.4rem;
+                    line-height: 150%;
+                    color: $color-main;
+                }
+
+                span {
+                    font-size: 1.8rem;
+                    line-height: 150%;
+                    color: $gray;
+                    max-width: 46.7rem;
+
+                    margin-bottom: 1.9rem;
+                }
+
+                p {
+                    font-size: 1.8rem;
+                    line-height: 150%;
+                    color: $gray;
+                    max-width: 46.7rem;
+
+                    margin-bottom: 1.9rem;
+                }
+
+                button {
+                    @include style-btn(4.5rem, $color-main, $white);
+                    margin-top: 2.7rem;
+                }
+            }
+        }
+    }
+}
+
+div.modal {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    z-index: 7;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.32s;
+    @include flex(row, center, center);
+
+    &[show] {
+        opacity: 1;
+        pointer-events: all;
+
+        .container-fluid {
+            .container-fav {
+                .box {
+                    top: 0;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .container-fluid {
+        .container-fav {
+            height: 100%;
+
+            @include flex(row, center, center);
+
+            .box {
+                position: relative;
+                z-index: 2;
+
+                .modal-box & {
+                    min-height: 60.1rem;
+                }
+
+                width: 100%;
+                max-width: 59.2rem;
+                transition: 0.32s;
+
+                border-top: 0.6rem solid $color-alternative;
+                box-sizing: border-box;
+                box-shadow: 0px 4px 80px 20px rgba(0, 0, 0, 0.25);
+                background-color: $white;
+
+                position: relative;
+                top: -15rem;
+                opacity: 0;
+            }
+        }
+    }
+
+    .close-modal {
+        background-color: rgba(0, 0, 0, 0.39);
+
+        cursor: pointer;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        content: "";
+    }
+
+    @include responsive(600px) {
+        .container-fluid {
+            .box {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+    }
+}

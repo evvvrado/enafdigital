@@ -41,3 +41,35 @@
 <div id="backdrop">
     <div class="logo"><img src="{{ asset('site/img/_logo91.png') }}" alt="Logo ABS-Brasil"></div>
 </div>
+
+
+
+@if(session()->get('erro'))
+
+<div class="erro_modal modal">
+    <div class=" container-fluid">
+        <div class="container-fav">
+            <div class="box">
+
+                <div class="close">
+                    <img src="{{ asset('/site/img/close_icon.svg') }}" alt="Fechar">
+                </div>
+
+                <strong>Ocorreu um erro</strong>
+
+                <p>
+                    {{ session()->get('erro') }}
+                </p>
+
+                <button onclick="$('div.erro_modal').hideModal()">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="close-modal">
+
+    </div>
+</div>
+
+@endif
