@@ -107,7 +107,7 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
         </div>
     </div>
 </div> <!-- end col -->
-<div class="col-3">
+{{-- <div class="col-3">
     <div class="col-sm-12 col-md-6 mb-3" style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
         <a class="btn" style="padding-left: 21px; color: white; height: 100%; cursor: default;" href="">Filtros</a>
     </div>
@@ -164,7 +164,7 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 </div>
 @endsection
 
