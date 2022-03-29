@@ -43,6 +43,8 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
                                         Forma</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
+                                        Curso</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;" aria-label="Position: activate to sort column ascending">
                                         Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 10px;" aria-label="Start date: activate to sort column ascending">
                                     </th>
@@ -58,6 +60,11 @@ Financeiro / <a style="color: unset" href="{{ route('painel.vendas') }}">Vendas<
                                     <td class="sorting_1 dtr-control">{{$venda->aluno->nome}}</td>
                                     <td>R$ {{number_format($venda->total, 2 , ",", ".")}}</td>
                                     <td>{{config('pagamento.formas')[$venda->forma]}}</td>
+                                    <td>
+                                        @foreach($venda->carrinho->cursos as $curso)
+                                            <p>{{ $curso->nome }}</p>
+                                        @endforeach
+                                    </td>
                                     <td>
                                         @if($venda->forma == 0)
                                             {{ config('gerencianet.status')[$venda->boleto->status] }}
