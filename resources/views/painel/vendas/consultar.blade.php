@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-sm-12" style="overflow-x: scroll;">
                                 <table id="datatable-buttons"
-                                    class="table table-bordered dt-responsive nowrap w-100 dataTable no-footer dtr-inline"
+                                    class="table table-bordered w-100 dataTable no-footer dtr-inline"
                                     role="grid" aria-describedby="datatable_info" style="width: 1185px;">
                                     <thead>
                                         <tr role="row">
