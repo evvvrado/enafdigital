@@ -27,7 +27,7 @@ class GerencianetController extends Controller
         // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         if ($request->parcelas == 1) {
-            $desconto = 1000;
+            $desconto = 0;
         } else {
             $desconto = 0;
         }

@@ -171,10 +171,10 @@
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" required>
                                         <option value="1">1x de
-                                            {{ number_format($curso->valor - ($curso->valor * 10) / 100, 2, ",", ".") }}</option>
-                                        @for($i = 2; ((($curso->valor / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
+                                            {{-- {{ number_format($curso->valor - ($curso->valor * 10) / 100, 2, ",", ".") }}</option> --}}
+                                        @for($i = 1; ((($curso->valor / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
                                             <option value="{{$i}}">{{$i}}x de {{number_format($curso->valor / $i, 2, ",", ".")}}</option>
-                                            @endfor
+                                        @endfor
                                     </select>
                                 </label>
                                 <button type="submit">
