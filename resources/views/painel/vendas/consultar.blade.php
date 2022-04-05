@@ -73,7 +73,7 @@
                                                 Status</th>
                                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 10px;"
-                                                aria-label="Start date: activate to sort column ascending">
+                                                aria-label="Start date: activate to sort column ascending"> Opr
                                             </th>
                                         </tr>
                                     </thead>
