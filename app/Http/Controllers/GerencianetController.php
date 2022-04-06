@@ -57,10 +57,10 @@ class GerencianetController extends Controller
         ]);
 
         if ($request->parcelas == 1) {
-            $gerencianet->addDesconto([
-                'type' => 'percentage',
-                'value' => $desconto
-            ]);
+            // $gerencianet->addDesconto([
+            //     'type' => 'percentage',
+            //     'value' => $desconto
+            // ]);
             $gerencianet->addBoleto([
                 'expire_at' => date("Y-m-d", strtotime("+3 days")), // data de vencimento do titulo
                 'message' => 'Acompanhe o status do seu pagamento no seu painel do cliente.', // mensagem a ser exibida no boleto
