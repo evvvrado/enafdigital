@@ -3,6 +3,9 @@
 
 <section class="container-fluid _menu">
     <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+        </div>
         <nav>
             <ul>
                 <li>
@@ -43,11 +46,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -107,11 +111,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -137,62 +142,63 @@
         <div class="_contentList">
 
             <div class="_pedidosList">
-                @if (count($aluno->pedidos) <= 0) <h3>Ainda não há nenhum pedido</h3>
-                    @else
-                    @foreach ($aluno->pedidos->sortByDesc("created_at") as $pedido)
-                    <div class="_pedido
-                        @if ($pedido->forma == 0)
-                            @if (config('gerencianet.status')[$pedido->boleto->status] === 'Pagamento Realizado')
-                            _approved               
-                            @endif
-                        @elseif($pedido->forma== 1)
-                            _approved               
+                @if (count($aluno->pedidos) <= 0)
+                    <h3>Ainda não há nenhum pedido</h3>
+                @else
+                    @foreach ($aluno->pedidos->sortByDesc('created_at') as $pedido)
+                        <div
+                            class="_pedido
+                        @if ($pedido->forma == 0) @if (config('gerencianet.status')[$pedido->boleto->status] === 'Pagamento Realizado')
+                            _approved @endif
+@elseif($pedido->forma == 1)
+_approved               
                         @endif">
-                        <h3>N.{{ $pedido->codigo }}</h3>
-                        <div class="_info">
-                            <div class="data">
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
+                            <h3>N.{{ $pedido->codigo }}</h3>
+                            <div class="_info">
+                                <div class="data">
+                                    <div class="_svg">
+                                        <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
+                                    </div>
+                                    <p>{{ date('d.m.Y', strtotime($pedido->created_at)) }}</p>
                                 </div>
-                                <p>{{ date('d.m.Y', strtotime($pedido->created_at)) }}</p>
-                            </div>
-                            <div class="numero">
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/plane.svg') }}" alt="">
+                                <div class="numero">
+                                    <div class="_svg">
+                                        <img src="{{ asset('site/img/sistema/plane.svg') }}" alt="">
+                                    </div>
+                                    <p>{{ $pedido->carrinho->produtos->count() }} Produtos</p>
                                 </div>
-                                <p>{{ $pedido->carrinho->produtos->count() }} Produtos</p>
                             </div>
-                        </div>
-                        <button class="btn-primary" onclick="window.location.href = '{{route('site.minha-area-detalhes', ['venda' => $pedido])}}'">
-                            Mais detalhes
-                            <div class="_svg">
-                                <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
-                            </div>
-                        </button>
-                        <div class="_status _waiting">
-                            <div class="_icon">
-                                <img src="{{ asset('site/img/sistema/dollar.svg') }} " alt="">
-                            </div>
-                            <div class="_text">
-                                @if($pedido->forma == 0)
-                                    {{ config('gerencianet.status')[$pedido->boleto->status] }}
-                                @elseif($pedido->forma == 1)
-                                    @if($pedido->gateway == 1)
-                                        {{config("cielo.status")[$pedido->cartao->status]}}
+                            <button class="btn-primary"
+                                onclick="window.location.href = '{{ route('site.minha-area-detalhes', ['venda' => $pedido]) }}'">
+                                Mais detalhes
+                                <div class="_svg">
+                                    <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
+                                </div>
+                            </button>
+                            <div class="_status _waiting">
+                                <div class="_icon">
+                                    <img src="{{ asset('site/img/sistema/dollar.svg') }} " alt="">
+                                </div>
+                                <div class="_text">
+                                    @if ($pedido->forma == 0)
+                                        {{ config('gerencianet.status')[$pedido->boleto->status] }}
+                                    @elseif($pedido->forma == 1)
+                                        @if ($pedido->gateway == 1)
+                                            {{ config('cielo.status')[$pedido->cartao->status] }}
+                                        @else
+                                            @if ($pedido->cartao)
+                                                {{ config('gerencianet.status')[config('gerencianet.code_status')[$pedido->cartao->status]] }}
+                                            @endif
+                                        @endif
                                     @else
-                                    @if($pedido->cartao)
-                                        {{config('gerencianet.status')[config("gerencianet.code_status")[$pedido->cartao->status]]}}
+                                        Consultar parcelas
                                     @endif
-                                @endif
-                                @else
-                                    Consultar parcelas
-                                @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
-                    @endif
-                    {{-- <div class="_pedido">
+                @endif
+                {{-- <div class="_pedido">
                         <h3>N. 5588893390122</h3>
                         <div class="_info">
                             <div class="data">

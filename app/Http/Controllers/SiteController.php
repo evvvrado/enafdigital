@@ -189,14 +189,14 @@ class SiteController extends Controller
     public function minhaAreaDadosSalvar(Request $request)
     {
 
-        if(!Util::validaCPF($request->cpf)){
+        if (!Util::validaCPF($request->cpf)) {
             session()->flash("erro", "O CPF informado é inválido");
             return redirect()->back();
         }
 
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         $aluno->nome = $request->nome;
-        $aluno->email = $request->email;
+        $aluno->email = strtolower($request->email);;
         $aluno->cpf = $request->cpf;
         $aluno->telefone = $request->telefone;
         $aluno->rua = $request->rua;

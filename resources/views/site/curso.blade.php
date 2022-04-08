@@ -1,10 +1,10 @@
-@include("site.includes.head")
-<title>{{$curso->nome}} - ENAF</title>
+@include('site.includes.head')
+<title>{{ $curso->nome }} - ENAF</title>
 
 
 <body id="cursoDetalhes">
 
-    @include("site.includes.navbar")
+    @include('site.includes.navbar')
 
     <section class="container-fluid t_box">
         <div class="_data">
@@ -15,25 +15,28 @@
                 <p>{{ $curso->total_horas }} horas</p>
             </span>
             @if ($curso->certificacao)
-            <span>
-                <div class="_icon">
-                    <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
-                </div>
-                <p>Certificado</p>
-            </span>
+                <span>
+                    <div class="_icon">
+                        <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
+                    </div>
+                    <p>Certificado</p>
+                </span>
             @endif
 
             <span>
-                <h6>R$ {{number_format($curso->valor, 2, ",", ".")}}</h6>
+                <h6>R$ {{ number_format($curso->valor, 2, ',', '.') }}</h6>
             </span>
 
             <span>
-                <div class="_btn" @if($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'"  @endif>Comprar</div>
+                <div class="_btn"
+                    @if ($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'" @endif>
+                    Comprar</div>
             </span>
         </div>
     </section>
 
-    <section class="container-fluid s_hero" style="background-image: url('{{ asset($curso->banner)}}');background-blend-mode: soft-light;">
+    <section class="container-fluid s_hero"
+        style="background-image: url('{{ asset($curso->banner) }}');background-blend-mode: soft-light;">
         <div class="container-fav">
             <div class="_h1 fade">
                 <h6>CURSO {{ strtoupper(config('cursos.tipo_nome')[$curso->tipo]) }}</h6>
@@ -50,20 +53,22 @@
                         <p>{{ $curso->total_horas }} horas</p>
                     </span>
                     @if ($curso->certificacao)
-                    <span>
-                        <div class="_icon">
-                            <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
-                        </div>
-                        <p>Certificado</p>
-                    </span>
+                        <span>
+                            <div class="_icon">
+                                <img src="{{ asset('site/img/icon_medal.svg') }}" alt="Icone de medalha" />
+                            </div>
+                            <p>Certificado</p>
+                        </span>
                     @endif
 
                     <span>
-                        <h6>R$ {{number_format($curso->valor, 2, ",", ".")}}</h6>
+                        <h6>R$ {{ number_format($curso->valor, 2, ',', '.') }}</h6>
                     </span>
 
                     <span>
-                        <div class="_btn" @if($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'"  @endif>Comprar</div>
+                        <div class="_btn"
+                            @if ($curso->checkout_interno) onclick="window.location.href ='{{ route('site.carrinho-efetuar', ['curso' => $curso]) }}'" @else onclick="window.location.href ='{{ $curso->checkout_link }}'" @endif>
+                            Comprar</div>
                     </span>
                 </div>
             </div>
@@ -73,7 +78,7 @@
     <section class="container-fluid s_cursoVideo">
         <div class="container-fav">
             <div class="_text">
-                <h4>{{$curso->titulo}}</h4>
+                <h4>{{ $curso->titulo }}</h4>
                 <p>
                     {!! $curso->sobre !!}
                 </p>
@@ -98,7 +103,7 @@
             </div>
 
             <div class="_pictures">
-                @foreach($curso->professores as $professor)
+                @foreach ($curso->professores as $professor)
                 <picture>
                     <img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" />
                 </picture>
@@ -118,47 +123,47 @@
 
             <main>
                 <div class="_modulos">
-                    @foreach($curso->modulos as $modulo)
-                    <div class="_box">
-                        <div class="_main">
-                            <span>{{$modulo->nome}}</span>
-                            <div class="_icon">
-                                <img src="{{ asset('site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
+                    @foreach ($curso->modulos as $modulo)
+                        <div class="_box">
+                            <div class="_main">
+                                <span>{{ $modulo->nome }}</span>
+                                <div class="_icon">
+                                    <img src="{{ asset('site/img/arrowbottom.svg') }}" alt="Seta para baixo" />
+                                </div>
                             </div>
+                            <p>
+                                {!! str_replace("\n", '<br>', $modulo->descricao) !!}
+                            </p>
                         </div>
-                        <p>
-                            {!! str_replace("\n", "<br>" ,$modulo->descricao) !!}
-                        </p>
-                    </div>
                     @endforeach
                 </div>
                 @if (count($curso->professores) == 1)
 
-                @foreach($curso->professores as $professor)
-                <div class="_info">
-                    <picture>
-                        <img src="{{ asset($professor->foto) }}" alt="Imagem do professor" alt="{{$professor->nome}}" @if($professor->hotsite)
-                        onclick="window.open('{{route('site.treinador', ['slug' => $professor->hotsite->slug])}}')"
-                        @endif>
-                    </picture>
+                    @foreach ($curso->professores as $professor)
+                        <div class="_info">
+                            <picture>
+                                <img src="{{ asset($professor->foto) }}" alt="Imagem do professor"
+                                    alt="{{ $professor->nome }}"
+                                    @if ($professor->hotsite) onclick="window.open('{{ route('site.treinador', ['slug' => $professor->hotsite->slug]) }}')" @endif>
+                            </picture>
 
-                    <h4>{{$professor->nome}}</h4>
-                    {{-- <p> A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
+                            <h4>{{ $professor->nome }}</h4>
+                            {{-- <p> A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
                         "Conteúdo aqui, conteúdo aqui", fazendo com que ele tenha uma aparência similar a de um texto
                         legível.</p> --}}
 
-                </div>
-                @endforeach
-
-                @else
-                <div class="_pictures">
-                    @foreach($curso->professores as $professor)
-                    <picture>
-                        <span>{{$professor->nome}}</span>
-                        <img src="{{ asset($professor->foto) }}" onclick="" alt="{{$professor->nome}}" title="{{$professor->nome}}" />
-                    </picture>
+                        </div>
                     @endforeach
-                </div>
+                @else
+                    <div class="_pictures">
+                        @foreach ($curso->professores as $professor)
+                            <picture>
+                                <span>{{ $professor->nome }}</span>
+                                <img src="{{ asset($professor->foto) }}" onclick="" alt="{{ $professor->nome }}"
+                                    title="{{ $professor->nome }}" />
+                            </picture>
+                        @endforeach
+                    </div>
                 @endif
             </main>
         </div>
@@ -178,18 +183,18 @@
 
                 <div class="_content">
                     <div class="_depoimentosList">
-                        @foreach($curso->depoimentos as $depoimento)
-                        <div class="_depoimento">
-                            <div class="_pic">
-                                <img src="{{ asset($depoimento->foto) }}" alt="{{$depoimento->nome}}" />
+                        @foreach (\App\Models\Depoimento::take(3)->get() as $depoimento)
+                            <div class="_depoimento">
+                                <div class="_pic">
+                                    <img src="{{ asset($depoimento->foto) }}" alt="{{ $depoimento->nome }}" />
+                                </div>
+                                <div class="_text">
+                                    <p>
+                                        {{ $depoimento->depoimento }}
+                                    </p>
+                                    <h5>{{ $depoimento->nome }}</h5>
+                                </div>
                             </div>
-                            <div class="_text">
-                                <p>
-                                    {{$depoimento->depoimento}}
-                                </p>
-                                <h5>{{$depoimento->nome}}</h5>
-                            </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -355,21 +360,20 @@
 
 
 
-    @include("site.includes.parceiros")
+    @include('site.includes.parceiros')
 
 
-    @include("site.includes.footer-expanded")
+    @include('site.includes.footer-expanded')
 
     <script>
-        $(document).scroll(() =>{
+        $(document).scroll(() => {
             if (
                 $(document).scrollTop() >=
                 $('.s_cursoVideo .container-fav').offset().top -
-                    ($(window).height() * 3) / 4
+                ($(window).height() * 3) / 4
             ) {
                 $(".t_box").addClass('active');
-            }
-            else if($(document).scrollTop() == 0){
+            } else if ($(document).scrollTop() == 0) {
                 $(".t_box").removeClass('active');
             }
         })

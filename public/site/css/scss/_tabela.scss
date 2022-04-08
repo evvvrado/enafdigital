@@ -9,14 +9,66 @@ section.s_tabela {
     color: $color-darkest;
   }
 
+  ._title {
+    @include flex(row, center, space-between);
+
+    .buttons {
+      @include flex(row, center, flex-start);
+      gap: 1.5rem;
+      button {
+        height: 24px;
+        width: 24px;
+
+        border-radius: 100%;
+
+        background-color: $color-main;
+
+        @include flex(row, center, center);
+
+        img {
+          height: 10px;
+        }
+
+        transition: 0.32s;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
   ._table {
     @include fade(translateX(-500px), 2s);
     @include flex(row, center, space-between);
+    max-width: 100%;
+    overflow: hidden;
+
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    height: 90rem;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+
+    padding: unset 24px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     ._col {
-      width: 100%;
+      // width: 100%;
       height: 77.4rem;
-      max-width: 38.3rem;
+      width: 38.3rem;
+
+      white-space: normal;
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+      scroll-snap-align: start;
 
       background-color: $white;
 
@@ -131,6 +183,27 @@ section.s_tabela {
           font-weight: 600;
           font-size: 2.2rem;
           line-height: 2.7rem;
+        }
+      }
+
+      ._top {
+        background-color: $gray;
+      }
+      main {
+        span {
+          background: $gradient-sky;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        strong {
+          &::after {
+            background-color: $gray;
+          }
+        }
+      }
+      ._bottom {
+        button {
+          @include alternative-btn(4.8rem, $gray, $white);
         }
       }
 

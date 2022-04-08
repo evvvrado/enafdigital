@@ -3,6 +3,9 @@
 
 <section class="container-fluid _menu">
     <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+        </div>
         <nav>
             <ul>
                 <li>
@@ -42,11 +45,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -106,11 +110,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -164,7 +169,7 @@
 
 
                     <label>
-                        <input type="date" name="nascimento" value="{{$aluno->nascimento}}" class="_dadosComponent">
+                        <input type="date" name="nascimento" value="{{ $aluno->nascimento }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
                         </div>
@@ -185,7 +190,8 @@
                 <div class="dados-div">
 
                     <label>
-                        <input type="text" name="rua" placeholder="Rua" value="{{ $aluno->rua }}" class="_dadosComponent">
+                        <input type="text" name="rua" placeholder="Rua" value="{{ $aluno->rua }}"
+                            class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
                         </div>
@@ -193,29 +199,24 @@
 
 
                     <label>
-                        <input type="text" name="complemento" maxlength="20" placeholder="Complemento" value="{{ $aluno->complemento }}" class="_dadosComponent">
+                        <input type="text" name="complemento" maxlength="20" placeholder="Complemento"
+                            value="{{ $aluno->complemento }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
                     </label>
 
                     <label>
-                        <input type="number" name="numero" placeholder="Número" value="{{ $aluno->numero }}" class="_dadosComponent">
+                        <input type="number" name="numero" placeholder="Número" value="{{ $aluno->numero }}"
+                            class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
                     </label>
 
                     <label>
-                        <input type="text" name="bairro" placeholder="Bairro" value="{{ $aluno->bairro }}" class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
-                        </div>
-                    </label>
-
-
-                    <label>
-                        <input type="text" name="cep" placeholder="CEP" value="{{ $aluno->cep }}" class="_dadosComponent">
+                        <input type="text" name="bairro" placeholder="Bairro" value="{{ $aluno->bairro }}"
+                            class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
@@ -223,7 +224,17 @@
 
 
                     <label>
-                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}" class="_dadosComponent">
+                        <input type="text" name="cep" placeholder="CEP" value="{{ $aluno->cep }}"
+                            class="_dadosComponent">
+                        <div class="_icon">
+                            <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
+                        </div>
+                    </label>
+
+
+                    <label>
+                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}"
+                            class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
@@ -232,7 +243,8 @@
 
 
                     <label>
-                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}" class="_dadosComponent" maxlength="2">
+                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}"
+                            class="_dadosComponent" maxlength="2">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
@@ -247,7 +259,8 @@
             </div>
             <form class="_dados">
                 <label>
-                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value="" class="_dadosComponent">
+                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value=""
+                        class="_dadosComponent">
                     <div class="_icon">
                         <img src="{{ asset('site/img/sistema/lockData.svg') }}" alt="">
                     </div>
@@ -266,16 +279,19 @@
         <div class="_left">
             <div class="userImg">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
                         min-height: unset;
                         min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <a href="" id="select_avatar">Alterar Imagem</a>
-            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
-            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post" enctype="multipart/form-data" style="display: none;">
+            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img
+                    src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
+            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post"
+                enctype="multipart/form-data" style="display: none;">
                 @csrf
                 <input type="file" id="avatar" name="avatar">
             </form>
@@ -285,44 +301,43 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js" integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js"
+integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @include('site.includes.aluno.footer')
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
 <script>
     $(document).ready(function() {
-            $("#select_avatar").click(function(e) {
-                e.preventDefault();
-                $("#avatar").trigger('click');
-            });
-            $("#avatar").change(function() {
-                $("#select_avatar").hide();
-                $("#ajax_loading").show();
-                $("#form-avatar").submit();
-            });
+        $("#select_avatar").click(function(e) {
+            e.preventDefault();
+            $("#avatar").trigger('click');
         });
-        $("._menuMax").click(() => {
-            $("._mobileMenu").css("display", "flex");
-            $("._mobileMenu").animate({
-                    left: "0",
-                    top: "0",
-                },
-                500
-            );
+        $("#avatar").change(function() {
+            $("#select_avatar").hide();
+            $("#ajax_loading").show();
+            $("#form-avatar").submit();
         });
-            // MASCARAS PARA OS FORMULARIOS
-        $(document).ready(function () {
-            $('form label input[name = "cpf"]').mask("000.000.000-00", {
-                reverse: true,
-            });
-            $('form label input[name = "telefone"]').mask("(00) 00000-0000");
-            $('form label input[name = "expiracao"]').mask("00/0000");
-            $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
-            $('form label input[name= "cep"]').mask("00000-000");
+    });
+    $("._menuMax").click(() => {
+        $("._mobileMenu").css("display", "flex");
+        $("._mobileMenu").animate({
+                left: "0",
+                top: "0",
+            },
+            500
+        );
+    });
+    // MASCARAS PARA OS FORMULARIOS
+    $(document).ready(function() {
+        $('form label input[name = "cpf"]').mask("000.000.000-00", {
+            reverse: true,
         });
-
-
+        $('form label input[name = "telefone"]').mask("(00) 00000-0000");
+        $('form label input[name = "expiracao"]').mask("00/0000");
+        $('form label input[name= "numero"]').mask("0000 0000 0000 0000");
+        $('form label input[name= "cep"]').mask("00000-000");
+    });
 </script>
 
 </html>

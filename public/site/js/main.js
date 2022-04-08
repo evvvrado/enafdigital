@@ -118,30 +118,14 @@ $(document).ready(() => {
         $(".d_carrinho").toggleClass("active");
     });
 
-    $("._filter nav ._filterItem:first-child").click(() => {
+    $("._filter nav ._filterItem").click(function () {
         $("._filter nav ._filterItem").removeClass("active");
-        $("._filter nav ._filterItem:first-child").addClass("active");
+        $(this).addClass("active");
 
-        $("._cursosList ._curso.presencial").css("display", "none");
-        $("._cursosList ._curso.ead").css("display", "none");
-        $("._cursosList ._curso.online").css("display", "inline-block");
+        $("._cursosList ._curso").css("display", "none");
+        $(`._cursosList ._curso.${$(this).data('filter')}`).css("display", "inline-block");
     });
-    $("._filter nav ._filterItem:nth-child(2)").click(() => {
-        $("._filter nav ._filterItem").removeClass("active");
-        $("._filter nav ._filterItem:nth-child(2)").addClass("active");
 
-        $("._cursosList ._curso.presencial").css("display", "none");
-        $("._cursosList ._curso.online").css("display", "none");
-        $("._cursosList ._curso.ead").css("display", "inline-block");
-    });
-    $("._filter nav ._filterItem:last-child").click(() => {
-        $("._filter nav ._filterItem").removeClass("active");
-        $("._filter nav ._filterItem:last-child").addClass("active");
-
-        $("._cursosList ._curso.online").css("display", "none");
-        $("._cursosList ._curso.ead").css("display", "none");
-        $("._cursosList ._curso.presencial").css("display", "inline-block");
-    });
 
     $("._menu ._previous").click(function () {
         var content = $(this).closest("div.container-fav").find("div._content");
@@ -194,7 +178,7 @@ $(document).ready(() => {
         if (imageindex >= gallery_images.length - 1) return false;
 
         imageindex++;
-        var source = $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+        var source = $(`.s_galeria.container - fav._content._galeriaList._picture img`)[imageindex];
 
 
         $('.fullscreen-image picture img').attr('src', source.src);
@@ -203,7 +187,7 @@ $(document).ready(() => {
         if (imageindex <= 0) return false;
 
         imageindex--;
-        var source = $(`.s_galeria .container-fav ._content ._galeriaList ._picture img`)[imageindex];
+        var source = $(`.s_galeria.container - fav._content._galeriaList._picture img`)[imageindex];
 
 
         $('.fullscreen-image picture img').attr('src', source.src);

@@ -157,7 +157,8 @@
                     transform-origin: center;
                 }
                 &.presencial,
-                &.online {
+                &.online,
+                &.ead {
                     display: none;
                 }
 

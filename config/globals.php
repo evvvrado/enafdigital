@@ -3,7 +3,8 @@
 return [
     'acesso' => [
         0 => "Administrativo",
-        1 => "Produção",
+        1 => "Atendente",
+        2 => "Produção",
     ],
     'regioes' => [
         0 => "Sul",

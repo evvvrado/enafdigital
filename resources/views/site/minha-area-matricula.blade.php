@@ -4,6 +4,9 @@
 
 <section class="container-fluid _menu">
     <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+        </div>
         <nav>
             <ul>
                 <li>
@@ -43,11 +46,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -107,11 +111,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -136,33 +141,35 @@
         </div>
         <div class="_contentList">
             <div class="_matriculasList">
-                @if (count($aluno->matriculas) <= 0) <h3>Ainda não há nenhuma matrícula</h3>
-                    @else
+                @if (count($aluno->matriculas) <= 0)
+                    <h3>Ainda não há nenhuma matrícula</h3>
+                @else
                     @foreach ($aluno->matriculas as $matricula)
-                    <div class="_matricula">
-                        <div class="_image">
-                            <img src="{{ asset($matricula->curso->thumbnail) }}" alt="">
-                        </div>
-                        <div class="_content">
-                            <h3>{{ $matricula->curso->nome }}</h3>
-                            {{-- <p>N. 558893390122</p> --}}
-                            <div class="_date">
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
-                                </div>
-                                <p>{{ date('d.m.Y', strtotime($matricula->created_at)) }}</p>
+                        <div class="_matricula">
+                            <div class="_image">
+                                <img src="{{ asset($matricula->curso->thumbnail) }}" alt="">
                             </div>
-                            <p>Curso {{config('cursos.tipo_nome')[$matricula->curso->tipo]}}</p>
-                            <button class="btn-primary" onclick="window.location.href = '{{ route('site.minha-area-matricula.conteudo', ['matricula' => $matricula]) }}'">
-                                Acessar Curso
-                                <div class="_svg">
-                                    <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
+                            <div class="_content">
+                                <h3>{{ $matricula->curso->nome }}</h3>
+                                {{-- <p>N. 558893390122</p> --}}
+                                <div class="_date">
+                                    <div class="_svg">
+                                        <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
+                                    </div>
+                                    <p>{{ date('d.m.Y', strtotime($matricula->created_at)) }}</p>
                                 </div>
-                            </button>
+                                <p>Curso {{ config('cursos.tipo_nome')[$matricula->curso->tipo] }}</p>
+                                <button class="btn-primary"
+                                    onclick="window.location.href = '{{ route('site.minha-area-matricula.conteudo', ['matricula' => $matricula]) }}'">
+                                    Acessar Curso
+                                    <div class="_svg">
+                                        <img src="{{ asset('site/img/sistema/buttonArrowRight.svg') }}" alt="">
+                                    </div>
+                                </button>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
-                    @endif
+                @endif
 
             </div>
         </div>

@@ -250,12 +250,12 @@ div._sidemenu nav a:first-child {
     background-color: var(--lightbrown);
 }
 body._minhaArea {
-    padding-top: 16.4rem;
+    padding-top: 4.4rem;
 }
 
 section._menu {
     background: var(--gray19);
-    margin-top: 47px;
+    /* margin-top: 47px; */
 }
 section._menu .container-fav {
     justify-content: space-between;

@@ -21,7 +21,7 @@ class AlunosController extends Controller
     public function cadastrar(Request $request)
     {
 
-        $aluno = Aluno::where("email", $request->email)->orWhere("cpf", $request->cpf)->first();
+        $aluno = Aluno::where("email", strtolower($request->email))->orWhere("cpf", $request->cpf)->first();
         if ($aluno) {
             session()->flash("erro", "O email ou CPF já pertence a um usuário cadastrado.");
             return redirect()->back();
@@ -34,14 +34,14 @@ class AlunosController extends Controller
             'tel' => 'max:15'
         ]);
 
-        if(!Util::validaCPF($request->cpf)){
+        if (!Util::validaCPF($request->cpf)) {
             session()->flash("erro", "O CPF informado é inválido");
             return redirect()->back();
         }
 
         $aluno = new Aluno;
         $aluno->nome = $request->nome;
-        $aluno->email = $request->email;
+        $aluno->email = strtolower($request->email);
         $aluno->senha = Hash::make($request->senha);
         $aluno->cpf = $request->cpf;
         $aluno->telefone = $request->telefone;
@@ -73,7 +73,7 @@ class AlunosController extends Controller
 
     public function logar(Request $request)
     {
-        $aluno = Aluno::where("email", $request->email)->first();
+        $aluno = Aluno::where("email", strtolower($request->email))->first();
         if ($aluno && Hash::check($request->senha, $aluno->senha)) {
             $aluno->ultimo_acesso = date("Y-m-d");
             $aluno->save();

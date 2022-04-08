@@ -3,6 +3,9 @@
 
 <section class="container-fluid _menu">
     <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+        </div>
         <nav>
             <ul>
                 <li class="_active">
@@ -42,11 +45,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -106,11 +110,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="max-width: 100%;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -141,7 +145,7 @@
                     </div>
                     <div class="_content">
                         <h3>Cursos</h3>
-                        <p>{{count($aluno->matriculas)}} Matrícula</p>
+                        <p>{{ count($aluno->matriculas) }} Matrícula</p>
                         <button class="btn-primary" onclick="window.location.href = '/minha-area/matriculas'">
                             + VER CURSOS
                             <div class="_svg">
