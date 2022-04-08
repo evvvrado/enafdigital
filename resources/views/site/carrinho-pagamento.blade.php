@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="_pagamentoCartao">
+                    <div class="_pagamentoCartao" style="max-width: 100% !important;">
                         @if($forma == 'cartao')
                         <div class="_text">
                             <span>Pagamento Cartão de Crédito</span>
@@ -102,9 +102,89 @@
                                 action="{{route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso])}}" @endif method="POST">
 
                                 @csrf
-
-
-                                <input type="hidden" name="payment_token">
+                                <input type="hidden" name="payment_token" value="-">
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Nome</span>
+                                            <input type="text" name="nome" value="{{ $aluno->nome }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>CPF</span>
+                                            <input type="text" name="cpf" value="{{ $aluno->cpf }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Telefone</span>
+                                            <input type="text" name="telefone" value="{{ $aluno->telefone }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>Data de Nascimento</span>
+                                            <input type="date" name="nascimento" value="{{ $aluno->nascimento }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 100%;">
+                                        <label for="">
+                                            <span>E-mail</span>
+                                            <input type="text" name="email" value="{{ $aluno->email }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 80%;">
+                                        <label for="">
+                                            <span>Rua</span>
+                                            <input type="text" name="rua" value="{{ $aluno->rua }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 20%;">
+                                        <label for="">
+                                            <span>Nº</span>
+                                            <input type="text" name="numero_endereco" value="{{ $aluno->numero }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Bairro</span>
+                                            <input type="text" name="bairro" value="{{ $aluno->bairro }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>CEP</span>
+                                            <input type="text" name="cep" value="{{ $aluno->cep }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Cidade</span>
+                                            <input type="text" name="cidade" value="{{ $aluno->cidade }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>Estado</span>
+                                            <select type="text" name="estado" required style="padding: 5px !important; max-width: 100%;">
+                                                @foreach(config("estados.estados") as $key => $estado)
+                                                    <option value="{{ $key }}" @if($aluno->estado == $estado) selected @endif>{{ $estado }}</option>
+                                                @endforeach     
+                                            </select>   
+                                        </label>
+                                    </div>
+                                </div>
                                 <label>
                                     <span>N. Cartão</span>
                                     <input required type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" autocomplete="cc-number" name="numero" maxlength="19" />
@@ -140,8 +220,9 @@
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" id="parcelas" required>
-                                        @for($i = 1; $i <= $parcelas; $i++) <option value="{{$i}}">{{$i}}x - R${{number_format($curso->valor/$i, 2, ",", ".")}}</option>
-                                            @endfor
+                                        @for($i = 1; $i <= $parcelas; $i++) 
+                                            <option value="{{$i}}">{{$i}}x - R${{number_format($curso->valor/$i, 2, ",", ".")}}</option>
+                                        @endfor
                                     </select>
                                 </label>
                                 <div id="div-ajax">
@@ -160,18 +241,45 @@
                             <span>Pagamento por boleto ou carnê</span>
                             <p>Escolha o número de parcelas desejadas:</p>
                         </div>
-                        <div class="_form">
+                        <div class="_form" style="width: 100% !important;">
                             <div>
                                 <small style="color: red;">{{session()->get("erro")}}</small>
                             </div>
 
                             <form action="{{route('site.carrinho.finalizar.boleto', ['curso' => $curso])}}" method="POST">
                                 @csrf
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Nome</span>
+                                            <input type="text" name="nome" value="{{ $aluno->nome }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>CPF</span>
+                                            <input type="text" name="cpf" value="{{ $aluno->cpf }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display:flex; flex-direction: row;">
+                                    <div style="width: 50%;">
+                                        <label for="">
+                                            <span>Telefone</span>
+                                            <input type="text" name="telefone" value="{{ $aluno->telefone }}" required>
+                                        </label>
+                                    </div>
+                                    <div style="margin-left: 5px; width: 50%;">
+                                        <label for="">
+                                            <span>Data de Nascimento</span>
+                                            <input type="text" name="nascimento" value="{{ $aluno->nascimento }}" required>
+                                        </label>
+                                    </div>
+                                </div>
+                                
                                 <label>
                                     <span>Parcelas</span>
                                     <select style="padding: 0 0 0 2.7rem!important;" name="parcelas" required>
-                                        <option value="1">1x de
-                                            {{-- {{ number_format($curso->valor - ($curso->valor * 10) / 100, 2, ",", ".") }}</option> --}}
                                         @for($i = 1; ((($curso->valor / $i) > $configuracao->min_valor_parcela_boleto) && $i <= $configuracao->max_parcelas_boleto); $i++)
                                             <option value="{{$i}}">{{$i}}x de {{number_format($curso->valor / $i, 2, ",", ".")}}</option>
                                         @endfor
@@ -211,6 +319,18 @@
         $gn.ready(function(checkout) {
                 $("#btn-form-cartao").on("click", function(e) {
                     e.preventDefault();
+                    var erro = false;
+                    $("#form-cartao input").each(function(){
+                        if(!$(this).val()){
+                            $("#div-erro h2").html("Por favor, preencha todos os campos.")
+                            $('#div-erro').attr('show', '')
+                            erro = true;
+                            return false;
+                        }
+                    })
+                    if(erro){
+                        return false;
+                    }
                     $("#btn-form-cartao").hide();
                     $("#div-ajax").show();
                     var cartao = $("input[name='numero']").val();

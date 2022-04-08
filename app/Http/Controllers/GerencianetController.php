@@ -26,6 +26,13 @@ class GerencianetController extends Controller
         $gerencianet = new GerencianetRequisicaoBoleto();
         // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
+
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->telefone = $request->telefone;
+        $aluno->nascimento = $request->nascimento;
+        $aluno->save();
+
         if ($request->parcelas == 1) {
             $desconto = 0;
         } else {
@@ -166,6 +173,18 @@ class GerencianetController extends Controller
     public function credito(Request $request, Curso $curso){
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         $gerencianet = new GerencianetRequisicaoCartao();
+        Log::info($request->payment_token);
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->telefone = $request->telefone;
+        $aluno->nascimento = $request->nascimento;
+        $aluno->rua = $request->rua;
+        $aluno->numero = $request->numero_endereco;
+        $aluno->bairro = $request->bairro;
+        $aluno->cep = $request->cep;
+        $aluno->cidade = $request->cidade;
+        $aluno->estado = $request->estado;
+        $aluno->save();
 
         $gerencianet->addItem([
             'name' => $curso->nome, // nome do item, produto ou serviço
@@ -187,7 +206,7 @@ class GerencianetController extends Controller
 
         $gerencianet->addBillingAddress([
             'street' => $aluno->rua,
-            'number' => 190,
+            'number' => $aluno->numero,
             'neighborhood' => $aluno->bairro,
             'zipcode' => Util::limparString($aluno->cep),
             'city' => $aluno->cidade,
