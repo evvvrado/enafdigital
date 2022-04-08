@@ -3,6 +3,7 @@
 return [
     'acesso' => [
         0 => "Administrativo",
+        1 => "Produção",
     ],
     'regioes' => [
         0 => "Sul",
@@ -29,5 +30,3 @@ return [
         2 => "Noite"
     ],
 ];
-
-?>
