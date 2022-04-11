@@ -16,7 +16,7 @@
     </section>
 
 
-    <section class="container-fluid s_atendimento" style="padding-top: 5rem;">
+    <section class="container-fluid s_atendimento" style="padding-top: 5rem; padding-bottom: 13.4rem;">
 
         <div class="container-fav"></div>
 
@@ -27,37 +27,6 @@
                     à disposição para tirar todas as dúvidas a respeito de como funciona a nossa assessoria
                     e programação de eventos. Deixe sua mensagem abaixo.</p>
 
-
-
-                <div class="agenda">
-                    <div class="line fade">
-                        <strong>2022</strong>
-                        <strong>Texto minúsculo</strong>
-                        <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
-
-                        <picture>
-                            <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
-                        </picture>
-                    </div>
-                    <div class="line fade">
-                        <strong>2022</strong>
-                        <strong>Texto minúsculo</strong>
-                        <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
-
-                        <picture>
-                            <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
-                        </picture>
-                    </div>
-                    <div class="line fade">
-                        <strong>2022</strong>
-                        <strong>Texto minúsculo</strong>
-                        <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
-
-                        <picture>
-                            <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
-                        </picture>
-                    </div>
-                </div>
 
             </div>
 
@@ -105,16 +74,6 @@
                             target="_blank" download="7Sevn">7Sevn</a>
                         <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
                             target="_blank" download="Seven">Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
                     </div>
                 </aside>
             </div>
@@ -122,6 +81,40 @@
     </section>
 
 
+    <div class="container-fluid">
+        <div class="container-fav">
+            <div class="agenda">
+                <div class="line fade">
+                    <strong>2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     @include('site.includes.parceiros')
     @include('site.includes.footer')
