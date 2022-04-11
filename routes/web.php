@@ -50,6 +50,7 @@ Route::get('/eventos/evento/{slug}', [\App\Http\Controllers\SiteController::clas
 Route::get('/cursos', [\App\Http\Controllers\SiteController::class, 'cursos'])->name("site.cursos");
 Route::get('/cursos/curso/{slug}', [\App\Http\Controllers\SiteController::class, 'curso'])->name("site.curso");
 Route::get('/contato', [\App\Http\Controllers\SiteController::class, 'contato'])->name("site.contato");
+Route::get('/imprensa', [\App\Http\Controllers\SiteController::class, 'imprensa'])->name("site.imprensa");
 
 Route::get('/blog/lista', [\App\Http\Controllers\SiteController::class, 'blogLista'])->name("site.blog-lista");
 Route::get('/blog/', [\App\Http\Controllers\SiteController::class, 'blogGrid'])->name("site.blog-grid");

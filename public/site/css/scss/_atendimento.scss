@@ -69,6 +69,125 @@
 
         color: $color-main;
       }
+
+      div.agenda {
+        padding-top: 6rem;
+        margin-top: 6rem;
+        @include flex(column, flex-start, center);
+        gap: 4rem;
+
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+
+          height: 100%;
+          width: 1px;
+
+          background-color: $color-darker;
+
+          left: calc(7rem + 7.5px);
+          // right: 0;
+          // margin: 0 auto;
+        }
+
+        div.line {
+          z-index: 2;
+          width: 100%;
+
+          @include fade(translateY(200px), 0.32s);
+          position: relative;
+
+          padding-left: 12rem;
+
+          strong {
+            font-size: 2.8rem;
+            color: $color-main;
+            display: block;
+            margin-bottom: 3.4rem;
+
+            &:nth-child(2) {
+              margin-bottom: 0;
+              font-size: 2.5rem;
+            }
+          }
+          p {
+            margin: 0;
+            max-width: 80%;
+          }
+          picture {
+            height: 74px;
+            width: 74px;
+            position: absolute;
+
+            border: solid 1px $color-darker;
+
+            z-index: 2;
+
+            top: 15px;
+            right: 15px;
+
+            border-radius: 150px;
+
+            overflow: hidden;
+
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &::after {
+            z-index: 1;
+            content: "";
+            position: absolute;
+            top: 50px;
+
+            left: 7rem;
+
+            width: 80%;
+            height: 1px;
+            background-color: $color-darker;
+          }
+          &::before {
+            z-index: 1;
+            content: "";
+            position: absolute;
+            top: 43px;
+
+            left: 7rem;
+            border-radius: 100%;
+
+            width: 15px;
+            height: 15px;
+            background-color: $color-darker;
+          }
+
+          &:nth-child(even) {
+            strong,
+            p {
+              color: $color-second;
+            }
+
+            &::after,
+            &::before {
+              background-color: $color-second;
+            }
+
+            picture {
+              border-color: $color-second;
+            }
+          }
+
+          &:hover {
+            filter: saturate(3);
+            cursor: pointer;
+
+            transform: scale(1.05);
+          }
+        }
+      }
     }
 
     &:last-child {

@@ -108,6 +108,12 @@ class SiteController extends Controller
         return view("site.contato");
     }
 
+
+    public function imprensa()
+    {
+        return view("site.imprensa");
+    }
+
     public function minhaConta()
     {
         return view("site.minha-conta");
@@ -138,10 +144,7 @@ class SiteController extends Controller
         return view("site.galerias");
     }
 
-    public function imprensa()
-    {
-        return view("site.imprensa");
-    }
+
 
     public function clinicas()
     {

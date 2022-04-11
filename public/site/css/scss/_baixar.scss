@@ -1,0 +1,114 @@
+aside.s_baixar {
+    margin-top: -14rem;
+    h3 {
+        color: $gray;
+        margin-bottom: 2.3rem;
+    }
+
+    p {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 160%;
+        /* or 29px */
+
+        color: $gray;
+
+        margin-bottom: 3.6rem;
+    }
+
+    @include flex(row, center, center);
+
+    div {
+        width: 100%;
+        max-width: 59.2rem;
+
+        background: #f8f8f8;
+
+        padding: 5rem 10rem;
+
+        h3 {
+            text-align: center;
+            color: $gray;
+        }
+
+        @include flex(column, center, center);
+        gap: 2.9rem;
+
+        button,
+        a {
+            height: 5.7rem;
+            width: 100%;
+
+            background: $color-thirdy;
+
+            color: $white;
+
+            text-align: center;
+            line-height: 5.7rem;
+        }
+    }
+
+    form {
+        label {
+            position: relative;
+            input,
+            select,
+            textarea {
+                height: 5.6rem;
+                margin-bottom: 1.6rem;
+                width: 100%;
+                max-width: 44.3rem;
+                border: 1px solid #e9ecef;
+                outline: none;
+                background: $white;
+
+                padding-left: 1.9rem;
+
+                font-family: "Montserrat";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 1.6rem;
+                line-height: 5.6rem;
+                /* or 22px */
+
+                /* Texto */
+
+                color: #505354;
+            }
+
+            textarea {
+                height: 14.3rem;
+            }
+
+            &.password {
+                img {
+                    position: absolute;
+                    right: 2.1rem;
+
+                    top: 0;
+                    bottom: 0;
+
+                    cursor: pointer;
+
+                    &[active] {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+
+        button {
+            @include style-btn(4.5rem, $color-alternative, $color-darker);
+
+            color: $gray;
+            background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+            background-size: 100% 100%;
+            filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+
+            max-width: unset;
+            width: 100%;
+        }
+    }
+}
