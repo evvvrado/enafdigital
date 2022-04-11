@@ -81,7 +81,7 @@
     </section>
 
 
-    <div class="container-fluid">
+    <div class="container-fluid s_story_line">
         <div class="container-fav">
             <div class="agenda">
                 <div class="line fade">
