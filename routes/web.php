@@ -70,7 +70,7 @@ Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associe
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/experiencia', [\App\Http\Controllers\SiteController::class, 'experiencia'])->name("site.experiencia");
 Route::get('/galerias', [\App\Http\Controllers\SiteController::class, 'galerias'])->name("site.galerias");
-Route::get('/imprensa', [\App\Http\Controllers\SiteController::class, 'imprensa'])->name("site.imprensa");
+Route::get('/agenda', [\App\Http\Controllers\SiteController::class, 'imprensa'])->name("site.agenda");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
 Route::get('/estaduais/{slug}', [\App\Http\Controllers\SiteController::class, 'estaduais_filtro'])->name("site.estaduais.filtro");
 Route::get('/estadual/{slug}', [\App\Http\Controllers\SiteController::class, 'estadual'])->name("site.estadual");

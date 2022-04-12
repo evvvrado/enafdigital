@@ -25,7 +25,7 @@
                     <li><a href="{{ route('site.quem_somos') }}">Sobre</a></li>
                     <li><a href="{{ route('site.artigo-grid') }}">Artigos</a></li>
                     <li><a href="{{ route('site.blog-grid') }}">Blog</a></li>
-                    <li><a href="{{ route('site.imprensa') }}">Imprensa</a></li>
+                    <li><a href="{{ route('site.contato') }}">Contato</a></li>
                     <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </ul>
             </div>

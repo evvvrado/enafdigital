@@ -151,7 +151,7 @@
 }
 
 div.s_story_line {
-  background-color: #f8f8f8;
+  // background-color: #f8f8f8;
   // background-image: url("../img/banner_sobre.jpg");
   // background-size: cover;
   // background-blend-mode: lighten;
@@ -171,7 +171,7 @@ div.s_story_line {
       height: 100%;
       width: 3px;
 
-      background-color: $color-darker;
+      background: linear-gradient(29.43deg, #1ad7d7 -10.45%, #165fcd 159.12%);
 
       // left: calc(7rem + 7.5px);
       right: 0;
@@ -192,10 +192,11 @@ div.s_story_line {
       margin-left: auto;
 
       strong {
-        font-size: 3.2rem;
+        font-size: 4.6rem;
         color: $color-darker;
         display: block;
         margin-bottom: 3.4rem;
+        margin-top: -1rem;
 
         &:nth-child(2) {
           margin-bottom: 0;
@@ -221,7 +222,7 @@ div.s_story_line {
         border-radius: 150px;
 
         overflow: hidden;
-        box-shadow: 0px 0px 0px 6px #f8f8f8;
+        box-shadow: 0px 0px 0px 9px #fff;
 
         img {
           object-fit: cover;
@@ -238,8 +239,8 @@ div.s_story_line {
         left: 0;
 
         width: 80%;
-        height: 3px;
-        background-color: $color-darker;
+        height: 1px;
+        border: dashed 2px #001856;
       }
       &::before {
         z-index: 2;
@@ -271,19 +272,21 @@ div.s_story_line {
           margin-left: auto;
         }
 
-        &::after,
-        &::before {
-          background-color: $color-second;
-        }
+        // &::after,
+        // &::before {
+        //   border: dashed 3px $color-second;
+        // }
 
         &::after {
           left: unset;
           right: 0;
+          border: dashed 3px $color-second;
         }
 
         &::before {
           right: -1.25rem;
           left: unset;
+          background-color: $color-second;
           box-shadow: 0px 0px 0px 3px $color-second;
         }
 
@@ -300,7 +303,7 @@ div.s_story_line {
       }
 
       &:hover {
-        filter: saturate(3);
+        filter: saturate(2);
         cursor: pointer;
 
         transform: scale(1.05);
