@@ -59,6 +59,7 @@ class ModalCadastro extends Component
         if($this->nova_imagem){
             Storage::delete($this->imagem);
             $cronograma->imagem = $this->nova_imagem->store('site/imagens/cronograma/', 'local');
+            Util::limparLivewireTemp();
         }
 
         $cronograma->save();
