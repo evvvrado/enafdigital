@@ -5,6 +5,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
+                            <div class="row my-3">
+                                <picture
+                                    style="height: 150px;width: 150px;border-radius: 15px;overflow: hidden; display: block; margin: 0 auto;">
+                                    <img id="preview-thumbnail"
+                                        style="width: 100%; height:100%; object-fit: cover; border-radius: 15px;"
+                                        src=" {{ asset('admin/images/thumb-padrao.png') }}" alt="">
+                                </picture>
+
+
+                                <div class="col-12 mt-3 text-center">
+                                    <label style="width: 60%" class="btn btn-primary" id="picModalButton"><i
+                                            class='bx bx-upload text-white'></i></label>
+                                </div>
+                            </div>
+
+
                             <div class="mb-3">
                                 <label for="productname">Mês e Ano (*)</label>
                                 <input id="productname" name="nome" type="text" class="form-control contador"
