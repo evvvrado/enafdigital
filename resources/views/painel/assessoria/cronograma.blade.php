@@ -42,5 +42,9 @@
         window.addEventListener("abreModalCadastro", (event) => {
             $("#modalParceiro").modal("show");
         })
+
+        window.addEventListener("fechaModalCadastro", (event) => {
+            $("#modalParceiro").modal("hide");
+        })
     </script>
 @endsection

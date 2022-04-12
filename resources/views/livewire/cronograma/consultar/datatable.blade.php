@@ -40,31 +40,31 @@
 
 
                             <tbody>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Evento em Moçambique <br> <small>Abril de
-                                            2022</small></td>
-                                    <td class="depoimento-row" style="white-space: unset; width: 60%;">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur, adipisicing elit.
-                                        Culpa molestiae facere, quaerat saepe quibusdam dolor odit amet aspernatur,
-                                        maxime quia esse rerum consequatur dignissimos vero quidem quasi delectus
-                                        veritatis! Dolorem.</td>
-                                    <td>
-                                        <div class="btn-group edit-table-button ">
-                                            <button type="button" class="btn btn-info dropdown-toggle"
-                                                data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                    class="bx bx-edit"></i></button>
-                                            <div class="dropdown-menu" style="margin: 0px;">
-                                                <a class="dropdown-item" href="">Editar</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" style="color: red" href="">Excluir</a>
+                                @foreach($cronogramas as $cronograma)
+                                    <tr class="odd">
+                                        <td class="sorting_1 dtr-control">{{ $cronograma->titulo }} <br> 
+                                            <small>{{ $cronograma->mes_ano }}</small></td>
+                                        <td class="depoimento-row" style="white-space: unset; width: 60%;">{{ $cronograma->descricao }}</td>
+                                        <td>
+                                            <div class="btn-group edit-table-button ">
+                                                <button type="button" class="btn btn-info dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="bx bx-edit"></i></button>
+                                                <div class="dropdown-menu" style="margin: 0px;">
+                                                    <a class="dropdown-item cpointer" onclick="Livewire.emit('abreModalEdicao', {{ $cronograma->id }})">Editar</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item cpointer" style="color: red" wire:click="removeCronograma({{ $cronograma->id }})">Excluir</a>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <div class="row row-paginacao">
+                            {{ $cronogramas->links() }}
+                        </div>
                     </div>
                 </div>
 
@@ -88,14 +88,12 @@
             <form id="form-filtro" action="{{ route('painel.depoimento') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="nome">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" placeholder=""
-                        @if (isset($filtros) && isset($filtros['nome'])) value="{{ $filtros['nome'] }}" @endif>
+                    <label for="nome">Título</label>
+                    <input id="nome" name="nome" type="text" class="form-control" placeholder="" wire:model="filtro_titulo">
                 </div>
                 <div class="mb-3">
-                    <label for="depoimento">Depoimento</label>
-                    <input id="depoimento" name="depoimento" type="text" class="form-control" placeholder=""
-                        @if (isset($filtros) && isset($filtros['depoimento'])) value="{{ $filtros['depoimento'] }}" @endif>
+                    <label for="depoimento">Descrição</label>
+                    <input id="depoimento" name="depoimento" type="text" class="form-control" placeholder="" wire:model="filtro_descricao">
                 </div>
             </form>
 
@@ -103,12 +101,12 @@
 
             <div class="buttons-row">
                 <div>
-                    <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light">
+                    <button id="btn-filtrar" type="button" class="btn btn-success waves-effect waves-light" wire:click="setFiltros">
                         <i class="bx bx-check-double font-size-16 align-middle me-2"></i> Filtrar
                     </button>
                 </div>
                 <div>
-                    <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light">
+                    <button id="btn-limpar" type="button" class="btn btn-danger waves-effect waves-light" wire:click="limpaFiltros">
                         <i class="bx bx-block font-size-16 align-middle me-2"></i> Limpar
                     </button>
                 </div>
