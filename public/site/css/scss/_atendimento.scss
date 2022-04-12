@@ -93,7 +93,7 @@
 
       ._buttons {
         width: 100%;
-        max-width: 31.3rem;
+        // max-width: 31.3rem;
         display: flex;
         justify-content: space-between;
 
@@ -192,7 +192,7 @@ div.s_story_line {
       margin-left: auto;
 
       strong {
-        font-size: 4.6rem;
+        font-size: 4rem;
         color: $color-darker;
         display: block;
         margin-bottom: 3.4rem;
@@ -230,6 +230,7 @@ div.s_story_line {
           width: 100%;
         }
       }
+
       &::after {
         z-index: 1;
         content: "";
@@ -262,6 +263,38 @@ div.s_story_line {
         box-shadow: 0px 0px 0px 3px $color-darker;
       }
 
+      &:first-child {
+        strong,
+        p {
+          color: $orange;
+        }
+        &::after {
+          border: dashed 3px $orange;
+        }
+        &::before {
+          background-color: $orange;
+          box-shadow: 0px 0px 0px 3px $orange;
+        }
+        picture {
+          border-color: $orange;
+        }
+      }
+      &:nth-child(7n) {
+        strong,
+        p {
+          color: $color-fourty;
+        }
+        &::after {
+          border: dashed 3px $color-fourty;
+        }
+        &::before {
+          background-color: $color-fourty;
+          box-shadow: 0px 0px 0px 3px $color-fourty;
+        }
+        picture {
+          border-color: $color-fourty;
+        }
+      }
       &:nth-child(even) {
         margin-left: unset;
         margin-right: auto;
@@ -299,6 +332,38 @@ div.s_story_line {
 
         &:hover {
           transform-origin: right;
+        }
+      }
+      &:nth-child(4n) {
+        strong,
+        p {
+          color: $green;
+        }
+        &::after {
+          border: dashed 3px $green;
+        }
+        &::before {
+          background-color: $green;
+          box-shadow: 0px 0px 0px 3px $green;
+        }
+        picture {
+          border-color: $green;
+        }
+      }
+      &:nth-child(5n) {
+        strong,
+        p {
+          color: $orange;
+        }
+        &::after {
+          border: dashed 3px $orange;
+        }
+        &::before {
+          background-color: $orange;
+          box-shadow: 0px 0px 0px 3px $orange;
+        }
+        picture {
+          border-color: $orange;
         }
       }
 

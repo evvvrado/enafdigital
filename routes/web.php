@@ -70,7 +70,7 @@ Route::get('/associe-se', [\App\Http\Controllers\SiteController::class, 'associe
 Route::get('/diretoria', [\App\Http\Controllers\SiteController::class, 'diretoria'])->name("site.diretoria");
 Route::get('/experiencia', [\App\Http\Controllers\SiteController::class, 'experiencia'])->name("site.experiencia");
 Route::get('/galerias', [\App\Http\Controllers\SiteController::class, 'galerias'])->name("site.galerias");
-Route::get('/agenda', [\App\Http\Controllers\SiteController::class, 'imprensa'])->name("site.agenda");
+Route::get('/assessoria', [\App\Http\Controllers\SiteController::class, 'imprensa'])->name("site.agenda");
 Route::get('/estaduais', [\App\Http\Controllers\SiteController::class, 'estaduais'])->name("site.estaduais");
 Route::get('/estaduais/{slug}', [\App\Http\Controllers\SiteController::class, 'estaduais_filtro'])->name("site.estaduais.filtro");
 Route::get('/estadual/{slug}', [\App\Http\Controllers\SiteController::class, 'estadual'])->name("site.estadual");
@@ -242,6 +242,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/duvidas/editar/{duvida}', [\App\Http\Controllers\DuvidasController::class, 'editar'])->name("painel.duvidas.editar");
     Route::post('/sistema/duvidas/salvar', [\App\Http\Controllers\DuvidasController::class, 'salvar'])->name("painel.duvidas.salvar");
     Route::get('/sistema/duvidas/deletar/{duvida}', [\App\Http\Controllers\DuvidasController::class, 'deletar'])->name("painel.duvidas.deletar");
+
+
+    Route::match(['get', 'post'], '/sistema/midiakit', [\App\Http\Controllers\AssessoriaController::class, 'midiakit'])->name("painel.midiakit");
+    Route::match(['get', 'post'], '/sistema/cronograma', [\App\Http\Controllers\AssessoriaController::class, 'cronograma'])->name("painel.cronograma");
 
 
     // ROTAS DE NOTÍCIAS

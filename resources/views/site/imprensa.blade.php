@@ -68,12 +68,12 @@
                     <div>
                         <h3>Baixar mídia kit</h3>
 
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//2vauC72ZxXdODzbPjLarJrvHj6ji5jBlVvHaDbWO.png"
-                            target="_blank" download="7 Seven">7 Seven</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//cYG0t1CZx9BA8JMlysV6eEkR0SKnogJROHXfzsGt.png"
-                            target="_blank" download="7Sevn">7Sevn</a>
-                        <a href="https://abs-system.hyp8.com.br/site/midiakits//7BOOgXIgNkfwzBhbHqy7EFk9ETurutM9ckcoQOH2.jpg"
-                            target="_blank" download="Seven">Seven</a>
+
+
+                        @foreach (\App\Models\Midiakit::where('mostrar', true)->get() as $midiakit)
+                            <a href="{{ asset($midiakit->arquivo) }}" target="_blank"
+                                download="{{ $midiakit->nome }}">{{ $midiakit->nome }}</a>
+                        @endforeach
                     </div>
                 </aside>
             </div>
@@ -85,7 +85,7 @@
         <div class="container-fav">
             <div class="agenda">
                 <div class="line fade">
-                    <strong>2022</strong>
+                    <strong>Abril de 2022</strong>
                     <strong>Texto minúsculo</strong>
                     <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
 
@@ -94,7 +94,7 @@
                     </picture>
                 </div>
                 <div class="line fade">
-                    <strong>2022</strong>
+                    <strong>Abril de 2022</strong>
                     <strong>Texto minúsculo</strong>
                     <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
 
@@ -103,7 +103,61 @@
                     </picture>
                 </div>
                 <div class="line fade">
-                    <strong>2022</strong>
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
+                    <strong>Texto minúsculo</strong>
+                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
+
+                    <picture>
+                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
+                    </picture>
+                </div>
+                <div class="line fade">
+                    <strong>Abril de 2022</strong>
                     <strong>Texto minúsculo</strong>
                     <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
 

@@ -56,12 +56,14 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <img src="{{ asset('site/img/enafCircle.svg') }}" alt="" width="22">
                             </span>
                             <span class="logo-lg">
-                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt="" height="44">
+                                <img class="" src=" {{ asset('site/img/_logo57.svg') }}" alt=""
+                                    height="44">
                             </span>
                         </a>
                     </div>
 
-                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn" style="color: white;">
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
+                        id="vertical-menu-btn" style="color: white;">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
 
@@ -121,19 +123,24 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                             <div class="px-lg-2">
                                 <div class="row g-0">
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="https://www.instagram.com/abs.brasil/" target="_blank">
-                                            <img src="{{ asset('admin/images/icone_instagram.png') }}" alt="Instagram">
+                                        <a class="dropdown-icon-item" href="https://www.instagram.com/abs.brasil/"
+                                            target="_blank">
+                                            <img src="{{ asset('admin/images/icone_instagram.png') }}"
+                                                alt="Instagram">
                                             <span>Instagram</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="https://www.facebook.com/ABS-Brasil-105852698310241" target="_blank">
+                                        <a class="dropdown-icon-item"
+                                            href="https://www.facebook.com/ABS-Brasil-105852698310241" target="_blank">
                                             <img src="{{ asset('admin/images/icone_facebook.png') }}" alt="Facebook">
                                             <span>Facebook</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="https://www.youtube.com/channel/UCjm6Wo9sSzg3L88oFicZvYg" target="_blank">
+                                        <a class="dropdown-icon-item"
+                                            href="https://www.youtube.com/channel/UCjm6Wo9sSzg3L88oFicZvYg"
+                                            target="_blank">
                                             <img src="{{ asset('admin/images/icone_youtube.png') }}" alt="Youtube">
                                             <span>Youtube</span>
                                         </a>
@@ -171,12 +178,14 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                        <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i class="bx bx-bell bx-tada"></i>
                             {{-- <span class="badge bg-danger rounded-pill">0</span> --}}
                         </button>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-notifications-dropdown">
                             <div class="p-3">
                                 <div class="row align-items-center">
                                     <div class="col">
@@ -211,12 +220,14 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" @if ($usuario->foto) src="{{ asset($usuario->foto) }}"
-                            @else src="{{ asset('site/img/enafCircle.svg') }}"
-                            @endif
-                            alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" style="color: white;" key="t-henry">{{ session()->get('usuario')['nome'] }}</span>
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user"
+                                @if ($usuario->foto) src="{{ asset($usuario->foto) }}"
+                            @else src="{{ asset('site/img/enafCircle.svg') }}" @endif
+                                alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1" style="color: white;"
+                                key="t-henry">{{ session()->get('usuario')['nome'] }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -227,7 +238,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                     key="t-settings">Settings</span></a>
                             <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
                             <div class="dropdown-divider"></div> --}}
-                            <a class="dropdown-item text-danger" href="{{ route('painel.sair') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                            <a class="dropdown-item text-danger" href="{{ route('painel.sair') }}"><i
+                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                     key="t-logout">Sair</span></a>
                         </div>
                     </div>
@@ -327,6 +339,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <li><a href="{{ route('painel.galeria') }}" key="t-default">Galeria</a></li>
                                 <li><a href="{{ route('painel.depoimento') }}" key="t-default">Depoimentos</a></li>
                                 <li><a href="{{ route('painel.duvidas') }}" key="t-default">Dúvidas</a></li>
+                                <li><a href="{{ route('painel.midiakit') }}" key="t-default">Mídia Kit</a></li>
+                                <li><a href="{{ route('painel.cronograma') }}" key="t-default">Cronograma</a></li>
                             </ul>
 
                         </li>
@@ -362,7 +376,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <span key="t-dashboards">Informações</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('painel.informacoes.municipios') }}" key="t-default">Municípios</a></li>
+                                <li><a href="{{ route('painel.informacoes.municipios') }}"
+                                        key="t-default">Municípios</a></li>
                             </ul>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('painel.usuarios') }}" key="t-default">Usuários</a></li>
@@ -374,11 +389,12 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <span key="t-dashboards">Meios de Pagamento</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('painel.configuracoes.meios-pagamento') }}" key="t-default">Configurar</a></li>
+                                <li><a href="{{ route('painel.configuracoes.meios-pagamento') }}"
+                                        key="t-default">Configurar</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{ route('painel.mapa') }}"" class=" waves-effect">
+                            <a href="{{ route('painel.mapa') }}"" class="  waves-effect">
                                 <i class="bx bx-map-alt" aria-hidden="true"></i>
                                 <span key="t-dashboards">Mapa do Site</span>
                             </a>
@@ -432,7 +448,8 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                         </div> --}}
                         <div class="col-12">
                             <div class="text-sm-end d-none d-sm-block">
-                                <a href=""><img src="{{ asset('site/img/_logo7seven_black.png') }}" height="20px" alt=""></a>
+                                <a href=""><img src="{{ asset('site/img/_logo7seven_black.png') }}" height="20px"
+                                        alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -462,25 +479,32 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                 <h6 class="text-left mb-3 mt-4">28/10/2021 - V 0.1 - Sistema Iniciado com as funções de:</h6>
                 <ul class="">
                     <li><span>
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Professores
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Professores
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Cursos
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Congressos
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Congressos
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Eventos
                             <hr>
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Notícias
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Artigos
                             <hr>
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Categorias
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Expositores
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Categorias
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Expositores
                             <hr>
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Anúncios
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Patrocinadores
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Patrocinadores
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Apoio
-                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Depoimentos
+                            <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD -
+                            Depoimentos
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Dúvidas
                             <br><i class="fa fa-plus" aria-hidden="true" style="color: green;"></i> CRUD - Galeria
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> CRUD- Hotsites
-                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Gerenciamento de Financeiro
+                            <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Gerenciamento de
+                            Financeiro
                             <hr>
                             <br><i class="fas fa-cog" aria-hidden="true" style="color: red;"></i> Dashboard 💻
                         </span>

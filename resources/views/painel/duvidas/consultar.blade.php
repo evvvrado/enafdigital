@@ -12,21 +12,15 @@
     Institucional / <a style="color: unset" href="{{ route('painel.duvidas') }}">Dúvidas</a>
 @endsection
 
-@section('botoes')
-@endsection
-
-
-
 
 @section('conteudo')
-
     <div class="row">
         <div class="col-9">
 
             <div class="row"">
 
-                               
-                    <div class=" col-sm-12 col-md-6 mb-3"
+                                   
+                        <div class="  col-sm-12 col-md-6 mb-3"
                 style=" border-radius: 5px; background-color:var(--principal); width: 100%;">
 
                 <a name="" id="button-add" class="btn" style="height: 100%; padding-left: 0;"
@@ -62,10 +56,10 @@
 
 
                                 <tbody>
-                                    @foreach($duvidas as $duvida)
+                                    @foreach ($duvidas as $duvida)
                                         <tr class="odd">
-                                            <td class="sorting_1 dtr-control">{{$duvida->pergunta}}</td>
-                                            <td class="depoimento-row">{{$duvida->resposta}}</td>
+                                            <td class="sorting_1 dtr-control">{{ $duvida->pergunta }}</td>
+                                            <td class="depoimento-row">{{ $duvida->resposta }}</td>
                                             <td>
                                                 <div class="btn-group edit-table-button ">
                                                     <button type="button" class="btn btn-info dropdown-toggle"
@@ -75,7 +69,8 @@
                                                         <a class="dropdown-item"
                                                             href="{{ route('painel.duvidas.editar', ['duvida' => $duvida]) }}">Editar</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" style="color: red" href="{{ route('painel.duvidas.deletar', ['duvida' => $duvida]) }}">Excluir</a>
+                                                        <a class="dropdown-item" style="color: red"
+                                                            href="{{ route('painel.duvidas.deletar', ['duvida' => $duvida]) }}">Excluir</a>
                                                     </div>
                                                 </div>
 
@@ -104,15 +99,17 @@
         <div class="card filter-body">
             <div class="card-body">
 
-                <form id="form-filtro" action="{{route('painel.duvidas')}}" method="POST">
+                <form id="form-filtro" action="{{ route('painel.duvidas') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="productname">Pergunta</label>
-                        <input id="productname" name="pergunta" type="text" class="form-control" @if (isset($filtros) && isset($filtros['pergunta'])) value="{{ $filtros['pergunta'] }}" @endif>
+                        <input id="productname" name="pergunta" type="text" class="form-control"
+                            @if (isset($filtros) && isset($filtros['pergunta'])) value="{{ $filtros['pergunta'] }}" @endif>
                     </div>
                     <div class="mb-3">
                         <label for="manufacturerbrand">Resposta</label>
-                        <input class="form-control" name="resposta" type="resposta" @if (isset($filtros) && isset($filtros['resposta'])) value="{{ $filtros['resposta'] }}" @endif>
+                        <input class="form-control" name="resposta" type="resposta"
+                            @if (isset($filtros) && isset($filtros['resposta'])) value="{{ $filtros['resposta'] }}" @endif>
                     </div>
                 </form>
                 <div class="buttons-row">
@@ -131,7 +128,6 @@
         </div>
     </div>
     </div>
-
 @endsection
 
 
@@ -275,11 +271,11 @@
                 }
             });
 
-            $("#btn-filtrar").click(function(){
+            $("#btn-filtrar").click(function() {
                 $("#form-filtro").submit();
             });
 
-            $("#btn-limpar").click(function(){
+            $("#btn-limpar").click(function() {
                 $("input[type!='hidden']").val("");
                 $("select").val("-1");
             });

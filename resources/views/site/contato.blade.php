@@ -90,11 +90,14 @@
                     <div style="cursor: pointer" onclick="window.open('mailto:contato@enaf.com.br')">
                         <img src="{{ asset('site/img/sistema/envelopButton.svg') }}" alt="" />
                     </div>
+                    <div style="cursor: pointer; color: white; max-width: max-content; padding: 15px;"
+                        onclick="window.open('{{ route('site.agenda') }}')">
+                        Assessoria de Imprensa
+                    </div>
                 </div>
 
                 <p>
 
-                    <a href="{{ route('site.agenda') }}">Verifique nossa agenda! </a>
                 </p>
             </div>
         </div>
