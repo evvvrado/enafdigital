@@ -179,7 +179,7 @@
                         @endphp
                         @foreach ($evento->cursos_ligados->unique('data')->sortBy('data') as $curso)
                             <div class="_filterItem @if ($cont == 0) active @endif"
-                                data-date="{{ date('dm', strtotime($curso->data)) }}">
+                                data-filter="{{ date('dm', strtotime($curso->data)) }}">
                                 {{ date('d/m', strtotime($curso->data)) }}</div>
                             @php
                                 $cont++;
@@ -191,7 +191,7 @@
             <div class="_cursosList">
                 <div class="scroll">
                     @foreach ($evento->cursos_ligados as $curso)
-                        <div class="_curso" data-date="{{ date('dm', strtotime($curso->data)) }}"
+                        <div class="_curso {{ date('dm', strtotime($curso->data)) }}"
                             onclick="window.location.href = '{{ route('site.curso', ['slug' => $curso->curso->slug]) }}'">
                             <div class="_pic">
                                 <img src="{{ asset($curso->curso->thumbnail) }}"
@@ -371,24 +371,6 @@
     @include('site.includes.footer')
 
     <script>
-        $(`#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso:not( ._curso[data-date="${$("._filter nav ._filterItem.active").data("date")}"])`)
-            .hide();
-
-        $("._filter nav ._filterItem").click(function() {
-            var filter = $(this).data("date");
-
-            $("._filter nav ._filterItem").removeClass("active");
-
-            $(this).addClass("active");
-            $(
-                `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso`
-            ).hide();
-            $(
-                `#clinica .s_cursos._atracoes .container-fav ._cursosList ._curso[data-date="${filter}"]`
-            ).show();
-            // console.log(filter);
-        });
-
         $('section.s_tabela ._title .buttons button:nth-child(2)').click(() => {
             $('section.s_tabela ._table').scrollLeft($('section.s_tabela ._table').scrollLeft() + 600);
         })
