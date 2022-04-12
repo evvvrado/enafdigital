@@ -59,12 +59,13 @@ class ModalCadastro extends Component
         if($this->nova_imagem){
             Storage::delete($this->imagem);
             $cronograma->imagem = $this->nova_imagem->store('site/imagens/cronograma/', 'local');
-            Util::limparLivewireTemp();
         }
 
         $cronograma->save();
+        $this->resetar();
         $this->emit("atualizaDatatable");
         $this->dispatchBrowserEvent("fechaModalCadastro");
+        Util::limparLivewireTemp();
     }
 
     public function resetar(){

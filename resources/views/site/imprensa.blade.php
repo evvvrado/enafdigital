@@ -84,7 +84,18 @@
     <div class="container-fluid s_story_line">
         <div class="container-fav">
             <div class="agenda">
-                <div class="line fade">
+                @foreach(\App\Models\Cronograma::where("fim", ">=", date("Y-m-d"))->orderBy("inicio")->get() as $cronograma)
+                    <div class="line fade">
+                        <strong>{{ $cronograma->mes_ano }}</strong>
+                        <strong>{{ $cronograma->titulo }}</strong>
+                        <p>{{ $cronograma->descricao }}</p>
+
+                        <picture>
+                            <img src="{{ asset($cronograma->imagem) }}" alt="">
+                        </picture>
+                    </div>
+                @endforeach
+                {{-- <div class="line fade">
                     <strong>Abril de 2022</strong>
                     <strong>Texto minúsculo</strong>
                     <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
@@ -155,16 +166,7 @@
                     <picture>
                         <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
                     </picture>
-                </div>
-                <div class="line fade">
-                    <strong>Abril de 2022</strong>
-                    <strong>Texto minúsculo</strong>
-                    <p>Texto pequeno com descrição descritiva sobre os acontecimentos descritos.</p>
-
-                    <picture>
-                        <img src="{{ asset('site/img/banner_local.jpg') }}" alt="">
-                    </picture>
-                </div>
+                </div> --}}
             </div>
 
         </div>
