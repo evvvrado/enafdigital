@@ -2,8 +2,10 @@
 
 @section('styles')
     <!-- DataTables -->
-    <link href="{{asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('titulo')
@@ -15,50 +17,52 @@
 @endsection
 
 @section('conteudo')
-@include('painel.includes.errors')
-<div class="row mt-3">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                @livewire('demandas.consultar.pagina', ['usuarios' => \App\Models\Usuario::all()])
+    @include('painel.includes.errors')
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    @livewire('demandas.consultar.pagina', ['usuarios' => \App\Models\Usuario::all()])
+                </div>
             </div>
-        </div>
-    </div> <!-- end col -->
-</div> <!-- end row -->
-<!-- Modal -->
-<div class="modal fade" id="modalDemanda" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Nova Demanda</h5>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+    <!-- Modal -->
+    <div class="modal fade" id="modalDemanda" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nova Demanda</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                @livewire('demandas.consultar.form-cadastro', ["usuarios" => \App\Models\Usuario::all()])
+                </div>
+                <div class="modal-body">
+                    @livewire('demandas.consultar.form-cadastro', ["usuarios" => \App\Models\Usuario::all()])
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="modalComentarios" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Comentários</h5>
+    <div class="modal fade" id="modalComentarios" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Comentários</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                @livewire('demandas.consultar.comentarios')
+                </div>
+                <div class="modal-body">
+                    @livewire('demandas.consultar.comentarios')
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('scripts')
     <!-- Required datatable js -->
-    <script src="{{asset('admin/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
         window.addEventListener('fechaModalCadastro', event => {
             $("#modalDemanda").modal("hide");
@@ -67,8 +71,8 @@
             $("#modalDemanda").modal("show");
         });
         $(document).ready(function() {
-            $('#datatable').DataTable( {
-                language:{
+            $('#datatable').DataTable({
+                language: {
                     "emptyTable": "Nenhum registro encontrado",
                     "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "infoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -198,8 +202,8 @@
                     },
                     "searchPlaceholder": "Digite um termo para pesquisar",
                     "thousands": "."
-                } 
-            } );
-        } );    
-    </script> 
+                }
+            });
+        });
+    </script>
 @endsection
