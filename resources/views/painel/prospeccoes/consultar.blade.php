@@ -16,7 +16,12 @@
 
 @section('conteudo')
 <div class="row mt-3">
-    <div class="col-12">
+    <div class="col-9">
+        <div class="col-sm-12 col-md-6 mb-3  bg-primary" style=" border-radius: 5px; width: 100%;">
+            <a class="btn"
+                style="line-height: 29px;padding-left: 21px; color: white; height: 100%; cursor: default; "
+                href="">Listagem</a>
+        </div>
         <div class="card">
             <div class="card-body" style="overflow-x: scroll;">
                 <table id="datatable" class="table table-bordered dt-responsive wrap w-100">
@@ -52,7 +57,7 @@
                                 <td style="vertical-align: middle;">{{$prospeccao->email}}</td>
                                 <td style="vertical-align: middle;">{{$prospeccao->estado}}</td>
                                 <td style="vertical-align: middle;">{{$prospeccao->cidade}}</td>
-                                <td style="vertical-align: middle;">{{$prospeccao->status}}</td>
+                                <td style="vertical-align: middle;">{{config("prospeccoes.status")[$prospeccao->status]}}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -60,6 +65,54 @@
             </div>
         </div>
     </div> <!-- end col -->
+    <div class="col-3">
+
+        <div class="col-sm-12 col-md-6 mb-3  bg-primary" style=" border-radius: 5px; width: 100%;">
+            <a class="btn"
+                style="line-height: 29px;padding-left: 21px; color: white; height: 100%; cursor: default; "
+                href="">Filtros</a>
+        </div>
+
+        <div class="card filter-body">
+            <div class="card-body">
+
+                <form id="form-filtro" action="{{ route('painel.prospeccoes') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="filtro_status">Status</label>
+                        <select id="filtro_status" name="filtro_status" class="form-control">
+                            <option value="-1"> Todos</option>
+                            @foreach(config("prospeccoes.status") as $key => $status)
+                                <option value="{{ $key }}" @if(isset($filtros) && isset($filtros["filtro_status"]) && $filtros["filtro_status"] == $key) selected @endif>{{ $status }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="button-row">
+                        <div class="row">
+    
+                            <div class="col">
+                                <button type="submit" class="btn  btn-success waves-effect waves-light"
+                                    style="width: 100%;">
+                                    <i class="bx bx-check-double font-size-16  align-middle me-2"></i> Filtrar
+                                </button>
+    
+                            </div>
+    
+                            {{-- <div class="col">
+                                <button type="button" class="btn btn-danger  waves-effect waves-light"
+                                    style="width: 100%;">
+                                    <i class="bx bx-block font-size-16 align-middle me-2 "></i> Limpar
+                                </button>
+                            </div> --}}
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div> <!-- end row -->
 
 @endsection

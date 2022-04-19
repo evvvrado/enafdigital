@@ -391,7 +391,7 @@ Route::middleware(['admin'])->group(function () {
 
 
     // ROTAS REFERENTES A PROSPECÇÕES
-    Route::get('/sistema/prospeccoes', [\App\Http\Controllers\ProspeccoesController::class, 'consultar'])->name("painel.prospeccoes");
+    Route::match(['get','post'], '/sistema/prospeccoes', [\App\Http\Controllers\ProspeccoesController::class, 'consultar'])->name("painel.prospeccoes");
     Route::get('/sistema/prospeccoes/dashboard', [\App\Http\Controllers\ProspeccoesController::class, 'dashboard'])->name("painel.prospeccoes.dashboard");
     Route::get('/sistema/prospeccoes/cadastro', [\App\Http\Controllers\ProspeccoesController::class, 'cadastro'])->name("painel.prospeccao.cadastro");
     Route::post('/sistema/prospeccoes/cadastrar', [\App\Http\Controllers\ProspeccoesController::class, 'cadastrar'])->name("painel.prospeccao.cadastrar");

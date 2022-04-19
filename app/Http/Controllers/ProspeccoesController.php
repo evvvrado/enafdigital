@@ -11,9 +11,18 @@ class ProspeccoesController extends Controller
 {
     //
 
-    public function consultar(){
-        $prospeccoes = Prospeccao::all();
-        return view("painel.prospeccoes.consultar", ["prospeccoes" => $prospeccoes]);
+    public function consultar(Request $request){
+        if($request->isMethod('get')){
+            $prospeccoes = Prospeccao::all();
+            return view("painel.prospeccoes.consultar", ["prospeccoes" => $prospeccoes]);
+        }else{
+            $filtros = [];
+            if($request->filtro_status !== null && $request->filtro_status != -1){
+                $filtros[] = ["status", "=", $request->filtro_status];
+            }
+            $prospeccoes = Prospeccao::where($filtros)->get();
+            return view("painel.prospeccoes.consultar", ["prospeccoes" => $prospeccoes, "filtros" => $request->all()]);
+        }
     }
 
     public function cadastro(){
