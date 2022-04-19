@@ -92,11 +92,11 @@
                         <div class="_pagInfo">
                             <div class="_cCard">
                                 @if ($venda->forma == 0)
-                                <p>Boleto Bancário<br />{{$venda->boleto->codigo_barra}}</p>
+                                <p>Boleto Bancário<br /><a href="{{$venda->boleto->link}}">Clique aqui para baixar</a></p>
                                 @elseif($venda->forma == 1)
                                 <p>Cartão de Crédito<br /> {{$venda->cartao->numero}}</p>
                                 @else
-                                <p>Carnê<br />Consultar boletos no painel.</p>
+                                <p>Carnê<br /><a href="{{$venda->carne->link}}">Clique aqui para baixar</a></p>
                                 @endif
                             </div>
                             <div class="_payment">R$ {{number_format($venda->total, 2 , ",", ".")}} em {{$venda->parcelas}}x</div>
