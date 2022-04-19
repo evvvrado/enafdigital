@@ -55,6 +55,12 @@
                                             <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 68px;" aria-sort="ascending"
                                                 aria-label="Name: activate to sort column descending">CPF</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 68px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Cidade</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1"
+                                                colspan="1" style="width: 68px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Estado</th>
                                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                                                 colspan="1" style="width: 70px;"
                                                 aria-label="Position: activate to sort column ascending">
@@ -89,6 +95,8 @@
                                                 <td class="sorting_1 dtr-control">{{ $venda->aluno->email }}</td>
                                                 <td class="sorting_1 dtr-control">{{ $venda->aluno->telefone }}</td>
                                                 <td class="sorting_1 dtr-control">{{ $venda->aluno->cpf }}</td>
+                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->cidade }}</td>
+                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->estado }}</td>
                                                 <td>R$ {{ number_format($venda->total, 2, ',', '.') }}</td>
                                                 <td>{{ config('pagamento.formas')[$venda->forma] }}</td>
                                                 <td>
@@ -380,7 +388,7 @@
                     columnDefs: [
                         {
                             visible: false,
-                            targets: [3, 4, 5]
+                            targets: [3, 4, 5, 6, 7]
                         }
                     ],
                 }).buttons()
