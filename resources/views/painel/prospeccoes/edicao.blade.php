@@ -130,7 +130,7 @@
                 <hr>
                 <form action="{{route('painel.prospeccao.nota.adicionar', ['prospeccao' => $prospeccao])}}" method="post">
                     @csrf
-                    <textarea name="texto" class="form-control" id="" rows="2"></textarea>
+                    <textarea name="texto" class="form-control" id="" rows="2" maxlength="250"></textarea>
                     <div class="row mt-3">
                         <div class="col-12 text-end">
                             <button type="submit" class="btn btn-primary">Adicionar</button>
