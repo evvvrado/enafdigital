@@ -145,10 +145,10 @@
                             <div class="item event-list">
                                 <div>
                                     <div class="event-date">
-                                        <div class="text-primary mb-1">{{date("d/m/Y - H:i:s", strtotime($nota->created_at))}}</div>
+                                        <div class="text-info mb-1">{{date("d/m/Y - H:i:s", strtotime($nota->created_at))}}</div>
                                     </div>
                                     <div class="event-down-icon">
-                                        <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                        <i class="bx bx-down-arrow-circle h1 text-info down-arrow-icon"></i>
                                     </div>
 
                                     <div class="mt-3 px-3">
