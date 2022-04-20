@@ -2,9 +2,12 @@
 
 return [
     'status' => [
-        0 => "Aguardando",
-        1 => "Conversando",
-        2 => "Convertido"
+        0 => "Novo",
+        1 => "Contato Telefônico",
+        2 => "Videoconferência",
+        3 => "Ativação Plano ",
+        4 => "Aceite Assinado",
+        5 => "Contrato Assinado",
     ]
 ];
 
