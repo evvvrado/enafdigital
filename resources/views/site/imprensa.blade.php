@@ -69,7 +69,6 @@
                         <h3>Baixar mídia kit</h3>
 
 
-
                         @foreach (\App\Models\Midiakit::where('mostrar', true)->get() as $midiakit)
                             <a href="{{ asset($midiakit->arquivo) }}" target="_blank"
                                 download="{{ $midiakit->nome }}">{{ $midiakit->nome }}</a>
@@ -83,8 +82,13 @@
 
     <div class="container-fluid s_story_line">
         <div class="container-fav">
+
+            <img src="{{ asset('site/img/enafCircle_color.png') }}" alt="" style="margin: 0 auto;">
             <div class="agenda">
-                @foreach(\App\Models\Cronograma::where("fim", ">=", date("Y-m-d"))->orderBy("inicio")->get() as $cronograma)
+
+
+                @foreach (\App\Models\Cronograma::where('fim', '>=', date('Y-m-d'))->orderBy('inicio')->get()
+    as $cronograma)
                     <div class="line fade">
                         <strong>{{ $cronograma->mes_ano }}</strong>
                         <strong>{{ $cronograma->titulo }}</strong>
