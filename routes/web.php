@@ -390,6 +390,20 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/destaques/deletar/{destaque}', [\App\Http\Controllers\DestaquesController::class, 'deletar'])->name("painel.destaque.deletar");
 
 
+    // ROTAS REFERENTES A PROSPECÇÕES
+    Route::match(['get','post'], '/sistema/prospeccoes', [\App\Http\Controllers\ProspeccoesController::class, 'consultar'])->name("painel.prospeccoes");
+    Route::get('/sistema/prospeccoes/dashboard', [\App\Http\Controllers\ProspeccoesController::class, 'dashboard'])->name("painel.prospeccoes.dashboard");
+    Route::get('/sistema/prospeccoes/cadastro', [\App\Http\Controllers\ProspeccoesController::class, 'cadastro'])->name("painel.prospeccao.cadastro");
+    Route::post('/sistema/prospeccoes/cadastrar', [\App\Http\Controllers\ProspeccoesController::class, 'cadastrar'])->name("painel.prospeccao.cadastrar");
+    Route::get('/sistema/prospeccoes/editar/{prospeccao}', [\App\Http\Controllers\ProspeccoesController::class, 'editar'])->name("painel.prospeccao.editar");
+    Route::post('/sistema/prospeccoes/salvar/{prospeccao}', [\App\Http\Controllers\ProspeccoesController::class, 'salvar'])->name("painel.prospeccao.salvar");
+    Route::post('/sistema/prospeccoes/{prospeccao}/nota/adicionar/', [\App\Http\Controllers\ProspeccoesController::class, 'adicionar_nota'])->name("painel.prospeccao.nota.adicionar");
+
+    Route::get('/sistema/prospeccoes/quantidade/diaria', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_diarias'])->name("painel.prospeccoes.quantidade.diaria");
+    Route::get('/sistema/prospeccoes/quantidade/mensal', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_mensais'])->name("painel.prospeccoes.quantidade.mensal");
+    Route::get('/sistema/prospeccoes/quantidade/interacoes/diaria', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_interacoes_diarias'])->name("painel.prospeccoes.quantidade.interacoes.diaria");
+    Route::get('/sistema/prospeccoes/quantidade/interacoes/mensal', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_interacoes_mensais'])->name("painel.prospeccoes.quantidade.interacoes.mensal");
+    Route::get('/sistema/prospeccoes/quantidade/status', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_status'])->name("painel.prospeccoes.quantidade.status");
 
     Route::get('/teste', function () {
         return view("site.teste");
