@@ -18,8 +18,8 @@
                                 <div class="col-12 mt-3 text-center">
                                     <label style="width: 60%" class="btn btn-primary" for="foto-upload"><i
                                             class='bx bx-upload text-white'></i></label>
-                                    <input required name="foto" id="foto-upload" style="display: none;" type="file"
-                                        wire:model="nova_imagem">
+                                    <input @if (!$this->cronograma) required @endif name="foto"
+                                        id="foto-upload" style="display: none;" type="file" wire:model="nova_imagem">
                                 </div>
                             </div>
 
