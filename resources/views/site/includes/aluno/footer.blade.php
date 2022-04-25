@@ -28,8 +28,10 @@
             <div class="_siga">
                 <p>Siga-nos</p>
                 <div class="_social">
-                    <a href="http://facebook.com/enaf.oficial" target="_blank"><img src="{{ asset('site/img/sistema/instagramLogo.svg') }}" alt="" /></a>
-                    <a href="http://instagram.com/enaf.oficial" target="_blank"><img src="{{ asset('site/img/sistema/facebookLogo.svg') }}" alt="" /></a>
+                    <a href="http://instagram.com/enaf.oficial" target="_blank"><img
+                            src="{{ asset('site/img/sistema/instagramLogo.svg') }}" alt="" /></a>
+                    <a href="http://facebook.com/enaf.oficial" target="_blank"><img
+                            src="{{ asset('site/img/sistema/facebookLogo.svg') }}" alt="" /></a>
                 </div>
             </div>
 
@@ -72,11 +74,11 @@
         <p>
             <strong>
                 Desenvolvido por
-                <a href="https://7seventrends.com"" class=" _img">
+                <a href="https://7seventrends.com"" class="  _img">
                     <img src="{{ asset('site/img/_logo7seven.png') }}" style="filter: brightness(0);""  alt="">
-              </a> </div></p> 
+              </a> </div></p>
               </strong>
-          </p>          
+          </p>
         </div>
       </section>
 
@@ -84,65 +86,63 @@
 
       <script src=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>
       <script>
-          $(" header main button.hamburguer-menu").click(()=> {
-                    $("div._sidemenu nav").css("height", "497px");
-                    });
+          $(" header main button.hamburguer-menu").click(() => {
+              $("div._sidemenu nav").css("height", "497px");
+          });
 
-                    $("div._sidemenu nav .hamburguerClose").click(() => {
-                    $("div._sidemenu nav").css("height", "0");
-                    });
-
-
-
-                    $("._menuMax").click(() => {
-                    $("._mobileMenu").css("display", "flex");
-                    $("._mobileMenu").animate({
-                    left: "0",
-                    top: "44px",
-                    },
-                    500
-                    );
-                    });
-
-                    $("section._mobileMenu ._closeButton").click(() => {
-                    $("._mobileMenu").animate({
-                    left: "-200vw",
-                    top: "44px",
-                    },
-                    500
-                    );
-                    });
-
-
-                    $("._hamburguer, .close_superMenu").click(() => {
-                    $(".d_superMenu").toggleClass("_showed");
-                    });
-
-                    $("._carrinho_button, .d_carrinho ._close").click(() => {
-                    $(".d_carrinho").toggleClass("active");
-                    });
-
-                    $("._carrinho_button, .d_carrinho ._close").click(() => {
-                    $(".d_carrinho").toggleClass("active");
-                    });
-
-                    $("body._carrinho .container-fav ._carButton").click(() => {
-                    $("._meuCarrinho").toggleClass("_active");
-
-                    })
-
-                    $("section._meuCarrinho ._top ._title ._close").click(() =>{
-                    $("._meuCarrinho").toggleClass("_active");
-
-                    })
-                    </script>
+          $("div._sidemenu nav .hamburguerClose").click(() => {
+              $("div._sidemenu nav").css("height", "0");
+          });
 
 
 
-                    @if(session()->get('erro'))
+          $("._menuMax").click(() => {
+              $("._mobileMenu").css("display", "flex");
+              $("._mobileMenu").animate({
+                      left: "0",
+                      top: "44px",
+                  },
+                  500
+              );
+          });
 
+          $("section._mobileMenu ._closeButton").click(() => {
+              $("._mobileMenu").animate({
+                      left: "-200vw",
+                      top: "44px",
+                  },
+                  500
+              );
+          });
+
+
+          $("._hamburguer, .close_superMenu").click(() => {
+              $(".d_superMenu").toggleClass("_showed");
+          });
+
+          $("._carrinho_button, .d_carrinho ._close").click(() => {
+              $(".d_carrinho").toggleClass("active");
+          });
+
+          $("._carrinho_button, .d_carrinho ._close").click(() => {
+              $(".d_carrinho").toggleClass("active");
+          });
+
+          $("body._carrinho .container-fav ._carButton").click(() => {
+              $("._meuCarrinho").toggleClass("_active");
+
+          })
+
+          $("section._meuCarrinho ._top ._title ._close").click(() => {
+              $("._meuCarrinho").toggleClass("_active");
+
+          })
+      </script>
+
+
+
+                     @if (session()->get('erro'))
                     <script>
                         $('.erro_modal').showModal();
                     </script>
-
                     @endif
