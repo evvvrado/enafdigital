@@ -225,6 +225,24 @@
                                         @endfor
                                     </select>
                                 </label>
+                                <div class="_cupom">
+                                    <div class="_text">
+                                        <span>Cupom de desconto</span>
+                                        <p>Digite o código de desconto ao lado:</p>
+                                    </div>
+                                    <div class="_input">
+                                        <div class="_form">
+                                            <div class="_svg">
+                                                <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
+                                            </div>
+                                            <input type="text" placeholder="#AbsÉ10" />
+                                            <button>
+                                                <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
+                                            </button>
+                                        </div>
+                                        <p>- R$ 20 aplicado na sua compra</p>
+                                    </div>
+                                </div>
                                 <div id="div-ajax">
                                     <picture>
                                         <img src="{{ asset('site/img/sistema/loadingEnaf.png') }}" alt="">
@@ -285,6 +303,24 @@
                                         @endfor
                                     </select>
                                 </label>
+                                <div class="_cupom">
+                                    <div class="_text">
+                                        <span>Cupom de desconto</span>
+                                        <p>Digite o código de desconto ao lado:</p>
+                                    </div>
+                                    <div class="_input">
+                                        <div class="_form">
+                                            <div class="_svg">
+                                                <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
+                                            </div>
+                                            <input type="text" placeholder="#AbsÉ10" />
+                                            <button>
+                                                <img src="{{ asset('site/img/sistema/arrowright.svg') }}" alt="" />
+                                            </button>
+                                        </div>
+                                        <p>- R$ 20 aplicado na sua compra</p>
+                                    </div>
+                                </div>
                                 <button type="submit">
                                     Efetuar pagamento <img src="{{ asset('site/img/arrowlong.svg') }}" alt="" />
                                 </button>
