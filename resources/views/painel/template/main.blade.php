@@ -280,6 +280,7 @@ $usuario = \App\Models\Usuario::find(session()->get('usuario')['id']);
                                 <li><a href="{{ route('painel.eventos') }}" key="t-default">Eventos</a></li>
                                 <li><a href="{{ route('painel.clinicas') }}" key="t-default">Congressos</a></li>
                                 <li><a href="{{ route('painel.cursos') }}" key="t-default">Cursos</a></li>
+                                <li><a href="{{ route('painel.cupons') }}" key="t-default">Cupons</a></li>
                                 <li><a href="{{ route('painel.alunos') }}" key="t-default">Alunos</a></li>
                                 <li><a href="{{ route('painel.professores') }}" key="t-default">Professores</a></li>
                             </ul>

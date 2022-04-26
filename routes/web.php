@@ -405,6 +405,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/prospeccoes/quantidade/interacoes/mensal', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_interacoes_mensais'])->name("painel.prospeccoes.quantidade.interacoes.mensal");
     Route::get('/sistema/prospeccoes/quantidade/status', [\App\Http\Controllers\ProspeccoesController::class, 'quantidade_prospeccoes_status'])->name("painel.prospeccoes.quantidade.status");
 
+    // ROTAS DECUPONS
+    Route::get('/sistema/cupons', [\App\Http\Controllers\CuponsController::class, 'consultar'])->name("painel.cupons");
+
     Route::get('/teste', function () {
         return view("site.teste");
     });
