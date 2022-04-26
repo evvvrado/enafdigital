@@ -127,7 +127,10 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                                 <input class="form-control" name="hora_fim" type="time" id="example-date-input" value="{{$evento->hora_fim}}">
                             </div>
 
-
+                            <div class="mb-3">
+                                <label for="cidade">Cidade</label>
+                                <input class="form-control" name="cidade" type="text" maxlength="50" value="{{$evento->cidade}}">
+                            </div>
 
                         </div>
                     </div>

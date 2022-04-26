@@ -381,7 +381,8 @@ Route::middleware(['admin'])->group(function () {
 
     //ROTAS DE ALUNOS
     Route::get('/sistema/alunos', [\App\Http\Controllers\AlunosController::class, 'consultar'])->name("painel.alunos");
-    Route::get('/sistema/alunos/detalhes', [\App\Http\Controllers\AlunosController::class, 'detalhes'])->name("painel.alunos.detalhes");
+    Route::get('/sistema/aluno/{aluno}/detalhes', [\App\Http\Controllers\AlunosController::class, 'detalhes'])->name("painel.alunos.detalhes");
+    Route::get('/sistema/aluno/{aluno}/senha/resetar', [\App\Http\Controllers\AlunosController::class, 'resetar_senha'])->name("painel.alunos.senha.resetar");
 
     // ROTAS DE DESTAQUES
     Route::get('/sistema/destaques', [\App\Http\Controllers\DestaquesController::class, 'index'])->name("painel.destaques");

@@ -30,6 +30,9 @@ class EventoController extends Controller
             if ($request->local_endereco != null) {
                 $filtros[] = ["local_endereco", "like", "%" . $request->local_endereco . "%"];
             }
+            if ($request->cidade != null) {
+                $filtros[] = ["cidade", "like", "%" . $request->cidade . "%"];
+            }
             if ($request->inicio != null) {
                 $filtros[] = ["inicio", "=", $request->inicio];
             }
@@ -66,6 +69,7 @@ class EventoController extends Controller
         }
 
         $evento->descricao = $request->descricao;
+        $evento->cidade = $request->cidade;
         $evento->titulo = $request->titulo;
         $evento->sobre = $request->sobre;
         $evento->inicio = $request->inicio;

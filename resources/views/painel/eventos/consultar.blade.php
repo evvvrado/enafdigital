@@ -41,6 +41,9 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                                             aria-label="Position: activate to sort column ascending">Local do Evento
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;"
+                                            aria-label="Position: activate to sort column ascending">Cidade
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;"
                                             aria-label="Position: activate to sort column ascending">Data de Início</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" style="width: 70px;"
                                             aria-label="Position: activate to sort column ascending">Data de Fim</th>
@@ -55,6 +58,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                                     <tr class="odd">
                                         <td class="sorting_1 dtr-control">{{$evento->nome}}</td>
                                         <td>{{$evento->local_endereco}}</td>
+                                        <td>{{$evento->cidade}}</td>
                                         <td>{{date('d/m/Y', strtotime($evento->inicio))}}</td>
                                         <td>{{date('d/m/Y', strtotime($evento->fim))}}</td>
                                         <td>
@@ -101,7 +105,12 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                     <div class="mb-3">
                         <label for="local_endereco">Local</label>
                         <input id="local_endereco" name="local_endereco" type="text" class="form-control" placeholder="Insira o endereço" maxlength="255" @if(isset($filtros) &&
-                            isset($filtros["local_endereco"])) value="{{$filtros[" local_endereco"]}}" @endif>
+                            isset($filtros["local_endereco"])) value="{{$filtros["local_endereco"]}}" @endif>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cidade">Cidade</label>
+                        <input id="cidade" name="cidade" type="text" class="form-control" placeholder="Insira a cidade" maxlength="50" @if(isset($filtros) &&
+                            isset($filtros["cidade"])) value="{{$filtros["cidade"]}}" @endif>
                     </div>
                     <div class="mb-3">
                         <label for="inicio">Data de Início</label>

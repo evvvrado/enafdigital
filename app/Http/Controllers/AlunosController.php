@@ -65,10 +65,19 @@ class AlunosController extends Controller
 
 
 
-    public function detalhes()
+    public function detalhes(Aluno $aluno)
     {
-        $alunos = Aluno::all();
-        return view("painel.alunos.detalhes", ["alunos" => $alunos]);
+        return view("painel.alunos.detalhes", ["aluno" => $aluno]);
+    }
+
+    public function resetar_senha(Aluno $aluno)
+    {
+        $aluno->senha = Hash::make("12345");
+        $aluno->save();
+
+        toastr()->success("Senha resetada com sucesso!");
+
+        return redirect()->back();
     }
 
     public function logar(Request $request)

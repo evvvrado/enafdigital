@@ -35,7 +35,7 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a> /
                             <div class="row flex align-items-center justify-content-center pb-4">
                                 <div class="col-sm-9">
                                     <div class="avatar-md profile-user-wid mb-4" style="margin-left: 0; height: 250px; width: 250px;">
-                                        <img src="{{ asset('admin/images/padrao.png') }}" alt="" class="img-thumbnail rounded-circle" style="object-fit: cover; height: 100%; width: 100%">
+                                        <img src="{{ asset(($aluno->avatar) ? $aluno->avatar : 'admin/images/padrao.png') }}" alt="" class="img-thumbnail rounded-circle" style="object-fit: cover; height: 100%; width: 100%">
                                     </div>
                                 </div>
                             </div>
@@ -50,35 +50,39 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a> /
                     <div class="card-body">
                         <h4 class="card-title mb-4">Informações sobre o Aluno</h4>
                         <div class="table-responsive">
-                            <table class="table table-nowrap mb-0">
+                            <table class="table table-nowrap mb-0" style="vertical-align: middle">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Nome Completo :</th>
-                                        <td>Cynthia Price</td>
+                                        <td>{{ $aluno->nome }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">E-mail :</th>
-                                        <td>contato@email.gmail</td>
+                                        <td>{{ $aluno->email }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">CPF :</th>
-                                        <td>154.828.816-01</td>
+                                        <td>{{ $aluno->cpf }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Telefone :</th>
-                                        <td>(35) 9 88090305</td>
+                                        <td>{{ $aluno->telefone }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Endereço :</th>
-                                        <td>Alfenas Minas Gerais</td>
+                                        <td>{{ "$aluno->rua, $aluno->numero - $aluno->bairro - $aluno->cidade/$aluno->estado - $aluno->cep"}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Endereço :</th>
-                                        <td>Alfenas Minas Gerais</td>
+                                        <th scope="row">Data de Nascimento :</th>
+                                        <td>{{ date("d/m/Y", strtotime($aluno->nascimento)) }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Endereço :</th>
-                                        <td>Alfenas Minas Gerais</td>
+                                        <th scope="row">Último Acesso :</th>
+                                        <td>{{ date("d/m/Y", strtotime($aluno->ultimo_acesso)) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Senha :</th>
+                                        <td><a name="" id="" class="btn btn-danger" href="{{ route('painel.alunos.senha.resetar', ['aluno' => $aluno]) }}" role="button">Resetar</a></td>
                                     </tr>
                                 </tbody>
                             </table>

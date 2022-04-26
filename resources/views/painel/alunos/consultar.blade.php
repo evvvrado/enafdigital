@@ -52,7 +52,7 @@ Projeto / <a style="color: unset" href="{{route('painel.alunos')}}">Alunos</a>
                                         <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                                                 class="bx bx-dots-horizontal-rounded"></i></button>
                                         <div class="dropdown-menu" style="margin: 0px;">
-                                            <a class="dropdown-item" href="{{ route('painel.alunos.detalhes') }}">Detalhes</a>
+                                            <a class="dropdown-item" href="{{ route('painel.alunos.detalhes', ["aluno" => $aluno]) }}">Detalhes</a>
                                         </div>
                                     </div>
                                 </td>
