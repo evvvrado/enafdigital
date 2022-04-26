@@ -10,7 +10,7 @@ section.s_empresas {
 
     ._box {
       @include flex(column, center, center);
-      flex: 22%;
+      // flex: 22%;
       border: solid 1px #5b647b33;
       border-radius: 4px;
       overflow: hidden;
@@ -22,7 +22,7 @@ section.s_empresas {
 
       &:not(.main) {
         width: 100%;
-        max-width: 38.4rem;
+        max-width: 38rem;
 
         picture {
           height: 11.6rem;

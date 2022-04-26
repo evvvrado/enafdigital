@@ -54,7 +54,7 @@ $isApp = true;
       @if ($anunciante)
       <div class="_box main">
         <a href=" @if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug){{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else{{
-          $anunciante->expositor->site }}@endif">
+          $anunciante->expositor->site }}@endif" target="_blank">
           <picture>
             <source media="(max-width: 660px)" srcset="{{ asset($anunciante->imagem_mobile) }}">
             <img src="{{ asset($anunciante->imagem_desktop) }}" alt="Empresa Nike" />
