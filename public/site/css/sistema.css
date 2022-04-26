@@ -875,7 +875,7 @@ section.s_identificacao form label input:focus,
 section.s_identificacao form label textarea:focus {
     border-color: var(--orange);
 }
-section.s_identificacao form button {
+section.s_identificacao form button:not(._cupom ._form button) {
     width: 100%;
     height: 4.6rem;
     margin-bottom: 3.3rem;
@@ -1231,8 +1231,10 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._topInfo .row
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 3.2rem 0;
+    gap: 2rem;
     border-bottom: 1px solid var(--gray11);
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input {
@@ -1255,6 +1257,10 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._inpu
     background-color: var(--wine11);
     max-width: 6.3rem;
 }
+body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input input {
+    border: 1px solid var(--gray11);
+}
+
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input input,
 body._carrinho section.s_identificacao .container-fav ._pagamento select {
     /* border: 1px solid var(--gray11); */
@@ -1267,8 +1273,16 @@ body._carrinho section.s_identificacao .container-fav ._pagamento select {
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._cupom ._input ._svg {
     position: absolute;
-    top: 2.1rem;
+    /* top: 2.1rem; */
     left: 1.9rem;
+
+    top: 0;
+    bottom: 0;
+
+    margin: auto 0;
+
+    display: block;
+    height: 1.5rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento p {
     font-size: 1.4rem;
@@ -1308,7 +1322,7 @@ body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCar
     max-width: 41.6rem;
     padding-top: 3.2rem;
 }
-body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form {
+body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form:not(._cupom ._form) {
     padding-top: 2.4rem;
 }
 body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form label span {
@@ -1330,7 +1344,7 @@ body._carrinho
     form
     label:nth-last-child(2) {
     width: 100%;
-    max-width: 18.4rem;
+    /* max-width: 18.4rem; */
 }
 body._carrinho
     section.s_identificacao
@@ -1342,7 +1356,14 @@ body._carrinho
     label:nth-last-child(4) {
     width: 27.2rem;
 }
-body._carrinho section.s_identificacao .container-fav ._pagamento ._pagamentoCartao ._form form button {
+body._carrinho
+    section.s_identificacao
+    .container-fav
+    ._pagamento
+    ._pagamentoCartao
+    ._form
+    form
+    button:not(._cupom ._form button) {
     width: 100%;
     max-width: 31.5rem;
     height: 6.3rem;
@@ -2810,8 +2831,16 @@ label.cvv {
     justify-content: flex-start;
 }
 
-label.cvv input {
-    max-width: 85%;
+label.parcelas {
+    max-width: 40%;
+}
+
+label.parcelas span {
+    display: block;
+}
+
+label.cvv {
+    max-width: 40%;
 }
 label.cvv picture {
     padding-top: 1.3rem;
@@ -2850,6 +2879,9 @@ label.cvv picture:hover span {
     display: block;
 }
 
+label.validade {
+    max-width: 50%;
+}
 label.validade p {
     background-color: rgba(0, 0, 0, 0.377);
     padding-left: 1rem;
