@@ -76,9 +76,9 @@
                                             <td>{{ $expositor->email }}</td>
                                             <td class="text-center">
                                                 @if($expositor->destaque) 
-                                                    <i class="fas fa-star active destaque cpointer" pid="{{$expositor->id}}"></i>
+                                                    <i class="fas fa-star active destaque cpointer" onclick="destaque({{ $expositor->id }}, this)"></i>
                                                 @else
-                                                    <i class="far fa-star destaque cpointer" pid="{{$expositor->id}}"></i>
+                                                    <i class="far fa-star destaque cpointer" onclick="destaque({{ $expositor->id }}, this)"></i>
                                                 @endif
                                             </td>
                                             <td>
@@ -181,6 +181,40 @@
     <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+        function destaque(pid, element){
+            var elem = $(element);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: "GET",
+                url: "/sistema/expositores/destaque/" + pid,
+                // beforeSend: function() {
+                //     $("#botoes-prosseguir").hide();
+                //     $("#gif-ajax-direto").show();
+                // },
+                success: function(ret) {
+                    if(ret == "retirado"){
+                        elem.removeClass("fas");
+                        elem.addClass("far");
+                        elem.removeClass("active");
+                    }else if(ret == "destacado"){
+                        elem.removeClass("far");
+                        elem.addClass("fas");
+                        elem.addClass("active");
+                    }
+                    
+                },
+                error: function(ret) {
+                    console.log("Deu muito ruim");
+                    console.log(ret);
+                }
+            });
+        }
+
         $(document).ready(function() {
             $('#datatable').DataTable({
                 language: {
@@ -330,41 +364,12 @@
 
             $('div.dataTables_wrapper div.dataTables_filter label').prepend($('#search-icon'));
 
-            $(".destaque").click(function(){
-                var pid = $(this).attr("pid");
-                var elem = $(this);
+            // $(".destaque").click(function(){
+            //     var pid = $(this).attr("pid");
+            //     var elem = $(this);
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
-                    }
-                });
-
-                $.ajax({
-                    type: "GET",
-                    url: "/sistema/expositores/destaque/" + pid,
-                    // beforeSend: function() {
-                    //     $("#botoes-prosseguir").hide();
-                    //     $("#gif-ajax-direto").show();
-                    // },
-                    success: function(ret) {
-                        if(ret == "retirado"){
-                            elem.removeClass("fas");
-                            elem.addClass("far");
-                            elem.removeClass("active");
-                        }else if(ret == "destacado"){
-                            elem.removeClass("far");
-                            elem.addClass("fas");
-                            elem.addClass("active");
-                        }
-                        
-                    },
-                    error: function(ret) {
-                        console.log("Deu muito ruim");
-                        console.log(ret);
-                    }
-                });
-            }); 
+                
+            // }); 
         })
     </script>
 @endsection
