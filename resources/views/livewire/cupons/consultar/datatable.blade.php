@@ -45,7 +45,7 @@
                                 </td>
                                 <td style="vertical-align: middle;">
                                     @if($cupom->validade)
-                                        {{ date("d/m/Y", strtotime($cupom->inicio)) }} até {{ date("d/m/Y", strtotime($cupom->fum)) }}
+                                        {{ date("d/m/Y", strtotime($cupom->inicio)) }} até {{ date("d/m/Y", strtotime($cupom->fim)) }}
                                     @else
                                         Sem prazo de validade
                                     @endif

@@ -261,11 +261,11 @@
                                                 <div class="_svg">
                                                     <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
                                                 </div>
-                                                <input type="text" placeholder="#AbsÉ10" />
-                                                <button>
+                                                <input type="text" name="cupom" maxlength="50"/>
+                                                {{-- <button>
                                                     <img src="{{ asset('site/img/sistema/arrowright.svg') }}"
                                                         alt="" />
-                                                </button>
+                                                </button> --}}
                                             </div>
                                             {{-- <p>- R$ 20 aplicado na sua compra</p> --}}
                                         </div>
@@ -321,7 +321,7 @@
                                         <div style="margin-left: 5px; width: 50%;">
                                             <label for="">
                                                 <span>Data de Nascimento</span>
-                                                <input type="text" name="nascimento" value="{{ $aluno->nascimento }}"
+                                                <input type="date" name="nascimento" value="{{ $aluno->nascimento }}"
                                                     required>
                                             </label>
                                         </div>
@@ -346,13 +346,13 @@
                                                 <div class="_svg">
                                                     <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
                                                 </div>
-                                                <input type="text" placeholder="#AbsÉ10" />
-                                                <button>
+                                                <input type="text" name="cupom" maxlength="50"/>
+                                                {{-- <button>
                                                     <img src="{{ asset('site/img/sistema/arrowright.svg') }}"
                                                         alt="" />
-                                                </button>
+                                                </button> --}}
                                             </div>
-                                            <p>- R$ 20 aplicado na sua compra</p>
+                                            {{-- <p>- R$ 20 aplicado na sua compra</p> --}}
                                         </div>
                                     </div>
                                     <button type="submit">
