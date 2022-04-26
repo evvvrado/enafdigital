@@ -17,6 +17,7 @@ use App\Models\PagamentoCarneParcela;
 use App\Models\PagamentoCartao;
 use App\Models\Matricula;
 use App\Classes\Util;
+use App\Models\Cupom;
 
 class GerencianetController extends Controller
 {
@@ -27,28 +28,78 @@ class GerencianetController extends Controller
         // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
 
+        $desconto = 0;
+
+        $cupom = null;
+
+        if($request->cupom){
+            $cupom = Cupom::where("codigo", $request->cupom)->first();
+            if(!$cupom){
+                session()->flash("erro", "O cupom informado é inválido");
+                return redirect()->back();
+            }
+            if($curso->tipo === 0 || $curso->tipo == 1){
+                if($cupom->cursos_online == 1 ||  ($cupom->cursos_online == 2 && $cupom->cupom_produtos->where("curso_id", $curso->id)->count() > 0)){
+                    if($cupom->validade && ($cupom->inicio > date("Y-m-d") || $cupom->fim < date("Y-m-d"))){
+                        session()->flash("erro", "O cupom informado já expirou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->estoque <= 0){
+                        session()->flash("erro", "O cupom informado esgotou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->tipo == 0){
+                        $desconto = ($curso->valor * $cupom->valor) / 100;
+                    }else{
+                        $desconto = $cupom->valor;
+                    }
+                }else{
+                    session()->flash("erro", "O cupom informado não é válido para este curso.");
+                    return redirect()->back();
+                }
+            }else{
+                if($cupom->cursos_presenciais == 1 ||  ($cupom->cursos_presenciais == 2 && $cupom->cupom_produtos->where("curso_id", $curso->id)->count() > 0)){
+                    if($cupom->validade && ($cupom->inicio > date("Y-m-d") || $cupom->fim < date("Y-m-d"))){
+                        session()->flash("erro", "O cupom informado já expirou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->estoque <= 0){
+                        session()->flash("erro", "O cupom informado esgotou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->tipo == 0){
+                        $desconto = ($curso->valor * $cupom->valor) / 100;
+                    }else{
+                        $desconto = $cupom->valor;
+                    }
+                }else{
+                    session()->flash("erro", "O cupom informado não é válido para este curso.");
+                    return redirect()->back();
+                }
+            }
+        }
+
         $aluno->nome = $request->nome;
         $aluno->cpf = $request->cpf;
         $aluno->telefone = $request->telefone;
         $aluno->nascimento = $request->nascimento;
         $aluno->save();
 
-        if ($request->parcelas == 1) {
-            $desconto = 0;
-        } else {
-            $desconto = 0;
-        }
         // $gerencianet->enviarBoletoEmail(1334034, 'gusouza980@gmail.com');
         $turmas = [];
-        // foreach ($carrinho->produtos as $produto) {
-            // $produto->turma->inscritos += 1;
-            // $produto->turma->save();
+
+        if($desconto > 0){
+            $gerencianet->addDesconto([
+                'type' => 'currency',
+                'value' => intval($desconto * 100)
+            ]);
+        }
+
         $gerencianet->addItem([
             'name' => $curso->nome, // nome do item, produto ou serviço
             'amount' => 1, // quantidade
             'value' => intval($curso->valor * 100)
         ]);
-        // }
 
         $cpf = str_replace(".", "", $aluno->cpf);
         $cpf = str_replace("-", "", $cpf);
@@ -64,10 +115,7 @@ class GerencianetController extends Controller
         ]);
 
         if ($request->parcelas == 1) {
-            // $gerencianet->addDesconto([
-            //     'type' => 'percentage',
-            //     'value' => $desconto
-            // ]);
+            
             $gerencianet->addBoleto([
                 'expire_at' => date("Y-m-d", strtotime("+3 days")), // data de vencimento do titulo
                 'message' => 'Acompanhe o status do seu pagamento no seu painel do cliente.', // mensagem a ser exibida no boleto
@@ -82,7 +130,10 @@ class GerencianetController extends Controller
 
         if ($res["code"] == 200) {
 
-            $desconto = $desconto / 100;
+            if($cupom){
+                $cupom->estoque -= 1;
+                $cupom->save();
+            }
 
             $carrinho = new Carrinho();
             $carrinho->aluno_id = session()->get("aluno")["id"];
@@ -102,7 +153,7 @@ class GerencianetController extends Controller
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
             $venda->codigo = date("Ymd") . str_pad(random_int(1, 99999999), 8, "0", STR_PAD_LEFT);
-            $venda->total = $carrinho->total - ($carrinho->total * $desconto / 100);
+            $venda->total = $carrinho->total - $desconto;
             $venda->status = 0;
             $venda->gateway = 0;
             $venda->parcelas = $request->parcelas;
@@ -112,7 +163,10 @@ class GerencianetController extends Controller
                 $venda->forma = 0;
             }
             $venda->valor_parcela = number_format($venda->total / $request->parcelas, 2, ".", "");
-            $venda->desconto = ($carrinho->total * $desconto / 100);
+            $venda->desconto = $desconto;
+            if($cupom){
+                $venda->cupom_id = $cupom->id;
+            }
             $venda->save();
             Log::channel('boletos')->info('VENDA GERADA:' . json_encode($res));
 
@@ -171,6 +225,56 @@ class GerencianetController extends Controller
     }
 
     public function credito(Request $request, Curso $curso){
+        $desconto = 0;
+        $cupom = null;
+
+        if($request->cupom){
+            $cupom = Cupom::where("codigo", $request->cupom);
+            if(!$cupom){
+                session()->flash("erro", "O cupom informado é inválido");
+                return redirect()->back();
+            }
+            if($curso->tipo === 0 || $curso->tipo == 1){
+                if($cupom->cursos_online == 1 ||  ($cupom->cursos_online == 2 && $cupom->cupom_produtos->where("curso_id", $curso->id)->count() > 0)){
+                    if($cupom->validade && ($cupom->inicio > date("Y-m-d") || $cupom->fim < date("Y-m-d"))){
+                        session()->flash("erro", "O cupom informado já expirou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->estoque <= 0){
+                        session()->flash("erro", "O cupom informado esgotou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->tipo == 0){
+                        $desconto = ($curso->valor * $cupom->valor) / 100;
+                    }else{
+                        $desconto = $cupom->valor;
+                    }
+                }else{
+                    session()->flash("erro", "O cupom informado não é válido para este curso.");
+                    return redirect()->back();
+                }
+            }else{
+                if($cupom->cursos_presenciais == 1 ||  ($cupom->cursos_presenciais == 2 && $cupom->cupom_produtos->where("curso_id", $curso->id)->count() > 0)){
+                    if($cupom->validade && ($cupom->inicio > date("Y-m-d") || $cupom->fim < date("Y-m-d"))){
+                        session()->flash("erro", "O cupom informado já expirou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->estoque <= 0){
+                        session()->flash("erro", "O cupom informado esgotou.");
+                        return redirect()->back();
+                    }
+                    if($cupom->tipo == 0){
+                        $desconto = ($curso->valor * $cupom->valor) / 100;
+                    }else{
+                        $desconto = $cupom->valor;
+                    }
+                }else{
+                    session()->flash("erro", "O cupom informado não é válido para este curso.");
+                    return redirect()->back();
+                }
+            }
+        }
+
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         $gerencianet = new GerencianetRequisicaoCartao();
         Log::info($request->payment_token);
@@ -192,6 +296,14 @@ class GerencianetController extends Controller
             'value' => intval($curso->valor * 100)
         ]);
 
+        if($desconto > 0){
+            $gerencianet->addDesconto([
+                'type' => 'currency',
+                'value' => intval($desconto * 100)
+            ]);
+        }
+
+        
         $gerencianet->addParcelas($request->parcelas);
 
         $gerencianet->setPaymentToken($request->payment_token);
@@ -221,6 +333,12 @@ class GerencianetController extends Controller
         $res = $gerencianet->efetuarPagamento();
 
         if ($res["code"] == 200) {
+
+            if($cupom){
+                $cupom->estoque -= 1;
+                $cupom->save();
+            }
+
             $carrinho = new Carrinho();
             $carrinho->aluno_id = session()->get("aluno")["id"];
             $carrinho->ultima_notificacao = date("Y-m-d");
@@ -239,13 +357,16 @@ class GerencianetController extends Controller
             $venda->aluno_id = $aluno->id;
             $venda->carrinho_id = $carrinho->id;
             $venda->codigo = date("Ymd") . str_pad($carrinho->id, 8, "0", STR_PAD_LEFT);
-            $venda->total = $carrinho->total;
+            $venda->total = $carrinho->total - $desconto;
             $venda->status = config("gerencianet.status_code")[$res["data"]["status"]];
             $venda->gateway = 0;
             $venda->parcelas = $request->parcelas;
             $venda->forma = 1;
             $venda->valor_parcela = number_format($venda->total / $request->parcelas, 2, ".", "");
-            $venda->desconto = 0;
+            $venda->desconto = $desconto;
+            if($cupom){
+                $venda->cupom_id = $cupom->id;
+            }
             $venda->save();
             Log::channel('cartao')->info('VENDA GERADA (GERENCIANET):' . json_encode($res));
 
