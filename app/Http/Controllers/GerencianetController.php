@@ -229,7 +229,7 @@ class GerencianetController extends Controller
         $cupom = null;
 
         if($request->cupom){
-            $cupom = Cupom::where("codigo", $request->cupom);
+            $cupom = Cupom::where("codigo", $request->cupom)->first();
             if(!$cupom){
                 session()->flash("erro", "O cupom informado é inválido");
                 return redirect()->back();
