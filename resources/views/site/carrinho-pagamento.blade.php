@@ -160,8 +160,8 @@
                                         <div style="margin-left: 5px; width: 20%;">
                                             <label for="">
                                                 <span>Nº</span>
-                                                <input type="text" name="numero_endereco"
-                                                    value="{{ $aluno->numero }}" required>
+                                                <input type="number" name="numero_endereco"
+                                                    value="{{ $aluno->numero }}" step="1" min="0" max="100000" required>
                                             </label>
                                         </div>
                                     </div>
