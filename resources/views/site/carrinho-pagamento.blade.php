@@ -195,7 +195,7 @@
                                                     style="padding: 5px !important; max-width: 100%;">
                                                     @foreach (config('estados.estados') as $key => $estado)
                                                         <option value="{{ $key }}"
-                                                            @if ($aluno->estado == $estado) selected @endif>
+                                                            @if ($aluno->estado == $key) selected @endif>
                                                             {{ $estado }}</option>
                                                     @endforeach
                                                 </select>
