@@ -24,6 +24,8 @@ class GerencianetController extends Controller
     //
     public function boleto(Request $request, Curso $curso)
     {
+        Log::channel('boletos')->info('REQUEST DE PGAMANETO:' . json_encode($request->all()));
+
         $gerencianet = new GerencianetRequisicaoBoleto();
         // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
@@ -225,6 +227,8 @@ class GerencianetController extends Controller
     }
 
     public function credito(Request $request, Curso $curso){
+        Log::channel('cartao')->info('REQUEST DE PGAMANETO:' . json_encode($request->all()));
+
         $desconto = 0;
         $cupom = null;
 
