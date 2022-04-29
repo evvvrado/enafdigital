@@ -393,7 +393,7 @@
                     e.preventDefault();
                     var erro = false;
                     $("#form-cartao input").each(function() {
-                        if (!$(this).val()) {
+                        if ($(this).attr("name") != "cupom" && !$(this).val()) {
                             $("#div-erro h2").html("Por favor, preencha todos os campos.")
                             $('#div-erro').attr('show', '')
                             erro = true;
