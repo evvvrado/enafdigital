@@ -221,7 +221,14 @@ class GerencianetController extends Controller
             //     $produto->turma->save();
             // }
             Log::channel('boletos')->error('ERRO:' . json_encode($res));
-            session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
+
+            if(isset($res["error_description"])){
+                $msg = $res["error_description"];
+            }else{
+                $msg = "Problema na finalização da compra. Tente novamente mais tarde.";
+            }
+
+            session()->flash("erro", $msg);
             return redirect()->route("site.carrinho.pagamento.boleto", ['curso' => $curso]);
         }
     }
@@ -231,6 +238,10 @@ class GerencianetController extends Controller
 
         $desconto = 0;
         $cupom = null;
+        if($request->numero_endereco > 100000){
+            session()->flash("erro", "O número de residência informado é muito grande.");
+            return redirect()->back();
+        }
 
         if($request->cupom){
             $cupom = Cupom::where("codigo", $request->cupom)->first();

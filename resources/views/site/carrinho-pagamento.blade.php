@@ -104,7 +104,9 @@
                                     </div>
                                 </div>
 
-
+                                <div>
+                                    <small style="color: red;">{{ session()->get('erro') }}</small>
+                                </div>
                                 <form id="form-cartao"
                                     @if ($curso->gateway_cartao == 1) action="{{ route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso]) }}" @else
                                 action="{{ route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso]) }}" @endif
@@ -161,7 +163,7 @@
                                             <label for="">
                                                 <span>Nº</span>
                                                 <input type="number" name="numero_endereco"
-                                                    value="{{ $aluno->numero }}" step="1" min="0" max="10000" required>
+                                                    value="{{ $aluno->numero }}" step="1" min="0" max="100000" required>
                                             </label>
                                         </div>
                                     </div>
