@@ -24,6 +24,8 @@ class GerencianetController extends Controller
     //
     public function boleto(Request $request, Curso $curso)
     {
+        Log::channel('boletos')->info('REQUEST DE PGAMANETO:' . json_encode($request->all()));
+
         $gerencianet = new GerencianetRequisicaoBoleto();
         // $carrinho = Carrinho::find(session()->get("carrinho"));
         $aluno = Aluno::find(session()->get("aluno")["id"]);
@@ -219,17 +221,30 @@ class GerencianetController extends Controller
             //     $produto->turma->save();
             // }
             Log::channel('boletos')->error('ERRO:' . json_encode($res));
-            session()->flash("erro", "Problema na finalização da compra. Tente novamente mais tarde.");
+
+            if(isset($res["error_description"])){
+                $msg = $res["error_description"];
+            }else{
+                $msg = "Problema na finalização da compra. Tente novamente mais tarde.";
+            }
+
+            session()->flash("erro", $msg);
             return redirect()->route("site.carrinho.pagamento.boleto", ['curso' => $curso]);
         }
     }
 
     public function credito(Request $request, Curso $curso){
+        Log::channel('cartao')->info('REQUEST DE PGAMANETO:' . json_encode($request->all()));
+
         $desconto = 0;
         $cupom = null;
+        if($request->numero_endereco > 100000){
+            session()->flash("erro", "O número de residência informado é muito grande.");
+            return redirect()->back();
+        }
 
         if($request->cupom){
-            $cupom = Cupom::where("codigo", $request->cupom);
+            $cupom = Cupom::where("codigo", $request->cupom)->first();
             if(!$cupom){
                 session()->flash("erro", "O cupom informado é inválido");
                 return redirect()->back();

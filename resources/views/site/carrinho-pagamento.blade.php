@@ -104,7 +104,9 @@
                                     </div>
                                 </div>
 
-
+                                <div>
+                                    <small style="color: red;">{{ session()->get('erro') }}</small>
+                                </div>
                                 <form id="form-cartao"
                                     @if ($curso->gateway_cartao == 1) action="{{ route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso]) }}" @else
                                 action="{{ route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso]) }}" @endif
@@ -160,8 +162,8 @@
                                         <div style="margin-left: 5px; width: 20%;">
                                             <label for="">
                                                 <span>Nº</span>
-                                                <input type="text" name="numero_endereco"
-                                                    value="{{ $aluno->numero }}" required>
+                                                <input type="number" name="numero_endereco"
+                                                    value="{{ $aluno->numero }}" step="1" min="0" max="100000" required>
                                             </label>
                                         </div>
                                     </div>
@@ -195,7 +197,7 @@
                                                     style="padding: 5px !important; max-width: 100%;">
                                                     @foreach (config('estados.estados') as $key => $estado)
                                                         <option value="{{ $key }}"
-                                                            @if ($aluno->estado == $estado) selected @endif>
+                                                            @if ($aluno->estado == $key) selected @endif>
                                                             {{ $estado }}</option>
                                                     @endforeach
                                                 </select>
@@ -393,7 +395,7 @@
                     e.preventDefault();
                     var erro = false;
                     $("#form-cartao input").each(function() {
-                        if (!$(this).val()) {
+                        if ($(this).attr("name") != "cupom" && !$(this).val()) {
                             $("#div-erro h2").html("Por favor, preencha todos os campos.")
                             $('#div-erro').attr('show', '')
                             erro = true;
