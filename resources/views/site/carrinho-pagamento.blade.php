@@ -291,9 +291,11 @@
                                 <p>Escolha o número de parcelas desejadas:</p>
                             </div>
                             <div class="_form" style="width: 100% !important;">
-                                <div>
-                                    <small style="color: red;">{{ session()->get('erro') }}</small>
-                                </div>
+                                @if(session()->get("erro"))
+                                    <div>
+                                        <small style="color: red;">{{ session()->get('erro') }}</small>
+                                    </div>
+                                @endif
 
                                 <form action="{{ route('site.carrinho.finalizar.boleto', ['curso' => $curso]) }}"
                                     method="POST">

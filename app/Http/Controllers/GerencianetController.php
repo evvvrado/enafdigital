@@ -222,11 +222,11 @@ class GerencianetController extends Controller
             // }
             Log::channel('boletos')->error('ERRO:' . json_encode($res));
 
-            if(isset($res["error_description"])){
-                $msg = $res["error_description"];
-            }else{
-                $msg = "Problema na finalização da compra. Tente novamente mais tarde.";
-            }
+            // if(isset($res["error_description"]) && isset($res["error_description"][""])){
+                // $msg = $res["error_description"];
+            // }else{
+                $msg = "Problema na finalização da compra. Verifique seus dados de nome, telefone, cpf e data de nascimento e tente novamente";
+            // }
 
             session()->flash("erro", $msg);
             return redirect()->route("site.carrinho.pagamento.boleto", ['curso' => $curso]);
