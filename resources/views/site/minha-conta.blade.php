@@ -534,6 +534,7 @@
                 reverse: true,
             });
             $('input[type = "tel"]').mask("(00) 00000-0000");
+            $('input[name= "cep"]').mask("00000-000");
         });
     </script>
 </body>
