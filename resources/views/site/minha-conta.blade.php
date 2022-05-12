@@ -66,6 +66,24 @@
                                             Insira seus dados para acessar.
                                         </p>
                                     </div>
+                                    @if(session()->get("sucesso"))
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                  <strong>{{ session()->get("sucesso") }}</strong> 
+                                                </div>
+                                                
+                                                <script>
+                                                  var alertList = document.querySelectorAll('.alert');
+                                                  alertList.forEach(function (alert) {
+                                                    new bootstrap.Alert(alert)
+                                                  })
+                                                </script>
+                                                
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="mt-4">
                                         <form action="{{ route('site.aluno.logar') }}" method="post">
                                             @csrf
