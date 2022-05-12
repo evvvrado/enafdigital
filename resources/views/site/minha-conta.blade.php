@@ -306,11 +306,13 @@
                                         </p>
                                     </div>
                                     <div class="mt-4">
-                                        <form novalidate="" action="#" method="get"
+                                        <form novalidate="" action="{{ route('site.senha.recuperar') }}"
+                                            method="post"
                                             class="
                                                 form-horizontal
                                                 av-invalid
                                                 ">
+                                            @csrf
                                             <div class="
                                                     alert alert-success
                                                     text-center
@@ -322,8 +324,7 @@
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="email" class="">E-mail</label><input
-                                                        name="
-                                                        email" placeholder="Insira seu e-mail" required="" id="email"
+                                                        name="email" placeholder="Insira seu e-mail" required="" id="email"
                                                         type="email"
                                                         class="
                                                             form-control

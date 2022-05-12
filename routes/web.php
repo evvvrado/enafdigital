@@ -103,6 +103,7 @@ Route::get('/carrinho/finalizar/boleto/gerencianet/{parcelas}', [\App\Http\Contr
 
 // ROTA TEMPORARIA
 Route::get('/aluno/login', [\App\Http\Controllers\SiteController::class, 'minhaConta'])->name("site.minha-conta");
+Route::post('/aluno/recuperar-senha', [\App\Http\Controllers\AlunosController::class, 'recuperar_senha'])->name("site.senha.recuperar");
 
 
 Route::post('/aluno/cadastrar', [\App\Http\Controllers\AlunosController::class, 'cadastrar'])->name("site.aluno.cadastrar");

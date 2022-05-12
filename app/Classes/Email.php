@@ -13,12 +13,12 @@ class Email{
         try {
 
             // Mail server settings
-            $mail->SMTPDebug = 0; // Enable verbose debug output
+            $mail->SMTPDebug = 6; // Enable verbose debug output
             $mail->isSMTP(); // Set mailer to use SMTP
             $mail->Host = "email-ssl.com.br"; // Endereço do servidor SMTP
             $mail->SMTPAuth = true; // Enable SMTP authentication
             $mail->Username = 'contato@enafdigital.com.br'; // SMTP username
-            $mail->Password = 'Adm@77ENAF'; // SMTP password
+            $mail->Password = 'Adm@77enaf'; // SMTP password
             $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 465;
 
