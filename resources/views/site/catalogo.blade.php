@@ -6,69 +6,68 @@
     @include('site.includes.navbar')
 
     @php
-        $anunciante = App\Models\Contrato::where([['inicio', '<=', date('Y-m-d')], ['fim', '>=', date('Y-m-d')], ['ativo', true]])
-            ->inRandomOrder()
-            ->first();
-        
+    $anunciante = App\Models\Contrato::where([['inicio', '<=', date('Y-m-d')], ['fim', '>=' , date('Y-m-d')], ['ativo', true]]) ->inRandomOrder()
+        ->first();
+
         $topcinco = App\Models\Expositor::where('destaque', true)->inRandomOrder();
-        
-    @endphp
+
+        @endphp
 
 
 
-    <section class="container-fluid s_hero" style="background-image: url('{{ asset($anunciante->imagem_desktop) }}')">
-        <div class="container-fav">
-            <div class="_h1 fade">
-                <h1> {{ $anunciante->nome }}</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                </p>
+        <section class="container-fluid s_hero" style="background-image: url('{{ asset($anunciante->imagem_desktop) }}')">
+            <div class="container-fav">
+                <div class="_h1 fade">
+                    <h1> {{ $anunciante->nome }}</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    </p>
 
-                <div class="buttonline">
-                    <a
-                        href=@if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else{{ " @else$anunciante->expositor->site }} @endif">
-                        <picture>
-                            <img src="{{ asset('site/img/feira/catalogo/icon_play.svg') }}">
-                        </picture>
+                    <div class="buttonline">
+                        <a href=@if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else
+                            {{$anunciante->expositor->site }} @endif">
+                            <picture>
+                                <img src="{{ asset('site/img/feira/catalogo/icon_play.svg') }}">
+                            </picture>
 
-                        <span>Acessar</span>
-                    </a>
+                            <span>Acessar</span>
+                        </a>
 
-                    {{-- <a href="">
+                        {{-- <a href="">
                             <span>Mais informações</span>
                         </a> --}}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <section class="container-fluid s_backtoFeira">
-        <div class="container-fav">
-            <div class="_select" style="opacity: 0; pointer-events: none;">
-                <div class="_icon">
-                    <img src="{{ asset('site/img/icon_filter.svg') }}" alt="Ícone de Filtro" />
+        <section class="container-fluid s_backtoFeira">
+            <div class="container-fav">
+                <div class="_select" style="opacity: 0; pointer-events: none;">
+                    <div class="_icon">
+                        <img src="{{ asset('site/img/icon_filter.svg') }}" alt="Ícone de Filtro" />
+                    </div>
+                    <a>SELECIONAR SESSÃO</a>
                 </div>
-                <a>SELECIONAR SESSÃO</a>
+
+
+
+                <div class="_filters">
+                    <a href="{{ route('site.feira') }}">
+                        Visite nossa feira
+                    </a>
+                    <a href="{{ route('site.catalogo') }}">Nosso catálogo</a>
+                </div>
             </div>
 
 
 
-            <div class="_filters">
-                <a href="{{ route('site.feira') }}">
-                    Visite nossa feira
-                </a>
-                <a href="{{ route('site.catalogo') }}">Nosso catálogo</a>
-            </div>
-        </div>
+        </section>
 
 
-
-    </section>
-
-
-    {{-- <section class="container-fluid s_catalogoList">
+        {{-- <section class="container-fluid s_catalogoList">
             <h2>Pilates</h2>
 
             <div class="--mask">
@@ -121,7 +120,7 @@
 
 
 
-    {{-- @if ($topcinco->count() >= 5)
+        {{-- @if ($topcinco->count() >= 5)
         <section class="container-fluid s_top5">
             <div class="--mask">
 
@@ -183,48 +182,48 @@
 
 
 
-    @foreach (config('expositores.categorias_nome') as $codigo => $nome)
+        @foreach (config('expositores.categorias_nome') as $codigo => $nome)
+
         @if (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->count() > 0)
-            <section class="container-fluid s_catalogoList">
-                <h2
-                    onclick="window.location.href = '{{ route('site.feiraEmpresas', Illuminate\Support\Str::slug($nome)) }}'">
-                    {{ $nome }}</h2>
+        <section class="container-fluid s_catalogoList">
+            <h2 onclick="window.location.href = '{{ route('site.feiraEmpresas', Illuminate\Support\Str::slug($nome)) }}'">
+                {{ $nome }}</h2>
 
-                <div class="--mask">
+            <div class="--mask">
 
-                    <div class="--buttons">
-                        <div class="--before">
-                            <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
-                        </div>
-                        <div class="--next">
-                            <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
-                        </div>
+                <div class="--buttons">
+                    <div class="--before">
+                        <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
                     </div>
-
-
-                    <div class="content">
-
-                        <div class="--list">
-                            @foreach (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->get() as $expositor)
-                                <div class="--item"
-                                    onclick="window.location.href = '@if ($expositor->hotsite && $expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $expositor->hotsite->slug]) }} @else{{ $expositor->site }} @endif'">
-                                    <img src="{{ asset($expositor->foto) }}" title="{{ $expositor->nome }}" />
-                                </div>
-                            @endforeach
-                        </div>
+                    <div class="--next">
+                        <img src="{{ asset('/site/img/feira/catalogo/next_arrow.svg') }}" />
                     </div>
                 </div>
 
-            </section>
+
+                <div class="content">
+
+                    <div class="--list">
+                        @foreach (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->get() as $expositor)
+                        <div class="--item"
+                            onclick="window.location.href = '@if ($expositor->hotsite && $expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $expositor->hotsite->slug]) }} @else{{ $expositor->site }} @endif'">
+                            <img src="{{ asset($expositor->foto) }}" title="{{ $expositor->nome }}" />
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+        </section>
         @endif
-    @endforeach
+        @endforeach
 
 
 
 
 
 
-    {{-- <section class="container-fluid s_catalogoList --livro">
+        {{-- <section class="container-fluid s_catalogoList --livro">
             <h2>Livros</h2>
 
             <div class="--mask">
@@ -278,14 +277,14 @@
 
 
 
-    @include('site.includes.publicidade')
+        @include('site.includes.publicidade')
 
 
 
-    @include('site.includes.footer')
+        @include('site.includes.footer')
 
-    <script>
-        $('.--mask .--buttons .--next').click(function() {
+        <script>
+            $('.--mask .--buttons .--next').click(function() {
             $(this).closest('div.--mask').find('div.content').scrollLeft($(this).closest('div.--mask').find(
                 'div.content').scrollLeft() + $('.--item').width() * 3)
         })
@@ -295,4 +294,4 @@
         })
 
         $('.--mask .content').scrollLeft($('.--mask .content').width() / 3)
-    </script>
+        </script>
