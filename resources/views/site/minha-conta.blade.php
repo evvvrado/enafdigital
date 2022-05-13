@@ -53,10 +53,8 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5">
                                     <a href="index.html" class="md-block auth-logo">
-                                        <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200"
-                                            class="mx-auto auth-logo-dark" />
-                                        <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200"
-                                            class="mx-auto auth-logo-light" />
+                                        <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200" class="mx-auto auth-logo-dark" />
+                                        <img src="{{ asset('site/imagens/logo.png') }}" alt="" width="200" class="mx-auto auth-logo-light" />
                                     </a>
                                 </div>
                                 <div class="my-auto login-box">
@@ -66,54 +64,47 @@
                                             Insira seus dados para acessar.
                                         </p>
                                     </div>
-                                    @if(session()->get("sucesso"))
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                  <strong>{{ session()->get("sucesso") }}</strong> 
-                                                </div>
-                                                
-                                                <script>
-                                                  var alertList = document.querySelectorAll('.alert');
-                                                  alertList.forEach(function (alert) {
-                                                    new bootstrap.Alert(alert)
-                                                  })
-                                                </script>
-                                                
+                                    @if (session()->get('sucesso'))
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                <strong>{{ session()->get('sucesso') }}</strong>
                                             </div>
+
+                                            <script>
+                                                var alertList = document.querySelectorAll('.alert');
+                                                    alertList.forEach(function(alert) {
+                                                        new bootstrap.Alert(alert)
+                                                    })
+                                            </script>
+
                                         </div>
+                                    </div>
                                     @endif
                                     <div class="mt-4">
                                         <form action="{{ route('site.aluno.logar') }}" method="post">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email"
-                                                    placeholder="Informe o email" required />
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Informe o email" required />
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label">Senha</label>
                                                 <div class="float-end">
-                                                    <a class="text-muted" style="cursor: pointer;"
-                                                        onclick="$('.login-box').hide(); $('.forgot-password').show();">Esqueceu
+                                                    <a class="text-muted" style="cursor: pointer;" onclick="$('.login-box').hide(); $('.forgot-password').show();">Esqueceu
                                                         sua senha?</a>
                                                 </div>
-                                                <div
-                                                    class="
+                                                <div class="
                                                         input-group
                                                         auth-pass-inputgroup
                                                         ">
-                                                    <input type="password" class="form-control" name="senha"
-                                                        placeholder="Informa a senha" aria-label="Password"
-                                                        aria-describedby="password-addon" required />
-                                                    <button
-                                                        class="
+                                                    <input type="password" class="form-control" name="senha" placeholder="Informa a senha" aria-label="Password" aria-describedby="password-addon"
+                                                        required />
+                                                    <button class="
                                                             btn btn-light
-                                                            "
-                                                        type="button" id="password-addon">
-                                                        <i
-                                                            class="
+                                                            " type="button" id="password-addon">
+                                                        <i class="
                                                             mdi
                                                             mdi-eye-outline
                                                             "></i>
@@ -127,13 +118,11 @@
                                                     </label>
                                                     </div> -->
                                             <div class="mt-3 d-grid">
-                                                <button
-                                                    class="
+                                                <button class="
                                                         btn
                                                         waves-effect
                                                         waves-light
-                                                        "
-                                                    style="
+                                                        " style="
                                                         background-color: #1ac7d6;
                                                         color: white;
                                                         " type="submit">
@@ -164,8 +153,7 @@
                                     <div class="mt-4 mt-md-5 text-center">
                                         <p class="mb-0">
                                             © 2022 ENAF. Feito com
-                                            <i
-                                                class="
+                                            <i class="
                                                     mdi mdi-heart
                                                     text-danger
                                                     "></i>
@@ -181,37 +169,27 @@
                                     </div>
                                     <div class="mt-4">
                                         <div class="mt-5 text-center">
-                                            <p>Já tem uma conta?<a class="fw-medium" href="javascript: void(0)"
-                                                    onclick="$('.register').hide(); $('.login-box').show()"> Entrar</a>
+                                            <p>Já tem uma conta?<a class="fw-medium" href="javascript: void(0)" onclick="$('.register').hide(); $('.login-box').show()"> Entrar</a>
                                             </p>
                                         </div>
-                                        <form action="{{ route('site.aluno.cadastrar') }}" method="post"
-                                            class="form-horizontal av-invalid">
+                                        <form action="{{ route('site.aluno.cadastrar') }}" method="post" class="form-horizontal av-invalid">
                                             @csrf
                                             <div class="mb-3">
                                                 <div class="form-group">
-                                                    <label for="nome" class="">Nome</label>
-                                                    <input name="nome" placeholder="Digide seu nome" required=""
-                                                        id="nome" pattern="^[A-zÀ-ÿ][A-zÀ-ÿ]+\s[A-zÀ-ÿ][A-zÀ-ÿ]+.+"
-                                                        type="name"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <label for="nome" class="">Nome Completo</label>
+                                                    <input name="nome" placeholder="Digide seu nome" required="" id="nome" pattern="^[A-zÀ-ÿ][A-zÀ-ÿ]+\s[A-zÀ-ÿ][A-zÀ-ÿ]+.+" type="name"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="form-group col-6">
                                                     <label for="email" class="">E-mail</label>
-                                                    <input name="email" placeholder="Digite seu email" required
-                                                        id="emailregister" type="email"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <input name="email" placeholder="Digite seu email" required id="emailregister" type="email"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
-                                                <div class="form-group col-6"><label for="password"
-                                                        class="">Senha</label>
-                                                    <input name="senha" placeholder="Digite sua senha" required=""
-                                                        id="senha" type="password"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                <div class="form-group col-6"><label for="password" class="">Senha</label>
+                                                    <input name="senha" placeholder="Digite sua senha" required="" id="senha" type="password"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
@@ -219,65 +197,45 @@
                                                     <label for="telefone" class="">
                                                         Telefone
                                                     </label>
-                                                    <input name="telefone" placeholder="Digite seu telefone" required=""
-                                                        id="telefone" type="tel"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <input name="telefone" placeholder="Digite seu telefone" required="" id="telefone" type="tel"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
-                                                <div class="form-group col-6"><label for="email"
-                                                        class="">CPF</label><input name="cpf"
-                                                        placeholder="Digite seu cpf" required="" id="cpf" type="cpf"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value=""></div>
+                                                <div class="form-group col-6"><label for="email" class="">CPF</label><input name="cpf" placeholder="Digite seu cpf" required="" id="cpf" type="cpf"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value=""></div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="form-group col-6">
                                                     <label for="rua" class="">
                                                         Rua
                                                     </label>
-                                                    <input name="rua" placeholder="Digite sua rua" required="" id="rua"
-                                                        type="text"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <input name="rua" placeholder="Digite sua rua" required="" id="rua" type="text"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
                                                 <div class="form-group col-3">
                                                     <label for="complemento" class="">
                                                         Complemento
                                                     </label>
-                                                    <input name="complemento" placeholder="Digite um complemento"
-                                                        required="" id="complemento" type="text"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="" maxlength="20">
+                                                    <input name="complemento" placeholder="Digite um complemento" required="" id="complemento" type="text"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="" maxlength="20">
                                                 </div>
-                                                <div class="form-group col-3"><label for="email"
-                                                        class="">Nº</label><input name="numero"
-                                                        placeholder="Ex: 111" required="" id="numero" type="number"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="" min="0" step="1"></div>
+                                                <div class="form-group col-3"><label for="email" class="">Nº</label><input name="numero" placeholder="Ex: 111" required="" id="numero" type="number"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="" min="0" step="1"></div>
                                             </div>
                                             <div class="mb-3 row">
                                                 <div class="form-group col-5">
                                                     <label for="bairro" class="">
                                                         Bairro
                                                     </label>
-                                                    <input name="bairro" placeholder="Digite seu bairro" required=""
-                                                        id="bairro" type="text"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <input name="bairro" placeholder="Digite seu bairro" required="" id="bairro" type="text"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
-                                                <div class="form-group col-5"><label for="email"
-                                                        class="">Cidade</label><input name=" cidade"
-                                                        placeholder="Ex: São Paulo" required="" id="cidade" type="text"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value=""></div>
-                                                <div class="form-group col-2"><label for="email"
-                                                        class="">Estado</label><select name=" estado"
-                                                        required="" id="estado"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                <div class="form-group col-5"><label for="email" class="">Cidade</label><input name=" cidade" placeholder="Ex: São Paulo" required="" id="cidade"
+                                                        type="text" class="form-control is-untouched is-pristine av-invalid form-control" value=""></div>
+                                                <div class="form-group col-2"><label for="email" class="">Estado</label><select name=" estado" required="" id="estado"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                         @foreach (config('estados.estados') as $sigla => $nome)
-                                                            <option value="{{ $sigla }}">{{ $sigla }}
-                                                            </option>
+                                                        <option value="{{ $sigla }}">{{ $sigla }}
+                                                        </option>
                                                         @endforeach
                                                     </select></div>
                                             </div>
@@ -286,25 +244,18 @@
                                                     <label for="cep" class="">
                                                         CEP
                                                     </label>
-                                                    <input name="cep" placeholder="Digite seu cep" required="" id="cep"
-                                                        type="text"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value="">
+                                                    <input name="cep" placeholder="Digite seu cep" required="" id="cep" type="text"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value="">
                                                 </div>
-                                                <div class="form-group col-6"><label for="email"
-                                                        class="">Nascimento</label><input
-                                                        name="nascimento" required="" id="nascimento" type="date"
-                                                        class="form-control is-untouched is-pristine av-invalid form-control"
-                                                        value=""></div>
+                                                <div class="form-group col-6"><label for="email" class="">Nascimento</label><input name="nascimento" required="" id="nascimento" type="date"
+                                                        class="form-control is-untouched is-pristine av-invalid form-control" value=""></div>
                                             </div>
-                                            <div class="mt-3 d-grid"><button class="btn btn-primary btn-block"
-                                                    type="submit"> Registrar </button></div>
+                                            <div class="mt-3 d-grid"><button class="btn btn-primary btn-block" type="submit"> Registrar </button></div>
 
                                             <div class="mt-4 mt-md-5 text-center">
                                                 <p class="mb-0">
                                                     © 2022 ENAF. Feito com
-                                                    <i
-                                                        class="
+                                                    <i class="
                                                             mdi mdi-heart
                                                             text-danger
                                                             "></i>
@@ -324,9 +275,7 @@
                                         </p>
                                     </div>
                                     <div class="mt-4">
-                                        <form novalidate="" action="{{ route('site.senha.recuperar') }}"
-                                            method="post"
-                                            class="
+                                        <form novalidate="" action="{{ route('site.senha.recuperar') }}" method="post" class="
                                                 form-horizontal
                                                 av-invalid
                                                 ">
@@ -335,47 +284,38 @@
                                                     alert alert-success
                                                     text-center
                                                     mb-4
-                                                    "
-                                                role="alert">
-                                                Insira seu e-mail e enviaremos para você um coiso
+                                                    " role="alert">
+                                                Insira seu e-mail e enviaremos para você sua nova senha
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group">
-                                                    <label for="email" class="">E-mail</label><input
-                                                        name="email" placeholder="Insira seu e-mail" required="" id="email"
-                                                        type="email"
-                                                        class="
+                                                    <label for="email" class="">E-mail</label><input name="email" placeholder="Insira seu e-mail" required="" id="email" type="email" class="
                                                             form-control
                                                             is-untouched
                                                             is-pristine
                                                             av-invalid
                                                             form-control
-                                                            "
-                                                        value="" />
+                                                            " value="" />
                                                 </div>
                                             </div>
                                             <div class="text-end">
-                                                <button
-                                                    class="
+                                                <button class="
                                                         btn btn-primary
                                                         w-md
                                                         waves-effect
                                                         waves-light
-                                                        "
-                                                    style="background-color: #1ac7d6;color: white;" type="submit">
+                                                        " style="background-color: #1ac7d6;color: white;" type="submit">
                                                     Enviar
                                                 </button>
                                             </div>
                                         </form>
                                         <div class="mt-5 text-center">
-                                            <p onclick="$('.login-box').show(); $('.forgot-password').hide()"
-                                                style="cursor: pointer;">
-                                                Lembrou? Campeão,
-                                                <a
-                                                    class="
+                                            <p onclick="$('.login-box').show(); $('.forgot-password').hide()" style="cursor: pointer;">
+                                                Lembrou?
+                                                <a class="
                                                         fw-medium
                                                         ">
-                                                    Manda bala ai
+                                                    Entrar
                                                 </a>
                                             </p>
                                         </div>
@@ -398,8 +338,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    class="
+                                <div class="
                                         mt-4 mt-md-5
                                         text-center text-white
                                         ">
@@ -410,8 +349,7 @@
                                                 new Date().getFullYear()
                                             );
                                         </script>
-                                        <img class="ml-2 mt-n1"
-                                            src="{{ asset('/site/imagens/footer-seven.png') }}" alt="" />
+                                        <img class="ml-2 mt-n1" src="{{ asset('/site/imagens/footer-seven.png') }}" alt="" />
                                     </p>
                                 </div>
                             </div>
@@ -429,39 +367,36 @@
 
 
     @if (session()->get('erro'))
-        <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
-                <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
+    <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
+            <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
 
-                    <div class="modal-body px-5 py-0">
-                        <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal"
-                            aria-label="Close"
-                            style="position: absolute; top: 10px; right: 10px; z-index: 22; font-size: 25px; border:none; background:none;">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="mt-5">
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <img src="{{ asset('site/img/icone_erro.png') }}"
-                                        style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
-                                </div>
+                <div class="modal-body px-5 py-0">
+                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close"
+                        style="position: absolute; top: 10px; right: 10px; z-index: 22; font-size: 25px; border:none; background:none;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="mt-5">
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <img src="{{ asset('site/img/icone_erro.png') }}" style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
                             </div>
-                            <div class="row">
-                                <div class="col-12 text-center modal-erro-text">
-                                    <h1>Ops !</h1>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h1>Ops !</h1>
                             </div>
-                            <div class="row mt-5 mb-4">
-                                <div class="col-12 text-center modal-erro-text">
-                                    <h2>{{ session()->get('erro') }}</h2>
-                                </div>
+                        </div>
+                        <div class="row mt-5 mb-4">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h2>{{ session()->get('erro') }}</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     @endif
 
 
@@ -477,59 +412,55 @@
     <script src="{{ asset('admin/js/pages/auth-2-carousel.init.js') }}"></script>
     <!-- App js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
-        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('admin/js/app.js') }}"></script>
     @toastr_js @toastr_render
 
 
     @if (session()->get('erro'))
-        <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
-                <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
+    <div class="modal fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width: 100%; max-width: 500px;" role="document">
+            <div class="modal-content" style="padding: 0px 0 30px 0; border-radius: 20px;">
 
-                    <div class="modal-body px-5 py-0">
-                        <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal"
-                            aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 22;">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="mt-5">
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <img src="{{ asset('site/img/icone_erro.png') }}"
-                                        style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
-                                </div>
+                <div class="modal-body px-5 py-0">
+                    <button type="button" id="close-modal" class="close cpointer" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; z-index: 22;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="mt-5">
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <img src="{{ asset('site/img/icone_erro.png') }}" style="width: 100px; margin: auto auto;" alt="Ícone de Cadastro">
                             </div>
-                            <div class="row">
-                                <div class="col-12 text-center modal-erro-text">
-                                    <h1>Ops !</h1>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h1>Ops !</h1>
                             </div>
-                            <div class="row mt-5 mb-4">
-                                <div class="col-12 text-center modal-erro-text">
-                                    <h2>{{ session()->get('erro') }}</h2>
-                                </div>
+                        </div>
+                        <div class="row mt-5 mb-4">
+                            <div class="col-12 text-center modal-erro-text">
+                                <h2>{{ session()->get('erro') }}</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     @endif
 
 
 
     @if (session()->get('erro'))
-        <script>
-            $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
                 $("#modalErro").modal("show");
                 $("#close-modal").click(function() {
                     $("#modalErro").modal("hide");
                 })
             });
-        </script>
+    </script>
     @endif
 
 

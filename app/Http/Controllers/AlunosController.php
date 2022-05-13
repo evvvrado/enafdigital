@@ -105,12 +105,13 @@ class AlunosController extends Controller
         return redirect()->route("site.index");
     }
 
-    public function recuperar_senha(Request $request){
+    public function recuperar_senha(Request $request)
+    {
         $aluno = Aluno::where("email", $request->email)->first();
-        if(!$aluno){
+        if (!$aluno) {
             session()->flash("erro", "Não existe uma conta com o e-mail informado");
             return redirect()->back();
-        }else{
+        } else {
             $nova_senha = Str::random(6);
             $aluno->senha = Hash::make($nova_senha);
             $aluno->save();
@@ -118,13 +119,13 @@ class AlunosController extends Controller
             $file .= "Estamos enviando uma senha para que consiga acessar nosso sistema !<br>";
             $file .= "Caso deseje, você poderá alterá-la facilmente acessando o seu painel de aluno no menu 'Meus Dados'. Após isso, basta informar a senha recebida no email no campo 'Senha Antiga' e a senha desejada no campo 'Nova Senha'.<br>";
             $file .= "<br><br>Nova Senha: " . $nova_senha;
-            if(Email::enviar($file, "Nova senha", $aluno->email)){
-                session()->flash("sucesso", "Uma senha temporária foi enviada para o e-mail informado no seu cadastro.");
+            if (Email::enviar($file, "Nova senha", $aluno->email)) {
+                session()->flash("sucesso", "Uma senha temporária foi enviada para o e-mail informado no seu cadastro. <br>Dica: Confira sempre novas mensagens nas pastas spam ou lixo eletrônico de seu e-mail ");
                 return redirect()->back();
-            }else{
+            } else {
                 session()->flash("erro", "Não foi possível enviar um e-mail com sua nova senha temporária no momento. Por favor, tente mais tarde.");
                 return redirect()->back();
-            } 
+            }
         }
     }
 }

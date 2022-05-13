@@ -971,7 +971,7 @@ section.s_identificacao .container-fav ._half .content ._offtitle ._left {
     width: 100%;
     max-width: 31.4rem;
 
-    height: 31.3rem;
+    /* height: 31.3rem; */
 }
 section.s_identificacao .container-fav ._half .content ._offtitle ._left ._forgotPass {
     display: flex;
@@ -2205,6 +2205,14 @@ p {
     }
 }
 @media (max-width: 600px) {
+    section.s_identificacao .container-fav ._half .content ._offtitle ._left {
+        height: 31.3rem;
+    }
+
+    small.register_info {
+        margin: auto;
+        margin-top: 2rem;
+    }
     .d_superMenu .container-fav ._right {
         flex-direction: column;
     }
@@ -2990,4 +2998,17 @@ div#div-ajax picture img {
     100% {
         transform: scale(0) rotate(360deg);
     }
+}
+
+small.register_info {
+    float: right;
+    text-align: center;
+    width: 313px;
+    font-size: 1.3rem;
+    margin-left: auto;
+
+    color: var(--wine3);
+}
+
+@media screen (max-width: 500) {
 }

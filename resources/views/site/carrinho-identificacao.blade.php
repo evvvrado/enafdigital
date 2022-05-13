@@ -286,6 +286,10 @@
                         </a>
                     </div>
                 </div>
+                <small class="register_info">
+                    Atenção, cada participante deve ter o cadastro único. Não utilize login de outra pessoa. Preencha todos os seus dados corretamente no cadastro para evitar erros que
+                    possam invalidar sua tentativa de compra!
+                </small>
             </div>
         </div>
     </section>

@@ -25,8 +25,8 @@
                     </p>
 
                     <div class="buttonline">
-                        <a href=@if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else{{
-                            $anunciante->expositor->site }} @endif">
+                        <a href=@if ($anunciante->expositor->hotsite && $anunciante->expositor->hotsite->slug) {{ route('site.hotsite', ['slug' => $anunciante->expositor->hotsite->slug]) }}" @else
+                            {{$anunciante->expositor->site }} @endif">
                             <picture>
                                 <img src="{{ asset('site/img/feira/catalogo/icon_play.svg') }}">
                             </picture>
@@ -120,8 +120,7 @@
 
 
 
-
-        @if ($topcinco->count() >= 5)
+        {{-- @if ($topcinco->count() >= 5)
         <section class="container-fluid s_top5">
             <div class="--mask">
 
@@ -178,12 +177,13 @@
                 </div>
             </div>
         </section>
-        @endif
+        @endif --}}
 
 
 
 
         @foreach (config('expositores.categorias_nome') as $codigo => $nome)
+
         @if (\App\Models\Expositor::where([['categoria', $codigo], ['destaque', 1]])->count() > 0)
         <section class="container-fluid s_catalogoList">
             <h2 onclick="window.location.href = '{{ route('site.feiraEmpresas', Illuminate\Support\Str::slug($nome)) }}'">
