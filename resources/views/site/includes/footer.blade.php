@@ -89,7 +89,7 @@
 </script>
 
 @endif
-
+@livewireScripts
 
 </body>
 

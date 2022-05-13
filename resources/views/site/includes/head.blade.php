@@ -71,5 +71,5 @@
         <img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=694950568550116&ev=PageView&noscript=1" />
     </noscript>
-
+    @livewireStyles
 </head>
