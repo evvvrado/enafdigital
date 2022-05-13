@@ -52,6 +52,9 @@
                         $cont++;
                     @endphp
                 @endforeach
+                <div>
+                    {{ $cursos->links() }}
+                </div>
                 @include('site.includes.publicidade')
             </div>
         </div>
