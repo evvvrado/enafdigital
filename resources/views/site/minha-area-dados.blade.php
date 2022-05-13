@@ -45,12 +45,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
-                        alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -110,12 +109,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
-                        alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <div class="_text">
@@ -138,7 +136,8 @@
             <form action="{{ route('site.minha-area-dados.salvar') }}" method="POST" class="_dados">
                 @csrf
                 <div class="dados-div">
-                    <label>
+                    <label class="spamed">
+                        <span>Nome</span>
                         <input type="text" name="nome" value="{{ $aluno->nome }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/userData.svg') }}" alt="">
@@ -146,21 +145,24 @@
 
                     </label>
 
-                    <label>
+                    <label class="spamed">
+                        <span>E-mail</span>
                         <input type="email" name="email" value="{{ $aluno->email }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/mailData.svg') }}" alt="">
                         </div>
                     </label>
 
-                    <label>
+                    <label class="spamed">
+                        <span>CPF</span>
                         <input type="tel" name="cpf" value="{{ $aluno->cpf }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/userData.svg') }}" alt="">
                         </div>
                     </label>
 
-                    <label>
+                    <label class="spamed">
+                        <span>Telefone</span>
                         <input type="tel" name="telefone" value="{{ $aluno->telefone }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/phoneData.svg') }}" alt="">
@@ -168,7 +170,8 @@
                     </label>
 
 
-                    <label>
+                    <label class="spamed">
+                        <span>Nascimento</span>
                         <input type="date" name="nascimento" value="{{ $aluno->nascimento }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
@@ -177,7 +180,8 @@
 
 
 
-                    <label>
+                    <label class="spamed">
+                        <span>País</span>
                         <input type="text" name="pais" value="Brasil" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/flagData.svg') }}" alt="">
@@ -189,52 +193,52 @@
 
                 <div class="dados-div">
 
-                    <label>
-                        <input type="text" name="rua" placeholder="Rua" value="{{ $aluno->rua }}"
-                            class="_dadosComponent">
+                    <label class="spamed">
+                        <span>Rua</span>
+                        <input type="text" name="rua" placeholder="Rua" value="{{ $aluno->rua }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/doorData.svg') }}" alt="">
                         </div>
                     </label>
 
 
-                    <label>
-                        <input type="text" name="complemento" maxlength="20" placeholder="Complemento"
-                            value="{{ $aluno->complemento }}" class="_dadosComponent">
+                    <label class="spamed">
+                        <span>Complemento</span>
+                        <input type="text" name="complemento" maxlength="20" placeholder="Complemento" value="{{ $aluno->complemento }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
                     </label>
 
-                    <label>
-                        <input type="number" name="numero" placeholder="Número" value="{{ $aluno->numero }}"
-                            class="_dadosComponent">
+                    <label class="spamed">
+                        <span>Número</span>
+                        <input type="number" name="numero" placeholder="Número" value="{{ $aluno->numero }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
                     </label>
 
-                    <label>
-                        <input type="text" name="bairro" placeholder="Bairro" value="{{ $aluno->bairro }}"
-                            class="_dadosComponent">
-                        <div class="_icon">
-                            <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
-                        </div>
-                    </label>
-
-
-                    <label>
-                        <input type="text" name="cep" placeholder="CEP" value="{{ $aluno->cep }}"
-                            class="_dadosComponent">
+                    <label class="spamed">
+                        <span>Bairro</span>
+                        <input type="text" name="bairro" placeholder="Bairro" value="{{ $aluno->bairro }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
                     </label>
 
 
-                    <label>
-                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}"
-                            class="_dadosComponent">
+                    <label class="spamed">
+                        <span>CEP</span>
+                        <input type="text" name="cep" placeholder="CEP" value="{{ $aluno->cep }}" class="_dadosComponent">
+                        <div class="_icon">
+                            <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
+                        </div>
+                    </label>
+
+
+                    <label class="spamed">
+                        <span>Cidade</span>
+                        <input type="text" name="cidade" placeholder="Cidade" value="{{ $aluno->cidade }}" class="_dadosComponent">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
@@ -242,9 +246,9 @@
 
 
 
-                    <label>
-                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}"
-                            class="_dadosComponent" maxlength="2">
+                    <label class="spamed">
+                        <span>Estado</span>
+                        <input type="text" name="estado" placeholder="Estado" value="{{ $aluno->estado }}" class="_dadosComponent" maxlength="2">
                         <div class="_icon">
                             <img src="{{ asset('site/img/sistema/greenballData.svg') }}" alt="">
                         </div>
@@ -259,8 +263,7 @@
             </div>
             <form class="_dados">
                 <label>
-                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value=""
-                        class="_dadosComponent">
+                    <input type="password" name="senha_antiga" placeholder="Senha Antiga" value="" class="_dadosComponent">
                     <div class="_icon">
                         <img src="{{ asset('site/img/sistema/lockData.svg') }}" alt="">
                     </div>
@@ -279,19 +282,16 @@
         <div class="_left">
             <div class="userImg">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
+                <img src="{{ asset('site/img/sistema/userBig.svg') }}" style="max-width: 100%;
                         min-height: unset;
                         min-width: unset;" alt="">
                 @else
-                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
-                        alt="">
+                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
                 @endif
             </div>
             <a href="" id="select_avatar">Alterar Imagem</a>
-            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img
-                    src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
-            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post"
-                enctype="multipart/form-data" style="display: none;">
+            <a style="display:none;     margin-left: 8.7rem;" id="ajax_loading"><img src="{{ asset('site/img/ajax-loading.gif') }}" alt="" width="50"></a>
+            <form id="form-avatar" action="{{ route('site.minha-area-dados.avatar.alterar') }}" method="post" enctype="multipart/form-data" style="display: none;">
                 @csrf
                 <input type="file" id="avatar" name="avatar">
             </form>
@@ -301,9 +301,8 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js"
-integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js" integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @include('site.includes.aluno.footer')
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js "></script>

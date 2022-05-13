@@ -31,3 +31,69 @@ p {
   line-height: 140%;
   letter-spacing: 0.02em;
 }
+
+ul.pagination {
+  li.page-item:not(li.page-item:first-child, li.page-item:last-child) {
+    display: none;
+  }
+
+  @include flex(row, center, center);
+  gap: 3rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  li.page-item:first-child,
+  li.page-item:last-child {
+    button {
+      all: unset;
+      font-size: 3rem;
+      font-weight: bold;
+      color: $color-main;
+      height: 5rem;
+      aspect-ratio: 1/1;
+
+      background-color: $gray-ligher;
+      border-radius: 100%;
+
+      @include flex(row, center, center);
+
+      cursor: pointer;
+      transition: 0.32s;
+    }
+    &:hover {
+      button {
+        background-color: $color-fourty;
+        color: $white;
+        box-shadow: 1px 1px 30px $color-main;
+      }
+    }
+    &:active {
+      button {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  li.page-item.disabled {
+    span {
+      all: unset;
+      font-size: 3rem;
+      font-weight: bold;
+      color: $color-main;
+      pointer-events: none;
+      height: 5rem;
+      aspect-ratio: 1/1;
+
+      background-color: $gray-ligher;
+      border-radius: 100%;
+
+      @include flex(row, center, center);
+
+      cursor: pointer;
+      transition: 0.32s;
+
+      filter: grayscale(0);
+      opacity: 0.7;
+    }
+  }
+}
