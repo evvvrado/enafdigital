@@ -53,6 +53,9 @@ header {
 
                 li {
                     cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     &:first-child {
                         margin-right: 5.6rem;
@@ -70,6 +73,17 @@ header {
 
                         #system & {
                             color: $color-main;
+                        }
+
+                        &.anchor-user {
+                            @include flex(row, center, flex-start);
+                            gap: 1rem;
+                            p {
+                                color: $white;
+                                font-weight: 600;
+                                font-size: 1.1rem;
+                                letter-spacing: 0.16em;
+                            }
                         }
                     }
 

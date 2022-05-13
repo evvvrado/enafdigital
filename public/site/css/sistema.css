@@ -710,16 +710,24 @@ section._meusDados .container-fav ._dados .dados-div {
 section._meusDados .container-fav ._dados ._dadosComponent::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
+section._meusDados .container-fav ._dados label.spamed span {
+    position: absolute;
+    left: 7rem;
+    top: 1rem;
+    color: var(--gray3);
+    font-size: 1.2rem;
+
+    pointer-events: none;
+}
 section._meusDados .container-fav ._dados ._dadosComponent {
     width: 100%;
     max-width: 40rem;
-    height: 5.2rem;
+    height: 2.2rem;
     border: solid 1px var(--gray11);
     border-radius: 0.4rem;
 
-    padding: 1.7rem 0 1.7rem 6.9rem;
-
-    color: var(--orange2);
+    padding: 2rem 0 2rem 6.9rem;
+    ''color: var(--orange2);
     font-size: 1.4rem;
     align-items: center;
 }
@@ -729,6 +737,10 @@ section._meusDados .container-fav ._dados label {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+section._meusDados .container-fav ._dados label.spamed ._dadosComponent {
+    padding: 4rem 0 1.7rem 6.9rem;
+    height: 3.2rem;
 }
 section._meusDados .container-fav ._dados label ._icon {
     position: absolute;

@@ -97,7 +97,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                 @csrf
                 <div class="mb-3">
                     <label for="nome">Nome</label>
-                    <input id="nome" name="nome" type="text" class="form-control" @if(isset($filtros) && isset($filtros["nome"])) value="{{$filtros[" nome"]}}" @endif>
+                    <input id="nome" name="nome" type="text" class="form-control" @if(isset($filtros) && isset($filtros["nome"])) value='{{$filtros["nome"]}}' @endif>
                 </div>
                 <div class="mb-3">
                     <label class="control-label">Tipo de Curso</label>

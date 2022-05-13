@@ -287,6 +287,7 @@
                     </div>
                 </div>
                 <small class="register_info">
+                    <i class="fas fa-exclamation-triangle"></i>
                     Atenção, cada participante deve ter o cadastro único. Não utilize login de outra pessoa. Preencha todos os seus dados corretamente no cadastro para evitar erros que
                     possam invalidar sua tentativa de compra!
                 </small>
