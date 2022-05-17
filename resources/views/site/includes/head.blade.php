@@ -30,13 +30,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YSV5M9W8D"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-2YSV5M9W8D');
+  gtag('config', 'G-2YSV5M9W8D');
     </script>
 
     <meta name="facebook-domain-verification" content="g43nelr9ia3gs6rctulsoh1epvbrkx" />
