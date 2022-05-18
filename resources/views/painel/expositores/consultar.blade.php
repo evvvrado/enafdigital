@@ -92,7 +92,7 @@
                                                         <a class="dropdown-item"
                                                             href="{{ route('painel.expositores.hotsite', ['expositor' => $expositor]) }}">Hotsite</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" style="color: red" href="#">Excluir</a>
+                                                        <a class="dropdown-item" href="{{ route('painel.expositores.deletar', ['expositor' => $expositor]) }}" style="color: red" >Excluir</a>
                                                     </div>
                                                 </div>
 

@@ -187,6 +187,7 @@ Route::middleware(['admin'])->group(function () {
     Route::match(['get', 'post'], '/sistema/expositores', [\App\Http\Controllers\ExpositoresController::class, 'consultar'])->name("painel.expositores");
     Route::get('/sistema/expositores/cadastro', [\App\Http\Controllers\ExpositoresController::class, 'cadastrar'])->name("painel.expositores.cadastro");
     Route::get('/sistema/expositores/editar/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'editar'])->name("painel.expositores.editar");
+    Route::get('/sistema/expositores/deletar/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'deletar'])->name("painel.expositores.deletar");
     Route::post('/sistema/expositores/salvar', [\App\Http\Controllers\ExpositoresController::class, 'salvar'])->name("painel.expositores.salvar");
     Route::get('/sistema/expositores/destaque/{expositor}', [\App\Http\Controllers\ExpositoresController::class, 'destaque'])->name("painel.expositores.destaque");
     Route::get('/sistema/expositores/{expositor}/hotsite/', [\App\Http\Controllers\ExpositorHotsiteController::class, 'hotsite'])->name("painel.expositores.hotsite");
