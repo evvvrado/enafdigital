@@ -1742,7 +1742,7 @@
 
                             <path d="M473.629 1294.54L278.895 1294.54L342.775 1208.29L473.628 1031.59L473.629 1294.54Z"
                                 fill="#08ADDA"
-                                onclick="window.location.href = '{{ route('site.feiraEmpresas', 'loja-de-sport') }}'" />
+                                onclick="window.location.href = '{{ route('site.feiraEmpresas', 'lojas-de-sport') }}'" />
 
 
                             <path d="M473.629 242.035L238.629 242.035V261.697L473.629 552.956L473.629 242.035Z"
