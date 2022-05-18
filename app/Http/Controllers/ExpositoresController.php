@@ -81,6 +81,24 @@ class ExpositoresController extends Controller
         return redirect()->route("painel.expositores");
     }
 
+    public function deletar(Expositor $expositor){
+        Storage::delete($expositor->foto);
+        if($expositor->hotsite){
+            Storage::delete($expositor->hotsite->foto1);
+            Storage::delete($expositor->hotsite->foto2);
+            Storage::delete($expositor->hotsite->logo);
+            foreach($expositor->fotos as $foto){
+                Storage::delete($foto->foto);
+            }
+            foreach($expositor->parceiros as $parceiro){
+                Storage::delete($parceiro->logo);
+            }
+        }
+        $expositor->delete();
+        toastr()->success("Expositor removido com sucesso!");
+        return redirect()->back();
+    }
+
 
     public function destaque(Expositor $expositor)
     {
