@@ -98,5 +98,16 @@ section.s_outrasEmpresas {
         }
       }
     }
+
+    @include responsive(600px) {
+      ul {
+        li {
+          a {
+            flex-direction: column;
+            gap: 3rem;
+          }
+        }
+      }
+    }
   }
 }

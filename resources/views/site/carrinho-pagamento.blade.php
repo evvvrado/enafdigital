@@ -107,17 +107,20 @@
                                 <div>
                                     <small style="color: red;">{{ session()->get('erro') }}</small>
                                 </div>
+
                                 <form id="form-cartao"
                                     @if ($curso->gateway_cartao == 1) action="{{ route('site.carrinho.finalizar.credito.cielo', ['curso' => $curso]) }}" @else
                                 action="{{ route('site.carrinho.finalizar.credito.gerencianet', ['curso' => $curso]) }}" @endif
                                     method="POST">
 
                                     @csrf
+                                    <h3 style="50px">Informações da Conta</h3>
                                     <input type="hidden" name="payment_token" value="-">
                                     <div style="display:flex; flex-direction: row;">
                                         <div style="width: 50%;">
+
                                             <label for="">
-                                                <span>Nome</span>
+                                                <span>Nome Completo Para Certificado do Curso</span>
                                                 <input type="text" name="nome" value="{{ $aluno->nome }}" required>
                                             </label>
                                         </div>
@@ -163,7 +166,8 @@
                                             <label for="">
                                                 <span>Nº</span>
                                                 <input type="number" name="numero_endereco"
-                                                    value="{{ $aluno->numero }}" step="1" min="0" max="100000" required>
+                                                    value="{{ $aluno->numero }}" step="1" min="0" max="100000"
+                                                    required>
                                             </label>
                                         </div>
                                     </div>
@@ -204,6 +208,7 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <h3 style="margin-top: 30px">Informações do Cartão</h3>
                                     <label>
                                         <span>N. Cartão</span>
                                         <input required type="tel" inputmode="numeric" placeholder="0000 0000 0000 0000"
@@ -263,7 +268,7 @@
                                                 <div class="_svg">
                                                     <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
                                                 </div>
-                                                <input type="text" name="cupom" maxlength="50"/>
+                                                <input type="text" name="cupom" maxlength="50" />
                                                 {{-- <button>
                                                     <img src="{{ asset('site/img/sistema/arrowright.svg') }}"
                                                         alt="" />
@@ -291,7 +296,7 @@
                                 <p>Escolha o número de parcelas desejadas:</p>
                             </div>
                             <div class="_form" style="width: 100% !important;">
-                                @if(session()->get("erro"))
+                                @if (session()->get('erro'))
                                     <div>
                                         <small style="color: red;">{{ session()->get('erro') }}</small>
                                     </div>
@@ -300,10 +305,14 @@
                                 <form action="{{ route('site.carrinho.finalizar.boleto', ['curso' => $curso]) }}"
                                     method="POST">
                                     @csrf
-                                    <div style="display:flex; flex-direction: row;">
+                                    <div <h3 style="50px">Informações da Conta</h3>style="display:flex; flex-direction:
+                                        row;">
                                         <div style="width: 50%;">
+                                            <h3 style="margin-top: 30px">Informações do Cartão</h3>
+                                            <h3 style="margin-top: 30px">Informações do Cartão</h3>
+
                                             <label for="">
-                                                <span>Nome</span>
+                                                <span>Nome Completo Para Certificado do Curso</span>
                                                 <input type="text" name="nome" value="{{ $aluno->nome }}" required>
                                             </label>
                                         </div>
@@ -350,7 +359,7 @@
                                                 <div class="_svg">
                                                     <img src="{{ asset('site/img/sistema/cupom.svg') }}" alt="" />
                                                 </div>
-                                                <input type="text" name="cupom" maxlength="50"/>
+                                                <input type="text" name="cupom" maxlength="50" />
                                                 {{-- <button>
                                                     <img src="{{ asset('site/img/sistema/arrowright.svg') }}"
                                                         alt="" />

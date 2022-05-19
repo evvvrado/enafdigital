@@ -120,16 +120,10 @@
     }
     @include responsive(992px) {
         .container-fav {
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
             ._eventList {
-                // animation: autoscroll infinite 12s linear;
-                display: inline;
-                white-space: nowrap;
+                align-items: flex-start;
+                justify-content: center;
                 ._event {
-                    scroll-snap-align: start;
-                    margin-left: 1.5rem;
-                    display: inline-block;
                     &:hover {
                         transform: none;
                     }

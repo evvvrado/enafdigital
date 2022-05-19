@@ -5232,3 +5232,9 @@ div.dataTables_wrapper div.dataTables_length select {
 .c-pointer {
     cursor: pointer;
 }
+
+table.table-bordered.dataTable tbody th,
+table.table-bordered.dataTable tbody td {
+    max-width: 333px;
+    overflow: hidden;
+}

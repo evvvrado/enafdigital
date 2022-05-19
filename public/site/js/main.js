@@ -378,3 +378,8 @@ $('.close-modal, .modal .close').click(function () {
 setTimeout(() => {
     $('.modal_box').showModal()
 }, 3000);
+
+
+$('.d_superMenu .container-fav ._left, .d_superMenu .container-fav ._right ').click(() => {
+    window.location.href = '/expo'
+})

@@ -33,9 +33,38 @@ section.s_hero {
         height: 26rem;
         background-image: url("../img/header_professores.jpg");
 
+        .container-fav {
+            @include flex(row, center, space-between);
+
+            @include responsive(800px) {
+                ._h1 {
+                    font-size: 55px;
+                    max-width: 50%;
+                }
+            }
+        }
+
+        @include responsive(500px) {
+            height: auto;
+            padding-top: 15rem;
+            padding-bottom: 2.5rem;
+            .container-fav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                ._h1 {
+                    margin-top: 15px;
+                }
+            }
+        }
+
         ._h1 {
             margin-top: 2.1rem;
             color: $white;
+
+            img {
+                filter: brightness(0) invert(1);
+            }
         }
     }
     #nossoblog &,
@@ -310,7 +339,7 @@ section.s_backtoFeira {
     @include responsive(1000px) {
         height: auto;
         .container-fav {
-            flex-direction: column;
+            // flex-direction: column;
         }
         margin-bottom: 8rem;
     }

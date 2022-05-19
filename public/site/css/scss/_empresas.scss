@@ -176,8 +176,17 @@ section.s_empresas {
   @include responsive(800px) {
     .container-fav {
       ._box.main {
+        padding: 0;
         div {
-          @include flex(column, center, center);
+          gap: 1rem;
+          @include flex(column, flex-start, center);
+
+          padding: 2rem;
+
+          span {
+            margin: 0;
+            padding: 0;
+          }
         }
       }
     }

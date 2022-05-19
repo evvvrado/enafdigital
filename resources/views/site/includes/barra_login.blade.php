@@ -1,27 +1,27 @@
 <!-- BARRA SUPERIOR DE LOGIN E HEADER-->
 @if (!session()->get('aluno'))
-<section class="container-fluid s_welcome">
-    <div class="main container-fav">
-        <div class="text">
-            <span>Seja bem-vindo! Faça <a href="{{ route('site.minha-conta') }}">Login</a> ou
-                <a href="{{ route('site.minha-conta') }}">Cadastre-se</a></span>
+    <section class="container-fluid s_welcome">
+        <div class="main container-fav">
+            <div class="text">
+                <span>Seja bem-vindo! Faça <a href="{{ route('site.minha-conta') }}">Login</a> ou
+                    <a href="{{ route('site.minha-conta') }}">Cadastre-se</a></span>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 @else
-@php
-
-$aluno = App\Models\Aluno::find(session()->get("aluno")["id"]);
-@endphp
-<section class="container-fluid s_welcome">
-    <div class="main container-fav">
-        <div class="text">
-            <span>Seja bem-vindo de volta, <strong style="color: #fbff36">{{$aluno->nome}}</strong>! <a href="{{ route('site.aluno.deslogar') }}">Sair</a></span>
+    @php
+        
+        $aluno = App\Models\Aluno::find(session()->get('aluno')['id']);
+    @endphp
+    <section class="container-fluid s_welcome">
+        <div class="main container-fav">
+            <div class="text">
+                <span>Seja bem-vindo de volta, <strong
+                        style="color: #fbff36">{{ explode(' ', $aluno->nome)[0] }}</strong>!
+                    <a href="{{ route('site.aluno.deslogar') }}">Sair</a></span>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 @endif
 
 
@@ -183,4 +183,5 @@ $aluno = App\Models\Aluno::find(session()->get("aluno")["id"]);
         src: url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
+
 </style>

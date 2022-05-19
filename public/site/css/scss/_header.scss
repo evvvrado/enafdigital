@@ -121,4 +121,22 @@ header {
             }
         }
     }
+    @include responsive(500px) {
+        .container-fav {
+            nav {
+                ul {
+                    li {
+                        margin-right: 0 !important;
+                        margin-left: 3rem;
+
+                        a {
+                            img {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

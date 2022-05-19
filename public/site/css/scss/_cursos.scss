@@ -221,18 +221,15 @@
     }
     @include responsive(992px) {
         .container-fav {
-            overflow-x: hidden;
             ._cursosList {
                 // animation: autoscroll-long infinite 12s linear;
-                overflow-x: scroll;
-                scroll-snap-type: x mandatory;
-                display: inline-block;
-                white-space: nowrap;
+                justify-content: space-between;
                 ._curso {
                     white-space: normal;
                     margin-left: 1.5rem;
                     display: inline-block;
                     scroll-snap-align: start;
+
                     &:hover {
                         transform: none;
                         box-shadow: none;
@@ -274,6 +271,20 @@
                 width: 100%;
                 justify-content: center;
                 gap: 3rem;
+            }
+        }
+    }
+    @include responsive(500px) {
+        .container-fav {
+            ._cursosList {
+                ._curso {
+                    max-width: 100%;
+                    ._content {
+                        ._top {
+                            max-width: 80%;
+                        }
+                    }
+                }
             }
         }
     }

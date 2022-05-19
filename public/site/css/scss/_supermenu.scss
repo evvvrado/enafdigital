@@ -96,6 +96,8 @@
                     left: 4.5rem;
                 }
             }
+
+            cursor: pointer;
         }
 
         .close_superMenu {
@@ -190,25 +192,18 @@
         }
     }
     @include responsive(600px) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        height: unset;
+        box-shadow: rgba(0, 0, 0, 0.253) 0 500px;
         .container-fav {
             ._right {
-                flex-direction: column;
-                ._img {
-                    right: 25.3rem;
-                }
-                ._text {
-                    h6 {
-                        height: 1.4rem !important;
-                        font-size: 1.482rem;
-                    }
-                    p {
-                        left: 0;
-                    }
-                }
+                display: none;
             }
         }
         .close_superMenu {
             font-size: 2.4rem;
+            transform: scaleX(1.7);
             font-weight: bold;
         }
     }

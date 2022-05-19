@@ -88,6 +88,10 @@
                             display: -webkit-box;
                             -webkit-line-clamp: 3;
                             -webkit-box-orient: vertical;
+
+                            @include responsive(500px) {
+                                height: 10.8rem;
+                            }
                         }
                         .blogDate {
                             color: $color-main;
