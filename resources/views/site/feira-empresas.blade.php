@@ -271,3 +271,11 @@ if ($expositor->categoria == 6) {
 
 
     @include('site.includes.footer-expanded')
+
+
+    <script src="{{ asset('admin/libs/imgcolr-master/imgcolr.html5.min.js') }}"></script>
+    <script>
+        $('section.s_empresas .container-fav ._box.main a:first-child picture img').imgcolr(function(img, color_selected) {
+            $('section.s_empresas .container-fav ._box.main').attr('style', `background: ${color_selected}`);
+        })
+    </script>

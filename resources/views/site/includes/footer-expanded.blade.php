@@ -5,7 +5,8 @@
                 <h6>SUA EVOLUÇÃO </h6>
                 <h2>Nosso compromisso</h2>
                 <p>
-                    Cadastre-se e receba em primeira mão todas as nossas novidades e lançamentos, além de conteúdos disponibilizados por profissionais que valorizam o conhecimento e a evolução do
+                    Cadastre-se e receba em primeira mão todas as nossas novidades e lançamentos, além de conteúdos
+                    disponibilizados por profissionais que valorizam o conhecimento e a evolução do
                     fitness.
                 </p>
             </div>
@@ -22,7 +23,8 @@
                     <img src="{{ asset('/site/img/_logo45.svg') }}" alt="Logo Enaf" />
                 </div>
 
-                <div class="_whatsapp"><a style="color: white;" target="_blank" href="https://api.whatsapp.com/send?phone=5535997259528">Whats: (35) 99725-9528</a></div>
+                <div class="_whatsapp"><a style="color: white;" target="_blank"
+                        href="https://api.whatsapp.com/send?phone=5535997259528">Whats: (35) 99725-9528</a></div>
 
                 <div class="_email">
                     <div class="_icon">
@@ -37,12 +39,14 @@
                         <ul>
                             <li>
                                 <a target="_blank" href="http://facebook.com/enaf.oficial">
-                                    <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}" alt="Ícone facebook" />
+                                    <img src="{{ asset('/site/img/icon_facebook_footer.svg') }}"
+                                        alt="Ícone facebook" />
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" href="http://instagram.com/enaf.oficial">
-                                    <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}" alt="Ícone instagram" />
+                                    <img src="{{ asset('/site/img/icon_instagram_footer.svg') }}"
+                                        alt="Ícone instagram" />
                                 </a>
                             </li>
                             <li>
@@ -57,7 +61,8 @@
                             </li>
                             <li>
                                 <a target="_blank" href="http://linkedin.com/in/enaf-eventos-16b0aa224/">
-                                    <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}" alt="Ícone linkedin" />
+                                    <img src="{{ asset('/site/img/icon_linkedin_footer.svg') }}"
+                                        alt="Ícone linkedin" />
                                 </a>
                             </li>
                         </ul>
@@ -79,8 +84,10 @@
                         <li><a href="{{ route('site.duvidas') }}">Dúvidas Frequentes</a></li>
                 </nav>
 
-                <a href="https://7seventrends.com" style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
-                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven" style="margin-top: 50px;" />
+                <a href="https://7seventrends.com"
+                    style="width: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                    <img src="{{ asset('/site/img/_logo7seven.png') }}" alt="Ícone 7Seven"
+                        style="margin-top: 50px;" />
                 </a>
             </div>
         </div>
@@ -95,20 +102,17 @@
 
 
 <script>
-    $('.footer_expanded button').click(()=>{
-        window.location.href="{{ route('site.aguarde') }}"
+    $('.footer_expanded button').click(() => {
+        window.location.href = "{{ route('site.aguarde') }}"
     })
-
 </script>
 
 
 
-@if(session()->get('erro'))
-
-<script>
-    $('.erro_modal').showModal();
-</script>
-
+@if (session()->get('erro'))
+    <script>
+        $('.erro_modal').showModal();
+    </script>
 @endif
 
 

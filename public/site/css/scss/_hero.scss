@@ -340,6 +340,10 @@ section.s_backtoFeira {
         height: auto;
         .container-fav {
             // flex-direction: column;
+
+            ._select {
+                display: none;
+            }
         }
         margin-bottom: 8rem;
     }

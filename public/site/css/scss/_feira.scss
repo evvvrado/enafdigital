@@ -651,7 +651,7 @@ section.s_feira {
         }
     }
 
-    @include responsive(400px) {
+    @include responsive(500px) {
         .container-fav {
             margin-top: 4rem !important;
             flex-direction: column;
@@ -1377,7 +1377,7 @@ div._aFeira {
         }
     }
 
-    @include responsive(400px) {
+    @include responsive(500px) {
         padding: 0 !important;
         ._a {
             ._c2 {
