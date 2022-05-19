@@ -351,7 +351,7 @@ class SiteController extends Controller
     {
         foreach (config("expositores.categorias_nome") as $key => $value) {
             if ($slug == Str::slug($value)) {
-                $expositores = Expositor::where("categoria", $key)->get();
+                $expositores = Expositor::inRandomOrder()->where("categoria", $key)->get();
                 $anunciante = Contrato::where([["categoria", $key], ["inicio", "<=", date('Y-m-d')], ['fim', ">=", date('Y-m-d')], ["ativo", true]])->first();
             }
         }

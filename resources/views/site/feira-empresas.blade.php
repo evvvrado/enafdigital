@@ -201,7 +201,7 @@ if ($expositor->categoria == 6) {
                     </div>
                 @endif
 
-                @foreach ($expositores->random()->where('destaque', true) as $expositor)
+                @foreach ($expositores->where('destaque', true) as $expositor)
                     <div class="_box">
                         <picture>
                             <a
