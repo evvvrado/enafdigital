@@ -293,7 +293,6 @@
                         @else
                             <div class="_text">
                                 <span>Pagamento por boleto ou carnê</span>
-                                <p>Escolha o número de parcelas desejadas:</p>
                             </div>
                             <div class="_form" style="width: 100% !important;">
                                 @if (session()->get('erro'))
@@ -335,6 +334,7 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <p>Escolha o número de parcelas desejadas:</p>
 
                                     <label>
                                         <span>Parcelas</span>
