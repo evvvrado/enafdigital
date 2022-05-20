@@ -5236,5 +5236,6 @@ div.dataTables_wrapper div.dataTables_length select {
 table.table-bordered.dataTable tbody th,
 table.table-bordered.dataTable tbody td {
     max-width: 333px;
-    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
 }

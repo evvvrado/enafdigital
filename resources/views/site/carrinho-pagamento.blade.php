@@ -304,13 +304,9 @@
 
                                 <form action="{{ route('site.carrinho.finalizar.boleto', ['curso' => $curso]) }}"
                                     method="POST">
-                                    @csrf
-                                    <div <h3 style="50px">Informações da Conta</h3>style="display:flex; flex-direction:
-                                        row;">
+                                    @csrf<h3 style="50px">Informações da Conta</h3>
+                                    <div style="display:flex; flex-direction:row;">
                                         <div style="width: 50%;">
-                                            <h3 style="margin-top: 30px">Informações do Cartão</h3>
-                                            <h3 style="margin-top: 30px">Informações do Cartão</h3>
-
                                             <label for="">
                                                 <span>Nome Completo Para Certificado do Curso</span>
                                                 <input type="text" name="nome" value="{{ $aluno->nome }}" required>
