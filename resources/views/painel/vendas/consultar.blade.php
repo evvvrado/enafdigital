@@ -87,58 +87,60 @@
 
                                     <tbody>
                                         @foreach ($vendas as $venda)
-                                            <tr class="odd">
-                                                <td class="sorting_1 dtr-control">
-                                                    {{ date('d/m/Y H:i:s', strtotime($venda->created_at)) }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->codigo }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->nome }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->email }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->telefone }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->cpf }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->cidade }}</td>
-                                                <td class="sorting_1 dtr-control">{{ $venda->aluno->estado }}</td>
-                                                <td>R$ {{ number_format($venda->total, 2, ',', '.') }}</td>
-                                                <td>{{ config('pagamento.formas')[$venda->forma] }}</td>
-                                                <td>
-                                                    @foreach ($venda->carrinho->cursos as $curso)
-                                                        <p>{{ $curso->nome }}</p>
-                                                    @endforeach
-                                                </td>
-                                                <td>
-                                                    @if ($venda->forma == 0)
-                                                        {{ config('gerencianet.status')[$venda->boleto->status] }}
-                                                    @elseif($venda->forma == 1)
-                                                        @if ($venda->gateway == 1)
-                                                            {{ config('cielo.status')[$venda->cartao->status] }}
+                                            @if(($venda->forma == 0 && ($venda->boleto->status == 'paid' || $venda->boleto->status == 'settled')) || ($venda->forma == 1 && ($venda->gateway == 1 && $venda->cartao->status == 1)) || ($venda->forma == 1 && ($venda->gateway == 0 && $venda->cartao->status == 2)))
+                                                <tr class="odd">
+                                                    <td class="sorting_1 dtr-control">
+                                                        {{ date('d/m/Y H:i:s', strtotime($venda->created_at)) }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->codigo }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->nome }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->email }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->telefone }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->cpf }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->cidade }}</td>
+                                                    <td class="sorting_1 dtr-control">{{ $venda->aluno->estado }}</td>
+                                                    <td>R$ {{ number_format($venda->total, 2, ',', '.') }}</td>
+                                                    <td>{{ config('pagamento.formas')[$venda->forma] }}</td>
+                                                    <td>
+                                                        @foreach ($venda->carrinho->cursos as $curso)
+                                                            <p>{{ $curso->nome }}</p>
+                                                        @endforeach
+                                                    </td>
+                                                    <td>
+                                                        @if ($venda->forma == 0)
+                                                            {{ config('gerencianet.status')[$venda->boleto->status] }}
+                                                        @elseif($venda->forma == 1)
+                                                            @if ($venda->gateway == 1)
+                                                                {{ config('cielo.status')[$venda->cartao->status] }}
+                                                            @else
+                                                                @if ($venda->cartao)
+                                                                    {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->cartao->status]] }}
+                                                                @endif
+                                                            @endif
                                                         @else
-                                                            @if ($venda->cartao)
-                                                                {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->cartao->status]] }}
-                                                            @endif
+                                                            Consultar parcelas
                                                         @endif
-                                                    @else
-                                                        Consultar parcelas
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group edit-table-button ">
-                                                        <button type="button" class="btn btn-info dropdown-toggle"
-                                                            data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                                class="bx bx-edit"></i></button>
-                                                        <div class="dropdown-menu" style="margin: 0px;">
-                                                            @if ($venda->forma == 1)
-                                                                <a href="{{ route('painel.venda.cielo.capturar', ['venda' => $venda]) }}"
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group edit-table-button ">
+                                                            <button type="button" class="btn btn-info dropdown-toggle"
+                                                                data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="bx bx-edit"></i></button>
+                                                            <div class="dropdown-menu" style="margin: 0px;">
+                                                                @if ($venda->forma == 1)
+                                                                    <a href="{{ route('painel.venda.cielo.capturar', ['venda' => $venda]) }}"
+                                                                        id="" class="dropdown-item" role="button"><i
+                                                                            class="bx bx-edit-alt pr-3"></i>
+                                                                        Capturar</a>
+                                                                @endif
+                                                                <a href="{{ route('painel.venda', ['venda' => $venda]) }}"
                                                                     id="" class="dropdown-item" role="button"><i
-                                                                        class="bx bx-edit-alt pr-3"></i>
-                                                                    Capturar</a>
-                                                            @endif
-                                                            <a href="{{ route('painel.venda', ['venda' => $venda]) }}"
-                                                                id="" class="dropdown-item" role="button"><i
-                                                                    class="fas fa-search pr-3"></i> Visualizar</a>
+                                                                        class="fas fa-search pr-3"></i> Visualizar</a>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     </tbody>
                                 </table>
