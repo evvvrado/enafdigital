@@ -504,7 +504,7 @@ class GerencianetController extends Controller
                 Log::channel('notificacoes')->info('NOTIFICAÇÃO: Pagamento do ' . $tipo . ' ' . $res["charge_id"] . " notificado com o status " . config("gerencianet.status")[$res["status"]]);
                 $pagamento->save();
 
-                if($res["status"] == "paid" && $venda){
+                if(($res["status"] == "paid" || $res["status"] == 'settled') && $venda){
                     foreach ($venda->carrinho->produtos as $produto) {
                         if (!$produto->curso->pacote) {
                             $matricula = new Matricula;
