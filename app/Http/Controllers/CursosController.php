@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Curso;
+use App\Models\Matricula;
 use Illuminate\Support\Facades\Storage;
 use Image;
 use Illuminate\Support\Str;
@@ -210,8 +211,29 @@ class CursosController extends Controller
         }
     }
 
-    public function matriculas()
+    public function matriculas(Curso $curso)
     {
-        return view("painel.cursos.matriculas");
+        $matriculas = $curso->matriculas;
+        return view("painel.cursos.matriculas", ["matriculas" => $matriculas, "curso" => $curso]);
+    }
+
+    public function matricula_manual(Request $request){
+        $matricula = new Matricula;
+        $matricula->aluno_id = $request->aluno_id;
+        $matricula->curso_id = $request->curso_id;
+        $matricula->save();
+        return redirect()->back();
+    }
+
+    public function bloqueio_matricula(Matricula $matricula){
+        if($matricula->ativo){
+            $matricula->ativo = false;
+            toastr()->success("Matrícula bloqueada com sucesso!");
+        }else{
+            $matricula->ativo = true;
+            toastr()->success("Matrícula desbloqueada com sucesso!");
+        }
+        $matricula->save();
+        return redirect()->back();
     }
 }

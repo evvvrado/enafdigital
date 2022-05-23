@@ -146,3 +146,5 @@
                         $('.erro_modal').showModal();
                     </script>
                     @endif
+@toastr_js
+@toastr_render

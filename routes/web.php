@@ -320,7 +320,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sistema/cursos/destaque/{curso}', [\App\Http\Controllers\CursosController::class, 'destaque'])->name("painel.cursos.destaque");
     Route::post('/sistema/cursos/salvar', [\App\Http\Controllers\CursosController::class, 'salvar'])->name("painel.cursos.salvar");
     Route::get('/sistema/cursos/editar/{curso}', [\App\Http\Controllers\CursosController::class, 'editar'])->name("painel.cursos.editar");
-    Route::get('/sistema/cursos/matriculas', [\App\Http\Controllers\CursosController::class, 'matriculas'])->name("painel.cursos.matriculas");
+    Route::get('/sistema/cursos/{curso}/matriculas', [\App\Http\Controllers\CursosController::class, 'matriculas'])->name("painel.cursos.matriculas");
+    Route::post('/sistema/cursos/matricula/adicionar', [\App\Http\Controllers\CursosController::class, 'matricula_manual'])->name("painel.cursos.matricula.adicionar");
+    Route::get('/sistema/cursos/matricula/{matricula}/bloqueio', [\App\Http\Controllers\CursosController::class, 'bloqueio_matricula'])->name("painel.cursos.matricula.bloqueio");
     Route::post('/sistema/cursos/{curso}/modulo/salvar', [\App\Http\Controllers\ModulosController::class, 'salvar'])->name("painel.cursos.modulo.salvar");
     Route::get('/sistema/cursos/modulo/deletar/{modulo}', [\App\Http\Controllers\ModulosController::class, 'deletar'])->name("painel.cursos.modulo.deletar");
     Route::post('/sistema/cursos/{curso}/depoimento/salvar', [\App\Http\Controllers\CursoDepoimentosController::class, 'salvar'])->name("painel.cursos.depoimento.salvar");

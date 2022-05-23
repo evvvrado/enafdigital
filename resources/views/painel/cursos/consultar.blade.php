@@ -65,7 +65,7 @@ Projetos / <a style="color: unset" href="{{ route('painel.cursos') }}">Cursos</a
                                             <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-edit"></i></button>
                                             <div class="dropdown-menu" style="margin: 0px;">
                                                 <a class="dropdown-item" href="{{ route('painel.cursos.editar', ['curso' => $curso]) }}">Editar</a>
-                                                <a class="dropdown-item" href="{{ route('painel.cursos.matriculas') }}">Matrículas</a>
+                                                <a class="dropdown-item" href="{{ route('painel.cursos.matriculas', ['curso' => $curso]) }}">Matrículas</a>
                                             </div>
                                         </div>
 

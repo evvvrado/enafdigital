@@ -253,6 +253,10 @@ class SiteController extends Controller
 
     public function minhaAreaMatriculaConteudo(Matricula $matricula)
     {
+        if(!$matricula->ativo){
+            toastr()->error("Sua matrícula está bloqueada. Entre em contato com o suporte para mais detalhes.");
+            return redirect()->route('site.minha-area');
+        }
         $aluno = Aluno::find(session()->get("aluno")["id"]);
         return view("site.matricula-conteudo", ["matricula" => $matricula, "aluno" => $aluno]);
     }
