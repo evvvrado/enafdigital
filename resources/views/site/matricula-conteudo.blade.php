@@ -4,6 +4,9 @@
 
 <section class="container-fluid _menu">
     <div class="container-fav">
+        <div class="_logo">
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+        </div>
         <nav>
             <ul>
                 <li>
@@ -43,11 +46,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -107,11 +111,12 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
                             min-height: unset;
                             min-width: unset;" alt="">
                 @else
-                <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+                    <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
+                        alt="">
                 @endif
             </div>
             <div class="_text">
@@ -128,48 +133,96 @@
 
 
 
-<div class="detalhesdeCurso container-fluid">
-    <div class="container-fav">
-        <h1>{{ $matricula->curso->nome }}</h1>
 
-        <main>
-            <div class="list">
+<section class="mA_showcase">
+    <div class="container-fluid">
+        <div class="container-fav">
+            <a href="{{ route('site.minha-area-matricula') }}"
+                style="float: right; color: var(--orange); display: flex; gap: 2rem; align-items: center;">
+                <picture>
+                    <img src="{{ asset('site/img/arrowleft.svg') }}" alt="">
+                </picture>
 
+                Voltar para
+                minhas matrículas
+            </a>
+            <div class="top">
 
-                <article>
-                    <div class="date" style="width: 65px;">
-                        Sobre <br>
+                <picture>
+                    <img src="{{ asset($matricula->curso->thumbnail) }}" alt="">
+                </picture>
 
+                <h2>
+                    {{ $matricula->curso->nome }}
+                    <p>{{ $matricula->curso->descricao }}</p>
+
+                    <div class="details">
+                        <span>
+
+                            <img src="{{ asset('site/img/sistema/calendar.svg') }}" alt="">
+
+                            <p>Matrícula {{ date('d.m.Y', strtotime($matricula->created_at)) }}</p>
+                        </span>
+                        <span>
+
+                            <img src="{{ asset('site/img/sistema/dollar.svg') }}" alt="">
+
+                            <p>R$ {{ number_format($matricula->curso->valor, 2, ',', '.') }}</p>
+                        </span>
                     </div>
-                    <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
-                    </picture>
-
-
-                    <div class="content">
-                        <span>{{$matricula->curso->sobre}}</span>
-                    </div>
-                </article>
-
-                {{-- @foreach ($matricula->curso->modulos->where('publicacao', '<=', date('Y-m-d H:i:s')) as $conteudo) <article>
-                    <div class="date">
-                        {{ date('d/m/Y', strtotime($conteudo->publicacao)) }}<br>
-                    </div>
-                    <picture><img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
-                    </picture>
-                    <div class="content">
-                        <span>{{ $conteudo->descricao }}</span>
-                    </div>
-                    </article>
-                    @endforeach --}}
+                </h2>
             </div>
-        </main>
+
+
+            <nav>
+                <span data-filter="agenda" active>Conteúdo</span>
+            </nav>
+
+            <main>
+                <div class="list " data-filter="agenda" active>
+
+
+                    <article>
+                        <div class="date">
+                            20/01/2021 <br>
+                            às 09:00
+
+                            <picture>
+                                <img src="{{ asset('site/img/sistema/calendar white.svg') }}" alt="Aprovado">
+                            </picture>
+                        </div>
+
+
+                        <div class="content">
+                            <strong>Primeiro Outline do Curso</strong>
+                            <p>Descrevendo matéria do curso</p>
+
+                            <div class="files">
+                                <a class="pdf" href="/">Outline - Primeiro.pdf</a>
+                                <a class="video" href="/">Vídeo de Apresentação</a>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article>
+                        <div class="date">
+                            <picture>
+                                <img src="{{ asset('site/img/sistema/approved.svg') }}" alt="Aprovado">
+                            </picture>
+                        </div>
+
+
+                        <div class="content">
+                            <strong>Início do curso</strong>
+                            <p>Criado: {{ date('d/m/Y', strtotime($matricula->curso->created_at)) }}</p>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
     </div>
-
-    @include('site.includes.aluno.footer')
-    </body>
-
-    </html>
-
-
-    </html>
-</div>
+</section>
