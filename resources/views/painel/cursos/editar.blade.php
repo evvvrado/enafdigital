@@ -56,7 +56,7 @@
         <span data-filter="curso" @if (!session()->get('aba')) class="active" @endif>Curso</span>
         <span data-filter="modulos" @if (session()->get('aba') && session()->get('aba') == 'modulo') class="active" @endif>Modulos</span>
         <span data-filter="depoimentos">Depoimentos</span>
-        <span data-filter="conteudo">Conteúdo</span>
+        <span data-filter="conteudo">Conteúdo <small>*Em breve</small></span>
     </div>
 
 
@@ -302,7 +302,7 @@
                                     <img id="banner-preview"
                                         @if (!$curso->banner) src="{{ asset('admin/images/thumb-padrao.png') }}" @else src="{{ asset($curso->banner) }}" @endif
                                         style="height: 100%;
-                                                                                                                                                                                                                                                                                                                                                                                                        width: 100%; object-fit: cover;"
+                                                                                                                                                                                                                                                                                                                                                                                                            width: 100%; object-fit: cover;"
                                         alt="">
                                 </picture>
                             </div>
