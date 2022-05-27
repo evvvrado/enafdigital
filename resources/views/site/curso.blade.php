@@ -124,7 +124,7 @@
             <main>
                 <div class="_modulos">
                     @foreach ($curso->modulos as $modulo)
-                        <div class="_box" @if ($modulo->id == $curso->modulos[0]->id) active @endif>
+                        <div class="_box  @if ($modulo->id == $curso->modulos[0]->id) active @endif ">
                             <div class="_main">
                                 <span>{{ $modulo->nome }}</span>
                                 <div class="_icon">
