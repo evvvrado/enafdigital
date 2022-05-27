@@ -198,7 +198,8 @@ $(document).ready(() => {
     $(
         "body#treinador section.s_duvidas .container-fav ._duvidas ._box ._main, section.s_content .container-fav ._modulos ._box ._main"
     ).click(function () {
-        $(this).closest("div._box").toggleClass("active");
+        $('div._box').removeClass("active");
+        $(this).closest("div._box").addClass("active");
     });
 
     // A FEIRA
