@@ -173,8 +173,7 @@
                 </h2>
             </div>
 
-
-            <nav>
+            {{-- <nav>
                 <span data-filter="agenda" active>Conteúdo</span>
             </nav>
 
@@ -222,7 +221,7 @@
 
                     </article>
                 </div>
-            </main>
+            </main> --}}
         </div>
     </div>
 </section>
