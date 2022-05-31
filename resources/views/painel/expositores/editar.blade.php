@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="email">E-mail</label>
-                                    <input class="form-control" name="email" type="text" placeholder="Insira o e-mail"
+                                    <input class="form-control" name="email" type="email" placeholder="Insira o e-mail"
                                         id="example-email-input" maxlength="100" value="{{ $expositor->email }}">
                                 </div>
                             </div>
