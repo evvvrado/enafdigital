@@ -188,6 +188,10 @@
             </div>
         </div>
 
+        <div class="_top">
+            <h2>Status: {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->status]] }}</h2>
+        </div>
+
     </div>
 </section>
 
