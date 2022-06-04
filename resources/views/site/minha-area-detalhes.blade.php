@@ -193,7 +193,7 @@
                 <h2>Status: {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->status]] }}
                 </h2>
             @else
-                <h2>Status: {{ config('cielo.status')[config('cielo.status')[$venda->status]] }}</h2>
+                <h2>Status: {{ config('cielo.status')[$venda->status] }}</h2>
             @endif
         </div>
 
