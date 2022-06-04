@@ -189,7 +189,12 @@
         </div>
 
         <div class="_top">
-            <h2>Status: {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->status]] }}</h2>
+            @if ($venda->forma == 0)
+                <h2>Status: {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->status]] }}
+                </h2>
+            @else
+                <h2>Status: {{ config('cielo.status')[config('cielo.status')[$venda->status]] }}</h2>
+            @endif
         </div>
 
     </div>
