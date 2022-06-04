@@ -150,7 +150,7 @@
                             class="_pedido
                         
                         @if ($pedido->forma == 0)
-                            @if (config('gerencianet.status')[$pedido->boleto->status] === 'Pago') _approved @endif
+                            @if (config('gerencianet.status')[$pedido->boleto->status] === 2) _approved @endif
                         @elseif($pedido->forma == 1)
                             @if (config('cielo.status')[$pedido->cartao->status] === 'Pagamento Realizado') _approved @endif
                         @endif
