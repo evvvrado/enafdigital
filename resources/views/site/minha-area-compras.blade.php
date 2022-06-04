@@ -148,10 +148,19 @@
                     @foreach ($aluno->pedidos->sortByDesc('created_at') as $pedido)
                         <div
                             class="_pedido
-                        @if ($pedido->forma == 0) @if (config('gerencianet.status')[$pedido->boleto->status] === 2) _approved @endif
-@elseif($pedido->forma == 1)
-@if (config('cielo.status')[$pedido->cartao->status] === 'Pagamento Realizado') _approved @endif
+
+                        @if ($pedido->forma == 0)
+                             @if (config('gerencianet.status')[$pedido->boleto->status] === 2) _approved @endif
+                        @elseif($pedido->forma == 1)
+                            @if ($pedido->gateway == 1)
+                                 @if (config('cielo.status')[$pedido->cartao->status] === 'Pagamento Realizado') _approved @endif
+                          @else
+                                  @if ($pedido->cartao)
+                                     @if (config('gerencianet.status')[$pedido->cartao->status] === 2) _approved @endif
+                            @endif
                         @endif
+                        @endif
+
                         ">
                             <h3>N.{{ $pedido->codigo }}</h3>
                             <div class="_info">
