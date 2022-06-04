@@ -189,12 +189,22 @@
         </div>
 
         <div class="_top">
-            @if ($venda->forma == 0)
-                <h2>Status: {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->status]] }}
-                </h2>
-            @else
-                <h2>Status: {{ config('cielo.status')[$venda->status] }}</h2>
-            @endif
+            <h2>
+                Status:
+                @if ($venda->forma == 0)
+                    {{ config('gerencianet.status')[$venda->boleto->status] }}
+                @elseif($venda->forma == 1)
+                    @if ($venda->gateway == 1)
+                        {{ config('cielo.status')[$venda->cartao->status] }}
+                    @else
+                        @if ($venda->cartao)
+                            {{ config('gerencianet.status')[config('gerencianet.code_status')[$venda->cartao->status]] }}
+                        @endif
+                    @endif
+                @else
+                    Consultar parcelas
+                @endif
+            </h2>
         </div>
 
     </div>
