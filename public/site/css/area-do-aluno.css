@@ -1,0 +1,3932 @@
+body.minha-area {
+    background-color: white;
+}
+body.minha-area div.emptyspace {
+    height: 13.3rem;
+    display: block;
+}
+body.minha-area section.mA_menu {
+    background-color: #faefef;
+    width: 100%;
+    position: fixed;
+    z-index: 665;
+    top: 0;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_menu .container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+body.minha-area section.mA_menu .container-fav .logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+}
+body.minha-area section.mA_menu .container-fav nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+body.minha-area section.mA_menu .container-fav nav a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1.2rem;
+    transition: 0.32s;
+    padding: 3rem 3rem;
+    opacity: 0.7;
+    cursor: pointer;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    color: #610f29;
+}
+body.minha-area section.mA_menu .container-fav nav a:hover {
+    background-color: #fff 3b;
+    opacity: 0.9;
+}
+body.minha-area section.mA_menu .container-fav div.user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 3.6rem;
+    width: 100%;
+    max-width: 19.6rem;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_menu .container-fav div.user:hover a.mudar-senha {
+    height: 96px;
+    background-color: white;
+}
+body.minha-area section.mA_menu .container-fav div.user a.mudar-senha {
+    height: 0;
+    overflow: hidden;
+    border-radius: 45px;
+    width: 45px;
+    transition: 0.32s;
+    transform-origin: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+body.minha-area section.mA_menu .container-fav div.user a.mudar-senha i {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 100%;
+    cursor: pointer;
+}
+body.minha-area section.mA_menu .container-fav div.user a.mudar-senha:hover {
+    color: lightcoral;
+}
+body.minha-area section.mA_menu .container-fav div.user a.mudar-senha:hover i {
+    background-color: antiquewhite;
+}
+body.minha-area section.mA_menu .container-fav div.user a.mudar-senha:active i {
+    border: 2px solid lightcoral;
+}
+@media (max-width: 800px) {
+    body.minha-area section.mA_menu .container-fav div.user:hover a.mudar-senha {
+        width: 96px;
+        height: 45px;
+        background-color: white;
+    }
+    body.minha-area section.mA_menu .container-fav div.user a.mudar-senha {
+        transform-origin: left;
+        right: unset;
+        left: 70%;
+        width: 0;
+        height: 45px;
+        margin-top: 0;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    body.minha-area section.mA_menu .container-fav div.user a.mudar-senha i {
+        margin: 0;
+    }
+}
+body.minha-area section.mA_menu .container-fav div.user picture {
+    width: 5rem;
+    height: 5rem;
+    background-color: #fff 3b;
+    overflow: hidden;
+    display: block;
+    border-radius: 100%;
+}
+body.minha-area section.mA_menu .container-fav div.user picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area section.mA_menu .container-fav div.user span,
+body.minha-area section.mA_menu .container-fav div.user strong,
+body.minha-area section.mA_menu .container-fav div.user a {
+    font-size: 1.4rem;
+    color: #610f29;
+}
+body.minha-area section.mA_menu .container-fav div.user a {
+    color: black;
+    font-weight: 600;
+    margin-top: 5px;
+}
+body.minha-area section.mA_menu .container-fav div.user span {
+    display: block;
+}
+body.minha-area section.mA_menu[alternative] {
+    background: none;
+    top: 1.5rem;
+}
+body.minha-area section.mA_menu[alternative] .container-fav {
+    background-color: #fbfbfb;
+    border-radius: 12.5rem;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.144);
+}
+body.minha-area section.mA_menu[alternative] .container-fav div.user {
+    flex-direction: row-reverse;
+    position: relative;
+    max-width: unset;
+    width: auto;
+}
+body.minha-area section.mA_menu[alternative] .container-fav div.user picture {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: 0.32s ease-in-out;
+}
+body.minha-area section.mA_menu[alternative] .container-fav div.user picture:hover {
+    border: solid 2px var(--orange2);
+}
+@media (max-width: 800px) {
+    body.minha-area section.mA_menu .container-fav nav a span {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    body.minha-area section.mA_menu .container-fav {
+        padding: 1rem;
+        width: max-content;
+        gap: 3rem;
+    }
+    body.minha-area section.mA_menu .container-fav nav {
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        width: 32.6rem;
+        height: 0;
+        overflow: hidden;
+        transition: 0.32s;
+        z-index: 664;
+        top: 7.5rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background-color: #fbfbfb;
+        border-radius: 0 0 1rem 1rem;
+    }
+    body.minha-area section.mA_menu .container-fav nav a {
+        width: 100%;
+    }
+    body.minha-area section.mA_menu .container-fav nav a span {
+        display: block;
+    }
+    body.minha-area section.mA_menu .container-fav nav[active] {
+        height: 34.7rem;
+    }
+}
+body.minha-area section.mA_showcase,
+body.minha-area section.mA_produtos,
+body.minha-area section.mA_parcelas {
+    padding-bottom: 10rem;
+    padding-top: 8rem;
+}
+body.minha-area section.mA_showcase .container-fluid main.scrollable,
+body.minha-area section.mA_produtos .container-fluid main.scrollable,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable {
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+body.minha-area section.mA_showcase .container-fluid main.scrollable .scroll-area,
+body.minha-area section.mA_produtos .container-fluid main.scrollable .scroll-area,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable .scroll-area {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 3rem;
+    width: max-content;
+}
+body.minha-area section.mA_showcase .container-fluid main.scrollable .scroll-area div.boxes,
+body.minha-area section.mA_produtos .container-fluid main.scrollable .scroll-area div.boxes,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable .scroll-area div.boxes,
+body.minha-area section.mA_showcase .container-fluid main.scrollable .scroll-area div.screen,
+body.minha-area section.mA_produtos .container-fluid main.scrollable .scroll-area div.screen,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable .scroll-area div.screen {
+    display: block;
+    width: max-content;
+    scroll-snap-align: start;
+    max-width: calc(1215px + 30px);
+}
+body.minha-area section.mA_showcase .container-fluid main.scrollable .scroll-area div.boxes div.box,
+body.minha-area section.mA_produtos .container-fluid main.scrollable .scroll-area div.boxes div.box,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable .scroll-area div.boxes div.box,
+body.minha-area section.mA_showcase .container-fluid main.scrollable .scroll-area div.screen div.box,
+body.minha-area section.mA_produtos .container-fluid main.scrollable .scroll-area div.screen div.box,
+body.minha-area section.mA_parcelas .container-fluid main.scrollable .scroll-area div.screen div.box {
+    margin-bottom: 3rem;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav h2,
+body.minha-area section.mA_produtos .container-fluid .container-fav h2,
+body.minha-area section.mA_parcelas .container-fluid .container-fav h2 {
+    font-size: 1.8rem;
+    color: #610f29;
+    margin-bottom: 3.3rem;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box {
+    border: solid 1px #c6b5b5;
+    width: 100%;
+    max-width: 28rem;
+    height: 33rem;
+    position: relative;
+    padding: 2.4rem 2.8rem;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box strong,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box strong,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box strong {
+    color: #610f29;
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box p,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box p,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box p {
+    color: var(--orange2);
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box button,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box button,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box button,
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box a.btn,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box a.btn,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box a.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 0.4rem;
+    gap: 1.6rem;
+    height: 4.2rem;
+    padding: 1.2rem 3.8rem;
+    font-size: 1.4rem;
+    width: 100%;
+    transition: 0.32s;
+    background: var(--orange2);
+    margin-top: 1rem;
+    color: white;
+}
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box button:hover,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box button:hover,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box button:hover,
+body.minha-area section.mA_showcase .container-fluid .container-fav div.boxes div.box a.btn:hover,
+body.minha-area section.mA_produtos .container-fluid .container-fav div.boxes div.box a.btn:hover,
+body.minha-area section.mA_parcelas .container-fluid .container-fav div.boxes div.box a.btn:hover {
+    transform: scale(1.05);
+}
+body.minha-area section.mA_dados {
+    padding-bottom: 10rem;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_dados .container-fluid .container-fav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav h2 {
+    font-size: 1.8rem;
+    color: #610f29;
+    margin-bottom: 3.3rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.dados {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 35rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados {
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados:last-child {
+    max-width: 50rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados:last-child .boxes {
+    flex-wrap: wrap;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados:last-child .boxes .box:first-child {
+    padding: 6rem;
+    gap: 3rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados:last-child .boxes .box:last-child {
+    margin-top: 2.5rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box {
+    height: unset;
+    max-width: 69.6rem;
+    padding: 4.6rem 5.9rem 4.1rem 5.9rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box.aluno-box {
+    padding: 0;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box h3 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2.4rem;
+    padding: unset;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form {
+    max-width: 57.8rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form label input,
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form label select {
+    max-width: unset;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form fieldset {
+    margin-bottom: 3.9rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form fieldset label {
+    margin: 0;
+    width: 100%;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form fieldset label input {
+    margin: 0;
+}
+@media (max-width: 500px) {
+    body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form fieldset label {
+        max-width: 100% !important;
+    }
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.apelido {
+    max-width: 37.7rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.cpf {
+    max-width: 19.5rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.nascimento,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.rg,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.sexo {
+    max-width: 18.8rem;
+    height: 5.6rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.profissao {
+    max-width: 28.2rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.informacoes-gerais
+    label.empresa {
+    max-width: 28.9rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco-complemento,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco-cidade {
+    max-width: 37.7rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco-numero,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco-cep,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.endereco-estado {
+    max-width: 19.5rem;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.telefone,
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.celular {
+    max-width: 49.4%;
+}
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .boxes
+    .box
+    form
+    fieldset.contato
+    label.social {
+    max-width: 49.4%;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes .box form fieldset.acesso {
+    max-width: 28.2rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados h3 {
+    color: #8a143a;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form label {
+    position: relative;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form label input,
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form label select {
+    height: 5.6rem;
+    width: 100%;
+    max-width: 38.4rem;
+    border: 1px solid #e9ecef;
+    outline: none;
+    background: white;
+    padding-left: 1.9rem;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 5.6rem;
+    /* or 22px */
+    /* Texto */
+    color: #505354;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form label.password img {
+    position: absolute;
+    right: 2.1rem;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form label.password img[active] {
+    opacity: 0.5;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form button {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(217, 168, 99, 0.2) 5.04%, rgba(226, 161, 68, 0.2) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: #d9a863;
+    padding: 1.6rem 5.8rem;
+    border: 0.1rem solid #d9a863;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    color: #855108;
+    background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+    max-width: unset;
+    width: 100%;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form button:hover {
+    color: #855108;
+    background-image: url("/site/img/button_background.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados form button {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+@media (max-width: 800px) {
+    body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box {
+    width: 100%;
+    max-width: 59.2rem;
+    height: 54.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 4.6rem 8.9rem 11.7rem;
+    text-align: center;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box h3 {
+    padding-bottom: 2.2rem;
+    margin-bottom: 4.6rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box a {
+    font-size: 1.6rem;
+    color: #434449;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box form {
+    max-width: 38.4rem;
+}
+:not(#login-minha-conta)
+    body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .box
+    form
+    label
+    input,
+:not(#login-minha-conta)
+    body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .box
+    form
+    label
+    select {
+    margin-top: 1rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box form label input:not[name="estado"],
+body.minha-area
+    section.mA_dados
+    .container-fluid
+    .container-fav
+    div.new_dados
+    .box
+    form
+    label
+    select:not[name="estado"] {
+    margin-bottom: 1.7rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box form label input[error],
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box form label select[error] {
+    border-color: red;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box button {
+    margin-top: 1.7rem;
+    margin-bottom: 2.1rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.new_dados .box button[disable] {
+    pointer-events: none;
+    filter: grayscale(0);
+    opacity: 0.7;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav .box picture {
+    height: 23.5rem;
+    width: 23.5rem;
+    overflow: hidden;
+    display: block;
+    border-radius: 100%;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav .box picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col {
+    width: 100%;
+    max-width: 35rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 5rem;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col:last-child picture {
+    height: 23.5rem;
+    width: 23.5rem;
+    overflow: hidden;
+    display: block;
+    border-radius: 100%;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col:last-child picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col:last-child a {
+    color: #c6b5b5;
+}
+body.minha-area section.mA_dados .container-fluid .container-fav div.col:last-child a:hover {
+    color: #610f29;
+}
+@media (max-width: 800px) {
+    body.minha-area section.mA_dados .container-fluid .container-fav {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    body.minha-area section.mA_dados .container-fluid .container-fav div.col {
+        max-width: unset;
+        margin-bottom: 5rem;
+        text-align: center;
+    }
+    body.minha-area section.mA_dados .container-fluid .container-fav div.col form {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5rem;
+        width: 100%;
+    }
+}
+body.minha-area section.mA_footer {
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area section.mA_footer .container-fluid {
+    background-color: white;
+    border-top: 1px solid #c6b5b5;
+    border-bottom: 1px solid #c6b5b5;
+    padding-top: 9rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 9rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:first-child .text h3 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    color: var(--orange2);
+    opacity: 0.75;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:first-child .text h2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.2rem;
+    line-height: 135%;
+    color: #610f29;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:first-child .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1.7rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:first-child .buttons div {
+    height: 6.5rem;
+    width: 6.5rem;
+    background: #610f29;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    border-top: 1px solid #c6b5b5;
+    padding-top: 6.6rem;
+    padding-bottom: 10rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .left p {
+    font-family: "Inter";
+    font-size: 1.4rem;
+    line-height: 100%;
+    color: #610f29;
+    opacity: 0.6;
+    max-width: 38.3rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .left .siga {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 3.7rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .left .compraSegura {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1.6rem;
+    margin-top: 4.1rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .left .compraSegura strong {
+    font-family: "Inter";
+    font-size: 2.2rem;
+    color: var(--orange2);
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    width: 100%;
+    max-width: 32.2rem;
+}
+body.minha-area section.mA_footer .container-fluid .container-fav:last-child .right div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+}
+@media (max-width: 600px) {
+    body.minha-area section.mA_footer .container-fluid .container-fav {
+        flex-direction: column !important;
+        gap: 3rem;
+        text-align: center;
+    }
+}
+body.minha-area section.mA_copyright {
+    background-color: white;
+}
+body.minha-area section.mA_copyright .container-fluid {
+    padding-bottom: 6.2rem;
+    padding-top: 6.2rem;
+}
+body.minha-area section.mA_copyright .container-fluid .container-fav {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+body.minha-area section.mA_copyright .container-fluid .container-fav p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 1246px;
+    font-size: 1.2rem;
+    width: 100%;
+    line-height: 1.9rem;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav h2 {
+    font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav h3 {
+    font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav .title {
+    background: var(--orange2);
+    color: white;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    width: 100%;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav div.info {
+    padding-bottom: 3rem;
+    border-bottom: 0.1rem solid #c6b5b5;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav div.info div.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 4.3rem;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav div.info div.row span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    max-width: 20.6rem;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav div.info div.row span strong {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #610f29;
+}
+body.minha-area section.mA_pedido .container-fluid .container-fav div.info div.row span:last-child {
+    color: var(--orange2);
+}
+body.minha-area#area-aluno section.mA_menu .container-fav nav a:first-child {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#area-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box {
+    height: 33rem;
+}
+body.minha-area#area-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box picture {
+    margin-bottom: 0.3rem;
+    display: block;
+}
+body.minha-area#associado-aluno section.mA_menu .container-fav nav a:first-child {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes {
+    justify-content: space-between;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box {
+    max-width: 54rem;
+    height: 33.1rem;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box strong {
+    font-size: 2.4rem;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box picture {
+    margin-bottom: 0.3rem;
+    display: block;
+    width: 10rem;
+    margin-left: -3rem;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box button {
+    margin-top: 2rem;
+    max-width: 18rem;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box ul li {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    list-style: url("../img/icon_check.svg") inside;
+    color: #610f29;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box a.mini_box {
+    padding: 1.6rem;
+    margin-top: 3.2rem;
+    margin-bottom: 1.6rem;
+    border: solid 1px #c6b5b5;
+    display: block;
+    border-radius: 0.4rem;
+    transition: 0.32s;
+}
+body.minha-area#associado-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box a.mini_box:hover {
+    background-color: #610f29;
+}
+body.minha-area#associado-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    a.mini_box:hover
+    p {
+    color: white;
+}
+body.minha-area#beneficios-aluno section.mA_menu .container-fav nav a:first-child {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--orange2);
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav span {
+    padding: 2rem;
+    width: 13%;
+    color: white;
+    transform: 0.32s;
+    text-align: center;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav span:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav span[active] {
+    background: rgba(0, 0, 0, 0.096);
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav.--noborder {
+    border-radius: 0;
+}
+@media (max-width: 800px) {
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav nav span {
+        width: 100%;
+    }
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes {
+    margin-bottom: 5rem;
+    justify-content: space-between;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes.--flexstart {
+    justify-content: flex-start;
+    gap: 1rem;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box {
+    max-width: 80rem;
+    height: 55.8rem;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box strong {
+    font-size: 2.4rem;
+    margin-top: 2rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha {
+    height: 36.2rem;
+    aspect-ratio: 2;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: block;
+    background: url("/site/img/sistema/carteirinha_back.png");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 5.5rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content {
+    margin-top: 12rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    h2 {
+    all: unset;
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34.0545px;
+    line-height: 100%;
+    color: #e8e9ea;
+    display: block;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    h2.code {
+    font-weight: 400;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    max-width: 13.2rem;
+    margin-top: 2.5rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    > div
+    span
+    p,
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    > div
+    span
+    strong {
+    all: unset;
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    color: #e8e9ea;
+    display: block;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    > div
+    span
+    p {
+    font-size: 1rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.content
+    > div
+    span
+    strong {
+    font-size: 2rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.qr-code
+    img {
+    transition: 0.32s;
+    height: 22.1rem;
+    aspect-ratio: 1;
+    border-radius: 1.3rem;
+    background-color: white;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.qr-code
+    img:hover {
+    border: 6px solid #c6b5b5;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.carteirinha
+    div.qr-code
+    img:active {
+    border: 6px solid var(--orange2);
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    div.buttons-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box button {
+    margin-top: 2rem;
+    max-width: 18rem;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box ul li {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    list-style: url("../img/icon_check.svg") inside;
+    color: #610f29;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box a.mini_box {
+    padding: 1.6rem;
+    margin-top: 3.2rem;
+    margin-bottom: 1.6rem;
+    border: solid 1px #c6b5b5;
+    display: block;
+    border-radius: 0.4rem;
+    transition: 0.32s;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    a.mini_box:hover {
+    background-color: #610f29;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    a.mini_box:hover
+    p {
+    color: white;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--reduced {
+    max-width: 38.2rem;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product {
+    width: 100%;
+    max-width: 38.2rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 3rem 5rem;
+    text-align: center;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product h3 {
+    padding-bottom: 2.2rem;
+    margin-bottom: 4.6rem;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product a {
+    font-size: 1.6rem;
+    color: #434449;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product form {
+    max-width: 38.4rem;
+}
+:not(#login-minha-conta)
+    body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    input,
+:not(#login-minha-conta)
+    body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    select {
+    margin-top: 1rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    input:not[name="estado"],
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    select:not[name="estado"] {
+    margin-bottom: 1.7rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    input[error],
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    form
+    label
+    select[error] {
+    border-color: red;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product button {
+    margin-top: 1.7rem;
+    margin-bottom: 2.1rem;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product
+    button[disable] {
+    pointer-events: none;
+    filter: grayscale(0);
+    opacity: 0.7;
+}
+body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product.--used {
+    opacity: 0.7;
+    pointer-events: none;
+}
+body.minha-area#beneficios-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.product.--used
+    button {
+    background-color: gray;
+}
+@media (max-width: 1200px) {
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes {
+        justify-content: flex-start;
+    }
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box,
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--reduced,
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha {
+        max-width: 100%;
+        height: unset;
+    }
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product {
+        max-width: 47.5%;
+    }
+}
+@media (max-width: 600px) {
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha {
+        flex-direction: column-reverse;
+        aspect-ratio: unset;
+        height: auto;
+        background-position: center;
+    }
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha
+        div.content {
+        margin-top: 2rem;
+    }
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha
+        div.content
+        div {
+        gap: 3rem;
+    }
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha
+        div.content
+        div
+        span
+        p,
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha
+        div.content
+        div
+        span
+        strong {
+        font-size: 3rem;
+    }
+    body.minha-area#beneficios-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.product {
+        max-width: 100%;
+    }
+}
+@media (max-width: 500px) {
+    body.minha-area#beneficios-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box
+        picture.carteirinha
+        div.content
+        div {
+        flex-direction: column;
+    }
+}
+body.minha-area#pedidos-aluno section.mA_menu .container-fav nav a:nth-child(2) {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    height: unset;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box .info div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box[app] {
+    border: solid 1px #0f0;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes .sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    max-width: 19.4rem;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes .sub picture {
+    height: 4.7rem;
+    width: 4.7rem;
+    border-radius: 100%;
+    background-color: #fbfbfb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+body.minha-area#pedidos-aluno section.mA_showcase .container-fluid .container-fav div.boxes .sub span {
+    font-size: 1.2rem;
+}
+body.minha-area#matriculas-aluno section.mA_menu .container-fav nav a:nth-child(3) {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 40.1rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.thumbnail {
+    height: 15.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: block;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box
+    picture.thumbnail
+    img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box .info div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--extended {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: unset;
+    gap: 0;
+    height: auto;
+    transition: 0.32s;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended:hover {
+    opacity: 0.899;
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--extended main {
+    max-width: 60rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    picture {
+    width: unset;
+    width: 55rem;
+    height: 40rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended.success {
+    border-bottom: green 3px solid;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended.success
+    main
+    button {
+    background-color: green;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended.success
+    main
+    button
+    ._svg {
+    filter: brightness(0) invert(1);
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended.success
+    main
+    button
+    ._svg
+    img {
+    height: 15px;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    main
+    > p {
+    margin-bottom: 1rem;
+    max-width: 80%;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    main
+    > small {
+    margin-bottom: 1rem;
+    color: var(--orange2);
+    max-width: 80%;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    main
+    > strong {
+    font-size: 2.4rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    button {
+    max-width: 45%;
+    margin-top: 3rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 55%;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    .details
+    span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    .details
+    span
+    p {
+    margin: 0;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--extended
+    .details
+    span
+    img {
+    margin: auto;
+    height: 15px;
+}
+@media (max-width: 900px) {
+    body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--extended {
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 3rem;
+        padding: 3rem;
+    }
+    body.minha-area#matriculas-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box.--extended
+        picture {
+        max-width: 100%;
+    }
+    body.minha-area#matriculas-aluno
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        div.boxes
+        div.box.--extended
+        main
+        button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--download {
+    height: 32.1rem !important;
+    max-width: 38.5rem;
+}
+body.minha-area#matriculas-aluno section.mA_showcase .container-fluid .container-fav div.boxes div.box.--download main {
+    width: 100%;
+}
+body.minha-area#matriculas-aluno
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    div.boxes
+    div.box.--download
+    button {
+    background: green;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_menu .container-fav nav a:nth-child(3) {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav {
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+    padding-top: 3rem;
+    width: 100%;
+    padding-bottom: 6rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top picture {
+    width: 14rem;
+    height: 10rem;
+    overflow: hidden;
+    display: block;
+    border-radius: 0.6rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 {
+    font-size: 3.2rem;
+    margin: 0;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 p {
+    font-size: 1.6rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 .details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 3rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 .details span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 .details span p {
+    margin: 0;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    .top
+    h2
+    .details
+    span
+    img {
+    margin: auto;
+    height: 15px;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: var(--orange2);
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav span {
+    padding: 2rem;
+    width: 13%;
+    color: white;
+    transform: 0.32s;
+    text-align: center;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav span:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav span[active] {
+    background: rgba(0, 0, 0, 0.096);
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav.--noborder {
+    border-radius: 0;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main {
+    position: relative;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main > div:not([active]) {
+    display: none;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main div.niv-table {
+    background: #fbfbfb;
+    width: 100%;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll {
+    width: 100%;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table {
+    width: 100%;
+    border: solid 0.1rem #eee;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    thead
+    tr
+    th {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: solid 0.1rem #eee;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 100%;
+    text-align: center;
+    color: #434449;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    thead
+    tr
+    th:first-child {
+    text-align: left;
+    padding-left: 5rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    thead
+    tr
+    th,
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    thead
+    tr
+    th
+    p,
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    thead
+    tr
+    th
+    a {
+    font-size: 1.4rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr {
+    height: 6.1rem;
+    transition: 0.32s;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr:not(:last-child)
+    td {
+    border-bottom: solid 0.1rem #eee;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr.checked
+    td
+    div
+    picture {
+    background-color: green;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr.checked
+    td
+    a.btn {
+    border-color: blue;
+    background: #e6e6e6;
+    color: blue;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr.checked
+    td
+    a.btn:hover {
+    background: none;
+    opacity: 0.9;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr.unchecked
+    td
+    div
+    picture {
+    background-color: #800000;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td {
+    text-align: center;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    picture.foto-produto {
+    height: 8.4rem;
+    width: 100%;
+    max-width: 8.1rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    display: block;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    picture.foto-produto
+    img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    gap: 2rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div:first-child {
+    padding-left: 5rem;
+    justify-content: flex-start;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div
+    span {
+    text-align: left;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div
+    picture {
+    border-radius: 100%;
+    background-color: blue;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div
+    picture
+    img {
+    filter: brightness(0) invert(1);
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    strong {
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 100%;
+    color: var(--orange2);
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    p,
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    a {
+    font-size: 1.4rem;
+    line-height: 100%;
+    text-align: center;
+    color: #434449;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    a:not(.btn) {
+    color: var(--orange2);
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    a:not(.btn):hover {
+    text-decoration: underline;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    small {
+    font-size: 1.2rem;
+    display: block;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    a.btn {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(2, 95, 5, 0.5) 5.04%, rgba(90, 255, 12, 0.5) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: white;
+    padding: 1.6rem 8rem;
+    border: 0.1rem solid #26d709;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    width: 25%;
+    height: 4rem;
+    margin: 0 auto;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    a.btn:hover {
+    background-image: url("/site/img/button_background_alternative.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        div.scroll
+        table
+        tbody
+        tr
+        td
+        a.btn {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr
+    td
+    div.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    div.scroll
+    table
+    tbody
+    tr[hide] {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    div.niv-table
+    th:first-child
+    p.responsive {
+    display: none;
+}
+@media (max-width: 800px) {
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        thead
+        th:first-child
+        p {
+        display: none;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        thead
+        th
+        p.responsive {
+        display: inline;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        thead
+        th:nth-child(2) {
+        display: none;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        tbody
+        tr
+        td:first-child
+        span,
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        tbody
+        tr
+        td:nth-child(2) {
+        display: none;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.pagamentos-table
+        tbody
+        tr
+        td
+        a.btn {
+        max-width: 60%;
+        padding: 1rem 5rem !important;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.aulas-table
+        tbody
+        tr
+        td:nth-child(2)
+        p,
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.aulas-table
+        tbody
+        tr
+        td:nth-child(2)
+        small {
+        text-align: left;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.niv-table
+        table.aulas-table
+        tbody
+        tr
+        td:last-child
+        div {
+        align-items: center;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list {
+    position: relative;
+    padding-bottom: 6rem;
+    border: solid 1px #faefef;
+    background-color: #fbfbfb;
+    border-left: 2px solid var(--orange2);
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list.clean article {
+    width: 80%;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list.clean
+    article:last-child {
+    border: solid 1px #faefef;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list.clean
+    article::after {
+    display: none;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article {
+    margin: 0 auto;
+    width: 60%;
+    transition: 0.32s;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    background-color: white;
+    border: 0.1rem solid #faefef;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article:hover {
+    border-color: rgba(0, 0, 0, 0.466);
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article.novo {
+    border-color: #807e00;
+    background-color: #fffed4;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article.novo
+    .files {
+    background-color: rgba(255, 255, 255, 0.39);
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article.done {
+    border-color: rgba(0, 128, 0, 0.356);
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article.done
+    .date
+    picture {
+    background: green;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    strong {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article p {
+    font-size: 1.4rem;
+    max-width: 80%;
+    color: #505354;
+    height: 4.2rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article small {
+    font-size: 1.2rem;
+    float: right;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    small
+    picture {
+    background-color: transparent;
+    width: 1.2rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article .date {
+    position: relative;
+    z-index: 2;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 2rem;
+    padding-left: 2rem;
+    width: 100%;
+    max-width: 13.5rem;
+    color: #505354;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .date
+    img,
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .date
+    svg {
+    filter: brightness(0) invert(1);
+    height: 1.5rem;
+}
+body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article:after {
+    height: calc(100% + 5rem);
+    z-index: 1;
+    width: 0.1rem;
+    left: 12rem;
+    top: 3rem;
+    background-color: var(--orange2);
+    content: "";
+    position: absolute;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .content {
+    padding: 3rem;
+    width: 100%;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    picture {
+    height: 3rem;
+    width: 3rem;
+    background: var(--orange2);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files {
+    margin-top: 2rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    background: #fbfbfb;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a {
+    color: var(--orange2);
+    position: relative;
+    font-size: 1.2rem;
+    padding-left: 2rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a:hover {
+    text-decoration: underline;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a::after {
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a.video::after {
+    background: url("/site/img/sistema/icon_video.svg");
+    background-size: cover;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a.pdf::after {
+    background: url("/site/img/sistema/icon_pdf.svg");
+    background-size: cover;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a.add {
+    padding: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.5rem;
+    background-color: var(--orange2);
+    border-radius: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.4rem;
+    color: white;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article
+    .files
+    a.add::after {
+    display: none;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article:last-child {
+    border-color: rgba(0, 128, 0, 0.356);
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article:last-child::after {
+    content: none;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article:last-child
+    .content {
+    padding-bottom: 1rem;
+}
+body.minha-area#matriculas-aluno-detalhes
+    section.mA_showcase
+    .container-fluid
+    .container-fav
+    main
+    .list
+    article:last-child
+    .date
+    picture {
+    background-color: green;
+}
+@media (max-width: 800px) {
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top picture {
+        width: 100%;
+        height: 30rem;
+    }
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 .details {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        .top
+        h2
+        .details
+        span {
+        margin: 0;
+    }
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav nav span {
+        width: 100%;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.list
+        article {
+        flex-direction: column;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.list
+        article
+        .date {
+        max-width: 100%;
+        padding-right: 2rem;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.list
+        article
+        .content {
+        padding-right: 4.5rem;
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.list
+        article::after {
+        left: unset;
+        right: 3.5rem;
+        height: calc(130% - 5rem);
+    }
+    body.minha-area#matriculas-aluno-detalhes
+        section.mA_showcase
+        .container-fluid
+        .container-fav
+        main
+        div.list
+        article:last-child
+        .content {
+        padding-top: 0;
+        margin-top: -5rem;
+    }
+}
+@media (max-width: 500px) {
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list article {
+        width: 95%;
+    }
+    body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav main .list::after {
+        z-index: -1;
+    }
+}
+body.minha-area#dados-aluno section.mA_menu .container-fav nav a:nth-child(4) {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_menu .container-fav nav a:nth-child(2) {
+    opacity: 1;
+    border-bottom: solid 2px #ff0051;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_showcase {
+    padding-bottom: 0;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_produtos,
+body.minha-area#pedidos-aluno-detalhes section.mA_parcelas {
+    padding-bottom: 0;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_produtos .container-fluid,
+body.minha-area#pedidos-aluno-detalhes section.mA_parcelas .container-fluid {
+    padding-top: 4rem;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_produtos .container-fluid .container-fav .boxes .box,
+body.minha-area#pedidos-aluno-detalhes section.mA_parcelas .container-fluid .container-fav .boxes .box {
+    height: auto;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_produtos .container-fluid .container-fav .boxes .box .info div,
+body.minha-area#pedidos-aluno-detalhes section.mA_parcelas .container-fluid .container-fav .boxes .box .info div {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+}
+body.minha-area#pedidos-aluno-detalhes section.mA_parcelas {
+    padding-bottom: 4rem;
+}
+body.minha-area.carrinho {
+    background-color: #610f29;
+}
+body.minha-area.carrinho section.cA_identificacao {
+    padding-bottom: 15rem;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav h2 {
+    color: white;
+    text-align: center;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col {
+    max-width: 59.2rem;
+    padding: 4.6rem 8.9rem 8.7rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col h3 {
+    text-align: center;
+    color: #610f29;
+    padding-bottom: 3rem;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label {
+    position: relative;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label input,
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label select,
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label textarea {
+    height: 5.6rem;
+    margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
+    width: 100%;
+    max-width: 44.3rem;
+    border: 1px solid #e9ecef;
+    outline: none;
+    background: white;
+    padding-left: 1.9rem;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 5.6rem;
+    /* or 22px */
+    /* Texto */
+    color: #505354;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label textarea {
+    height: 14.3rem;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label.password img {
+    position: absolute;
+    right: 2.1rem;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form label.password img[active] {
+    opacity: 0.5;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form button {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(217, 168, 99, 0.2) 5.04%, rgba(226, 161, 68, 0.2) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: #d9a863;
+    padding: 1.6rem 5.8rem;
+    border: 0.1rem solid #d9a863;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    color: #855108;
+    background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+    max-width: unset;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form button:hover {
+    color: #855108;
+    background-image: url("/site/img/button_background.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area.carrinho section.cA_identificacao div.container-fav div.col form button {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col a {
+    display: block;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    color: #610f29;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col a:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_identificacao div.container-fav div.col a.register_a {
+    background-color: var(--orange2);
+    color: white;
+}
+body.minha-area.carrinho section.cA_efetuar {
+    padding-bottom: 15rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.info {
+    max-width: 59.2rem;
+    padding: 3rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.info span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.info span div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.info a {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.info a:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma {
+    max-width: 59.2rem;
+    padding: 3rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    text-align: center;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma div.options {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma div.options a.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem;
+    transition: 0.32s;
+    color: white;
+    background-color: #610f29;
+    cursor: pointer;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma div.options a.box:hover {
+    transform: scale(1.05);
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma small {
+    font-size: 1.2rem;
+    color: var(--orange2);
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma a.termos {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+}
+body.minha-area.carrinho section.cA_efetuar .container-fluid .container-fav div.forma a.termos:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_pagamento {
+    padding-bottom: 15rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.info {
+    max-width: 59.2rem;
+    padding: 3rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.info span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.info span div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.info a {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.info a:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box {
+    max-width: 59.2rem;
+    padding: 4.6rem 8.9rem 8.7rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box.pagamento {
+    display: none;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form {
+    margin-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label {
+    position: relative;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label label.error {
+    display: none !important;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label input,
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label select,
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label textarea {
+    height: 5.6rem;
+    margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
+    width: 100%;
+    max-width: 44.3rem;
+    border: 1px solid #e9ecef;
+    outline: none;
+    background: white;
+    padding-left: 1.9rem;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 5.6rem;
+    /* or 22px */
+    /* Texto */
+    color: #505354;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label input.error,
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label select.error,
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label textarea.error {
+    border-color: red;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label textarea {
+    height: 14.3rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label.password img {
+    position: absolute;
+    right: 2.1rem;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label.password img[active] {
+    opacity: 0.5;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label.cvv {
+    max-width: 85%;
+    position: relative;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label.cvv picture {
+    cursor: pointer;
+    position: absolute;
+    right: -6rem;
+    top: 0;
+    bottom: 0;
+    display: block;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form label.cvv picture span {
+    position: absolute;
+    display: block;
+    top: 2rem;
+    text-align: center;
+    opacity: 0;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: white;
+    padding: 0.5rem;
+    transition: 0.32s;
+    width: unset;
+    background: #610f29;
+}
+body.minha-area.carrinho
+    section.cA_pagamento
+    .container-fluid
+    .container-fav
+    div.box
+    form
+    label.cvv
+    picture:hover
+    span {
+    top: -3rem;
+    opacity: 1;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form button {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(217, 168, 99, 0.2) 5.04%, rgba(226, 161, 68, 0.2) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: #d9a863;
+    padding: 1.6rem 5.8rem;
+    border: 0.1rem solid #d9a863;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    color: #855108;
+    background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+    max-width: unset;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form button:hover {
+    color: #855108;
+    background-image: url("/site/img/button_background.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box form button {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box a {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box a:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box button.prosseguir {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(217, 168, 99, 0.2) 5.04%, rgba(226, 161, 68, 0.2) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: #d9a863;
+    padding: 1.6rem 5.8rem;
+    border: 0.1rem solid #d9a863;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    color: #855108;
+    background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+    max-width: unset;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box button.prosseguir:hover {
+    color: #855108;
+    background-image: url("/site/img/button_background.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area.carrinho section.cA_pagamento .container-fluid .container-fav div.box button.prosseguir {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area.carrinho section.cA_confirmacao {
+    padding-bottom: 15rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info {
+    max-width: 59.2rem;
+    padding: 3rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span {
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div a {
+    width: auto;
+    height: 5.4rem;
+    transition: 0.32s;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(217, 168, 99, 0.2) 5.04%, rgba(226, 161, 68, 0.2) 108.64%);
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 5.4rem;
+    color: #d9a863;
+    padding: 1.6rem 5.8rem;
+    border: 0.1rem solid #d9a863;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+    color: #855108;
+    background-image: linear-gradient(90deg, #eac694 5.04%, #d78b21 108.64%);
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    max-width: unset;
+    width: 100%;
+    /** @include responsive(1500px) {
+   }
+    @include responsive(1200px) {
+   }
+    @include responsive(992px) {
+   }
+    @include responsive(730px) {
+   }
+    @include responsive(600px) {
+   }
+    **/
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div a:hover {
+    color: #855108;
+    background-image: url("/site/img/button_background.png");
+    background-size: 100% 100%;
+    filter: drop-shadow(3px 5px 9px rgba(216, 144, 43, 0.3));
+}
+@media (max-width: 600px) {
+    body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div a {
+        font-size: 1.4rem;
+        padding: 1.6rem 5rem;
+    }
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div a.home {
+    background: var(--orange2);
+    color: white;
+}
+@media (max-width: 600px) {
+    body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div a {
+        padding: 1.6rem 2rem;
+    }
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div.numeroPAG {
+    max-width: 50%;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div.numeroPAG p {
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span div.numeroPAG.--boleto p {
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span small.email-info {
+    font-size: 1.2rem;
+}
+@media (max-width: 500px) {
+    body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info span:not(:last-child) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info a {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1.2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.info a:hover {
+    opacity: 0.7;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma {
+    max-width: 59.2rem;
+    padding: 3rem;
+    background-color: #fbfbfb;
+    box-shadow: 0px 47px 29px -35px #000;
+    text-align: center;
+    width: 100%;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma div.options {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma div.options a.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem;
+    transition: 0.32s;
+    color: white;
+    background-color: #610f29;
+    cursor: pointer;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma div.options a.box:hover {
+    transform: scale(1.05);
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma small {
+    font-size: 1.2rem;
+    color: var(--orange2);
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma a.termos {
+    color: var(--orange2);
+    display: block;
+    margin-top: 2rem;
+}
+body.minha-area.carrinho section.cA_confirmacao .container-fluid .container-fav div.forma a.termos:hover {
+    opacity: 0.7;
+}
+body.minha-area.area-professor {
+    background-color: #610f29;
+}
+body.minha-area.area-professor section.mA_showcase .container-fluid .container-fav h2,
+body.minha-area.area-professor section.mA_produtos .container-fluid .container-fav h2,
+body.minha-area.area-professor section.mA_parcelas .container-fluid .container-fav h2,
+body.minha-area.area-professor section.mA_dados .container-fluid .container-fav h2 {
+    color: white !important;
+}
+body.minha-area.area-professor section.mA_showcase .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-professor section.mA_produtos .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-professor section.mA_parcelas .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-professor section.mA_dados .container-fluid .container-fav div.boxes div.box {
+    background-color: white;
+}
+body.minha-area.area-professor section.mA_dados .container-fluid .container-fav label input {
+    background-color: #fbfbfb 3b;
+    color: white;
+}
+body.minha-area.area-professor section.mA_dados .container-fluid .container-fav label img {
+    filter: brightness(0) invert(1);
+}
+body.minha-area.area-empresa {
+    background-color: #fbfbfb;
+    background-color: #d9a863;
+}
+body.minha-area.area-empresa section.mA_showcase .container-fluid .container-fav h2,
+body.minha-area.area-empresa section.mA_produtos .container-fluid .container-fav h2,
+body.minha-area.area-empresa section.mA_parcelas .container-fluid .container-fav h2,
+body.minha-area.area-empresa section.mA_dados .container-fluid .container-fav h2 {
+    color: white !important;
+}
+body.minha-area.area-empresa section.mA_showcase .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-empresa section.mA_produtos .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-empresa section.mA_parcelas .container-fluid .container-fav div.boxes div.box,
+body.minha-area.area-empresa section.mA_dados .container-fluid .container-fav div.boxes div.box {
+    background-color: white;
+}

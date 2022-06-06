@@ -342,21 +342,21 @@ body#clinica {
         .s_cursos {
             .container-fav {
                 ._cursosList {
-                    overflow: scroll;
-                    scroll-snap-type: x mandatory;
-                    white-space: unset;
-                    display: flex;
-                    .scroll {
-                        @include flex(row, flex-start, flex-start);
-                        gap: 3rem;
-                        flex-wrap: nowrap;
-                        width: max-content;
+                    // overflow: scroll;
+                    // scroll-snap-type: x mandatory;
+                    // white-space: unset;
+                    // display: flex;
+                    // .scroll {
+                    //     @include flex(row, flex-start, flex-start);
+                    //     gap: 3rem;
+                    //     flex-wrap: nowrap;
+                    //     width: max-content;
 
-                        ._curso {
-                            scroll-snap-align: start;
-                            width: 28rem;
-                        }
-                    }
+                    //     ._curso {
+                    //         scroll-snap-align: start;
+                    //         width: 28rem;
+                    //     }
+                    // }
                 }
             }
         }
