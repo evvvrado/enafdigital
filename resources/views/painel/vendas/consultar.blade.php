@@ -87,7 +87,7 @@
 
                                     <tbody>
                                         @foreach ($vendas as $venda)
-                                            @if(($venda->forma == 0 && $venda->boleto && ($venda->boleto->status == 'paid' || $venda->boleto->status == 'settled')) || ($venda->forma == 1 && $venda->cartao && ($venda->gateway == 1 && $venda->cartao->status == 1)) || ($venda->forma == 1 && $venda->cartao && ($venda->gateway == 0 && $venda->cartao->status == 2)))
+                                            @if(($venda->forma == 0 && $venda->boleto && ($venda->boleto->status == 'paid' || $venda->boleto->status == 'settled')) || ($venda->forma == 1 && $venda->cartao && ($venda->gateway == 1 && $venda->cartao->status == 1)) || ($venda->forma == 1 && $venda->cartao && ($venda->gateway == 0 && ($venda->cartao->status == 2 || $venda->cartao->status == 7))))
                                                 <tr class="odd">
                                                     <td class="sorting_1 dtr-control">
                                                         {{ date('d/m/Y H:i:s', strtotime($venda->created_at)) }}</td>
