@@ -208,7 +208,7 @@ section.s_content {
   @include responsive(900px) {
     .container-fav {
       main {
-        @include flex(column-reverse, center, center);
+        @include flex(column, center, center);
         ._info {
           @include flex(column, center, center);
 
@@ -216,7 +216,7 @@ section.s_content {
             text-align: center;
           }
         }
-        text-align: center;
+        // text-align: center;
       }
     }
   }
