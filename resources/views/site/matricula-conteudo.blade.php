@@ -5,7 +5,8 @@
 <section class="container-fluid _menu">
     <div class="container-fav">
         <div class="_logo">
-            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf" height="40px" /></a>
+            <a href="/"> <img src="{{ asset('site/img/hotsite/_logo57.png') }}" alt="Logo Enaf"
+                    height="40px" /></a>
         </div>
         <nav>
             <ul>
@@ -46,9 +47,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}"
+                        style="max-width: 100%;
                             min-height: unset;
-                            min-width: unset;" alt="">
+                            min-width: unset;"
+                        alt="">
                 @else
                     <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
                         alt="">
@@ -111,9 +114,11 @@
         <div class="_user">
             <div class="_img">
                 @if (!$aluno->avatar)
-                    <img src="{{ asset('site/img/sistema/user.svg') }}" style="max-width: 100%;
+                    <img src="{{ asset('site/img/sistema/user.svg') }}"
+                        style="max-width: 100%;
                             min-height: unset;
-                            min-width: unset;" alt="">
+                            min-width: unset;"
+                        alt="">
                 @else
                     <img src="{{ asset($aluno->avatar) }}" style="width: 100%; height: 100%; object-fit: cover;"
                         alt="">
@@ -154,7 +159,10 @@
 
                 <h2>
                     {{ $matricula->curso->nome }}
+
+                    <p>{{ $matricula->curso->sobre }}</p>
                     <p>{{ $matricula->curso->descricao }}</p>
+
 
                     <div class="details">
                         <span>

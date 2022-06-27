@@ -1995,7 +1995,7 @@ body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .
 }
 body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-direction: row;
     gap: 2rem;
@@ -2018,6 +2018,8 @@ body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .
 body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 {
     font-size: 3.2rem;
     margin: 0;
+
+    max-width: 80%;
 }
 body.minha-area#matriculas-aluno-detalhes section.mA_showcase .container-fluid .container-fav .top h2 p {
     font-size: 1.6rem;
