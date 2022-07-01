@@ -414,13 +414,13 @@
                                                             <div class="mb-3">
                                                                 <label for="nome">Nome do Módulo</label>
                                                                 <input name="nome" type="text" class="form-control" placeholder="Insira o nome"
-                                                                    maxlength="255" required>
+                                                                    maxlength="255" value="{{ $modulo->nome }}" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <label for="descricao">Descrição</label>
-                                                                <textarea name="descricao" class="form-control" rows="3" required></textarea>
+                                                                <textarea name="descricao" class="form-control" rows="3" required>{!! $modulo->descricao !!}</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
