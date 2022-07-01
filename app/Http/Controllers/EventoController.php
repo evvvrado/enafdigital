@@ -193,6 +193,8 @@ class EventoController extends Controller
         $hotel->nome = $request->nome;
         $hotel->endereco = $request->endereco;
         $hotel->url = $request->url;
+        $hotel->fone_reserva = $request->fone_reserva;
+        $hotel->valores_diaria = $request->valores_diaria;
 
         if ($request->file("foto")) {
             Storage::delete($hotel->foto);
