@@ -425,13 +425,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="d-flex flex-wrap gap-2">
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Salvar</button>
                                                     </div>
                                                 </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save</button>
                                             </div>
                                         </div>
                                     </div>
