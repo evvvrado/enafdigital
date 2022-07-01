@@ -385,6 +385,9 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false"
                                                 style="height: 34px!important;"><i class="bx bx-edit"></i></button>
                                             <div class="dropdown-menu" style="margin: 0px;">
+                                                <a class="dropdown-item cçpointer" data-bs-toggle="modal" data-bs-target="#modalEditaModulo{{ $modulo->id }}">
+                                                    
+                                                </a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('painel.cursos.modulo.deletar', ['modulo' => $modulo]) }}"
                                                     style="color: red" href="#">Excluir</a>
@@ -393,6 +396,47 @@
 
                                     </td>
                                 </tr>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalEditaModulo{{ $modulo->id }}" tabindex="-1" role="dialog" aria-labelledby="modalEditaModulo" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Editando Módulo: {{ $modulo->nome }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('painel.cursos.modulo.salvar', ['curso' => $curso]) }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="modulo_id" value="{{ $modulo->id }}">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label for="nome">Nome do Módulo</label>
+                                                                <input name="nome" type="text" class="form-control" placeholder="Insira o nome"
+                                                                    maxlength="255" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label for="descricao">Descrição</label>
+                                                                <textarea name="descricao" class="form-control" rows="3" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             @endforeach
                         </tbody>
                     </table>
