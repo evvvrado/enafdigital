@@ -459,6 +459,14 @@ Projetos / <a style="color: unset" href="{{ route('painel.eventos') }}">Eventos<
                         <label for="url">URL de Redirecionamento</label>
                         <input id="url" name="url" type="url" class="form-control" placeholder="goog.gl/exemplo" maxlength="255">
                     </div>
+                    <div class="mb-3 col-6">
+                        <label for="fone_reserva">Telefone para Reservas</label>
+                        <input id="fone_reserva" name="fone_reserva" type="text" class="form-control" placeholder="(00) 00000-0000" maxlength="20">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="valores_diaria">Valores de Diárias</label>
+                        <input id="valores_diaria" name="valores_diaria" type="text" class="form-control" placeholder="Informe uma descrição dos valores de diárias" maxlength="255">
+                    </div>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                     <button type="submit" class="btn btn-primary waves-effect waves-light">Adicionar</button>
