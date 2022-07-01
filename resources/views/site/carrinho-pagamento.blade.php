@@ -87,10 +87,10 @@
 
                     <div class="_pagamentoCartao" style="max-width: 100% !important;">
                         @if ($forma == 'cartao')
-                            <div class="_text">
+                            {{-- <div class="_text">
                                 <span>Pagamento Cartão de Crédito</span>
                                 <p>Digite os dados do seu cartão abaixo:</p>
-                            </div>
+                            </div> --}}
                             <div class="_form">
 
                                 <div id="div-erro">
@@ -114,7 +114,7 @@
                                     method="POST">
 
                                     @csrf
-                                    <h3 style="50px">Informações da Conta</h3>
+                                    <h3 style="50px">Dados do Participante</h3>
                                     <input type="hidden" name="payment_token" value="-">
                                     <div style="display:flex; flex-direction: row;">
                                         <div style="width: 50%;">
@@ -303,7 +303,7 @@
 
                                 <form action="{{ route('site.carrinho.finalizar.boleto', ['curso' => $curso]) }}"
                                     method="POST">
-                                    @csrf<h3 style="50px">Informações da Conta</h3>
+                                    @csrf<h3 style="50px">Dados do Participante</h3>
                                     <div style="display:flex; flex-direction:row;">
                                         <div style="width: 50%;">
                                             <label for="">
