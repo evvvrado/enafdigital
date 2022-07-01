@@ -386,7 +386,7 @@
                                                 style="height: 34px!important;"><i class="bx bx-edit"></i></button>
                                             <div class="dropdown-menu" style="margin: 0px;">
                                                 <a class="dropdown-item cçpointer" data-bs-toggle="modal" data-bs-target="#modalEditaModulo{{ $modulo->id }}">
-                                                    
+                                                    Editar
                                                 </a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('painel.cursos.modulo.deletar', ['modulo' => $modulo]) }}"
