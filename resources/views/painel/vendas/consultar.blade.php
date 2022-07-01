@@ -129,12 +129,17 @@
                                                                 @if ($venda->forma == 1)
                                                                     <a href="{{ route('painel.venda.cielo.capturar', ['venda' => $venda]) }}"
                                                                         id="" class="dropdown-item" role="button"><i
-                                                                            class="bx bx-edit-alt pr-3"></i>
+                                                                            class="bx bx-edit-alt pe-2"></i>
                                                                         Capturar</a>
                                                                 @endif
+                                                                
+                                                                <a href="{{ route('painel.venda.cancelar', ['venda' => $venda]) }}"
+                                                                    id="" class="dropdown-item" role="button"><i
+                                                                        class="fas fa-times pe-2"></i> Cancelar</a>
+                                                                
                                                                 <a href="{{ route('painel.venda', ['venda' => $venda]) }}"
                                                                     id="" class="dropdown-item" role="button"><i
-                                                                        class="fas fa-search pr-3"></i> Visualizar</a>
+                                                                        class="fas fa-search pe-2"></i> Visualizar</a>
                                                             </div>
                                                         </div>
 
